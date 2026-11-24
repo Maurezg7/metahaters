@@ -262,7 +262,7 @@
     "agentTip": "Conecta el Supabase MCP server a tu agente para que cree tablas, RLS y queries automáticamente.",
     "url": "https://supabase.com",
     "github": {
-      "stars": 115376,
+      "stars": 115381,
       "pushedAt": "2026-11-24",
       "license": "Apache-2.0"
     }
@@ -358,7 +358,7 @@
     "agentTip": "Usa DB branching antes de dejar que un agente corra migraciones destructivas.",
     "url": "https://neon.tech",
     "github": {
-      "stars": 23391,
+      "stars": 23392,
       "pushedAt": "2026-08-31",
       "license": "Apache-2.0"
     }
@@ -502,7 +502,7 @@
     "agentTip": "Si solo necesitas leer una URL rápida gratis sin límite de cuenta, usa `https://r.jina.ai/TU_URL` como alternativa $0.",
     "url": "https://firecrawl.dev",
     "github": {
-      "stars": 208756,
+      "stars": 208797,
       "pushedAt": "2026-11-24",
       "license": "AGPL-3.0"
     }
@@ -596,7 +596,12 @@
       "code": "import { MercadoPagoConfig, Preference } from 'mercadopago';\nconst client = new MercadoPagoConfig({ accessToken: process.env.MP_ACCESS_TOKEN! });\nconst pref = await new Preference(client).create({ body: { items: [{ id: '1', title: 'Plan Pro', quantity: 1, unit_price: 5000 }] } });"
     },
     "agentTip": "En hackathons de Latam, mostrar un pago real en sandbox de Mercado Pago suma puntos enormes de viabilidad de negocio.",
-    "url": "https://www.mercadopago.com.ar/developers"
+    "url": "https://www.mercadopago.com.ar/developers",
+    "github": {
+      "stars": 490,
+      "pushedAt": "2026-11-13",
+      "license": "MIT"
+    }
   },
   {
     "id": "stripe-api",
@@ -639,7 +644,12 @@
       "code": "const session = await stripe.checkout.sessions.create({\n  mode: 'payment',\n  line_items: [{ price_data: { currency: 'usd', product_data: { name: 'Pro' }, unit_amount: 900 }, quantity: 1 }],\n  success_url: `${BASE_URL}/ok`, cancel_url: `${BASE_URL}/cancel`\n});"
     },
     "agentTip": "Usa Stripe Agent Toolkit para que tu agente genere links de cobro autónomos en la demo.",
-    "url": "https://stripe.com/docs"
+    "url": "https://stripe.com/docs",
+    "github": {
+      "stars": 4579,
+      "pushedAt": "2026-11-24",
+      "license": "MIT"
+    }
   },
   {
     "id": "open-meteo",
@@ -682,7 +692,12 @@
       "code": "const url = 'https://api.open-meteo.com/v1/forecast?latitude=-24.78&longitude=-65.41&current=temperature_2m,relative_humidity_2m,wind_speed_10m';\nconst weather = await fetch(url).then(r => r.json());"
     },
     "agentTip": "Perfecta como fuente de datos reales en vivo para demos de impacto ambiental o agro.",
-    "url": "https://open-meteo.com"
+    "url": "https://open-meteo.com",
+    "github": {
+      "stars": 6722,
+      "pushedAt": "2026-11-24",
+      "license": "AGPL-3.0"
+    }
   },
   {
     "id": "deepgram-api",
@@ -725,7 +740,12 @@
       "code": "const ws = new WebSocket('wss://api.deepgram.com/v1/listen?model=nova-3&language=es&smart_format=true&diarize=true', ['token', apiKey]);"
     },
     "agentTip": "Úsalo cuando tu hackathon necesite transcribir conversaciones en vivo con múltiples personas.",
-    "url": "https://console.deepgram.com"
+    "url": "https://console.deepgram.com",
+    "github": {
+      "stars": 285,
+      "pushedAt": "2026-11-24",
+      "license": "MIT"
+    }
   },
   {
     "id": "fal-ai",
@@ -768,7 +788,12 @@
       "code": "import { fal } from '@fal-ai/client';\nconst out = await fal.subscribe('fal-ai/flux/schnell', { input: { prompt: 'Futuristic hackathon trophy' } });"
     },
     "agentTip": "El mejor hub para meter generación de video (Kling/Wan) o 3D en tu demo sin montar GPUs.",
-    "url": "https://fal.ai"
+    "url": "https://fal.ai",
+    "github": {
+      "stars": 190,
+      "pushedAt": "2026-11-23",
+      "license": "MIT"
+    }
   },
   {
     "id": "resend-api",
@@ -811,7 +836,12 @@
       "code": "import { Resend } from 'resend';\nconst resend = new Resend(process.env.RESEND_API_KEY);\nawait resend.emails.send({ from: 'onboarding@resend.dev', to: 'juez@demo.com', subject: 'Alerta', html: '<b>Listo</b>' });"
     },
     "agentTip": "Enviar un email o alerta real al celular de un juez durante la demo causa efecto 'wow' instantáneo.",
-    "url": "https://resend.com"
+    "url": "https://resend.com",
+    "github": {
+      "stars": 986,
+      "pushedAt": "2026-11-21",
+      "license": "MIT"
+    }
   },
   {
     "id": "nvidia-nim-api",
@@ -938,7 +968,12 @@
       "code": "const together = new OpenAI({ baseURL: 'https://api.together.xyz/v1', apiKey: process.env.TOGETHER_API_KEY });"
     },
     "agentTip": "Para fine-tunear un modelo pequeño durante la hackathon.",
-    "url": "https://together.ai"
+    "url": "https://together.ai",
+    "github": {
+      "stars": 73,
+      "pushedAt": "2026-11-22",
+      "license": "Apache-2.0"
+    }
   },
   {
     "id": "hf-inference",
@@ -981,6 +1016,11 @@
       "code": "const hf = new OpenAI({ baseURL: 'https://router.huggingface.co/v1', apiKey: process.env.HF_TOKEN });"
     },
     "agentTip": "Despliega la demo en un Space gratis con Gradio.",
-    "url": "https://huggingface.co/docs/inference-providers"
+    "url": "https://huggingface.co/docs/inference-providers",
+    "github": {
+      "stars": 2615,
+      "pushedAt": "2026-11-24",
+      "license": "MIT"
+    }
   }
 ]

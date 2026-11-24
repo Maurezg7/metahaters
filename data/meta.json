@@ -1,7 +1,7 @@
 {
   "name": "metahaters",
   "version": "1.0.0",
-  "lastUpdated": "2026-11-24T20:18:17.449Z",
+  "lastUpdated": "2026-11-24T20:44:54.174Z",
   "autoUpdateIntervalHours": 6,
   "counts": {
     "models": 44,
@@ -20,8 +20,8 @@
     {
       "name": "GitHub REST API",
       "url": "https://api.github.com",
-      "status": "partial (rate-limited)",
-      "reposUpdated": 0
+      "status": "ok",
+      "reposUpdated": 72
     }
   ]
 }

@@ -58,7 +58,12 @@
         "name": "Vite",
         "advantage": "HMR instantáneo para SPAs y prototipos en segundos"
       }
-    ]
+    ],
+    "github": {
+      "stars": 111889,
+      "pushedAt": "2026-11-24",
+      "license": "Apache-2.0"
+    }
   },
   {
     "id": "python",
@@ -119,7 +124,12 @@
         "name": "Streamlit / Gradio",
         "advantage": "UI de demo AI en 20 líneas sin escribir HTML"
       }
-    ]
+    ],
+    "github": {
+      "stars": 78372,
+      "pushedAt": "2026-11-24",
+      "license": "NOASSERTION"
+    }
   },
   {
     "id": "go",
@@ -176,7 +186,12 @@
         "name": "Cobra",
         "advantage": "Estándar para construir CLIs profesionales"
       }
-    ]
+    ],
+    "github": {
+      "stars": 140057,
+      "pushedAt": "2026-11-24",
+      "license": "BSD-3-Clause"
+    }
   },
   {
     "id": "rust",
@@ -233,7 +248,12 @@
         "name": "Anchor",
         "advantage": "Framework #1 para smart contracts en Solana"
       }
-    ]
+    ],
+    "github": {
+      "stars": 122365,
+      "pushedAt": "2026-11-24",
+      "license": "Apache-2.0"
+    }
   },
   {
     "id": "solidity",
@@ -290,7 +310,12 @@
         "name": "Hardhat",
         "advantage": "Ecosistema TypeScript gigante para scripts de deploy"
       }
-    ]
+    ],
+    "github": {
+      "stars": 25778,
+      "pushedAt": "2026-11-24",
+      "license": "GPL-3.0"
+    }
   },
   {
     "id": "kotlin",
@@ -347,7 +372,12 @@
         "name": "Spring Boot",
         "advantage": "Ecosistema enterprise probado para backends grandes"
       }
-    ]
+    ],
+    "github": {
+      "stars": 53666,
+      "pushedAt": "2026-11-24",
+      "license": null
+    }
   },
   {
     "id": "dart",
@@ -404,7 +434,12 @@
         "name": "Serverpod",
         "advantage": "Backend en Dart con generación automática de cliente"
       }
-    ]
+    ],
+    "github": {
+      "stars": 11366,
+      "pushedAt": "2026-11-24",
+      "license": "BSD-3-Clause"
+    }
   },
   {
     "id": "moonbit",
@@ -453,7 +488,12 @@
         "name": "MoonBit Core WASM",
         "advantage": "Binarios WebAssembly de pocos KB y compilación instantánea"
       }
-    ]
+    ],
+    "github": {
+      "stars": 1254,
+      "pushedAt": "2026-11-24",
+      "license": "Apache-2.0"
+    }
   },
   {
     "id": "cangjie",
@@ -554,7 +594,12 @@
         "name": "Oban",
         "advantage": "Colas de trabajos confiables sobre Postgres"
       }
-    ]
+    ],
+    "github": {
+      "stars": 26745,
+      "pushedAt": "2026-11-24",
+      "license": "Apache-2.0"
+    }
   },
   {
     "id": "lua",
@@ -607,7 +652,12 @@
         "name": "Defold / Roblox Luau",
         "advantage": "Exportación ligera a web/mobile y monetización directa"
       }
-    ]
+    ],
+    "github": {
+      "stars": 10480,
+      "pushedAt": "2026-11-13",
+      "license": null
+    }
   },
   {
     "id": "swift",
@@ -664,6 +714,11 @@
         "name": "Vapor",
         "advantage": "Backend async de alto rendimiento en Swift"
       }
-    ]
+    ],
+    "github": {
+      "stars": 70608,
+      "pushedAt": "2026-11-24",
+      "license": "Apache-2.0"
+    }
   }
 ]
