@@ -42,97 +42,274 @@
       "linux": "# Descarga AppImage o .deb desde cursor.com\ncurl -fsSL https://cursor.com/download -o /dev/null && echo 'Descarga .AppImage/.deb en https://cursor.com'\nchmod +x Cursor-*.AppImage && ./Cursor-*.AppImage",
       "macos": "brew install --cask cursor",
       "windows": "winget install Anysphere.Cursor",
-      "android": "# No nativo en Android. Usa Termux + OpenCode/Claude Code o conecta por SSH a tu PC/VM."
+      "android": "# No nativo en Android. Usa Termux + OpenCode/Claude Code o conecta por SSH a tu PC/VM.",
+      "ios": "# Solo desktop. Usa SSH desde Blink Shell / Termius en iOS hacia tu PC o VM."
     },
     "claude-code": {
       "linux": "npm install -g @anthropic-ai/claude-code\nclaude",
       "macos": "brew install --cask claude-code\n# o: npm install -g @anthropic-ai/claude-code",
       "windows": "irm https://claude.ai/install.ps1 | iex\n# o en WSL2: npm install -g @anthropic-ai/claude-code",
-      "android": "# En Termux (F-Droid):\npkg install nodejs-lts git && npm i -g @anthropic-ai/claude-code"
+      "android": "# En Termux (F-Droid):\npkg install nodejs-lts git && npm i -g @anthropic-ai/claude-code",
+      "ios": "# No nativo en iOS. Conéctate por SSH (Termius/Blink) o usa la app web claude.ai."
     },
     "opencode": {
       "linux": "curl -fsSL https://opencode.ai/install | bash\n# o: npm i -g opencode-ai",
       "macos": "brew install opencode\n# o: curl -fsSL https://opencode.ai/install | bash",
       "windows": "npm i -g opencode-ai\n# Recomendado en WSL2 para mejor rendimiento",
-      "android": "# En Termux (F-Droid):\npkg install nodejs-lts git && npm i -g opencode-ai"
+      "android": "# En Termux (F-Droid):\npkg install nodejs-lts git && npm i -g opencode-ai",
+      "ios": "# No nativo en iOS. Usa SSH (Termius/Blink) hacia tu laptop/VPS con OpenCode."
     },
     "gemini-cli": {
       "linux": "npm install -g @google/gemini-cli && gemini",
       "macos": "brew install gemini-cli && gemini",
       "windows": "npm install -g @google/gemini-cli && gemini",
-      "android": "# En Termux:\npkg install nodejs-lts && npm i -g @google/gemini-cli && gemini"
+      "android": "# En Termux:\npkg install nodejs-lts && npm i -g @google/gemini-cli && gemini",
+      "ios": "# En iOS usa la app oficial Google Gemini (App Store) o SSH a tu PC."
     },
     "windsurf": {
       "linux": "# Debian/Ubuntu: descarga .deb desde windsurf.com\n# Arch (AUR): yay -S windsurf",
       "macos": "brew install --cask windsurf",
       "windows": "winget install Codeium.Windsurf",
-      "android": "# Solo desktop. Usa OpenCode en Termux como compañero móvil."
+      "android": "# Solo desktop. Usa OpenCode en Termux como compañero móvil.",
+      "ios": "# Solo desktop (macOS/Linux/Windows)."
     },
     "zed": {
       "linux": "curl -f https://zed.dev/install.sh | sh",
       "macos": "brew install --cask zed",
       "windows": "winget install ZedIndustries.Zed",
-      "android": "# Solo desktop (macOS/Linux/Windows)."
+      "android": "# Solo desktop (macOS/Linux/Windows).",
+      "ios": "# Solo desktop (macOS/Linux/Windows)."
     },
     "ollama": {
       "linux": "curl -fsSL https://ollama.com/install.sh | sh\nollama pull qwen2.5-coder:7b",
       "macos": "brew install --cask ollama\nollama pull qwen2.5-coder:7b",
       "windows": "winget install Ollama.Ollama\nollama pull qwen2.5-coder:7b",
-      "android": "# En Termux (con 8GB+ RAM):\npkg install ollama && ollama serve &\nollama pull qwen2.5-coder:1.5b"
+      "android": "# En Termux (con 8GB+ RAM):\npkg install ollama && ollama serve &\nollama pull qwen2.5-coder:1.5b",
+      "ios": "# En iOS usa PocketPal AI o Private LLM (App Store) para correr GGUF local."
     },
     "aider": {
       "linux": "python3 -m pip install aider-install && aider-install",
       "macos": "brew install aider",
       "windows": "py -m pip install aider-install && aider-install",
-      "android": "# En Termux:\npkg install python git && pip install aider-chat"
+      "android": "# En Termux:\npkg install python git && pip install aider-chat",
+      "ios": "# No nativo en iOS; conéctate por SSH desde Termius."
     },
     "codex-cli": {
       "linux": "npm install -g @openai/codex && codex",
       "macos": "brew install --cask codex && codex",
       "windows": "npm install -g @openai/codex && codex",
-      "android": "# En Termux:\npkg install nodejs-lts && npm i -g @openai/codex"
+      "android": "# En Termux:\npkg install nodejs-lts && npm i -g @openai/codex",
+      "ios": "# En iOS usa ChatGPT app (App Store) o SSH a tu entorno dev."
     },
     "br-librewolf": {
       "linux": "# Arch: yay -S librewolf-bin\n# Debian/Ubuntu: sudo apt install extrepo && sudo extrepo enable librewolf && sudo apt update && sudo apt install librewolf\n# Flatpak: flatpak install flathub io.gitlab.librewolf-community",
       "macos": "brew install --cask librewolf",
       "windows": "winget install LibreWolf.LibreWolf",
-      "android": "# Alternativa equivalente en Android: IronFox o Mull (F-Droid) / Firefox + uBlock Origin"
+      "android": "# Alternativa equivalente en Android: IronFox o Mull (F-Droid) / Firefox + uBlock Origin",
+      "ios": "# No existe en iOS. Alternativa: Orion Browser o Brave (App Store)."
     },
     "br-brave": {
       "linux": "curl -fsS https://dl.brave.com/install.sh | sh",
       "macos": "brew install --cask brave-browser",
       "windows": "winget install Brave.Brave",
-      "android": "# Play Store / F-Droid (via Obtainium): busca 'Brave Private Web Browser'"
+      "android": "# Play Store / F-Droid (via Obtainium): busca 'Brave Private Web Browser'",
+      "ios": "# App Store oficial: busca Brave Private Web Browser (https://brave.com)"
     },
     "br-mullvad": {
       "linux": "# Flatpak: flatpak install flathub net.mullvad.MullvadBrowser\n# Arch: yay -S mullvad-browser-bin",
       "macos": "brew install --cask mullvad-browser",
       "windows": "winget install MullvadVPN.MullvadBrowser",
-      "android": "# Usa Tor Browser o IronFox en Android."
+      "android": "# Usa Tor Browser o IronFox en Android.",
+      "ios": "# No disponible en iOS. Alternativa: Onion Browser o Orion (App Store)."
     },
     "br-tor": {
       "linux": "flatpak install flathub org.torproject.torbrowser-launcher",
       "macos": "brew install --cask tor-browser",
       "windows": "winget install TorProject.TorBrowser",
-      "android": "# Descarga 'Tor Browser' oficial en Play Store o F-Droid (Guardian Project)."
+      "android": "# Descarga 'Tor Browser' oficial en Play Store o F-Droid (Guardian Project).",
+      "ios": "# App Store oficial: Onion Browser (respaldado por Tor Project)."
     },
     "br-zen": {
       "linux": "flatpak install flathub app.zen_browser.zen",
       "macos": "brew install --cask zen-browser",
       "windows": "winget install Zen-Team.Zen-Browser",
-      "android": "# Solo desktop por ahora."
+      "android": "# Solo desktop por ahora.",
+      "ios": "# Solo desktop por ahora."
     },
     "br-ungoogled": {
       "linux": "flatpak install flathub io.github.ungoogled_software.ungoogled_chromium",
       "macos": "brew install --cask eloston-chromium",
       "windows": "winget install eloston.ungoogled-chromium",
-      "android": "# Alternativa Android: Cromite (desde GitHub / F-Droid via Obtainium)."
+      "android": "# Alternativa Android: Cromite (desde GitHub / F-Droid via Obtainium).",
+      "ios": "# Solo desktop. En iOS usa Safari + AdGuard / Orion."
     },
     "br-qutebrowser": {
       "linux": "# Arch: sudo pacman -S qutebrowser\n# Debian/Ubuntu: sudo apt install qutebrowser\n# Fedora: sudo dnf install qutebrowser",
       "macos": "brew install --cask qutebrowser",
       "windows": "winget install qutebrowser.qutebrowser",
-      "android": "# Solo desktop."
+      "android": "# Solo desktop.",
+      "ios": "# Solo desktop."
+    },
+    "br-cromite": {
+      "linux": "# Descarga el paquete oficial desde GitHub Releases:\n# https://github.com/uazo/cromite/releases",
+      "macos": "# Descarga el build oficial macOS desde:\n# https://github.com/uazo/cromite/releases",
+      "windows": "# Descarga el ZIP/instalador Windows desde:\n# https://github.com/uazo/cromite/releases",
+      "android": "# 1. Instala Obtainium (F-Droid) o descarga el APK arm64-v8a directo en:\n#    https://github.com/uazo/cromite/releases\n# 2. Habilita actualizaciones automáticas vía Obtainium.",
+      "ios": "# Solo Android/PC. En iOS usa Orion o Brave (App Store)."
+    },
+    "br-ironfox": {
+      "linux": "# En Linux usa su equivalente oficial: LibreWolf (https://librewolf.net)",
+      "macos": "# En macOS usa LibreWolf: brew install --cask librewolf",
+      "windows": "# En Windows usa LibreWolf: winget install LibreWolf.LibreWolf",
+      "android": "# 1. Instala Accrescent o F-Droid (con repo IronFox) desde:\n#    https://gitlab.com/ironfox-oss/IronFox\n# 2. Instala uBlock Origin desde Complementos.",
+      "ios": "# Solo Android. En iOS usa Orion + uBlock Origin."
+    },
+    "br-vanadium": {
+      "linux": "# Exclusivo de Android/GrapheneOS. En Linux usa Ungoogled Chromium o Brave.",
+      "macos": "# Exclusivo de Android/GrapheneOS.",
+      "windows": "# Exclusivo de Android/GrapheneOS.",
+      "android": "# Viene preinstalado en GrapheneOS (https://grapheneos.org).\n# Releases oficiales: https://github.com/GrapheneOS/Vanadium/releases",
+      "ios": "# Exclusivo de Android/GrapheneOS."
+    },
+    "br-fennec": {
+      "linux": "# En Linux usa Firefox oficial: sudo apt install firefox / pacman -S firefox",
+      "macos": "# brew install --cask firefox",
+      "windows": "# winget install Mozilla.Firefox",
+      "android": "# 1. Instala F-Droid desde https://f-droid.org\n# 2. Busca e instala Fennec F-Droid: https://f-droid.org/packages/org.mozilla.fennec_fdroid/",
+      "ios": "# En iOS usa Firefox oficial en App Store."
+    },
+    "br-via": {
+      "linux": "# Solo Android. En Linux ultra-ligero usa Qutebrowser o Falkon.",
+      "macos": "# Solo Android.",
+      "windows": "# Solo Android.",
+      "android": "# Descarga oficial (~2MB) en Play Store o https://viayoo.com",
+      "ios": "# Solo Android. En iOS usa DuckDuckGo o Safari."
+    },
+    "br-ddg": {
+      "linux": "# No nativo en Linux todavía. Usa extensión DDG Privacy Essentials en Firefox/Brave.",
+      "macos": "brew install --cask duckduckgo\n# o descarga oficial: https://duckduckgo.com/app",
+      "windows": "winget install DuckDuckGo.DesktopBrowser\n# o descarga oficial: https://duckduckgo.com/app",
+      "android": "# Play Store o F-Droid oficial: busca DuckDuckGo Private Browser (https://duckduckgo.com/app)",
+      "ios": "# App Store oficial: DuckDuckGo Private Browser (https://duckduckgo.com/app)"
+    },
+    "br-vivaldi": {
+      "linux": "# Debian/Ubuntu: descarga .deb en https://vivaldi.com/download/\n# Arch: sudo pacman -S vivaldi\n# Flatpak: flatpak install flathub com.vivaldi.Vivaldi",
+      "macos": "brew install --cask vivaldi",
+      "windows": "winget install Vivaldi.Vivaldi",
+      "android": "# Play Store oficial: Vivaldi Browser (https://vivaldi.com/android/)",
+      "ios": "# App Store oficial: Vivaldi Browser (https://vivaldi.com/ios/)"
+    },
+    "br-floorp": {
+      "linux": "flatpak install flathub one.ablaze.floorp\n# Arch (AUR): yay -S floorp-bin",
+      "macos": "brew install --cask floorp",
+      "windows": "winget install Ablaze.Floorp",
+      "android": "# Solo PC. En Android usa IronFox o Fennec F-Droid.",
+      "ios": "# Solo PC."
+    },
+    "br-thorium": {
+      "linux": "# Descarga .deb / .AppImage AVX2 oficial en https://thorium.rocks",
+      "macos": "# Descarga .dmg (Apple Silicon o Intel) en https://thorium.rocks",
+      "windows": "winget install Alex313031.Thorium\n# o instalador oficial en https://thorium.rocks",
+      "android": "# Descarga el APK oficial Android en https://github.com/Alex313031/Thorium-Android/releases",
+      "ios": "# Solo PC y Android."
+    },
+    "br-waterfox": {
+      "linux": "flatpak install flathub net.waterfox.waterfox\n# o tarball oficial en https://www.waterfox.net/download/",
+      "macos": "brew install --cask waterfox",
+      "windows": "winget install Waterfox.Waterfox",
+      "android": "# Play Store oficial o APK en https://www.waterfox.net/download/",
+      "ios": "# Solo PC y Android."
+    },
+    "br-arc": {
+      "linux": "# No disponible en Linux. Alternativa similar: Zen Browser (flatpak install flathub app.zen_browser.zen)",
+      "macos": "brew install --cask arc\n# o https://arc.net",
+      "windows": "winget install TheBrowserCompany.Arc\n# o https://arc.net",
+      "android": "# Play Store oficial: Arc Search (https://arc.net)",
+      "ios": "# App Store oficial: Arc Search (https://arc.net)"
+    },
+    "tp-litellm": {
+      "linux": "pip install 'litellm[proxy]'\nlitellm --model openrouter/deepseek/deepseek-chat-v3 --port 4000",
+      "macos": "pip3 install 'litellm[proxy]'\nlitellm --model openrouter/deepseek/deepseek-chat-v3 --port 4000",
+      "windows": "py -m pip install \"litellm[proxy]\"\nlitellm --model openrouter/deepseek/deepseek-chat-v3 --port 4000",
+      "android": "# En Termux:\npkg install python && pip install litellm",
+      "ios": "# Despliégalo en VPS/Docker y conéctate por HTTPS desde iOS."
+    },
+    "tp-langfuse": {
+      "linux": "npm i langfuse  # o self-host: git clone https://github.com/langfuse/langfuse && docker compose up -d",
+      "macos": "npm i langfuse  # o Docker/OrbStack: docker compose up -d",
+      "windows": "npm i langfuse  # o Cloud gratis (50K obs/mes): https://cloud.langfuse.com",
+      "android": "# Web Cloud móvil: https://cloud.langfuse.com",
+      "ios": "# Web Cloud móvil: https://cloud.langfuse.com"
+    },
+    "tp-openwebui": {
+      "linux": "docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main",
+      "macos": "pip install open-webui && open-webui serve  # o Docker con OrbStack",
+      "windows": "winget install Docker.DockerDesktop\n# o Python 3.11: pip install open-webui && open-webui serve",
+      "android": "# Ábrelo como PWA desde Chrome/Cromite apuntando a tu servidor Open WebUI.",
+      "ios": "# Ábrelo en Safari -> Compartir -> Añadir a pantalla de inicio (PWA)."
+    },
+    "tp-lmstudio": {
+      "linux": "# Descarga el AppImage oficial en https://lmstudio.ai\nchmod +x LM-Studio-*.AppImage && ./LM-Studio-*.AppImage",
+      "macos": "brew install --cask lm-studio\n# o descarga Apple Silicon en https://lmstudio.ai",
+      "windows": "winget install ElementLabs.LMStudio\n# o descarga oficial en https://lmstudio.ai",
+      "android": "# Alternativa móvil GGUF: PocketPal AI (Play Store / GitHub).",
+      "ios": "# Alternativa móvil GGUF: PocketPal AI (App Store)."
+    },
+    "tp-excalidraw": {
+      "linux": "# 100% Web sin instalar: https://excalidraw.com\n# Self-host: docker run -d -p 5000:80 excalidraw/excalidraw",
+      "macos": "# Web instantánea: https://excalidraw.com (o instalar como PWA)",
+      "windows": "# Web instantánea: https://excalidraw.com (o instalar como PWA)",
+      "android": "# Abre https://excalidraw.com en tu navegador y toca Instalar App (PWA).",
+      "ios": "# Abre https://excalidraw.com en Safari -> Añadir a pantalla de inicio."
+    },
+    "tp-bruno": {
+      "linux": "flatpak install flathub com.usebruno.Bruno\n# o npm/apt en https://www.usebruno.com/downloads",
+      "macos": "brew install --cask bruno",
+      "windows": "winget install Bruno.Bruno",
+      "android": "# Alternativa web móvil sin instalar: https://hoppscotch.io",
+      "ios": "# Alternativa web móvil sin instalar: https://hoppscotch.io"
+    },
+    "tp-coolify": {
+      "linux": "# En tu servidor Linux (VPS Ubuntu/Debian):\ncurl -fsSL https://cdn.coollabs.io/coolify/install.sh | sudo bash",
+      "macos": "# Administra tu Coolify desde el navegador (panel web HTTPS).",
+      "windows": "# Administra tu Coolify desde el navegador (panel web HTTPS).",
+      "android": "# Panel web responsive desde cualquier navegador móvil.",
+      "ios": "# Panel web responsive desde Safari."
+    },
+    "tp-posthog": {
+      "linux": "npm install posthog-js  # Registro gratis (1M eventos/mes): https://posthog.com",
+      "macos": "npm install posthog-js  # o pip install posthog",
+      "windows": "npm install posthog-js  # o pip install posthog",
+      "android": "# SDK Android: implementation(\"com.posthog:posthog-android:3.+\")",
+      "ios": "# SDK Swift/iOS: https://github.com/PostHog/posthog-ios"
+    },
+    "tp-sentry": {
+      "linux": "npx @sentry/wizard@latest -i nextjs  # https://sentry.io",
+      "macos": "npx @sentry/wizard@latest -i nextjs  # https://sentry.io",
+      "windows": "npx @sentry/wizard@latest -i nextjs  # https://sentry.io",
+      "android": "# SDK Android oficial: https://docs.sentry.io/platforms/android/",
+      "ios": "# SDK iOS oficial: https://docs.sentry.io/platforms/apple/guides/ios/"
+    },
+    "tp-beekeeper": {
+      "linux": "flatpak install flathub io.beekeeperstudio.Studio\n# o AppImage/.deb en https://www.beekeeperstudio.io/get",
+      "macos": "brew install --cask beekeeper-studio",
+      "windows": "winget install beekeeper-studio.beekeeper-studio",
+      "android": "# Solo desktop. En móvil usa el editor SQL web de Supabase/Neon.",
+      "ios": "# Solo desktop."
+    },
+    "tp-figma": {
+      "linux": "# Web oficial: https://www.figma.com (o cliente comunitario figma-linux en AUR/Flatpak)",
+      "macos": "brew install --cask figma",
+      "windows": "winget install Figma.Figma",
+      "android": "# Play Store oficial: Figma (ver prototipos y comentarios).",
+      "ios": "# App Store oficial: Figma (App Store)."
+    },
+    "tp-tailscale": {
+      "linux": "curl -fsSL https://tailscale.com/install.sh | sh && sudo tailscale up",
+      "macos": "brew install --cask tailscale  # o App Store oficial",
+      "windows": "winget install Tailscale.Tailscale",
+      "android": "# Play Store / F-Droid oficial: Tailscale (https://tailscale.com/download/android)",
+      "ios": "# App Store oficial: Tailscale (https://tailscale.com/download/ios)"
     }
   }
 }

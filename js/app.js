@@ -339,14 +339,19 @@ function openOSDetail(id) {
     </div>
   `;
 
+  const osGuide = getOSInstallGuide(o);
+  const cfgTitle = o.config?.title || 'Comando rápido / Post-instalación';
+  const cfgLang = o.config?.lang || 'bash';
+  const cfgCode = o.config?.code || o.command || `# Descarga oficial desde ${o.url || 'el sitio oficial'}`;
+
   $('#modal-body').innerHTML = `
     <div class="badges">
-      <span class="tag tag-${esc(o.pricingTier)}">${esc(o.priceLabel)}</span>
+      <span class="tag tag-${esc(o.pricingTier || 'gratis')}">${esc(o.priceLabel || 'Gratis')}</span>
       <span class="tag">Hackathon: ${o.scores.hackathon}/100</span>
       <span class="tag">Ligereza: ${o.scores.lightness}/100</span>
       <span class="tag">Dev XP: ${o.scores.devXp}/100</span>
       <span class="tag">Estabilidad: ${o.scores.stability}/100</span>
-      <a class="tag" href="${esc(o.url)}" target="_blank" rel="noopener">Sitio oficial ↗</a>
+      ${o.url ? `<a class="tag" href="${esc(o.url)}" target="_blank" rel="noopener noreferrer">Sitio oficial ↗</a>` : ''}
     </div>
 
     <div class="res-grid">
@@ -355,6 +360,8 @@ function openOSDetail(id) {
       <div class="res-cell"><span>Espacio base</span><strong>${r.diskGb} GB</strong></div>
       <div class="res-cell"><span>CPU Idle / Arranque</span><strong>${r.cpuIdlePct}% · ${r.bootSec}s</strong></div>
     </div>
+
+    ${renderInstallTabsHTML(osGuide, o.url)}
 
     <div class="pros-cons">
       <div class="box">
@@ -369,15 +376,45 @@ function openOSDetail(id) {
 
     <div class="code-block">
       <div class="code-head">
-        <span>${esc(o.config.title)} (${esc(o.config.lang)})</span>
+        <span>${esc(cfgTitle)} (${esc(cfgLang)})</span>
         <button class="btn btn-sm btn-accent" id="modal-copy-code">Copiar comando</button>
       </div>
-      <pre>${esc(o.config.code)}</pre>
+      <pre>${esc(cfgCode)}</pre>
     </div>
   `;
 
-  $('#modal-copy-code').onclick = () => copyText(o.config.code, 'Comando copiado');
+  bindInstallTabs(osGuide);
+  $('#modal-copy-code').onclick = () => copyText(cfgCode, 'Comando copiado');
   $('#detail-modal').showModal();
+}
+
+function getOSInstallGuide(o) {
+  const url = o.url || '';
+  if (o.id === 'os-graphene') {
+    return {
+      linux: `# 1. Abre Chromium/Brave en Linux y entra al Web Installer oficial:\n#    https://grapheneos.org/install/web\n# 2. Conecta tu Google Pixel por USB-C con OEM Unlocking activado y sigue el asistente.`,
+      macos: `# 1. Abre Chrome/Brave en macOS y entra a:\n#    https://grapheneos.org/install/web\n# 2. Conecta tu Google Pixel por USB-C (sin instalar drivers extra).`,
+      windows: `# 1. Instala el driver USB de Google (Windows Update -> Opcionales).\n# 2. Abre Chrome/Brave en https://grapheneos.org/install/web y conecta tu Pixel.`,
+      android: `# Puedes flashear GrapheneOS desde otro teléfono Android usando Chrome/Brave en:\n# https://grapheneos.org/install/web con un cable USB-C a USB-C.`,
+      ios: `# No soportado desde iOS (WebUSB requerido). Usa una PC o Android con Chrome/Brave.`
+    };
+  }
+  if ((o.tags || []).includes('win3rd')) {
+    return {
+      linux: `# 1. Descarga la ISO oficial de Windows desde microsoft.com.\n# 2. Crea USB booteable con Ventoy (https://www.ventoy.net).\n# 3. Tras instalar Windows, descarga el playbook/script oficial en: ${url}`,
+      macos: `# 1. Descarga ISO oficial Windows + herramienta/playbook desde: ${url}\n# 2. En Mac Apple Silicon puedes probarlo en VM con UTM (brew install --cask utm) o Parallels.`,
+      windows: `# 1. Instala Windows 10/11 oficial limpio (o descarga la ISO oficial).\n# 2. Descarga y ejecuta el playbook/script oficial desde:\n#    ${url}\n# 3. Reinicia y verifica procesos en Administrador de Tareas.`,
+      android: `# Solo PC x86_64/ARM64. Puedes descargar los archivos en el celular desde ${url} y pasarlos por USB.`,
+      ios: `# Solo PC. Consulta la guía oficial en: ${url}`
+    };
+  }
+  return {
+    linux: `# 1. Descarga la ISO oficial desde: ${url}\n# 2. Grábala en un pendrive USB (8GB+) con Ventoy o BalenaEtcher:\n#    flatpak install flathub io.balena.etcher  # o: sudo dd if=imagen.iso of=/dev/sdX bs=4M status=progress\n# 3. Arranca desde USB (F12 / ESC) e instala.`,
+    macos: `# 1. Descarga la ISO oficial desde: ${url}\n# 2. Para USB booteable: brew install --cask balenaetcher\n# 3. Para probar en máquina virtual (Apple Silicon/Intel): brew install --cask utm`,
+    windows: `# 1. Descarga la ISO oficial desde: ${url}\n# 2. Crea un USB booteable con Rufus o Ventoy:\n#    winget install Rufus.Rufus   # o: winget install Ventoy.Ventoy\n# 3. Arranca desde el USB (F12 / F8 / DEL) e instala.`,
+    android: `# Puedes crear el USB booteable desde Android sin PC usando EtchDroid (F-Droid) + adaptador OTG,\n# descargando la ISO oficial desde: ${url}`,
+    ios: `# Descarga o consulta documentación oficial en: ${url}\n# Para crear el USB booteable necesitarás una PC o Android con EtchDroid.`
+  };
 }
 
 function getInstallGuide(item) {
@@ -391,7 +428,8 @@ function getInstallGuide(item) {
       linux: base,
       macos: base,
       windows: `# PowerShell:\nnpm install openai   # o: pip install openai\n$env:API_KEY="tu-key-aqui"\n# Obtén la key en: ${url}`,
-      android: `# En Termux (descargar desde F-Droid):\npkg update && pkg install -y nodejs-lts python\nnpm install openai\nexport API_KEY="tu-key-aqui"`
+      android: `# En Termux (descargar desde F-Droid):\npkg update && pkg install -y nodejs-lts python\nnpm install openai\nexport API_KEY="tu-key-aqui"`,
+      ios: `# En iOS usa la web oficial (${url}) o intégralo en tu app Swift/Flutter apuntando al endpoint HTTPS.`
     };
   }
   if (item.category === 'languages') {
@@ -425,23 +463,28 @@ function getInstallGuide(item) {
     if (langMap[id]) return langMap[id];
   }
   return {
-    linux: `# Descarga / instala ${name} en Linux:\n# Docs oficiales: ${url}\n# Revisa el snippet de configuración abajo para el comando exacto.`,
-    macos: `# Instala ${name} en macOS (Homebrew o web oficial):\n# brew search ${name.toLowerCase().split(' ')[0]}\n# Docs: ${url}`,
-    windows: `# Instala ${name} en Windows (winget o web oficial):\n# winget search "${name.split(' ')[0]}"\n# Docs: ${url}`,
-    android: `# En Android usa Termux (F-Droid) si es CLI/API, o accede vía navegador móvil a:\n# ${url}`
+    linux: `# Descarga / instala ${name} en Linux:\n# Sitio oficial: ${url}\n# Revisa el snippet de configuración abajo para el comando exacto.`,
+    macos: `# Instala ${name} en macOS (Homebrew o web oficial):\n# brew search ${name.toLowerCase().split(' ')[0]}\n# Sitio oficial: ${url}`,
+    windows: `# Instala ${name} en Windows (winget o web oficial):\n# winget search "${name.split(' ')[0]}"\n# Sitio oficial: ${url}`,
+    android: `# En Android usa Termux (F-Droid) si es CLI/API, o instala la app / web oficial desde:\n# ${url}`,
+    ios: `# En iOS abre el sitio oficial o busca la app oficial en App Store:\n# ${url}`
   };
 }
 
-function renderInstallTabsHTML(guide) {
+function renderInstallTabsHTML(guide, url = '') {
   return `
     <div class="box" id="install-guide-box">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
-        <h4 style="margin:0;color:var(--accent-strong);">Tutorial de Descarga / Instalación por Sistema Operativo</h4>
-        <div class="chip-group" id="modal-os-tabs">
-          <button class="chip active" data-mos="linux">Linux</button>
-          <button class="chip" data-mos="macos">macOS</button>
-          <button class="chip" data-mos="windows">Windows</button>
-          <button class="chip" data-mos="android">Android</button>
+        <h4 style="margin:0;color:var(--accent-strong);">Cómo Instalar según tu Dispositivo</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+          ${url ? `<a class="btn btn-sm btn-ghost" href="${esc(url)}" target="_blank" rel="noopener noreferrer">Sitio oficial ↗</a>` : ''}
+          <div class="chip-group" id="modal-os-tabs">
+            <button class="chip active" data-mos="linux">Linux</button>
+            <button class="chip" data-mos="macos">macOS</button>
+            <button class="chip" data-mos="windows">Windows</button>
+            <button class="chip" data-mos="android">Android</button>
+            <button class="chip" data-mos="ios">iOS</button>
+          </div>
         </div>
       </div>
       <div class="code-block" style="margin:0;">
@@ -449,14 +492,14 @@ function renderInstallTabsHTML(guide) {
           <span id="modal-os-label">Linux</span>
           <button class="btn btn-sm btn-accent" id="modal-copy-install">Copiar comando</button>
         </div>
-        <pre id="modal-os-pre">${esc(guide.linux)}</pre>
+        <pre id="modal-os-pre">${esc(guide.linux || '')}</pre>
       </div>
     </div>
   `;
 }
 
 function bindInstallTabs(guide) {
-  const labels = { linux: 'Linux', macos: 'macOS', windows: 'Windows', android: 'Android (Termux / Móvil)' };
+  const labels = { linux: 'Linux', macos: 'macOS', windows: 'Windows', android: 'Android (Termux / APK)', ios: 'iOS (iPhone / iPad)' };
   let cur = 'linux';
   $('#modal-os-tabs')?.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-mos]');
@@ -464,7 +507,7 @@ function bindInstallTabs(guide) {
     cur = btn.dataset.mos;
     $$('#modal-os-tabs .chip').forEach((c) => c.classList.toggle('active', c === btn));
     $('#modal-os-label').textContent = labels[cur] || cur;
-    $('#modal-os-pre').textContent = guide[cur] || '';
+    $('#modal-os-pre').textContent = guide[cur] || guide.linux || '';
   });
   const copyBtn = $('#modal-copy-install');
   if (copyBtn) copyBtn.onclick = () => copyText(guide[cur] || '', `Comando para ${labels[cur]} copiado`);
@@ -508,7 +551,7 @@ function openBrowserDetail(id) {
   `;
   $('#modal-body').innerHTML = `
     <div class="box"><h4>Ideal para</h4><div>${esc(b.bestFor)}</div></div>
-    ${renderInstallTabsHTML(guide)}
+    ${renderInstallTabsHTML(guide, b.url)}
     <div class="pros-cons">
       <div class="box"><h4 style="color:#86efac;">Ventajas</h4><ul class="bullet-list">${b.pros.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
       <div class="box"><h4 style="color:#fda4af;">Cuidados</h4><ul class="bullet-list">${b.cons.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
@@ -858,7 +901,8 @@ function renderStats() {
         </div>
         <p class="card-desc">${esc(t.use)}</p>
         <div class="card-foot">
-          <a class="btn btn-sm btn-accent" href="${esc(t.url || '#')}" target="_blank" rel="noopener noreferrer">Sitio oficial ↗</a>
+          <button class="btn btn-sm btn-accent" data-open-tp="${esc(t.id || '')}">Cómo Instalar</button>
+          <a class="btn btn-sm btn-ghost" href="${esc(t.url || '#')}" target="_blank" rel="noopener noreferrer">Sitio oficial ↗</a>
         </div>
       </article>
     `).join('');
@@ -1080,7 +1124,7 @@ function openDetail(id) {
       <div><strong>${esc(it.priceLabel)}</strong> — ${esc(it.freeTier)}</div>
     </div>
     ${fwModalHtml}
-    ${renderInstallTabsHTML(getInstallGuide(it))}
+    ${renderInstallTabsHTML(getInstallGuide(it), it.url)}
 
     <div class="pros-cons">
       <div class="box">
@@ -1328,6 +1372,19 @@ function bindEvents() {
   document.addEventListener('click', (e) => {
     const openBr = e.target.closest('[data-open-browser]');
     if (openBr) return openBrowserDetail(openBr.dataset.openBrowser);
+
+    const openTp = e.target.closest('[data-open-tp]');
+    if (openTp) {
+      const t = state.comparisons?.thirdPartyTools?.find((x) => x.id === openTp.dataset.openTp);
+      if (t) {
+        const g = getInstallGuide(t);
+        $('#modal-title-wrap').innerHTML = `<div class="card-title-row">${logoBadge(t)}<div><h2>${esc(t.name)}</h2><p class="muted">${esc(t.cat)} · ${esc(t.price)}</p></div></div>`;
+        $('#modal-body').innerHTML = `<div class="box"><h4>Para qué sirve</h4><div>${esc(t.use)}</div></div>${renderInstallTabsHTML(g, t.url)}`;
+        bindInstallTabs(g);
+        $('#detail-modal').showModal();
+      }
+      return;
+    }
 
     const copyTune = e.target.closest('[data-copy-tune]');
     if (copyTune) {
