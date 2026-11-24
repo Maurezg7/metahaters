@@ -228,7 +228,11 @@ function renderOS() {
   const q = state.osQuery.trim().toLowerCase();
   const list = state.osList
     .filter((o) => {
-      if (state.osType !== 'all' && o.osType !== state.osType) return false;
+      if (state.osType === 'gaming' || state.osType === 'security') {
+        if (!(o.tags || []).includes(state.osType)) return false;
+      } else if (state.osType !== 'all' && o.osType !== state.osType) {
+        return false;
+      }
       if (state.osFamily !== 'all') {
         if (state.osFamily === 'Mobile') {
           if (o.family !== 'Mobile' && o.family !== 'Other') return false;

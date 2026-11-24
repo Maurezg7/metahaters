@@ -84,7 +84,10 @@
       "code": "sudo pacman -S docker docker-buildx && sudo systemctl enable --now docker"
     },
     "url": "https://cachyos.org",
-    "logo": "https://cdn.simpleicons.org/archlinux/FFB21E"
+    "logo": "https://cdn.simpleicons.org/archlinux/FFB21E",
+    "tags": [
+      "gaming"
+    ]
   },
   {
     "id": "os-alpine",
@@ -387,7 +390,10 @@
       "code": "nvidia-smi && sudo apt install -y system76-cuda-latest"
     },
     "url": "https://pop.system76.com",
-    "logo": "https://cdn.simpleicons.org/popos/48B9C7"
+    "logo": "https://cdn.simpleicons.org/popos/48B9C7",
+    "tags": [
+      "gaming"
+    ]
   },
   {
     "id": "os-nixos",
@@ -558,7 +564,10 @@
       "code": "sudo apt update && sudo apt install -y kali-tools-top10"
     },
     "url": "https://www.kali.org",
-    "logo": "https://cdn.simpleicons.org/kalilinux/557C94"
+    "logo": "https://cdn.simpleicons.org/kalilinux/557C94",
+    "tags": [
+      "security"
+    ]
   },
   {
     "id": "os-deepin",
@@ -777,7 +786,7 @@
       "code": "# C:\\Users\\TU_USER\\.wslconfig\n[wsl2]\nmemory=6GB\nprocessors=6\nautoMemoryReclaim=gradual"
     },
     "url": "https://www.microsoft.com/windows",
-    "logo": "https://cdn.simpleicons.org/windows/0078D4"
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3EWI%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
     "id": "os-win-ltsc",
@@ -821,7 +830,7 @@
       "code": "wsl --install -d Ubuntu-24.04"
     },
     "url": "https://learn.microsoft.com/windows/whats-new/ltsc/",
-    "logo": "https://cdn.simpleicons.org/windows/FFB21E"
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3EWI%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
     "id": "os-freebsd",
@@ -908,7 +917,10 @@
       "code": "doas pkg_add git python3 node"
     },
     "url": "https://www.openbsd.org",
-    "logo": "https://cdn.simpleicons.org/openbsd/F2CA30"
+    "logo": "https://cdn.simpleicons.org/openbsd/F2CA30",
+    "tags": [
+      "security"
+    ]
   },
   {
     "id": "os-chromeos",
@@ -996,5 +1008,494 @@
     },
     "url": "https://developer.huawei.com",
     "logo": "https://cdn.simpleicons.org/huawei/CF0A2C"
+  },
+  {
+    "id": "os-bazzite",
+    "name": "Bazzite (Fedora Atomic Gaming)",
+    "family": "Linux",
+    "osType": "Distro",
+    "tags": [
+      "gaming"
+    ],
+    "base": "Fedora Silverblue/Kinoite (Inmutable)",
+    "initSystem": "systemd",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "logo": "https://cdn.simpleicons.org/fedora/51A2DA",
+    "resources": {
+      "idleRamMb": 920,
+      "idleProcesses": 145,
+      "diskGb": 12,
+      "cpuIdlePct": 0.9,
+      "bootSec": 11
+    },
+    "scores": {
+      "hackathon": 86,
+      "lightness": 76,
+      "devXp": 84,
+      "stability": 97
+    },
+    "bestFor": "Mejor distro gaming plug-and-play e irrompible (Steam Deck UI + NVIDIA/AMD listos)",
+    "pros": [
+      "Inmutable: actualizaciones atómicas imposibles de romper",
+      "Steam, Lutris, ProtonUp, Gamescope y drivers NVIDIA preinstalados",
+      "Distrobox incluido para dev"
+    ],
+    "cons": [
+      "Consume más disco/RAM que Arch minimal",
+      "Sistema inmutable requiere acostumbrarse a Flatpak/Distrobox"
+    ],
+    "command": "ujust setup-luks-tpm-unlock && ujust install-resolve  # menús gaming con ujust"
+  },
+  {
+    "id": "os-nobara",
+    "name": "Nobara Linux",
+    "family": "Linux",
+    "osType": "Distro",
+    "tags": [
+      "gaming"
+    ],
+    "base": "Fedora (GloriousEggroll)",
+    "initSystem": "systemd",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "logo": "https://cdn.simpleicons.org/fedora/FFB21E",
+    "resources": {
+      "idleRamMb": 860,
+      "idleProcesses": 138,
+      "diskGb": 11,
+      "cpuIdlePct": 0.8,
+      "bootSec": 10
+    },
+    "scores": {
+      "hackathon": 85,
+      "lightness": 78,
+      "devXp": 86,
+      "stability": 88
+    },
+    "bestFor": "Fedora tuneada por el creador de Proton-GE con OBS, codecs y parches kernel gaming",
+    "pros": [
+      "Kernel con parches fsync/esync y baja latencia",
+      "Codecs, Steam, Wine y OBS listos tras instalar",
+      "Excelente para streaming + gaming"
+    ],
+    "cons": [
+      "Mantenida por equipo chico (actualizaciones algo rezagadas respecto a Fedora upstream)"
+    ],
+    "command": "nobara-sync cli  # actualizar sistema y drivers de forma segura"
+  },
+  {
+    "id": "os-steamos",
+    "name": "SteamOS 3 (Holo / Arch)",
+    "family": "Linux",
+    "osType": "Distro",
+    "tags": [
+      "gaming"
+    ],
+    "base": "Arch Linux (Inmutable)",
+    "initSystem": "systemd",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "logo": "https://cdn.simpleicons.org/steam/F5F5F7",
+    "resources": {
+      "idleRamMb": 780,
+      "idleProcesses": 120,
+      "diskGb": 10,
+      "cpuIdlePct": 0.6,
+      "bootSec": 9
+    },
+    "scores": {
+      "hackathon": 72,
+      "lightness": 84,
+      "devXp": 70,
+      "stability": 96
+    },
+    "bestFor": "Consolas portátiles (Steam Deck, Legion Go, ROG Ally) y modo Big Picture con Gamescope",
+    "pros": [
+      "Experiencia consola instantánea con Gamescope + Proton oficial",
+      "Muy optimizada en consumo de batería y shaders precompilados"
+    ],
+    "cons": [
+      "Soporte oficial centrado en AMD/handhelds; menos ideal para escritorio NVIDIA"
+    ],
+    "command": "steamos-readonly disable  # solo si necesitas modificar el sistema raíz"
+  },
+  {
+    "id": "os-garuda",
+    "name": "Garuda Linux (Dragonized Gaming)",
+    "family": "Linux",
+    "osType": "Distro",
+    "tags": [
+      "gaming"
+    ],
+    "base": "Arch Linux (Zen Kernel)",
+    "initSystem": "systemd",
+    "country": "IN",
+    "flag": "🇮🇳",
+    "countryName": "India",
+    "logo": "https://cdn.simpleicons.org/archlinux/FF5A79",
+    "resources": {
+      "idleRamMb": 1150,
+      "idleProcesses": 155,
+      "diskGb": 14,
+      "cpuIdlePct": 1.1,
+      "bootSec": 11
+    },
+    "scores": {
+      "hackathon": 84,
+      "lightness": 70,
+      "devXp": 88,
+      "stability": 85
+    },
+    "bestFor": "Arch listo para gaming con snapshots automáticos Btrfs y Garuda Gamer en 1 clic",
+    "pros": [
+      "Kernel Linux-zen + zram + Chaotic-AUR listos",
+      "Snapshots Btrfs en GRUB si una actualización falla",
+      "Garuda Gamer instala launchers y emuladores con 1 clic"
+    ],
+    "cons": [
+      "Edición Dragonized consume más RAM que Arch limpio por efectos KDE"
+    ],
+    "command": "garuda-update && garuda-gamer"
+  },
+  {
+    "id": "os-pikaos",
+    "name": "PikaOS",
+    "family": "Linux",
+    "osType": "Distro",
+    "tags": [
+      "gaming"
+    ],
+    "base": "Debian Sid (Optimizado Gaming)",
+    "initSystem": "systemd",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "logo": "https://cdn.simpleicons.org/debian/FFB21E",
+    "resources": {
+      "idleRamMb": 740,
+      "idleProcesses": 125,
+      "diskGb": 9.5,
+      "cpuIdlePct": 0.7,
+      "bootSec": 9
+    },
+    "scores": {
+      "hackathon": 84,
+      "lightness": 82,
+      "devXp": 85,
+      "stability": 84
+    },
+    "bestFor": "Rendimiento gaming tipo CachyOS/Nobara pero sobre base Debian/APT",
+    "pros": [
+      "Paquetes compilados con optimizaciones x86-64-v3",
+      "Drivers Mesa/NVIDIA siempre recientes en Debian"
+    ],
+    "cons": [
+      "Comunidad más chica que CachyOS o Bazzite"
+    ],
+    "command": "pikman update && pikman upgrade"
+  },
+  {
+    "id": "os-chimeraos",
+    "name": "ChimeraOS",
+    "family": "Linux",
+    "osType": "Distro",
+    "tags": [
+      "gaming"
+    ],
+    "base": "Arch Linux (Inmutable)",
+    "initSystem": "systemd",
+    "country": "CA",
+    "flag": "🇨🇦",
+    "countryName": "Canadá",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3ECH%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "resources": {
+      "idleRamMb": 680,
+      "idleProcesses": 105,
+      "diskGb": 8,
+      "cpuIdlePct": 0.5,
+      "bootSec": 8
+    },
+    "scores": {
+      "hackathon": 68,
+      "lightness": 86,
+      "devXp": 60,
+      "stability": 93
+    },
+    "bestFor": "Convertir cualquier PC de sala en una consola SteamOS (AMD/Intel)",
+    "pros": [
+      "Arranca directo en Gaming Mode con control",
+      "Soporte Epic/GOG/emuladores vía web UI"
+    ],
+    "cons": [
+      "No pensada como PC de escritorio tradicional"
+    ],
+    "command": "frzr-unlock  # acceso avanzado al sistema inmutable"
+  },
+  {
+    "id": "os-regata",
+    "name": "Regata OS",
+    "family": "Linux",
+    "osType": "Distro",
+    "tags": [
+      "gaming"
+    ],
+    "base": "openSUSE (Brasil)",
+    "initSystem": "systemd",
+    "country": "BR",
+    "flag": "🇧🇷",
+    "countryName": "Brasil",
+    "logo": "https://cdn.simpleicons.org/opensuse/73BA25",
+    "resources": {
+      "idleRamMb": 850,
+      "idleProcesses": 132,
+      "diskGb": 10,
+      "cpuIdlePct": 0.8,
+      "bootSec": 10
+    },
+    "scores": {
+      "hackathon": 80,
+      "lightness": 79,
+      "devXp": 80,
+      "stability": 90
+    },
+    "bestFor": "Distro latinoamericana enfocada en gaming con Game Access y optimización GPU híbrida",
+    "pros": [
+      "Excelente manejo de laptops con GPU híbrida (Intel/AMD + NVIDIA)",
+      "Game Access unifica Steam, Epic, EA y GOG"
+    ],
+    "cons": [
+      "Comunidad mayormente en portugués/español"
+    ],
+    "command": "sudo zypper dup"
+  },
+  {
+    "id": "os-qubes",
+    "name": "Qubes OS",
+    "family": "Linux",
+    "osType": "OS",
+    "tags": [
+      "security"
+    ],
+    "base": "Xen Hypervisor + Fedora/Debian/Whonix VMs",
+    "initSystem": "Xen + systemd",
+    "country": "PL",
+    "flag": "🇵🇱",
+    "countryName": "Polonia",
+    "logo": "https://cdn.simpleicons.org/qubesos/3874D8",
+    "resources": {
+      "idleRamMb": 4200,
+      "idleProcesses": 210,
+      "diskGb": 28,
+      "cpuIdlePct": 2.5,
+      "bootSec": 28
+    },
+    "scores": {
+      "hackathon": 74,
+      "lightness": 35,
+      "devXp": 82,
+      "stability": 95
+    },
+    "bestFor": "Seguridad máxima por compartimentación (cada app/navegador corre en su propia VM aislada)",
+    "pros": [
+      "Si un PDF o sitio te hackea, queda atrapado en una Disposable VM",
+      "Integra Whonix/Tor nativo por qube",
+      "Recomendado por Edward Snowden y expertos de seguridad"
+    ],
+    "cons": [
+      "Exige 16GB+ RAM y hardware compatible con VT-x/VT-d",
+      "No sirve para gaming GPU"
+    ],
+    "command": "qvm-run --dispvm=fedora-dvm firefox  # abrir navegador desechable aislado"
+  },
+  {
+    "id": "os-tails",
+    "name": "Tails (The Amnesic Incognito Live System)",
+    "family": "Linux",
+    "osType": "Distro",
+    "tags": [
+      "security"
+    ],
+    "base": "Debian Live (USB Amnésico + Tor)",
+    "initSystem": "systemd",
+    "country": "FR",
+    "flag": "🇫🇷",
+    "countryName": "Francia",
+    "logo": "https://cdn.simpleicons.org/tails/56347C",
+    "resources": {
+      "idleRamMb": 680,
+      "idleProcesses": 112,
+      "diskGb": 1.5,
+      "cpuIdlePct": 0.6,
+      "bootSec": 18
+    },
+    "scores": {
+      "hackathon": 70,
+      "lightness": 86,
+      "devXp": 68,
+      "stability": 96
+    },
+    "bestFor": "Anonimato total desde un pendrive USB: borra toda la RAM al apagar y fuerza 100% tráfico por Tor",
+    "pros": [
+      "No deja rastro en el disco de la PC",
+      "100% de conexiones pasan por Tor (bloquea leaks)",
+      "Incluye KeePassXC, Kleopatra PGP y OnionShare"
+    ],
+    "cons": [
+      "Todo es más lento por Tor; persistencia cifrada opcional"
+    ],
+    "command": "# Flashea la imagen .img en un USB de 8GB+ con BalenaEtcher o dd"
+  },
+  {
+    "id": "os-whonix",
+    "name": "Whonix (Gateway + Workstation)",
+    "family": "Linux",
+    "osType": "Distro",
+    "tags": [
+      "security"
+    ],
+    "base": "Kicksecure / Debian (2 VMs aisladas)",
+    "initSystem": "systemd",
+    "country": "DE",
+    "flag": "🇩🇪",
+    "countryName": "Alemania",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3EWX%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "resources": {
+      "idleRamMb": 1200,
+      "idleProcesses": 140,
+      "diskGb": 6,
+      "cpuIdlePct": 1,
+      "bootSec": 16
+    },
+    "scores": {
+      "hackathon": 72,
+      "lightness": 74,
+      "devXp": 75,
+      "stability": 96
+    },
+    "bestFor": "Anonimato contra malware con privilegios root: la Workstation ni siquiera conoce tu IP real",
+    "pros": [
+      "Arquitectura de 2 VMs: aunque comprometan la Workstation, el Gateway impide filtrar tu IP",
+      "Corre sobre KVM, VirtualBox o Qubes OS"
+    ],
+    "cons": [
+      "Requiere virtualización (2 VMs en paralelo)"
+    ],
+    "command": "# Importa Whonix-Gateway y Whonix-Workstation en KVM/QEMU o VirtualBox"
+  },
+  {
+    "id": "os-kicksecure",
+    "name": "Kicksecure",
+    "family": "Linux",
+    "osType": "Distro",
+    "tags": [
+      "security"
+    ],
+    "base": "Debian Hardened",
+    "initSystem": "systemd",
+    "country": "DE",
+    "flag": "🇩🇪",
+    "countryName": "Alemania",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%234ADE80%22%3EKS%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "resources": {
+      "idleRamMb": 460,
+      "idleProcesses": 85,
+      "diskGb": 4.5,
+      "cpuIdlePct": 0.4,
+      "bootSec": 9
+    },
+    "scores": {
+      "hackathon": 84,
+      "lightness": 90,
+      "devXp": 85,
+      "stability": 97
+    },
+    "bestFor": "Debian endurecida de fábrica (kernel hardening, AppArmor, LKRG, protección anti-cold-boot) sin forzar Tor",
+    "pros": [
+      "Seguridad militar usable todos los días y súper liviana",
+      "Protecciones sysctl, hardened_malloc y firewall preconfigurados"
+    ],
+    "cons": [
+      "Algunos binarios/JIT pueden requerir ajustar perfiles de seguridad"
+    ],
+    "command": "# Instalable como ISO o encima de Debian: https://www.kicksecure.com"
+  },
+  {
+    "id": "os-graphene",
+    "name": "GrapheneOS (Android Hardened)",
+    "family": "Mobile",
+    "osType": "OS",
+    "tags": [
+      "security"
+    ],
+    "base": "AOSP (Google Pixel)",
+    "initSystem": "Android init",
+    "country": "CA",
+    "flag": "🇨🇦",
+    "countryName": "Canadá",
+    "logo": "https://cdn.simpleicons.org/android/4ADE80",
+    "resources": {
+      "idleRamMb": 1100,
+      "idleProcesses": 95,
+      "diskGb": 6,
+      "cpuIdlePct": 0.5,
+      "bootSec": 14
+    },
+    "scores": {
+      "hackathon": 78,
+      "lightness": 86,
+      "devXp": 80,
+      "stability": 98
+    },
+    "bestFor": "El sistema operativo móvil más seguro del mundo (Google Play en sandbox opcional, permisos de red/sensores)",
+    "pros": [
+      "Google Play corre como app normal sin privilegios root",
+      "Permiso de red y sensores por app + hardened_malloc + Vanadium",
+      "Instalación oficial desde el navegador en 5 minutos"
+    ],
+    "cons": [
+      "Requiere un teléfono Google Pixel con bootloader desbloqueable"
+    ],
+    "command": "# Web Installer oficial (Chrome/Brave): https://grapheneos.org/install/web"
+  },
+  {
+    "id": "os-parrot",
+    "name": "Parrot OS Security / Home",
+    "family": "Linux",
+    "osType": "Distro",
+    "tags": [
+      "security"
+    ],
+    "base": "Debian Testing/Stable",
+    "initSystem": "systemd",
+    "country": "IT",
+    "flag": "🇮🇹",
+    "countryName": "Italia",
+    "logo": "https://cdn.simpleicons.org/parrotsecurity/15E0ED",
+    "resources": {
+      "idleRamMb": 520,
+      "idleProcesses": 96,
+      "diskGb": 8,
+      "cpuIdlePct": 0.5,
+      "bootSec": 9
+    },
+    "scores": {
+      "hackathon": 88,
+      "lightness": 88,
+      "devXp": 90,
+      "stability": 90
+    },
+    "bestFor": "Alternativa más liviana que Kali para ciberseguridad, auditoría defensiva y desarrollo diario",
+    "pros": [
+      "Más liviana que Kali Linux (MATE desktop ~520MB RAM)",
+      "Incluye AnonSurf, Firejail sandboxing y suite AppSec completa"
+    ],
+    "cons": [
+      "Paquetes algo menos frecuentes que Kali rolling"
+    ],
+    "command": "sudo parrot-upgrade"
   }
 ]
