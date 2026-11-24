@@ -27,6 +27,7 @@ const state = {
   osSort: 'processes',
   osQuery: '',
   browserSort: 'privacy',
+  browserPlat: 'all',
   fwArea: 'all',
   agentTier: 'all',
   rankTab: 'overall',
@@ -229,7 +230,7 @@ function renderOS() {
   const q = state.osQuery.trim().toLowerCase();
   const list = state.osList
     .filter((o) => {
-      if (state.osType === 'gaming' || state.osType === 'security') {
+      if (state.osType === 'gaming' || state.osType === 'security' || state.osType === 'win3rd') {
         if (!(o.tags || []).includes(state.osType)) return false;
       } else if (state.osType !== 'all' && o.osType !== state.osType) {
         return false;
@@ -519,11 +520,19 @@ function openBrowserDetail(id) {
 
 function renderBrowsers() {
   if (!state.intel?.browsers) return;
-  const list = [...state.intel.browsers].sort((a, b) =>
-    state.browserSort === 'lightness' ? a.idleRamMb - b.idleRamMb : b.privacy - a.privacy
-  );
+  const list = state.intel.browsers
+    .filter((b) => {
+      const plats = b.platforms || ['PC'];
+      if (state.browserPlat === 'PC') return plats.includes('PC');
+      if (state.browserPlat === 'mobile') return plats.includes('Android') || plats.includes('iOS');
+      return true;
+    })
+    .sort((a, b) =>
+      state.browserSort === 'lightness' ? a.idleRamMb - b.idleRamMb : b.privacy - a.privacy
+    );
   $('#browsers-grid').innerHTML = list.map((b) => {
     const ramCls = b.idleRamMb <= 250 ? 'low' : b.idleRamMb <= 380 ? 'med' : 'high';
+    const platsHtml = (b.platforms || ['PC']).map((p) => `<span class="tag">${esc(p)}</span>`).join('');
     return `
       <article class="card">
         <div class="card-top">
@@ -536,6 +545,7 @@ function renderBrowsers() {
           </div>
           <span class="score-badge" title="Privacidad">${b.privacy}</span>
         </div>
+        <div class="badges">${platsHtml}</div>
         <div class="res-grid">
           <div class="res-cell"><span>RAM Idle</span><strong class="${ramCls}">${b.idleRamMb} MB</strong></div>
           <div class="res-cell"><span>Procesos</span><strong>~${b.idleProcs}</strong></div>
@@ -1230,6 +1240,7 @@ function bindEvents() {
   bindChips('#os-type-filters', 'ostype', 'osType', renderOS);
   bindChips('#os-family-filters', 'osfam', 'osFamily', renderOS);
   bindChips('#browser-sort-filters', 'bsort', 'browserSort', renderBrowsers);
+  bindChips('#browser-plat-filters', 'bplat', 'browserPlat', renderBrowsers);
   bindChips('#fw-area-filters', 'fwarea', 'fwArea', renderFrameworks);
   bindChips('#api-occ-filters', 'apiocc', 'apiOccFilter', renderApiOccasions);
   bindChips('#agent-tier-filters', 'atier', 'agentTier', renderAgents);

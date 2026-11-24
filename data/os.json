@@ -1510,5 +1510,205 @@
     ],
     "command": "sudo parrot-upgrade",
     "url": "https://parrotsec.org"
+  },
+  {
+    "id": "os-win-atlas",
+    "name": "AtlasOS (Windows 10/11 Terceros)",
+    "family": "Windows",
+    "osType": "Distro",
+    "tags": [
+      "gaming",
+      "win3rd"
+    ],
+    "base": "Playbook Open-Source (AME Wizard) sobre Windows oficial",
+    "initSystem": "Windows NT",
+    "country": "GB",
+    "flag": "🇬🇧",
+    "countryName": "Reino Unido",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3EAT%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "url": "https://atlasos.net",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis (OSS Playbook)",
+    "resources": {
+      "idleRamMb": 1450,
+      "idleProcesses": 78,
+      "diskGb": 18,
+      "cpuIdlePct": 0.9,
+      "bootSec": 11
+    },
+    "scores": {
+      "hackathon": 86,
+      "lightness": 76,
+      "devXp": 88,
+      "stability": 88
+    },
+    "bestFor": "Windows de terceros #1 más transparente y auditado: baja procesos a ~78 y reduce latencia DPC en gaming",
+    "pros": [
+      "100% open-source en GitHub: se aplica sobre una ISO oficial de Microsoft (sin ISOs raras)",
+      "Baja procesos de ~190 a ~78 y quita telemetría/Copilot/bloat"
+    ],
+    "cons": [
+      "Requiere instalar Windows oficial limpio primero y aplicar AME Wizard",
+      "Desactiva algunas funciones opcionales de Windows (se pueden reactivar)"
+    ]
+  },
+  {
+    "id": "os-win-revios",
+    "name": "ReviOS (Revision Windows)",
+    "family": "Windows",
+    "osType": "Distro",
+    "tags": [
+      "gaming",
+      "win3rd"
+    ],
+    "base": "Playbook Open-Source (AME Wizard) sobre Windows 10/11",
+    "initSystem": "Windows NT",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23A78BFA%22%3ERV%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "url": "https://revi.cc",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis (OSS Playbook)",
+    "resources": {
+      "idleRamMb": 1520,
+      "idleProcesses": 84,
+      "diskGb": 19,
+      "cpuIdlePct": 1,
+      "bootSec": 12
+    },
+    "scores": {
+      "hackathon": 87,
+      "lightness": 74,
+      "devXp": 90,
+      "stability": 91
+    },
+    "bestFor": "Equilibrio entre Windows rápido para gaming y compatibilidad total para programación/dev y Windows Update",
+    "pros": [
+      "Incluye herramienta Revision Tool para prender/apagar Defender, Updates y tweaks",
+      "Más estable que builds agresivos; funciona con WSL2 y anti-cheats"
+    ],
+    "cons": [
+      "Ligeramente más procesos que AtlasOS para preservar compatibilidad"
+    ]
+  },
+  {
+    "id": "os-win-tiny11",
+    "name": "Tiny11 / Tiny11 Builder (NTDEV)",
+    "family": "Windows",
+    "osType": "Distro",
+    "tags": [
+      "win3rd"
+    ],
+    "base": "Script PowerShell OSS sobre ISO oficial Windows 11",
+    "initSystem": "Windows NT",
+    "country": "RO",
+    "flag": "🇷🇴",
+    "countryName": "Rumania",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%230078D6%22%3ET11%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "url": "https://github.com/ntdevlabs/tiny11builder",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis (OSS Script)",
+    "resources": {
+      "idleRamMb": 1350,
+      "idleProcesses": 85,
+      "diskGb": 8.5,
+      "cpuIdlePct": 0.8,
+      "bootSec": 10
+    },
+    "scores": {
+      "hackathon": 85,
+      "lightness": 82,
+      "devXp": 84,
+      "stability": 87
+    },
+    "bestFor": "Correr Windows 11 en PCs viejas o VMs con 2–4 GB RAM y menos de 9 GB de disco (sin requisito TPM)",
+    "pros": [
+      "Construyes tu propia ISO auditable desde la ISO oficial de Microsoft",
+      "Elimina Edge, Teams, OneDrive, Clipchamp y requisitos de TPM/CPU"
+    ],
+    "cons": [
+      "No descargues ISOs prearmadas de sitios dudosos; usa siempre el script oficial en GitHub"
+    ]
+  },
+  {
+    "id": "os-win-microwin",
+    "name": "MicroWin (Chris Titus WinUtil)",
+    "family": "Windows",
+    "osType": "Distro",
+    "tags": [
+      "win3rd",
+      "gaming"
+    ],
+    "base": "Generador Open-Source sobre ISO oficial Windows 11",
+    "initSystem": "Windows NT",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3EMW%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "url": "https://github.com/ChrisTitusTech/winutil",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 1500,
+      "idleProcesses": 88,
+      "diskGb": 16,
+      "cpuIdlePct": 0.9,
+      "bootSec": 11
+    },
+    "scores": {
+      "hackathon": 88,
+      "lightness": 77,
+      "devXp": 90,
+      "stability": 92
+    },
+    "bestFor": "Crear tu propia ISO de Windows 11 sin telemetría ni cuenta Microsoft obligatoria en 3 clics",
+    "pros": [
+      "100% open-source y auditable dentro de WinUtil",
+      "Mantiene Windows Defender y Windows Update funcionando"
+    ],
+    "cons": [
+      "Requiere descargar primero la ISO oficial desde microsoft.com"
+    ]
+  },
+  {
+    "id": "os-win-ghost",
+    "name": "Ghost Spectre / KernelOS (Modded ISOs)",
+    "family": "Windows",
+    "osType": "Distro",
+    "tags": [
+      "gaming",
+      "win3rd"
+    ],
+    "base": "Windows 10/11 Modificado (Terceros — Código Cerrado)",
+    "initSystem": "Windows NT",
+    "country": "ID",
+    "flag": "🇮🇩",
+    "countryName": "Indonesia",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FB7185%22%3EGS%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "url": "https://ghostclouds.xyz",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis (ISO terceros)",
+    "resources": {
+      "idleRamMb": 1100,
+      "idleProcesses": 58,
+      "diskGb": 11,
+      "cpuIdlePct": 0.6,
+      "bootSec": 9
+    },
+    "scores": {
+      "hackathon": 62,
+      "lightness": 86,
+      "devXp": 65,
+      "stability": 72
+    },
+    "bestFor": "Solo PCs dedicadas a FPS extremos sin cuentas sensibles (preferir AtlasOS/ReviOS/Tiny11 para trabajo/dev)",
+    "pros": [
+      "Consumo mínimo de RAM/procesos (~58 procs) en hardware antiguo",
+      "Ghost Toolbox permite instalar drivers/Store rápido"
+    ],
+    "cons": [
+      "⚠️ Riesgo de seguridad: ISO precompilada de código cerrado (no usar para bancos, claves crypto ni cuentas principales)"
+    ]
   }
 ]

@@ -132,6 +132,7 @@
             <button class="chip" data-ostype="Distro">Distros Linux</button>
             <button class="chip" data-ostype="gaming">Gaming</button>
             <button class="chip" data-ostype="security">Seguridad / Privacidad</button>
+            <button class="chip" data-ostype="win3rd">Windows Terceros</button>
           </div>
           <div class="chip-group" id="os-family-filters">
             <button class="chip active" data-osfam="all">Todas Familias</button>
@@ -181,12 +182,19 @@
       <article class="panel mt-lg">
         <div class="panel-head">
           <div>
-            <h2>Navegadores Más Seguros y Más Livianos</h2>
-            <p class="muted">Privacidad real, anti-fingerprinting, RAM en reposo y procesos activos (ordenables por privacidad o ligereza).</p>
+            <h2>Navegadores Web Más Seguros, Livianos y de Terceros (PC &amp; Smartphones)</h2>
+            <p class="muted">Navegadores web para Windows/macOS/Linux, Android e iOS con privacidad real, anti-fingerprinting, RAM idle y links oficiales.</p>
           </div>
-          <div class="chip-group" id="browser-sort-filters">
-            <button class="chip active" data-bsort="privacy">Más Seguros</button>
-            <button class="chip" data-bsort="lightness">Más Livianos (RAM)</button>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <div class="chip-group" id="browser-plat-filters">
+              <button class="chip active" data-bplat="all">Todos</button>
+              <button class="chip" data-bplat="PC">Ordenadores (PC)</button>
+              <button class="chip" data-bplat="mobile">Smartphones (Android/iOS)</button>
+            </div>
+            <div class="chip-group" id="browser-sort-filters">
+              <button class="chip active" data-bsort="privacy">Más Seguros</button>
+              <button class="chip" data-bsort="lightness">Más Livianos (RAM)</button>
+            </div>
           </div>
         </div>
         <div id="browsers-grid" class="grid"></div>

@@ -311,7 +311,10 @@
       "cons": [
         "Algunas webs rompen por protección anti-fingerprinting estricta"
       ],
-      "url": "https://librewolf.net"
+      "url": "https://librewolf.net",
+      "platforms": [
+        "PC"
+      ]
     },
     {
       "id": "br-mullvad",
@@ -333,7 +336,10 @@
       "cons": [
         "No guarda sesiones ni cookies al cerrar (intencional)"
       ],
-      "url": "https://mullvad.net/en/browser"
+      "url": "https://mullvad.net/en/browser",
+      "platforms": [
+        "PC"
+      ]
     },
     {
       "id": "br-tor",
@@ -354,7 +360,11 @@
       "cons": [
         "Latencia alta por los 3 saltos; muchos captchas"
       ],
-      "url": "https://www.torproject.org"
+      "url": "https://www.torproject.org",
+      "platforms": [
+        "PC",
+        "Android"
+      ]
     },
     {
       "id": "br-brave",
@@ -376,14 +386,19 @@
       "cons": [
         "Conviene desactivar Leo AI / Rewards / News en ajustes para dejarlo ultra limpio"
       ],
-      "url": "https://brave.com"
+      "url": "https://brave.com",
+      "platforms": [
+        "PC",
+        "Android",
+        "iOS"
+      ]
     },
     {
       "id": "br-ungoogled",
       "name": "Ungoogled Chromium",
       "flag": "🇺🇸",
       "country": "US",
-      "logo": "https://cdn.simpleicons.org/chromium/4285F4",
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3EUN%3C%2Ftext%3E%3C%2Fsvg%3E",
       "engine": "Chromium puro sin Google",
       "idleRamMb": 310,
       "idleProcs": 7,
@@ -398,7 +413,10 @@
       "cons": [
         "Sin auto-updater nativo; extensiones requieren configuración manual"
       ],
-      "url": "https://github.com/ungoogled-software/ungoogled-chromium"
+      "url": "https://github.com/ungoogled-software/ungoogled-chromium",
+      "platforms": [
+        "PC"
+      ]
     },
     {
       "id": "br-firefox-arkenfox",
@@ -419,7 +437,10 @@
       "cons": [
         "Requiere aplicar user.js para endurecerlo"
       ],
-      "url": "https://github.com/arkenfox/user.js"
+      "url": "https://github.com/arkenfox/user.js",
+      "platforms": [
+        "PC"
+      ]
     },
     {
       "id": "br-zen",
@@ -440,7 +461,10 @@
       "cons": [
         "Aún en evolución rápida"
       ],
-      "url": "https://zen-browser.app"
+      "url": "https://zen-browser.app",
+      "platforms": [
+        "PC"
+      ]
     },
     {
       "id": "br-qutebrowser",
@@ -462,7 +486,10 @@
       "cons": [
         "Curva de aprendizaje Vim; sin extensiones Chrome"
       ],
-      "url": "https://qutebrowser.org"
+      "url": "https://qutebrowser.org",
+      "platforms": [
+        "PC"
+      ]
     },
     {
       "id": "br-safari-orion",
@@ -483,7 +510,11 @@
       "cons": [
         "Solo ecosistema Apple"
       ],
-      "url": "https://kagi.com/orion"
+      "url": "https://kagi.com/orion",
+      "platforms": [
+        "PC",
+        "iOS"
+      ]
     },
     {
       "id": "br-lynx",
@@ -504,7 +535,283 @@
       "cons": [
         "Sin JavaScript ni multimedia"
       ],
-      "url": "https://lynx.invisible-island.net"
+      "url": "https://lynx.invisible-island.net",
+      "platforms": [
+        "PC",
+        "Android"
+      ]
+    },
+    {
+      "id": "br-cromite",
+      "name": "Cromite (Android & PC)",
+      "engine": "Chromium (Fork Bromite OSS)",
+      "flag": "🇪🇺",
+      "country": "EU",
+      "platforms": [
+        "Android",
+        "PC"
+      ],
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%234ADE80%22%3ECR%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "url": "https://github.com/uazo/cromite",
+      "idleRamMb": 190,
+      "idleProcs": 6,
+      "privacy": 95,
+      "lightness": 92,
+      "bestFor": "El mejor Chromium open-source privado con adblock nativo para Android y PC (sucesor de Bromite)",
+      "pros": [
+        "Adblock integrado + anti-fingerprinting en Android sin root",
+        "100% open-source, cero telemetría de Google"
+      ],
+      "cons": [
+        "Se instala vía GitHub/F-Droid (Obtainium), no está en Play Store"
+      ]
+    },
+    {
+      "id": "br-ironfox",
+      "name": "IronFox (Android)",
+      "engine": "Gecko (Fork Firefox Endurecido)",
+      "flag": "🌐",
+      "country": "GL",
+      "platforms": [
+        "Android"
+      ],
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3EIF%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "url": "https://gitlab.com/ironfox-oss/IronFox",
+      "idleRamMb": 210,
+      "idleProcs": 5,
+      "privacy": 97,
+      "lightness": 86,
+      "bestFor": "Equivalente a LibreWolf/Mull para smartphones Android con uBlock Origin y hardening Gecko",
+      "pros": [
+        "uBlock Origin + extensiones Firefox en Android",
+        "Sin telemetría de Mozilla y parches anti-tracking"
+      ],
+      "cons": [
+        "Solo Android (vía F-Droid / Accrescent / Obtainium)"
+      ]
+    },
+    {
+      "id": "br-vanadium",
+      "name": "Vanadium (GrapheneOS / Android)",
+      "engine": "Chromium Hardened",
+      "flag": "🇨🇦",
+      "country": "CA",
+      "platforms": [
+        "Android"
+      ],
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3EVN%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "url": "https://github.com/GrapheneOS/Vanadium",
+      "idleRamMb": 185,
+      "idleProcs": 6,
+      "privacy": 98,
+      "lightness": 93,
+      "bestFor": "El navegador móvil más seguro por sandbox y mitigaciones de memoria (default en GrapheneOS)",
+      "pros": [
+        "Hardening de compilador + sandbox estricto anti-exploits",
+        "Rápido y mínimo consumo de batería"
+      ],
+      "cons": [
+        "Pensado principalmente para GrapheneOS (Pixel)"
+      ]
+    },
+    {
+      "id": "br-fennec",
+      "name": "Fennec F-Droid (Android)",
+      "engine": "Gecko (Firefox OSS)",
+      "flag": "🇺🇸",
+      "country": "US",
+      "platforms": [
+        "Android"
+      ],
+      "logo": "https://cdn.simpleicons.org/firefox/FF7139",
+      "url": "https://f-droid.org/packages/org.mozilla.fennec_fdroid/",
+      "idleRamMb": 220,
+      "idleProcs": 6,
+      "privacy": 90,
+      "lightness": 85,
+      "bestFor": "Firefox oficial limpio para Android sin blobs propietarios ni telemetría, con extensiones completas",
+      "pros": [
+        "Soporta uBlock Origin, Dark Reader y extensiones",
+        "Actualizado directo desde F-Droid"
+      ],
+      "cons": [
+        "Ligeramente más pesado que Cromite/Via"
+      ]
+    },
+    {
+      "id": "br-via",
+      "name": "Via Browser (Android Ultra-Light)",
+      "engine": "Android WebView",
+      "flag": "🇨🇳",
+      "country": "CN",
+      "platforms": [
+        "Android"
+      ],
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3EVI%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "url": "https://viayoo.com",
+      "idleRamMb": 65,
+      "idleProcs": 2,
+      "privacy": 74,
+      "lightness": 99,
+      "bestFor": "Celulares con poca RAM: APK de ~2 MB, arranca instantáneo y bloquea anuncios",
+      "pros": [
+        "Peso ridículo (~2 MB) y consumo mínimo de RAM/batería",
+        "Permite scripts de usuario y filtros adblock"
+      ],
+      "cons": [
+        "Código cerrado; usa el WebView del sistema"
+      ]
+    },
+    {
+      "id": "br-ddg",
+      "name": "DuckDuckGo Browser",
+      "engine": "WebKit / WebView / Blink",
+      "flag": "🇺🇸",
+      "country": "US",
+      "platforms": [
+        "PC",
+        "Android",
+        "iOS"
+      ],
+      "logo": "https://cdn.simpleicons.org/duckduckgo/DE5833",
+      "url": "https://duckduckgo.com/app",
+      "idleRamMb": 210,
+      "idleProcs": 7,
+      "privacy": 91,
+      "lightness": 89,
+      "bestFor": "Privacidad en 1 clic (botón Fuego que borra todo) en Android, iOS, macOS y Windows",
+      "pros": [
+        "Bloqueo de rastreadores, Duck Player (YouTube sin ads) y Email Protection",
+        "Muy liviano en iOS/macOS"
+      ],
+      "cons": [
+        "No soporta extensiones Chrome/Firefox"
+      ]
+    },
+    {
+      "id": "br-vivaldi",
+      "name": "Vivaldi",
+      "engine": "Chromium (3rd-party Power User)",
+      "flag": "🇳🇴",
+      "country": "NO",
+      "platforms": [
+        "PC",
+        "Android",
+        "iOS"
+      ],
+      "logo": "https://cdn.simpleicons.org/vivaldi/EF3939",
+      "url": "https://vivaldi.com",
+      "idleRamMb": 380,
+      "idleProcs": 15,
+      "privacy": 86,
+      "lightness": 76,
+      "bestFor": "Power users y hackathons: pestañas en mosaico (split screen), workspaces, notas y adblock nativo",
+      "pros": [
+        "Split-screen nativo para ver docs + app a la vez",
+        "Sin bloat de AI forzada ni crypto; sync cifrado en Islandia"
+      ],
+      "cons": [
+        "Interfaz UI parcialmente cerrada (núcleo Chromium)"
+      ]
+    },
+    {
+      "id": "br-floorp",
+      "name": "Floorp (Terceros Gecko)",
+      "engine": "Gecko (Firefox ESR Fork)",
+      "flag": "🇯🇵",
+      "country": "JP",
+      "platforms": [
+        "PC"
+      ],
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3EFL%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "url": "https://floorp.app",
+      "idleRamMb": 310,
+      "idleProcs": 10,
+      "privacy": 91,
+      "lightness": 84,
+      "bestFor": "Fork japonés de Firefox con workspaces, barra lateral web (tipo Vivaldi) y privacidad sin telemetría",
+      "pros": [
+        "100% open-source, ultra personalizable y compatible con extensiones Firefox",
+        "Split view nativo para dev"
+      ],
+      "cons": [
+        "Equipo independiente chico (basado en Firefox ESR)"
+      ]
+    },
+    {
+      "id": "br-thorium",
+      "name": "Thorium Browser",
+      "engine": "Chromium (AVX2/SSE4 Optimized)",
+      "flag": "🇺🇸",
+      "country": "US",
+      "platforms": [
+        "PC",
+        "Android"
+      ],
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3ETH%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "url": "https://thorium.rocks",
+      "idleRamMb": 270,
+      "idleProcs": 10,
+      "privacy": 84,
+      "lightness": 92,
+      "bestFor": "Velocidad bruta: Chromium compilado con flags AVX2/O3 para CPUs modernos (8–30% más rápido)",
+      "pros": [
+        "Extremadamente rápido en JS/WebGL y DevTools",
+        "Incluye builds para Linux, Windows, macOS y Android"
+      ],
+      "cons": [
+        "Parches de seguridad a veces llegan días después de Chromium oficial"
+      ]
+    },
+    {
+      "id": "br-waterfox",
+      "name": "Waterfox",
+      "engine": "Gecko (3rd-party Independent)",
+      "flag": "🇬🇧",
+      "country": "GB",
+      "platforms": [
+        "PC",
+        "Android"
+      ],
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3EWF%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "url": "https://www.waterfox.net",
+      "idleRamMb": 295,
+      "idleProcs": 9,
+      "privacy": 89,
+      "lightness": 86,
+      "bestFor": "Firefox clásico limpio sin telemetría ni funciones AI intrusivas, en PC y Android",
+      "pros": [
+        "Quita Pocket/telemetría de fábrica y soporta extensiones",
+        "Disponible en Windows, macOS, Linux y Android"
+      ],
+      "cons": [
+        "Menor aislamiento que LibreWolf/Mullvad"
+      ]
+    },
+    {
+      "id": "br-arc",
+      "name": "Arc Browser",
+      "engine": "Chromium",
+      "flag": "🇺🇸",
+      "country": "US",
+      "platforms": [
+        "PC",
+        "iOS"
+      ],
+      "logo": "https://cdn.simpleicons.org/arc/5B8CFF",
+      "url": "https://arc.net",
+      "idleRamMb": 460,
+      "idleProcs": 18,
+      "privacy": 72,
+      "lightness": 68,
+      "bestFor": "Productividad visual en macOS e iOS (Spaces, Split View y Little Arc para links rápidos)",
+      "pros": [
+        "Flujo de espacios de trabajo y pestañas verticales muy cómodo",
+        "Arc Search en iOS resume páginas rápido"
+      ],
+      "cons": [
+        "Exige cuenta obligatoria, consume bastante RAM y en mantenimiento (sin grandes features nuevas)"
+      ]
     }
   ]
 }
