@@ -1,0 +1,440 @@
+[
+  {
+    "id": "occ-geo",
+    "occasion": "Geolocalización, Mapas & Rutas",
+    "winnerFree": "OpenStreetMap + Leaflet/MapLibre + Nominatim + OSRM ($0)",
+    "winnerPaid": "Mapbox / Google Maps Platform",
+    "apis": [
+      {
+        "rank": 1,
+        "name": "MapLibre GL + OpenStreetMap + OSRM",
+        "flag": "🇩🇪",
+        "tier": "gratis",
+        "freeLimit": "Ilimitado (tiles públicos OSM / self-host)",
+        "paidCost": "$0",
+        "score": 97,
+        "bestFor": "Mapas vectoriales, geocoding (Nominatim) y rutas sin tarjeta",
+        "logo": "https://cdn.simpleicons.org/openstreetmap/7EBC6F"
+      },
+      {
+        "rank": 2,
+        "name": "Mapbox",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "50,000 map loads + 100K geocoding/mes",
+        "paidCost": "$5 / 1K loads extra",
+        "score": 95,
+        "bestFor": "Mapas 3D preciosos para demos y apps móviles",
+        "logo": "https://cdn.simpleicons.org/mapbox/F5F5F7"
+      },
+      {
+        "rank": 3,
+        "name": "Google Maps Platform",
+        "flag": "🇺🇸",
+        "tier": "pago",
+        "freeLimit": "$200/mes crédito (requiere tarjeta)",
+        "paidCost": "$7 / 1K loads · $17–$32 / 1K Places",
+        "score": 92,
+        "bestFor": "Mejor base de comercios (Places) y Street View; caro al escalar",
+        "logo": "https://cdn.simpleicons.org/googlemaps/4285F4"
+      },
+      {
+        "rank": 4,
+        "name": "Geoapify / LocationIQ",
+        "flag": "🇩🇪",
+        "tier": "freemium",
+        "freeLimit": "3,000–5,000 req/día sin tarjeta",
+        "paidCost": "Desde $49/mes",
+        "score": 90,
+        "bestFor": "Autocomplete de direcciones y rutas rápido sin levantar OSRM",
+        "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%234ADE80%22%3EGA%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "rank": 5,
+        "name": "ip-api.com / IPinfo",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "50K req/mes (IPinfo) · 45 req/min (ip-api)",
+        "paidCost": "Desde $99/mes",
+        "score": 93,
+        "bestFor": "Detectar país/ciudad/moneda del usuario por IP en 1 fetch",
+        "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3EIP%3C%2Ftext%3E%3C%2Fsvg%3E"
+      }
+    ]
+  },
+  {
+    "id": "occ-weather",
+    "occasion": "Clima, Agro & Imágenes Satelitales",
+    "winnerFree": "Open-Meteo ($0 sin API key) + NASA Earthdata",
+    "winnerPaid": "Tomorrow.io / Planet Labs",
+    "apis": [
+      {
+        "rank": 1,
+        "name": "Open-Meteo",
+        "flag": "🇨🇭",
+        "tier": "gratis",
+        "freeLimit": "10,000 req/día, SIN API key ni registro",
+        "paidCost": "$0 (open-source)",
+        "score": 99,
+        "bestFor": "Pronóstico horario, histórico 80 años, suelo, UV y calidad del aire",
+        "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3EOM%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "rank": 2,
+        "name": "OpenWeatherMap",
+        "flag": "🇬🇧",
+        "tier": "freemium",
+        "freeLimit": "1,000 llamadas/día gratis",
+        "paidCost": "$0.0015 / llamada extra",
+        "score": 88,
+        "bestFor": "Clima actual y alertas rápidas",
+        "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FB923C%22%3EOW%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "rank": 3,
+        "name": "NASA POWER / Copernicus Sentinel",
+        "flag": "🇺🇸",
+        "tier": "gratis",
+        "freeLimit": "Gratuito (datos abiertos satelitales)",
+        "paidCost": "$0",
+        "score": 94,
+        "bestFor": "Hackathons de agro, incendios, NDVI y cambio climático",
+        "logo": "https://cdn.simpleicons.org/nasa/E03C31"
+      },
+      {
+        "rank": 4,
+        "name": "Tomorrow.io",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "500 req/día gratis",
+        "paidCost": "Planes pro desde $35+/mes",
+        "score": 86,
+        "bestFor": "Alertas hiperlocales minuto a minuto",
+        "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3ETM%3C%2Ftext%3E%3C%2Fsvg%3E"
+      }
+    ]
+  },
+  {
+    "id": "occ-auth",
+    "occasion": "Autenticación & Gestión de Usuarios",
+    "winnerFree": "Supabase Auth (50K MAU) / Better Auth ($0 self-host)",
+    "winnerPaid": "Clerk / Auth0",
+    "apis": [
+      {
+        "rank": 1,
+        "name": "Supabase Auth",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "50,000 MAU gratis (OAuth, Magic Link, JWT)",
+        "paidCost": "Pro $25/mes (100K MAU)",
+        "score": 97,
+        "bestFor": "Login + Postgres RLS integrados en 5 minutos",
+        "logo": "https://cdn.simpleicons.org/supabase/3ECF8E"
+      },
+      {
+        "rank": 2,
+        "name": "Clerk",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "10,000 MAU gratis + UI login pre-armada",
+        "paidCost": "$25/mes + $0.02/MAU",
+        "score": 96,
+        "bestFor": "Componentes <SignIn/> listos en Next.js en 2 minutos",
+        "logo": "https://cdn.simpleicons.org/clerk/6C47FF"
+      },
+      {
+        "rank": 3,
+        "name": "Better Auth",
+        "flag": "🇺🇸",
+        "tier": "gratis",
+        "freeLimit": "Ilimitado (open-source en tu propia DB)",
+        "paidCost": "$0 siempre",
+        "score": 95,
+        "bestFor": "Cero vendor lock-in y 0 costo al escalar",
+        "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F5F5F7%22%3EBA%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "rank": 4,
+        "name": "Auth0",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "25,000 MAU gratis",
+        "paidCost": "Desde $35/mes (sube fuerte en enterprise)",
+        "score": 85,
+        "bestFor": "SSO corporativo SAML/OIDC",
+        "logo": "https://cdn.simpleicons.org/auth0/EB5424"
+      }
+    ]
+  },
+  {
+    "id": "occ-payments",
+    "occasion": "Pagos, Fintech, Divisas & Crypto Precios",
+    "winnerFree": "open.er-api.com + CoinGecko/DexScreener ($0) · Stripe/MercadoPago (sin fijo)",
+    "winnerPaid": "Stripe / Mercado Pago / Plaid",
+    "apis": [
+      {
+        "rank": 1,
+        "name": "Stripe",
+        "flag": "🇺🇸",
+        "tier": "pago",
+        "freeLimit": "Sandbox ilimitado gratis; $0 mensual",
+        "paidCost": "2.9% + $0.30 por cobro exitoso",
+        "score": 98,
+        "bestFor": "Pagos globales, suscripciones, Checkout y Billing",
+        "logo": "https://cdn.simpleicons.org/stripe/635BFF"
+      },
+      {
+        "rank": 2,
+        "name": "Mercado Pago",
+        "flag": "🇦🇷",
+        "tier": "pago",
+        "freeLimit": "Sandbox gratis; $0 mensual",
+        "paidCost": "~3.5%–6% según país y cuotas",
+        "score": 96,
+        "bestFor": "Cobros en Latam (ARS, BRL Pix, MXN, COP, CLP, QR)",
+        "logo": "https://cdn.simpleicons.org/mercadopago/00B1EA"
+      },
+      {
+        "rank": 3,
+        "name": "open.er-api.com / Frankfurter",
+        "flag": "🇪🇺",
+        "tier": "gratis",
+        "freeLimit": "Gratis sin API key (160+ divisas)",
+        "paidCost": "$0",
+        "score": 97,
+        "bestFor": "Tipos de cambio fiat en vivo para apps fintech",
+        "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3EFX%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "rank": 4,
+        "name": "CoinGecko / DexScreener API",
+        "flag": "🇸🇬",
+        "tier": "freemium",
+        "freeLimit": "30 req/min (CoinGecko) · 300 req/min (DexScreener)",
+        "paidCost": "CoinGecko Pro desde $129/mes",
+        "score": 94,
+        "bestFor": "Precios crypto, liquidez DEX y pares en tiempo real",
+        "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%238DC63F%22%3ECG%3C%2Ftext%3E%3C%2Fsvg%3E"
+      }
+    ]
+  },
+  {
+    "id": "occ-messaging",
+    "occasion": "WhatsApp, Telegram, Email & SMS",
+    "winnerFree": "Telegram Bot API ($0 ilimitado) + Resend (3K emails/mes)",
+    "winnerPaid": "WhatsApp Cloud API / Twilio",
+    "apis": [
+      {
+        "rank": 1,
+        "name": "Telegram Bot API",
+        "flag": "🇦🇪",
+        "tier": "gratis",
+        "freeLimit": "Ilimitado (30 msg/s), sin aprobación ni tarjeta",
+        "paidCost": "$0",
+        "score": 99,
+        "bestFor": "Hack ganador en hackathons: alertas, bots AI y pagos en 2 minutos",
+        "logo": "https://cdn.simpleicons.org/telegram/26A5E4"
+      },
+      {
+        "rank": 2,
+        "name": "Resend",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "3,000 emails/mes (100/día)",
+        "paidCost": "$20/mes (50K emails)",
+        "score": 96,
+        "bestFor": "Emails transaccionales con React Email en 1 fetch",
+        "logo": "https://cdn.simpleicons.org/resend/F5F5F7"
+      },
+      {
+        "rank": 3,
+        "name": "WhatsApp Cloud API (Meta)",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "Test number gratis + conversaciones de servicio gratis",
+        "paidCost": "$0.01–$0.08 por plantilla marketing/utilidad",
+        "score": 91,
+        "bestFor": "Integración oficial con WhatsApp (requiere verificación Meta)",
+        "logo": "https://cdn.simpleicons.org/whatsapp/25D366"
+      },
+      {
+        "rank": 4,
+        "name": "Twilio (SMS / Voz / WhatsApp)",
+        "flag": "🇺🇸",
+        "tier": "pago",
+        "freeLimit": "Trial ~$15 crédito (solo números verificados)",
+        "paidCost": "$0.008–$0.08 / SMS según país",
+        "score": 87,
+        "bestFor": "SMS globales y llamadas programables con AI",
+        "logo": "https://cdn.simpleicons.org/whatsapp/25D366"
+      }
+    ]
+  },
+  {
+    "id": "occ-media",
+    "occasion": "Storage, Imágenes, Audio/Voz & Video",
+    "winnerFree": "Cloudflare R2 (10GB, $0 egress) + Groq Whisper ($0)",
+    "winnerPaid": "Deepgram / ElevenLabs / fal.ai",
+    "apis": [
+      {
+        "rank": 1,
+        "name": "Cloudflare R2",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "10 GB + 10M lecturas + $0 egress",
+        "paidCost": "$0.015 / GB-mes ($0 transferencia)",
+        "score": 98,
+        "bestFor": "Subir archivos, PDFs, fotos y videos sin facturas sorpresa de S3",
+        "logo": "https://cdn.simpleicons.org/cloudflare/F38020"
+      },
+      {
+        "rank": 2,
+        "name": "Groq Whisper (STT)",
+        "flag": "🇺🇸",
+        "tier": "gratis",
+        "freeLimit": "Free tier generoso, 200x tiempo real",
+        "paidCost": "$0.04 / hora de audio",
+        "score": 98,
+        "bestFor": "Transcribir audio/voz a texto en milisegundos",
+        "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F55036%22%3EGQ%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "rank": 3,
+        "name": "Deepgram",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "$200 en créditos gratis al registrarte",
+        "paidCost": "$0.0043 / min (Nova-3 streaming)",
+        "score": 95,
+        "bestFor": "Transcripción streaming en vivo para agentes de voz",
+        "logo": "https://cdn.simpleicons.org/deepgram/13EF93"
+      },
+      {
+        "rank": 4,
+        "name": "ElevenLabs / Cartesia",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "10K chars/mes gratis",
+        "paidCost": "Desde $5/mes",
+        "score": 93,
+        "bestFor": "Voces ultra realistas para demos y asistentes",
+        "logo": "https://cdn.simpleicons.org/elevenlabs/F5F5F7"
+      },
+      {
+        "rank": 5,
+        "name": "Cloudinary / fal.ai",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "25 créditos/mes (Cloudinary) · pay-per-gen (fal)",
+        "paidCost": "fal FLUX ~$0.003–$0.03/imagen",
+        "score": 92,
+        "bestFor": "CDN de imágenes optimizadas o generación FLUX en <1s",
+        "logo": "https://cdn.simpleicons.org/cloudinary/3448C5"
+      }
+    ]
+  },
+  {
+    "id": "occ-search",
+    "occasion": "Búsqueda Web, Scraping & PDF / OCR",
+    "winnerFree": "Jina Reader r.jina.ai ($0 sin key) + Tavily (1K/mes)",
+    "winnerPaid": "Firecrawl / Perplexity Sonar / Exa",
+    "apis": [
+      {
+        "rank": 1,
+        "name": "Jina Reader (r.jina.ai)",
+        "flag": "🇩🇪",
+        "tier": "gratis",
+        "freeLimit": "Gratis sin API key (prefija r.jina.ai/URL)",
+        "paidCost": "Tokens extra baratos",
+        "score": 98,
+        "bestFor": "Convierte cualquier web o PDF en Markdown limpio para LLMs al instante",
+        "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2320B2AA%22%3EJN%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "rank": 2,
+        "name": "Tavily Search API",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "1,000 búsquedas/mes gratis",
+        "paidCost": "$0.008 / búsqueda",
+        "score": 96,
+        "bestFor": "Búsqueda web pensada para agentes AI y RAG",
+        "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3ETV%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "rank": 3,
+        "name": "Firecrawl",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "500 páginas gratis + open-source self-host",
+        "paidCost": "Desde $16/mes (3K págs)",
+        "score": 94,
+        "bestFor": "Crawlear sitios enteros con JS dinámico y extraer JSON estructurado",
+        "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FB923C%22%3EFC%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "rank": 4,
+        "name": "Mistral OCR / LlamaParse",
+        "flag": "🇫🇷",
+        "tier": "freemium",
+        "freeLimit": "1,000 págs/día (LlamaParse) · $1/1K págs (Mistral OCR)",
+        "paidCost": "$1 / 1,000 páginas",
+        "score": 95,
+        "bestFor": "Leer PDFs escaneados, facturas y tablas complejas con 99% precisión",
+        "logo": "https://cdn.simpleicons.org/mistralai/FA520F"
+      }
+    ]
+  },
+  {
+    "id": "occ-realtime",
+    "occasion": "Tiempo Real, Video Calls, Traducción & Utilidades",
+    "winnerFree": "Supabase Realtime + LiveKit + DeepL + Cloudflare Turnstile ($0)",
+    "winnerPaid": "Ably / Pusher / LiveKit Cloud",
+    "apis": [
+      {
+        "rank": 1,
+        "name": "LiveKit",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "Plan gratis generoso + open-source self-host",
+        "paidCost": "Pay-as-you-go por minuto",
+        "score": 97,
+        "bestFor": "Videollamadas WebRTC y agentes de voz AI en tiempo real",
+        "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3ELK%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "rank": 2,
+        "name": "Supabase Realtime / Ably",
+        "flag": "🇺🇸",
+        "tier": "freemium",
+        "freeLimit": "200 conexiones (Supabase) · 6M msg/mes (Ably)",
+        "paidCost": "Desde $25–$29/mes",
+        "score": 95,
+        "bestFor": "Chats en vivo, cursores colaborativos y dashboards live",
+        "logo": "https://cdn.simpleicons.org/supabase/3ECF8E"
+      },
+      {
+        "rank": 3,
+        "name": "DeepL API",
+        "flag": "🇩🇪",
+        "tier": "freemium",
+        "freeLimit": "500,000 caracteres/mes gratis",
+        "paidCost": "$5.49/mes + $25/1M chars",
+        "score": 94,
+        "bestFor": "Traducciones con mejor calidad natural que Google Translate",
+        "logo": "https://cdn.simpleicons.org/deepl/0F2B46"
+      },
+      {
+        "rank": 4,
+        "name": "Cloudflare Turnstile + QuickChart",
+        "flag": "🇺🇸",
+        "tier": "gratis",
+        "freeLimit": "Ilimitado gratis (Turnstile) · gráficos/QR por URL",
+        "paidCost": "$0",
+        "score": 96,
+        "bestFor": "Captcha invisible sin puzzles + gráficos/QRs instantáneos por URL",
+        "logo": "https://cdn.simpleicons.org/cloudflare/F38020"
+      }
+    ]
+  }
+]

@@ -21,7 +21,7 @@
 
       <nav class="main-tabs" role="tablist" aria-label="Secciones principales">
         <button class="tab-btn active" data-view="catalog" role="tab" aria-selected="true">Catálogo</button>
-        <button class="tab-btn" data-view="frameworks" role="tab" aria-selected="false">Frameworks</button>
+        <button class="tab-btn" data-view="frameworks" role="tab" aria-selected="false">Frameworks &amp; APIs</button>
         <button class="tab-btn" data-view="os" role="tab" aria-selected="false">OS &amp; Navegadores</button>
         <button class="tab-btn" data-view="stats" role="tab" aria-selected="false">Estadísticas &amp; Radar</button>
         <button class="tab-btn" data-view="agents" role="tab" aria-selected="false">Agentes &amp; A2A</button>
@@ -180,8 +180,20 @@
       </article>
     </section>
 
-    <!-- VIEW: FRAMEWORKS POR ÁREA Y LENGUAJE -->
+    <!-- VIEW: FRAMEWORKS POR ÁREA Y LENGUAJE + APIs POR OCASIÓN -->
     <section id="view-frameworks" class="view">
+      <article class="panel" style="margin-bottom:20px;">
+        <div class="panel-head">
+          <div>
+            <h2>APIs por Ocasión — Ranking &amp; Comparativa de Costos (Gratis vs Pago)</h2>
+            <p class="muted">Geolocalización, Mapas, Clima/Satélite, Auth, Pagos, WhatsApp/Telegram/Email, Storage/Audio, Scraping/OCR y Tiempo Real.</p>
+          </div>
+          <span class="tag tag-gratis">Ranking &amp; Costo</span>
+        </div>
+        <div class="chip-group" id="api-occ-filters" style="margin-bottom:14px;"></div>
+        <div id="api-occ-grid" style="display:flex;flex-direction:column;gap:14px;"></div>
+      </article>
+
       <div class="section-intro">
         <h2>Mejores Frameworks por Área (¿Cuál gana en cada disciplina?)</h2>
         <p class="muted">Data Science, Ciberseguridad, Fintech/Dinero, AI/Agentes, Web Full-Stack, Mobile, Desktop, Web3, Juegos e IoT.</p>

@@ -7,6 +7,8 @@ const state = {
   agents: null,
   comparisons: null,
   frameworks: null,
+  apiOccasions: [],
+  apiOccFilter: 'all',
   intel: null,
   warroom: null,
   devNews: [],
@@ -401,6 +403,53 @@ function renderBrowsers() {
       </article>
     `;
   }).join('');
+}
+
+function renderApiOccasions() {
+  if (!state.apiOccasions?.length) return;
+  const filtersEl = $('#api-occ-filters');
+  if (!filtersEl.dataset.ready) {
+    filtersEl.innerHTML = `<button class="chip active" data-apiocc="all">Todas las Ocasiones</button>` +
+      state.apiOccasions.map((o) => `<button class="chip" data-apiocc="${esc(o.id)}">${esc(o.occasion)}</button>`).join('');
+    filtersEl.dataset.ready = '1';
+  }
+  const shown = state.apiOccFilter === 'all'
+    ? state.apiOccasions
+    : state.apiOccasions.filter((o) => o.id === state.apiOccFilter);
+
+  $('#api-occ-grid').innerHTML = shown.map((o) => `
+    <div class="box">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+        <div>
+          <h3 style="margin:0;font-size:1rem;">${esc(o.occasion)}</h3>
+          <div class="card-sub" style="margin-top:3px;">
+            <strong style="color:#86efac;">Mejor Gratis:</strong> ${esc(o.winnerFree)} &nbsp;·&nbsp;
+            <strong style="color:var(--accent-strong);">Mejor Pago:</strong> ${esc(o.winnerPaid)}
+          </div>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>#</th><th>API</th><th>Tipo</th><th>Free Tier</th><th>Costo Pago</th><th>Score</th><th>Cuándo usarla</th></tr>
+          </thead>
+          <tbody>
+            ${o.apis.map((a) => `
+              <tr>
+                <td class="mono">#${a.rank}</td>
+                <td><div class="card-title-row">${logoBadge({ name: a.name, logo: a.logo, flag: a.flag, country: '' })}<strong>${esc(a.name)}</strong></div></td>
+                <td><span class="tag tag-${esc(a.tier)}">${esc(a.tier.toUpperCase())}</span></td>
+                <td>${esc(a.freeLimit)}</td>
+                <td class="mono">${esc(a.paidCost)}</td>
+                <td><span class="score-pill ${a.score >= 96 ? 'gold' : 'hi'}">${a.score}</span></td>
+                <td class="card-sub" style="color:#D4D4DD;">${esc(a.bestFor)}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `).join('');
 }
 
 function renderFrameworks() {
@@ -990,6 +1039,7 @@ function bindEvents() {
   bindChips('#os-family-filters', 'osfam', 'osFamily', renderOS);
   bindChips('#browser-sort-filters', 'bsort', 'browserSort', renderBrowsers);
   bindChips('#fw-area-filters', 'fwarea', 'fwArea', renderFrameworks);
+  bindChips('#api-occ-filters', 'apiocc', 'apiOccFilter', renderApiOccasions);
   bindChips('#agent-tier-filters', 'atier', 'agentTier', renderAgents);
   bindChips('#rank-tabs', 'rank', 'rankTab', renderStats);
   bindChips('#radar-filters', 'radar', 'radarFilter', renderStats);
@@ -1158,7 +1208,7 @@ function bindEvents() {
 
 async function init() {
   bindEvents();
-  const [models, apis, languages, tools, osList, agents, comparisons, frameworks, intel, warroom, meta, liveStatic] = await Promise.all([
+  const [models, apis, languages, tools, osList, agents, comparisons, frameworks, apiOccasions, intel, warroom, meta, liveStatic] = await Promise.all([
     fetch('./data/models.json').then((r) => r.json()),
     fetch('./data/apis.json').then((r) => r.json()),
     fetch('./data/languages.json').then((r) => r.json()),
@@ -1167,6 +1217,7 @@ async function init() {
     fetch('./data/agents.json').then((r) => r.json()),
     fetch('./data/comparisons.json').then((r) => r.json()),
     fetch('./data/frameworks.json').then((r) => r.json()),
+    fetch('./data/api-occasions.json').then((r) => r.json()),
     fetch('./data/intel.json').then((r) => r.json()),
     fetch('./data/warroom.json').then((r) => r.json()),
     fetch('./data/meta.json').then((r) => r.json()),
@@ -1178,6 +1229,7 @@ async function init() {
   state.agents = agents;
   state.comparisons = comparisons;
   state.frameworks = frameworks;
+  state.apiOccasions = apiOccasions;
   state.intel = intel;
   state.warroom = warroom;
   state.meta = meta;
@@ -1185,6 +1237,7 @@ async function init() {
 
   renderKPIs();
   renderCatalog();
+  renderApiOccasions();
   renderFrameworks();
   renderOS();
   renderBrowsers();

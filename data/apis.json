@@ -40,7 +40,8 @@
       "code": "const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {\n  method: 'POST',\n  headers: { Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`, 'Content-Type': 'application/json' },\n  body: JSON.stringify({\n    models: ['deepseek/deepseek-chat-v3:free', 'google/gemini-2.5-flash', 'meta-llama/llama-3.3-70b-instruct:free'],\n    messages\n  })\n});"
     },
     "agentTip": "Usa siempre el campo `models: [...]` (array) para que si un modelo da 429 en plena presentación, OpenRouter haga failover automático.",
-    "url": "https://openrouter.ai"
+    "url": "https://openrouter.ai",
+    "logo": "https://cdn.simpleicons.org/openrouter/F5F5F7"
   },
   {
     "id": "groq-api",
@@ -88,7 +89,8 @@
       "stars": 269,
       "pushedAt": "2026-10-12",
       "license": "Apache-2.0"
-    }
+    },
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F55036%22%3EGQ%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
     "id": "cerebras-api",
@@ -131,7 +133,8 @@
       "code": "const cerebras = new OpenAI({ baseURL: 'https://api.cerebras.ai/v1', apiKey: process.env.CEREBRAS_API_KEY });"
     },
     "agentTip": "Perfecto para generar código HTML/SVG o análisis en tiempo real mientras el juez escribe.",
-    "url": "https://cloud.cerebras.ai"
+    "url": "https://cloud.cerebras.ai",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3ECB%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
     "id": "siliconflow-api",
@@ -174,7 +177,8 @@
       "code": "const sf = new OpenAI({ baseURL: 'https://api.siliconflow.cn/v1', apiKey: process.env.SILICONFLOW_API_KEY });"
     },
     "agentTip": "Excelente backup si DeepSeek API oficial está congestionada.",
-    "url": "https://siliconflow.cn"
+    "url": "https://siliconflow.cn",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23A78BFA%22%3ESF%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
     "id": "github-models",
@@ -217,7 +221,8 @@
       "code": "const ghAI = new OpenAI({\n  baseURL: 'https://models.inference.ai.azure.com',\n  apiKey: process.env.GITHUB_TOKEN\n});"
     },
     "agentTip": "Ideal para equipos estudiantiles sin tarjeta de crédito que necesitan modelos pagos gratis.",
-    "url": "https://github.com/marketplace/models"
+    "url": "https://github.com/marketplace/models",
+    "logo": "https://cdn.simpleicons.org/github/F5F5F7"
   },
   {
     "id": "supabase-api",
@@ -265,7 +270,8 @@
       "stars": 115381,
       "pushedAt": "2026-11-24",
       "license": "Apache-2.0"
-    }
+    },
+    "logo": "https://cdn.simpleicons.org/supabase/3ECF8E"
   },
   {
     "id": "tidb-serverless",
@@ -313,7 +319,8 @@
       "stars": 40770,
       "pushedAt": "2026-11-24",
       "license": "Apache-2.0"
-    }
+    },
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FB7185%22%3ETi%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
     "id": "neon-db",
@@ -361,7 +368,8 @@
       "stars": 23392,
       "pushedAt": "2026-08-31",
       "license": "Apache-2.0"
-    }
+    },
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%234ADE80%22%3ENE%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
     "id": "upstash-redis",
@@ -409,7 +417,8 @@
       "stars": 987,
       "pushedAt": "2026-11-24",
       "license": "MIT"
-    }
+    },
+    "logo": "https://cdn.simpleicons.org/upstash/00E9A3"
   },
   {
     "id": "tavily-api",
@@ -457,7 +466,8 @@
       "stars": 1433,
       "pushedAt": "2026-10-26",
       "license": "MIT"
-    }
+    },
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3ETV%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
     "id": "firecrawl-api",
@@ -505,7 +515,8 @@
       "stars": 208797,
       "pushedAt": "2026-11-24",
       "license": "AGPL-3.0"
-    }
+    },
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FB923C%22%3EFC%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
     "id": "jina-reader",
@@ -553,7 +564,8 @@
       "stars": 12277,
       "pushedAt": "2026-05-22",
       "license": "Apache-2.0"
-    }
+    },
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2320B2AA%22%3EJN%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
     "id": "mercado-pago-api",
@@ -601,7 +613,8 @@
       "stars": 490,
       "pushedAt": "2026-11-13",
       "license": "MIT"
-    }
+    },
+    "logo": "https://cdn.simpleicons.org/mercadopago/00B1EA"
   },
   {
     "id": "stripe-api",
@@ -649,7 +662,8 @@
       "stars": 4579,
       "pushedAt": "2026-11-24",
       "license": "MIT"
-    }
+    },
+    "logo": "https://cdn.simpleicons.org/stripe/635BFF"
   },
   {
     "id": "open-meteo",
@@ -697,7 +711,8 @@
       "stars": 6722,
       "pushedAt": "2026-11-24",
       "license": "AGPL-3.0"
-    }
+    },
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3EOM%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
     "id": "deepgram-api",
@@ -745,7 +760,8 @@
       "stars": 285,
       "pushedAt": "2026-11-24",
       "license": "MIT"
-    }
+    },
+    "logo": "https://cdn.simpleicons.org/deepgram/13EF93"
   },
   {
     "id": "fal-ai",
@@ -793,7 +809,8 @@
       "stars": 190,
       "pushedAt": "2026-11-23",
       "license": "MIT"
-    }
+    },
+    "logo": "https://cdn.simpleicons.org/cloudinary/3448C5"
   },
   {
     "id": "resend-api",
@@ -841,7 +858,8 @@
       "stars": 986,
       "pushedAt": "2026-11-21",
       "license": "MIT"
-    }
+    },
+    "logo": "https://cdn.simpleicons.org/resend/F5F5F7"
   },
   {
     "id": "nvidia-nim-api",
@@ -884,7 +902,8 @@
       "code": "export NVIDIA_API_KEY=nvapi-...\n# Base URL: https://integrate.api.nvidia.com/v1"
     },
     "agentTip": "Úsalo en opencode.json con el sub-agente Frontier Booster.",
-    "url": "https://build.nvidia.com"
+    "url": "https://build.nvidia.com",
+    "logo": "https://cdn.simpleicons.org/nvidia/76B900"
   },
   {
     "id": "chutes-api",
@@ -926,7 +945,8 @@
       "code": "const chutes = new OpenAI({ baseURL: 'https://llm.chutes.ai/v1', apiKey: process.env.CHUTES_API_KEY });"
     },
     "agentTip": "Último eslabón de tu cadena de fallback gratis.",
-    "url": "https://chutes.ai"
+    "url": "https://chutes.ai",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3ECH%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
     "id": "together-api",
@@ -973,7 +993,8 @@
       "stars": 73,
       "pushedAt": "2026-11-22",
       "license": "Apache-2.0"
-    }
+    },
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3ETG%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
     "id": "hf-inference",
@@ -1021,6 +1042,7 @@
       "stars": 2615,
       "pushedAt": "2026-11-24",
       "license": "MIT"
-    }
+    },
+    "logo": "https://cdn.simpleicons.org/huggingface/FFD21E"
   }
 ]
