@@ -1,0 +1,2114 @@
+[
+  {
+    "id": "deepseek-v3",
+    "name": "DeepSeek V3",
+    "provider": "DeepSeek",
+    "category": "models",
+    "subType": "LLM / Coding",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "freemium",
+    "priceLabel": "$0.28 / $0.42 per 1M",
+    "freeTier": "Open Weights (MIT) + endpoints gratis en OpenRouter / SiliconFlow",
+    "openRouterId": "deepseek/deepseek-chat",
+    "githubRepo": "deepseek-ai/DeepSeek-V3",
+    "metrics": {
+      "context": "164K",
+      "speedTps": 75,
+      "inputPer1M": 0.257,
+      "outputPer1M": 1.029,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 97,
+      "speed": 88,
+      "value": 99,
+      "quality": 94
+    },
+    "bestFor": "Backend masivo, generación de código y agentes a costo casi cero",
+    "pros": [
+      "Relación calidad/precio imbatible",
+      "Open-weights MIT",
+      "Excelente JSON/tool calling"
+    ],
+    "cons": [
+      "API oficial puede saturarse en horas pico (usar OpenRouter/Together como fallback)"
+    ],
+    "config": {
+      "title": "DeepSeek V3 via OpenAI SDK (con fallback)",
+      "lang": "ts",
+      "code": "import OpenAI from 'openai';\nexport const deepseek = new OpenAI({\n  baseURL: 'https://api.deepseek.com/v1',\n  apiKey: process.env.DEEPSEEK_API_KEY,\n});\n// Hackathon tip: temperature 0.2 para código, 0.7 para copy/pitch\nconst res = await deepseek.chat.completions.create({\n  model: 'deepseek-chat',\n  temperature: 0.2,\n  response_format: { type: 'json_object' },\n  messages: [{ role: 'user', content: 'Genera esquema OpenAPI...' }]\n});"
+    },
+    "agentTip": "Úsalo como worker principal para sub-agentes de código, tests y transformación de datos sin quemar presupuesto.",
+    "url": "https://platform.deepseek.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "github": {
+      "stars": 104895,
+      "pushedAt": "2025-08-28",
+      "license": "MIT"
+    },
+    "logo": "https://cdn.simpleicons.org/deepseek/4D6BFE"
+  },
+  {
+    "id": "deepseek-r1",
+    "name": "DeepSeek R1",
+    "provider": "DeepSeek",
+    "category": "models",
+    "subType": "Reasoning",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "freemium",
+    "priceLabel": "$0.55 / $2.19 per 1M",
+    "freeTier": "Open Weights (MIT) + destilados gratis en Groq/Cerebras",
+    "openRouterId": "deepseek/deepseek-r1",
+    "githubRepo": "deepseek-ai/DeepSeek-R1",
+    "metrics": {
+      "context": "164K",
+      "speedTps": 52,
+      "inputPer1M": 0.571,
+      "outputPer1M": 2.286,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 95,
+      "speed": 74,
+      "value": 98,
+      "quality": 95
+    },
+    "bestFor": "Arquitectura, algoritmos complejos, debugging profundo y lógica de negocio",
+    "pros": [
+      "Razonamiento nivel frontier",
+      "Costo 10x menor que rivales cerrados",
+      "Destilados corren a 300+ tok/s en Groq"
+    ],
+    "cons": [
+      "Mayor latencia por chain-of-thought; no usar para autocompletado en tiempo real"
+    ],
+    "config": {
+      "title": "DeepSeek R1 Arquitecto",
+      "lang": "json",
+      "code": "{\n  \"model\": \"deepseek/deepseek-r1\",\n  \"max_tokens\": 4096,\n  \"temperature\": 0.6,\n  \"system\": \"Diseña arquitectura mínima viable para 24h. Devuelve plan por pasos, esquema DB y riesgos.\"\n}"
+    },
+    "agentTip": "Asigna R1 exclusivamente al sub-agente Arquitecto y al Debugger cuando otro modelo entra en bucle.",
+    "url": "https://platform.deepseek.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "github": {
+      "stars": 92053,
+      "pushedAt": "2025-06-27",
+      "license": "MIT"
+    },
+    "logo": "https://cdn.simpleicons.org/deepseek/4D6BFE"
+  },
+  {
+    "id": "claude-sonnet",
+    "name": "Claude Sonnet 4.5",
+    "provider": "Anthropic",
+    "category": "models",
+    "subType": "Coding / Agents",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "pago",
+    "priceLabel": "$3.00 / $15.00 per 1M",
+    "freeTier": "Chat web gratis limitado; API de pago (prompt caching ahorra hasta 90%)",
+    "openRouterId": "anthropic/claude-sonnet-4.5",
+    "githubRepo": null,
+    "metrics": {
+      "context": "1M",
+      "speedTps": 78,
+      "inputPer1M": 3,
+      "outputPer1M": 15,
+      "openWeights": false
+    },
+    "scores": {
+      "hackathon": 98,
+      "speed": 84,
+      "value": 85,
+      "quality": 99
+    },
+    "bestFor": "Coding agéntico end-to-end, UI pulida, tool use y refactorización multi-archivo",
+    "pros": [
+      "Rey actual en coding y seguimiento de instrucciones",
+      "Tool calling ultra estable",
+      "Prompt caching agresivo"
+    ],
+    "cons": [
+      "API solo de pago",
+      "Rate limits estrictos en Tier 1"
+    ],
+    "config": {
+      "title": "Claude Sonnet con Prompt Caching",
+      "lang": "ts",
+      "code": "import Anthropic from '@anthropic-ai/sdk';\nconst client = new Anthropic();\nconst msg = await client.messages.create({\n  model: 'claude-sonnet-4-5',\n  max_tokens: 4096,\n  system: [{ type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } }],\n  messages: [{ role: 'user', content: 'Construye el componente...' }]\n});"
+    },
+    "agentTip": "El mejor orquestador y agente Frontend/Full-Stack. Activa prompt caching para bajar el costo de tus agentes 70-90%.",
+    "url": "https://console.anthropic.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "logo": "https://cdn.simpleicons.org/anthropic/F5F5F7"
+  },
+  {
+    "id": "gemini-2-5-flash",
+    "name": "Gemini 2.5 Flash",
+    "provider": "Google DeepMind",
+    "category": "models",
+    "subType": "Multimodal / Fast",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis / $0.15 per 1M",
+    "freeTier": "Google AI Studio gratis (alto RPM/RPD + 1M context sin tarjeta)",
+    "openRouterId": "google/gemini-2.5-flash",
+    "githubRepo": null,
+    "metrics": {
+      "context": "1.0M",
+      "speedTps": 185,
+      "inputPer1M": 0.3,
+      "outputPer1M": 2.5,
+      "openWeights": false
+    },
+    "scores": {
+      "hackathon": 98,
+      "speed": 96,
+      "value": 99,
+      "quality": 91
+    },
+    "bestFor": "Hackathons $0, video/audio/PDF nativo, contexto gigante de 1M tokens",
+    "pros": [
+      "Free tier más generoso del mercado",
+      "Acepta video, audio, imágenes y PDFs directo",
+      "1M de contexto real"
+    ],
+    "cons": [
+      "En código complejo largo puede ser menos preciso que Claude Sonnet"
+    ],
+    "config": {
+      "title": "Gemini 2.5 Flash Free Tier (Multimodal + JSON)",
+      "lang": "ts",
+      "code": "import { GoogleGenAI } from '@google/genai';\nconst ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });\nconst res = await ai.models.generateContent({\n  model: 'gemini-2.5-flash',\n  contents: 'Analiza este documento y extrae entidades',\n  config: { responseMimeType: 'application/json', thinkingConfig: { thinkingBudget: 0 } }\n});"
+    },
+    "agentTip": "Pon thinkingBudget: 0 para respuestas en <500ms en demos en vivo, o súbelo para tareas de análisis multimodal.",
+    "url": "https://aistudio.google.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "logo": "https://cdn.simpleicons.org/googlegemini/8E75B2"
+  },
+  {
+    "id": "gemini-2-5-pro",
+    "name": "Gemini 2.5 Pro",
+    "provider": "Google DeepMind",
+    "category": "models",
+    "subType": "Reasoning / Multimodal",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "freemium",
+    "priceLabel": "Free Tier / $1.25 per 1M",
+    "freeTier": "Free tier limitado en Google AI Studio (sin tarjeta)",
+    "openRouterId": "google/gemini-2.5-pro",
+    "githubRepo": null,
+    "metrics": {
+      "context": "1.0M",
+      "speedTps": 82,
+      "inputPer1M": 1.25,
+      "outputPer1M": 10,
+      "openWeights": false
+    },
+    "scores": {
+      "hackathon": 96,
+      "speed": 82,
+      "value": 93,
+      "quality": 97
+    },
+    "bestFor": "Ingerir repositorios enteros, papers, videos largos y razonamiento avanzado",
+    "pros": [
+      "1M context con altísima precisión",
+      "Excelente en frontend, ciencia y multimodalidad",
+      "Free tier usable para pruebas"
+    ],
+    "cons": [
+      "Rate limits ajustados en el plan gratuito"
+    ],
+    "config": {
+      "title": "Gemini 2.5 Pro Repo Analyzer",
+      "lang": "bash",
+      "code": "# Empaqueta tu repo con repomix y pásalo entero a Gemini 2.5 Pro (1M ctx)\nnpx repomix --style xml -o repo-context.xml"
+    },
+    "agentTip": "Úsalo como revisor de arquitectura total: cabe todo tu código + docs + reglas de la hackathon en un solo prompt.",
+    "url": "https://aistudio.google.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "logo": "https://cdn.simpleicons.org/googlegemini/8E75B2"
+  },
+  {
+    "id": "openai-gpt-4o-mini",
+    "name": "GPT-4o mini / GPT-4.1 mini",
+    "provider": "OpenAI",
+    "category": "models",
+    "subType": "LLM / Fast",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "pago",
+    "priceLabel": "$0.15 - $0.40 per 1M",
+    "freeTier": "GitHub Models ofrece acceso gratis para prototipos",
+    "openRouterId": "openai/gpt-4o-mini",
+    "githubRepo": null,
+    "metrics": {
+      "context": "128K",
+      "speedTps": 120,
+      "inputPer1M": 0.15,
+      "outputPer1M": 0.6,
+      "openWeights": false
+    },
+    "scores": {
+      "hackathon": 91,
+      "speed": 91,
+      "value": 92,
+      "quality": 86
+    },
+    "bestFor": "Structured Outputs garantizados, clasificación rápida y routers de agentes",
+    "pros": [
+      "JSON Schema estricto (100% adherencia)",
+      "Muy rápido y económico",
+      "Ecosistema SDK estándar"
+    ],
+    "cons": [
+      "Menor capacidad en código complejo que Sonnet/DeepSeek V3"
+    ],
+    "config": {
+      "title": "Structured Outputs con Zod",
+      "lang": "ts",
+      "code": "import OpenAI from 'openai';\nconst openai = new OpenAI();\nconst out = await openai.chat.completions.create({\n  model: 'gpt-4o-mini',\n  response_format: { type: 'json_object' },\n  messages: [{ role: 'system', content: 'Responde solo JSON válido.' }, { role: 'user', content: prompt }]\n});"
+    },
+    "agentTip": "Ideal como Router/Classifier barato antes de despachar a modelos pesados.",
+    "url": "https://platform.openai.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F5F5F7%22%3EOA%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "openai-o3-mini",
+    "name": "OpenAI o3 / o4-mini",
+    "provider": "OpenAI",
+    "category": "models",
+    "subType": "Reasoning",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "pago",
+    "priceLabel": "$1.10 / $4.40 per 1M",
+    "freeTier": "Acceso limitado en GitHub Models / ChatGPT Free",
+    "openRouterId": "openai/o4-mini",
+    "githubRepo": null,
+    "metrics": {
+      "context": "200K",
+      "speedTps": 95,
+      "inputPer1M": 0.55,
+      "outputPer1M": 2.2,
+      "openWeights": false
+    },
+    "scores": {
+      "hackathon": 93,
+      "speed": 83,
+      "value": 87,
+      "quality": 96
+    },
+    "bestFor": "Matemáticas, algoritmos competitivos, tool-use con razonamiento",
+    "pros": [
+      "Control de reasoning_effort (low/medium/high)",
+      "Muy fuerte en STEM y debugging"
+    ],
+    "cons": [
+      "API de pago; requiere cuenta verificada para modelos top"
+    ],
+    "config": {
+      "title": "Reasoning Effort Adaptativo",
+      "lang": "json",
+      "code": "{\n  \"model\": \"o4-mini\",\n  \"reasoning_effort\": \"medium\",\n  \"max_completion_tokens\": 4096\n}"
+    },
+    "agentTip": "Usa reasoning_effort: 'low' para velocidad en demo y 'high' para diseñar algoritmos críticos.",
+    "url": "https://platform.openai.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F5F5F7%22%3EOA%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "qwen-2-5-coder",
+    "name": "Qwen 2.5 / Qwen 3 Coder",
+    "provider": "Alibaba Cloud",
+    "category": "models",
+    "subType": "Coding / Open-Weights",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis (Apache 2.0) / $0.14 per 1M",
+    "freeTier": "Open-weights Apache 2.0 + free tier en OpenRouter, HuggingFace, Ollama",
+    "openRouterId": "qwen/qwen-2.5-coder-32b-instruct",
+    "githubRepo": "QwenLM/Qwen2.5-Coder",
+    "metrics": {
+      "context": "33K",
+      "speedTps": 140,
+      "inputPer1M": 0.66,
+      "outputPer1M": 1,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 94,
+      "speed": 92,
+      "value": 99,
+      "quality": 91
+    },
+    "bestFor": "Autocompletado local (Ollama/LM Studio), generación rápida de código y bajo costo",
+    "pros": [
+      "Licencia Apache 2.0 comercial",
+      "Corre local en laptop (7B/14B/32B)",
+      "Excelente en TS, Python, SQL y Rust"
+    ],
+    "cons": [
+      "Menor conocimiento cultural occidental que modelos USA"
+    ],
+    "config": {
+      "title": "Qwen Coder Local Offline (sin internet en la hackathon)",
+      "lang": "bash",
+      "code": "# Backup offline si muere el WiFi de la hackathon\nollama pull qwen2.5-coder:14b\nollama serve # Endpoint OpenAI-compatible en http://localhost:11434/v1"
+    },
+    "agentTip": "Tenlo pre-descargado en Ollama como plan B offline cuando el WiFi del evento colapse.",
+    "url": "https://qwenlm.github.io",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "github": {
+      "stars": 16870,
+      "pushedAt": "2026-03-24",
+      "license": null
+    },
+    "logo": "https://cdn.simpleicons.org/alibabacloud/FF6A00"
+  },
+  {
+    "id": "kimi-k2",
+    "name": "Kimi K2",
+    "provider": "Moonshot AI",
+    "category": "models",
+    "subType": "Agents / Coding",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "freemium",
+    "priceLabel": "$0.15 - $0.60 per 1M",
+    "freeTier": "Open-weights + free tiers en Groq / OpenRouter",
+    "openRouterId": "moonshotai/kimi-k2",
+    "githubRepo": "MoonshotAI/Kimi-K2",
+    "metrics": {
+      "context": "262K",
+      "speedTps": 110,
+      "inputPer1M": 0.6,
+      "outputPer1M": 3,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 95,
+      "speed": 90,
+      "value": 96,
+      "quality": 94
+    },
+    "bestFor": "Flujos agénticos autónomos, tool calling encadenado y coding",
+    "pros": [
+      "Entrenado específicamente para agentes y herramientas",
+      "Open-weights MoE 1T",
+      "Muy rápido en Groq"
+    ],
+    "cons": [
+      "Modelo base enorme para self-host propio (usar vía API)"
+    ],
+    "config": {
+      "title": "Kimi K2 en Groq (Ultra baja latencia)",
+      "lang": "ts",
+      "code": "const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {\n  method: 'POST',\n  headers: { Authorization: `Bearer ${process.env.GROQ_API_KEY}`, 'Content-Type': 'application/json' },\n  body: JSON.stringify({ model: 'moonshotai/kimi-k2-instruct', messages, tools })\n});"
+    },
+    "agentTip": "Brutal para agentes con 5-15 herramientas MCP simultáneas sin pagar precios de modelos cerrados USA.",
+    "url": "https://platform.moonshot.ai",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "github": {
+      "stars": 11122,
+      "pushedAt": "2026-01-21",
+      "license": "NOASSERTION"
+    },
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3EKM%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "glm-4-5",
+    "name": "GLM-4.5 / GLM-4-Flash",
+    "provider": "Zhipu AI (Z.ai)",
+    "category": "models",
+    "subType": "LLM / Agents",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "gratis",
+    "priceLabel": "GLM-4-Flash $0 / GLM-4.5 $0.60",
+    "freeTier": "GLM-4-Flash es 100% gratis en API oficial de Zhipu",
+    "openRouterId": "z-ai/glm-4.5",
+    "githubRepo": "THUDM/GLM-4",
+    "metrics": {
+      "context": "131K",
+      "speedTps": 95,
+      "inputPer1M": 0.6,
+      "outputPer1M": 2.2,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 90,
+      "speed": 89,
+      "value": 98,
+      "quality": 89
+    },
+    "bestFor": "Agentes full-stack chinos, UI generation y prototipos gratuitos",
+    "pros": [
+      "GLM-4-Flash gratuito sin límite de crédito rápido",
+      "Buen rendimiento en agentes y HTML/CSS",
+      "Open-weights"
+    ],
+    "cons": [
+      "Documentación oficial parcialmente en chino"
+    ],
+    "config": {
+      "title": "Zhipu GLM-4-Flash Gratis",
+      "lang": "ts",
+      "code": "const zhipu = new OpenAI({\n  baseURL: 'https://open.bigmodel.cn/api/paas/v4/',\n  apiKey: process.env.ZHIPU_API_KEY\n});\n// Usa 'glm-4-flash' para $0 en llamadas de agentes ligeros"
+    },
+    "agentTip": "Úsalo como worker gratuito para scraping semántico, resúmenes y pipelines en background.",
+    "url": "https://open.bigmodel.cn",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "github": {
+      "stars": 7074,
+      "pushedAt": "2026-08-05",
+      "license": "Apache-2.0"
+    },
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3EGL%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "minimax-m1",
+    "name": "MiniMax M1 / Hailuo",
+    "provider": "MiniMax",
+    "category": "models",
+    "subType": "Long Context / Audio-Video",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "freemium",
+    "priceLabel": "$0.40 / $2.20 per 1M",
+    "freeTier": "Open-weights M1 + créditos gratis en plataforma Hailuo/MiniMax",
+    "openRouterId": "minimax/minimax-m1",
+    "githubRepo": "MiniMax-AI/MiniMax-M1",
+    "metrics": {
+      "context": "1M",
+      "speedTps": 70,
+      "inputPer1M": 0.4,
+      "outputPer1M": 2.2,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 88,
+      "speed": 80,
+      "value": 92,
+      "quality": 89
+    },
+    "bestFor": "Contexto ultra largo (1M tokens) open-weights + generación de voz/video para demos",
+    "pros": [
+      "1M context open-weights",
+      "Ecosistema fuerte en TTS y Video (Hailuo)",
+      "Costo bajo"
+    ],
+    "cons": [
+      "Menos adopción en frameworks occidentales"
+    ],
+    "config": {
+      "title": "MiniMax M1 via OpenRouter",
+      "lang": "json",
+      "code": "{\n  \"model\": \"minimax/minimax-m1\",\n  \"max_tokens\": 8192\n}"
+    },
+    "agentTip": "Combina MiniMax TTS/Video para generar un intro demo impactante en 5 minutos para el pitch.",
+    "url": "https://www.minimax.io",
+    "github": {
+      "stars": 3184,
+      "pushedAt": "2025-07-07",
+      "license": "Apache-2.0"
+    },
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FB7185%22%3EMM%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "llama-3-3-70b",
+    "name": "Llama 3.3 70B / Llama 4 Scout",
+    "provider": "Meta",
+    "category": "models",
+    "subType": "Open-Weights / Fast",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "$0 en Groq/Cerebras / $0.12",
+    "freeTier": "100% gratis en Groq (14,400 req/día), Cerebras y Cloudflare Workers AI",
+    "openRouterId": "meta-llama/llama-3.3-70b-instruct",
+    "githubRepo": "meta-llama/llama-models",
+    "metrics": {
+      "context": "131K",
+      "speedTps": 450,
+      "inputPer1M": 0.71,
+      "outputPer1M": 0.71,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 95,
+      "speed": 100,
+      "value": 100,
+      "quality": 88
+    },
+    "bestFor": "Demos en tiempo real (voz, chat instantáneo, UI reactiva) a 400-2000 tok/s gratis",
+    "pros": [
+      "Velocidad absurda en Groq/Cerebras",
+      "Totalmente gratis en múltiples clouds",
+      "Excelente para agentes de voz"
+    ],
+    "cons": [
+      "Menos capaz en arquitectura compleja que Sonnet/R1"
+    ],
+    "config": {
+      "title": "Llama 3.3 70B en Groq (Respuesta instantánea)",
+      "lang": "ts",
+      "code": "import Groq from 'groq-sdk';\nconst groq = new Groq({ apiKey: process.env.GROQ_API_KEY });\nconst stream = await groq.chat.completions.create({\n  model: 'llama-3.3-70b-versatile',\n  stream: true,\n  messages: [{ role: 'user', content: 'Responde en 1 línea...' }]\n});"
+    },
+    "agentTip": "El rey indiscutible para demos de voz en vivo frente a jurados: latencia imperceptible.",
+    "url": "https://console.groq.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "github": {
+      "stars": 7729,
+      "pushedAt": "2026-02-11",
+      "license": "NOASSERTION"
+    },
+    "logo": "https://cdn.simpleicons.org/meta/0467DF"
+  },
+  {
+    "id": "mistral-codestral",
+    "name": "Mistral Large / Codestral",
+    "provider": "Mistral AI",
+    "category": "models",
+    "subType": "Coding / OCR / EU",
+    "country": "FR",
+    "flag": "🇫🇷",
+    "countryName": "Francia",
+    "region": "Europa",
+    "pricingTier": "freemium",
+    "priceLabel": "Free Tier / $0.30 - $2.00 per 1M",
+    "freeTier": "La Plateforme ofrece tier gratuito experimental + Codestral gratis para IDE",
+    "openRouterId": "mistralai/codestral-2501",
+    "githubRepo": "mistralai/mistral-common",
+    "metrics": {
+      "context": "256K",
+      "speedTps": 115,
+      "inputPer1M": 0.3,
+      "outputPer1M": 0.9,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 90,
+      "speed": 91,
+      "value": 93,
+      "quality": 89
+    },
+    "bestFor": "FIM autocomplete, Mistral OCR (PDFs a Markdown perfectos) y cumplimiento GDPR/EU",
+    "pros": [
+      "Mistral OCR es top 1 para PDFs complejos",
+      "Codestral tiene 256K ctx y FIM ultra rápido",
+      "Soberanía europea"
+    ],
+    "cons": [
+      "Razonamiento detrás de Claude/DeepSeek R1"
+    ],
+    "config": {
+      "title": "Mistral OCR para Hackathons de Documentos",
+      "lang": "ts",
+      "code": "const ocr = await fetch('https://api.mistral.ai/v1/ocr', {\n  method: 'POST',\n  headers: { Authorization: `Bearer ${process.env.MISTRAL_API_KEY}`, 'Content-Type': 'application/json' },\n  body: JSON.stringify({ model: 'mistral-ocr-latest', document: { type: 'document_url', document_url: pdfUrl } })\n});"
+    },
+    "agentTip": "Si la hackathon involucra facturas, PDFs médicos o legales, Mistral OCR te ahorra 6 horas de parsing.",
+    "url": "https://console.mistral.ai",
+    "github": {
+      "stars": 966,
+      "pushedAt": "2026-11-24",
+      "license": "Apache-2.0"
+    },
+    "logo": "https://cdn.simpleicons.org/mistralai/FA520F"
+  },
+  {
+    "id": "grok-3",
+    "name": "Grok 3 / Grok 3 mini",
+    "provider": "xAI",
+    "category": "models",
+    "subType": "Reasoning / Real-time",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "pago",
+    "priceLabel": "$0.30 (mini) / $3.00 per 1M",
+    "freeTier": "Créditos promocionales periódicos en xAI Console",
+    "openRouterId": "x-ai/grok-3-mini",
+    "githubRepo": null,
+    "metrics": {
+      "context": "131K",
+      "speedTps": 105,
+      "inputPer1M": 0.3,
+      "outputPer1M": 0.5,
+      "openWeights": false
+    },
+    "scores": {
+      "hackathon": 89,
+      "speed": 90,
+      "value": 89,
+      "quality": 91
+    },
+    "bestFor": "Búsqueda en tiempo real (X/Web), razonamiento económico con Grok 3 mini",
+    "pros": [
+      "Grok 3 mini es muy barato y rápido para razonar",
+      "Acceso a tendencias en vivo",
+      "Compatible OpenAI SDK"
+    ],
+    "cons": [
+      "Sin free tier permanente en API"
+    ],
+    "config": {
+      "title": "xAI Grok 3 mini vía OpenAI SDK",
+      "lang": "ts",
+      "code": "const xai = new OpenAI({ baseURL: 'https://api.x.ai/v1', apiKey: process.env.XAI_API_KEY });"
+    },
+    "agentTip": "Genial para hackathons de noticias, fintech o análisis de sentimiento en tiempo real.",
+    "url": "https://console.x.ai",
+    "logo": "https://cdn.simpleicons.org/x/F5F5F7"
+  },
+  {
+    "id": "cohere-command-a",
+    "name": "Cohere Command A + Rerank 3.5",
+    "provider": "Cohere",
+    "category": "models",
+    "subType": "RAG / Enterprise",
+    "country": "CA",
+    "flag": "🇨🇦",
+    "countryName": "Canadá",
+    "region": "USA",
+    "pricingTier": "freemium",
+    "priceLabel": "Trial Gratis / $2.50 per 1M",
+    "freeTier": "Trial API Key gratis (1,000 llamadas/mes) ideal para Rerank + Embed",
+    "openRouterId": "cohere/command-a",
+    "githubRepo": null,
+    "metrics": {
+      "context": "256K",
+      "speedTps": 90,
+      "inputPer1M": 2.5,
+      "outputPer1M": 10,
+      "openWeights": false
+    },
+    "scores": {
+      "hackathon": 88,
+      "speed": 86,
+      "value": 90,
+      "quality": 90
+    },
+    "bestFor": "RAG con citas exactas y Reranking multilingüe (español incluido)",
+    "pros": [
+      "Rerank 3.5 mejora precisión RAG en +30% con 3 líneas de código",
+      "Embeddings multilingües top",
+      "Trial gratis"
+    ],
+    "cons": [
+      "Límite RPM en trial key"
+    ],
+    "config": {
+      "title": "Cohere Rerank en 5 líneas para RAG ganador",
+      "lang": "ts",
+      "code": "const rerank = await fetch('https://api.cohere.com/v2/rerank', {\n  method: 'POST',\n  headers: { Authorization: `Bearer ${process.env.COHERE_API_KEY}`, 'Content-Type': 'application/json' },\n  body: JSON.stringify({ model: 'rerank-v3.5', query, documents, top_n: 5 })\n});"
+    },
+    "agentTip": "Agrega Cohere Rerank sobre cualquier vector DB para impresionar a jueces con respuestas sin alucinaciones.",
+    "url": "https://dashboard.cohere.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%234ADE80%22%3ECO%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "flux-1-schnell",
+    "name": "FLUX.1 [schnell / pro]",
+    "provider": "Black Forest Labs",
+    "category": "models",
+    "subType": "Image Gen",
+    "country": "DE",
+    "flag": "🇩🇪",
+    "countryName": "Alemania",
+    "region": "Europa",
+    "pricingTier": "freemium",
+    "priceLabel": "$0.003/img (schnell) / Open Weights",
+    "freeTier": "FLUX.1 schnell es Apache 2.0 y gratis en Cloudflare Workers AI / HuggingFace",
+    "openRouterId": null,
+    "githubRepo": "black-forest-labs/flux",
+    "metrics": {
+      "context": "Image",
+      "speedTps": 250,
+      "inputPer1M": 0,
+      "outputPer1M": 0,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 93,
+      "speed": 95,
+      "value": 97,
+      "quality": 94
+    },
+    "bestFor": "Generación de imágenes fotorrealistas y texto legible en <1.5 segundos",
+    "pros": [
+      "Calidad superior en tipografía dentro de imágenes",
+      "Genera en 4 pasos (<1.5s)",
+      "Apache 2.0"
+    ],
+    "cons": [
+      "FLUX Pro requiere pago en fal.ai/Replicate/BFL"
+    ],
+    "config": {
+      "title": "FLUX.1 schnell gratis en Cloudflare Workers AI",
+      "lang": "ts",
+      "code": "const img = await env.AI.run('@cf/black-forest-labs/flux-1-schnell', {\n  prompt: 'Minimalist cyberpunk dashboard UI icon, dark background',\n  steps: 4\n});"
+    },
+    "agentTip": "Genera avatares, portadas y mockups dinámicos en tu app sin gastar $1 usando Workers AI.",
+    "url": "https://bfl.ai",
+    "github": {
+      "stars": 26083,
+      "pushedAt": "2025-07-31",
+      "license": "Apache-2.0"
+    },
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3EFX%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "elevenlabs-flash",
+    "name": "ElevenLabs Flash v2.5",
+    "provider": "ElevenLabs",
+    "category": "models",
+    "subType": "Audio / TTS",
+    "country": "PL",
+    "flag": "🇵🇱",
+    "countryName": "Polonia",
+    "region": "Europa",
+    "pricingTier": "freemium",
+    "priceLabel": "10K chars gratis / $5+/mes",
+    "freeTier": "10,000 caracteres/mes gratis + Conversational AI sandbox",
+    "openRouterId": null,
+    "githubRepo": null,
+    "metrics": {
+      "context": "Audio",
+      "speedTps": 300,
+      "inputPer1M": 0,
+      "outputPer1M": 0,
+      "openWeights": false
+    },
+    "scores": {
+      "hackathon": 92,
+      "speed": 96,
+      "value": 85,
+      "quality": 98
+    },
+    "bestFor": "Voces ultra-realistas en español/inglés con latencia de 75ms para agentes de voz",
+    "pros": [
+      "75ms de latencia en Flash v2.5",
+      "Mejor naturalidad vocal del mercado",
+      "Clonación rápida"
+    ],
+    "cons": [
+      "Se agota rápido en free tier si haces muchas pruebas (cachea audios de demo)"
+    ],
+    "config": {
+      "title": "Streaming TTS baja latencia",
+      "lang": "ts",
+      "code": "const audio = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream`, {\n  method: 'POST',\n  headers: { 'xi-api-key': process.env.ELEVENLABS_API_KEY, 'Content-Type': 'application/json' },\n  body: JSON.stringify({ text, model_id: 'eleven_flash_v2_5' })\n});"
+    },
+    "agentTip": "Usa Web Speech API gratis durante desarrollo y activa ElevenLabs solo para el video y la demo final.",
+    "url": "https://elevenlabs.io",
+    "logo": "https://cdn.simpleicons.org/elevenlabs/F5F5F7"
+  },
+  {
+    "id": "upstage-solar",
+    "name": "Solar Pro / Document Parse",
+    "provider": "Upstage",
+    "category": "models",
+    "subType": "LLM / Document AI",
+    "country": "KR",
+    "flag": "🇰🇷",
+    "countryName": "Corea del Sur",
+    "region": "Asia-Pac",
+    "pricingTier": "freemium",
+    "priceLabel": "$10 créditos gratis / $0.25",
+    "freeTier": "Créditos de prueba gratis en Upstage Console",
+    "openRouterId": null,
+    "githubRepo": null,
+    "metrics": {
+      "context": "64K",
+      "speedTps": 95,
+      "inputPer1M": 0.25,
+      "outputPer1M": 0.25,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 84,
+      "speed": 88,
+      "value": 88,
+      "quality": 85
+    },
+    "bestFor": "Extracción estructurada de tablas y documentos complejos (HTML/Markdown)",
+    "pros": [
+      "Document Parse conserva tablas complejas",
+      "Eficiente en una sola GPU"
+    ],
+    "cons": [
+      "Menos conocido fuera de Asia"
+    ],
+    "config": {
+      "title": "Upstage Document Parse",
+      "lang": "bash",
+      "code": "curl -X POST https://api.upstage.ai/v1/document-ai/document-parse \\\n  -H \"Authorization: Bearer $UPSTAGE_API_KEY\" \\\n  -F \"document=@factura.pdf\" -F \"output_formats=['markdown']\""
+    },
+    "agentTip": "Alternativa ultra-precisa a Mistral OCR para pipelines de extracción de tablas financieras.",
+    "url": "https://console.upstage.ai",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23A78BFA%22%3EUP%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "whisper-groq",
+    "name": "Whisper Large v3 Turbo (Groq)",
+    "provider": "OpenAI / Groq",
+    "category": "models",
+    "subType": "Audio / STT",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis en Groq / $0.04 por hora",
+    "freeTier": "2,000 req/día gratis en Groq API (transcribe 1 min de audio en <0.3s)",
+    "openRouterId": null,
+    "githubRepo": "openai/whisper",
+    "metrics": {
+      "context": "Audio",
+      "speedTps": 500,
+      "inputPer1M": 0,
+      "outputPer1M": 0,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 96,
+      "speed": 100,
+      "value": 100,
+      "quality": 94
+    },
+    "bestFor": "Transcripción de voz instantánea en español/inglés para asistentes de voz",
+    "pros": [
+      "216x tiempo real en Groq",
+      "Gratis para hackathons",
+      "Excelente precisión en español latino"
+    ],
+    "cons": [
+      "No hace diarización nativa (para eso usar Deepgram)"
+    ],
+    "config": {
+      "title": "Audio-to-Text en 300ms con Groq",
+      "lang": "ts",
+      "code": "const form = new FormData();\nform.append('file', audioBlob, 'voice.webm');\nform.append('model', 'whisper-large-v3-turbo');\nform.append('language', 'es');\nconst r = await fetch('https://api.groq.com/openai/v1/audio/transcriptions', {\n  method: 'POST', headers: { Authorization: `Bearer ${process.env.GROQ_API_KEY}` }, body: form\n});"
+    },
+    "agentTip": "Pipeline de voz $0 ganador: Micrófono -> Groq Whisper -> Groq Llama 3.3 -> Web Speech / ElevenLabs.",
+    "url": "https://console.groq.com",
+    "github": {
+      "stars": 113406,
+      "pushedAt": "2026-08-31",
+      "license": "MIT"
+    },
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F5F5F7%22%3EOA%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "category": "models",
+    "id": "kimi-k2-5-k3",
+    "name": "Kimi K2.5 / K3 (Series)",
+    "provider": "Moonshot AI",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "subType": "Agents / Reasoning / Coding",
+    "pricingTier": "freemium",
+    "priceLabel": "$0.45 - $2.20 / Free en NIM & OpenRouter",
+    "freeTier": "Disponible gratis en NVIDIA NIM, OpenRouter (:free) y Kimi web",
+    "openRouterId": "moonshotai/kimi-k2.5",
+    "githubRepo": "MoonshotAI/Kimi-K2",
+    "metrics": {
+      "context": "262K",
+      "speedTps": 98,
+      "inputPer1M": 0.5,
+      "outputPer1M": 2.5,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 96,
+      "speed": 90,
+      "value": 97,
+      "quality": 96
+    },
+    "reasoning": 94,
+    "bestFor": "Agentes autónomos largos, coding multi-paso y reemplazo directo cuando se acaban créditos de Claude",
+    "pros": [
+      "Tool calling ultra sólido en tareas largas",
+      "Open-weights + barato en API",
+      "Multimodal + razonamiento"
+    ],
+    "cons": [
+      "Consumo alto de tokens en modo thinking si no limitas max_tokens"
+    ],
+    "config": {
+      "title": "Kimi vía NVIDIA NIM",
+      "lang": "ts",
+      "code": "const client = new OpenAI({ baseURL: 'https://integrate.api.nvidia.com/v1', apiKey: process.env.NVIDIA_API_KEY });\n// model: 'moonshotai/kimi-k2-instruct'"
+    },
+    "agentTip": "Reemplazo de emergencia para Claude Sonnet en OpenCode/Cline cuando te quedas sin cuota.",
+    "url": "https://platform.moonshot.ai",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3EKM%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "category": "models",
+    "id": "glm-5",
+    "name": "GLM-4.6 / GLM-5 (Series)",
+    "provider": "Zhipu AI (Z.ai)",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "subType": "Coding / Agents / Reasoning",
+    "pricingTier": "freemium",
+    "priceLabel": "$0.35 - $1.40 / Coding Plan $3/mes",
+    "freeTier": "GLM-4-Flash gratis + tiers gratis en NVIDIA NIM y OpenRouter",
+    "openRouterId": "z-ai/glm-4.6",
+    "githubRepo": "zai-org/GLM-4.5",
+    "metrics": {
+      "context": "205K",
+      "speedTps": 92,
+      "inputPer1M": 0.5,
+      "outputPer1M": 2,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 95,
+      "speed": 89,
+      "value": 98,
+      "quality": 95
+    },
+    "reasoning": 93,
+    "bestFor": "Coding agéntico full-stack con endpoint compatible con Claude Code",
+    "pros": [
+      "Endpoint Anthropic-compatible en Z.ai (Claude Code / OpenCode)",
+      "Top en benchmarks agénticos",
+      "Precio bajísimo"
+    ],
+    "cons": [
+      "En picos la API directa puede tener latencia variable"
+    ],
+    "config": {
+      "title": "GLM dentro de Claude Code",
+      "lang": "bash",
+      "code": "export ANTHROPIC_BASE_URL=https://api.z.ai/api/anthropic\nexport ANTHROPIC_AUTH_TOKEN=$ZAI_API_KEY\nclaude"
+    },
+    "agentTip": "Cambias 2 variables de entorno y sigues usando Claude Code con GLM por centavos.",
+    "url": "https://z.ai",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3EGL%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "category": "models",
+    "id": "qwen-3-coder",
+    "name": "Qwen 3 235B / Qwen 3 Coder 480B",
+    "provider": "Alibaba Cloud",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "subType": "Reasoning / Coding / Hybrid",
+    "pricingTier": "gratis",
+    "priceLabel": "Apache 2.0 ($0 en OpenRouter :free / NIM)",
+    "freeTier": "Gratis en OpenRouter :free, NVIDIA NIM, Cerebras, Qwen Code CLI (2K req/día) y Ollama",
+    "openRouterId": "qwen/qwen3-coder",
+    "githubRepo": "QwenLM/Qwen3-Coder",
+    "metrics": {
+      "context": "262K",
+      "speedTps": 135,
+      "inputPer1M": 0.3,
+      "outputPer1M": 1,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 96,
+      "speed": 94,
+      "value": 100,
+      "quality": 95
+    },
+    "reasoning": 92,
+    "bestFor": "Coding agéntico gratis con modo híbrido thinking/no-thinking",
+    "pros": [
+      "Apache 2.0",
+      "Gratis en múltiples proveedores",
+      "Qwen Code CLI con 2,000 requests/día gratis"
+    ],
+    "cons": [
+      "Sin thinking es menos profundo en arquitectura compleja"
+    ],
+    "config": {
+      "title": "Qwen Code CLI gratis",
+      "lang": "bash",
+      "code": "npm i -g @qwen-code/qwen-code\nqwen  # login OAuth gratis"
+    },
+    "agentTip": "Caballo de batalla #1 cuando se agotan tus créditos pagos.",
+    "url": "https://qwenlm.github.io",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "logo": "https://cdn.simpleicons.org/alibabacloud/FF6A00"
+  },
+  {
+    "category": "models",
+    "id": "deepseek-v3-2",
+    "name": "DeepSeek V3.1 / V3.2 (Hybrid Thinking)",
+    "provider": "DeepSeek",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "subType": "Hybrid Reasoning / Agents",
+    "pricingTier": "freemium",
+    "priceLabel": "$0.28 / $0.42 per 1M",
+    "freeTier": "Open-weights MIT + :free en OpenRouter + NVIDIA NIM",
+    "openRouterId": "deepseek/deepseek-v3.2-exp",
+    "githubRepo": "deepseek-ai/DeepSeek-V3.2-Exp",
+    "metrics": {
+      "context": "164K",
+      "speedTps": 70,
+      "inputPer1M": 0.27,
+      "outputPer1M": 0.41,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 97,
+      "speed": 86,
+      "value": 100,
+      "quality": 95
+    },
+    "reasoning": 95,
+    "bestFor": "Un solo modelo con modo thinking + modo rápido, endpoint compatible con Anthropic",
+    "pros": [
+      "Thinking on/off en el mismo modelo",
+      "Sparse attention: contexto largo barato",
+      "Compatible con Claude Code vía api.deepseek.com/anthropic"
+    ],
+    "cons": [
+      "Picos de saturación en horario China"
+    ],
+    "config": {
+      "title": "DeepSeek en Claude Code",
+      "lang": "bash",
+      "code": "export ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic\nexport ANTHROPIC_AUTH_TOKEN=$DEEPSEEK_API_KEY\nexport ANTHROPIC_MODEL=deepseek-chat"
+    },
+    "agentTip": "El reemplazo más barato de Sonnet: mismo flujo de Claude Code a ~1/10 del precio.",
+    "url": "https://platform.deepseek.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "logo": "https://cdn.simpleicons.org/deepseek/4D6BFE"
+  },
+  {
+    "category": "models",
+    "id": "minimax-m2",
+    "name": "MiniMax M2",
+    "provider": "MiniMax",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "subType": "Agents / Coding",
+    "pricingTier": "freemium",
+    "priceLabel": "$0.30 / $1.20 per 1M",
+    "freeTier": "Gratis temporal en OpenRouter / MiniMax Agent + open-weights",
+    "openRouterId": "minimax/minimax-m2",
+    "githubRepo": "MiniMax-AI/MiniMax-M2",
+    "metrics": {
+      "context": "197K",
+      "speedTps": 100,
+      "inputPer1M": 0.6,
+      "outputPer1M": 1.8,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 93,
+      "speed": 90,
+      "value": 97,
+      "quality": 92
+    },
+    "reasoning": 90,
+    "bestFor": "Agentes de código eficientes (MoE 10B activos) muy baratos",
+    "pros": [
+      "Diseñado para coding/agentes",
+      "Barato y rápido",
+      "Open-weights"
+    ],
+    "cons": [
+      "Menos conocido en tutoriales occidentales"
+    ],
+    "config": {
+      "title": "MiniMax M2 OpenRouter",
+      "lang": "json",
+      "code": "{ \"model\": \"minimax/minimax-m2\" }"
+    },
+    "agentTip": "Buen worker barato para sub-agentes de implementación.",
+    "url": "https://www.minimax.io",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FB7185%22%3EMM%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "category": "models",
+    "id": "doubao-seed",
+    "name": "Doubao Seed 1.6 / UI-TARS",
+    "provider": "ByteDance",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "subType": "LLM / GUI Agents",
+    "pricingTier": "freemium",
+    "priceLabel": "$0.11 - $0.50 per 1M",
+    "freeTier": "Seed-Coder/UI-TARS open-weights + créditos en Volcano Engine / Trae",
+    "openRouterId": "bytedance/ui-tars-1.5-7b",
+    "githubRepo": "bytedance/UI-TARS",
+    "metrics": {
+      "context": "128K",
+      "speedTps": 120,
+      "inputPer1M": 0.1,
+      "outputPer1M": 0.2,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 89,
+      "speed": 93,
+      "value": 96,
+      "quality": 89
+    },
+    "reasoning": 86,
+    "bestFor": "Agentes que controlan pantallas/navegador (UI-TARS) y volumen barato",
+    "pros": [
+      "UI-TARS controla GUIs sin API",
+      "Precios mínimos",
+      "Seed-Coder 8B fuerte"
+    ],
+    "cons": [
+      "Registro en Volcano Engine complejo fuera de China"
+    ],
+    "config": {
+      "title": "UI-TARS desktop",
+      "lang": "bash",
+      "code": "git clone https://github.com/bytedance/UI-TARS-desktop"
+    },
+    "agentTip": "Úsalo para demos de agentes que manejan apps visualmente.",
+    "url": "https://seed.bytedance.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.389Z",
+    "logo": "https://cdn.simpleicons.org/bytedance/3C8CFF"
+  },
+  {
+    "category": "models",
+    "id": "stepfun-step",
+    "name": "StepFun Step-3",
+    "provider": "StepFun",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "subType": "Multimodal / Reasoning",
+    "pricingTier": "freemium",
+    "priceLabel": "$0.30 / Open Weights",
+    "freeTier": "Endpoints en OpenRouter / StepFun",
+    "openRouterId": "stepfun-ai/step3",
+    "githubRepo": "stepfun-ai/Step3",
+    "metrics": {
+      "context": "64K",
+      "speedTps": 88,
+      "inputPer1M": 0.3,
+      "outputPer1M": 1,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 86,
+      "speed": 86,
+      "value": 93,
+      "quality": 88
+    },
+    "reasoning": 87,
+    "bestFor": "Razonamiento multimodal (visión) open-weights barato",
+    "pros": [
+      "Fuerte en visión + razonamiento",
+      "Bajo costo"
+    ],
+    "cons": [
+      "Menor disponibilidad en providers occidentales"
+    ],
+    "config": {
+      "title": "Step-3 vía OpenRouter",
+      "lang": "json",
+      "code": "{ \"model\": \"stepfun-ai/step3\" }"
+    },
+    "agentTip": "Backup silencioso en tu array de fallback.",
+    "url": "https://platform.stepfun.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23A78BFA%22%3ESF%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "category": "models",
+    "id": "ernie-4-5",
+    "name": "Baidu ERNIE 4.5 / X1",
+    "provider": "Baidu",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "subType": "LLM / Reasoning",
+    "pricingTier": "freemium",
+    "priceLabel": "Open Weights / $0.28",
+    "freeTier": "Open-weights Apache 2.0 + Qianfan / OpenRouter",
+    "openRouterId": "baidu/ernie-4.5-300b-a47b",
+    "githubRepo": "PaddlePaddle/ERNIE",
+    "metrics": {
+      "context": "128K",
+      "speedTps": 85,
+      "inputPer1M": 0.28,
+      "outputPer1M": 1.1,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 85,
+      "speed": 84,
+      "value": 93,
+      "quality": 87
+    },
+    "reasoning": 86,
+    "bestFor": "MoE open-weights multilingüe y económico",
+    "pros": [
+      "Apache 2.0",
+      "Muy económico"
+    ],
+    "cons": [
+      "Menos optimizado para coding que DeepSeek/Qwen"
+    ],
+    "config": {
+      "title": "ERNIE 4.5",
+      "lang": "json",
+      "code": "{ \"model\": \"baidu/ernie-4.5-300b-a47b\" }"
+    },
+    "agentTip": "Proveedor extra en rotaciones gratuitas.",
+    "url": "https://yiyan.baidu.com",
+    "logo": "https://cdn.simpleicons.org/baidu/2932E1"
+  },
+  {
+    "category": "models",
+    "id": "hunyuan",
+    "name": "Tencent Hunyuan A13B / T1",
+    "provider": "Tencent",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "subType": "LLM / 3D / Video",
+    "pricingTier": "freemium",
+    "priceLabel": "Open Weights / API barata",
+    "freeTier": "Hunyuan-A13B open-weights + Hunyuan3D gratis en HuggingFace",
+    "openRouterId": "tencent/hunyuan-a13b-instruct",
+    "githubRepo": "Tencent-Hunyuan/Hunyuan-A13B",
+    "metrics": {
+      "context": "256K",
+      "speedTps": 110,
+      "inputPer1M": 0.14,
+      "outputPer1M": 0.57,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 86,
+      "speed": 90,
+      "value": 95,
+      "quality": 86
+    },
+    "reasoning": 85,
+    "bestFor": "Modelo eficiente local + generación 3D (Hunyuan3D) para demos visuales",
+    "pros": [
+      "13B activos: corre en 1 GPU",
+      "Hunyuan3D genera assets 3D gratis"
+    ],
+    "cons": [
+      "Ecosistema menor fuera de China"
+    ],
+    "config": {
+      "title": "Hunyuan3D local",
+      "lang": "bash",
+      "code": "git clone https://github.com/Tencent-Hunyuan/Hunyuan3D-2"
+    },
+    "agentTip": "Genera modelos 3D para tu demo AR/juego en minutos.",
+    "url": "https://hunyuan.tencent.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3EHY%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "category": "models",
+    "id": "nvidia-nemotron",
+    "name": "NVIDIA Nemotron Ultra 253B / Super 49B",
+    "provider": "NVIDIA",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Reasoning / Free NIM",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis en NVIDIA NIM",
+    "freeTier": "Gratis en build.nvidia.com sin tarjeta (también aloja DeepSeek, Qwen, Llama, Kimi, GLM)",
+    "openRouterId": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+    "githubRepo": "NVIDIA/NeMo",
+    "metrics": {
+      "context": "128K",
+      "speedTps": 78,
+      "inputPer1M": 0,
+      "outputPer1M": 0,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 93,
+      "speed": 85,
+      "value": 100,
+      "quality": 92
+    },
+    "reasoning": 91,
+    "bestFor": "Razonamiento potente 100% gratis cuando se agotan los créditos",
+    "pros": [
+      "Gratis en build.nvidia.com",
+      "Toggle de razonamiento on/off",
+      "Open-weights"
+    ],
+    "cons": [
+      "Rate limit ~40 RPM en tier gratis"
+    ],
+    "config": {
+      "title": "NVIDIA NIM Free API",
+      "lang": "ts",
+      "code": "const nim = new OpenAI({ baseURL: 'https://integrate.api.nvidia.com/v1', apiKey: process.env.NVIDIA_API_KEY });\n// model: 'nvidia/llama-3.1-nemotron-ultra-253b-v1'"
+    },
+    "agentTip": "Cuenta gratis en build.nvidia.com + OpenCode = DeepSeek, Qwen, Kimi y Nemotron gratis.",
+    "url": "https://build.nvidia.com",
+    "logo": "https://cdn.simpleicons.org/nvidia/76B900"
+  },
+  {
+    "category": "models",
+    "id": "gpt-5",
+    "name": "OpenAI GPT-5 / GPT-5 Codex",
+    "provider": "OpenAI",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Frontier / Reasoning / Coding",
+    "pricingTier": "pago",
+    "priceLabel": "$1.25 / $10.00 per 1M (mini $0.25)",
+    "freeTier": "ChatGPT Free limitado; Codex incluido en ChatGPT Plus",
+    "openRouterId": "openai/gpt-5",
+    "githubRepo": null,
+    "metrics": {
+      "context": "400K",
+      "speedTps": 90,
+      "inputPer1M": 1.25,
+      "outputPer1M": 10,
+      "openWeights": false
+    },
+    "scores": {
+      "hackathon": 98,
+      "speed": 86,
+      "value": 88,
+      "quality": 99
+    },
+    "reasoning": 99,
+    "bestFor": "Arquitectura compleja, bugs imposibles y coding full-stack de máxima precisión",
+    "pros": [
+      "Razonamiento top mundial",
+      "400K contexto",
+      "Structured outputs infalibles"
+    ],
+    "cons": [
+      "API de pago; reasoning alto es lento"
+    ],
+    "config": {
+      "title": "GPT-5 Responses API",
+      "lang": "ts",
+      "code": "const res = await openai.responses.create({ model: 'gpt-5', reasoning: { effort: 'medium' }, input: prompt });"
+    },
+    "agentTip": "Úsalo para destrabar; delega lo repetitivo a modelos baratos.",
+    "url": "https://platform.openai.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.390Z",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F5F5F7%22%3EOA%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "category": "models",
+    "id": "gpt-oss",
+    "name": "OpenAI gpt-oss 120B / 20B",
+    "provider": "OpenAI",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Open-Weights Reasoning",
+    "pricingTier": "gratis",
+    "priceLabel": "Apache 2.0 ($0 en Groq/Cerebras/NIM/Ollama)",
+    "freeTier": "Gratis en Groq, Cerebras, NVIDIA NIM, OpenRouter :free y local (20B en 16GB)",
+    "openRouterId": "openai/gpt-oss-120b",
+    "githubRepo": "openai/gpt-oss",
+    "metrics": {
+      "context": "131K",
+      "speedTps": 500,
+      "inputPer1M": 0.05,
+      "outputPer1M": 0.25,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 95,
+      "speed": 99,
+      "value": 100,
+      "quality": 90
+    },
+    "reasoning": 91,
+    "bestFor": "Razonamiento estilo o4-mini gratis y ultrarrápido en Groq/Cerebras",
+    "pros": [
+      "Apache 2.0 de OpenAI",
+      "20B corre en laptop de 16GB",
+      "500+ tok/s en Cerebras/Groq"
+    ],
+    "cons": [
+      "Conocimiento general menor que GPT-5"
+    ],
+    "config": {
+      "title": "gpt-oss local",
+      "lang": "bash",
+      "code": "ollama pull gpt-oss:20b && ollama run gpt-oss:20b"
+    },
+    "agentTip": "Ideal como cerebro razonador gratis para el sub-agente QA Verifier.",
+    "url": "https://openai.com/open-models",
+    "liveSyncedAt": "2026-11-24T20:18:17.390Z",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F5F5F7%22%3EOA%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "category": "models",
+    "id": "claude-opus-haiku",
+    "name": "Claude Opus 4.1 / Haiku 4.5",
+    "provider": "Anthropic",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Frontier / Fast Agents",
+    "pricingTier": "pago",
+    "priceLabel": "Haiku $1 / Opus $15 per 1M input",
+    "freeTier": "API de pago (prompt caching hasta 90% ahorro)",
+    "openRouterId": "anthropic/claude-haiku-4.5",
+    "githubRepo": null,
+    "metrics": {
+      "context": "200K",
+      "speedTps": 140,
+      "inputPer1M": 1,
+      "outputPer1M": 5,
+      "openWeights": false
+    },
+    "scores": {
+      "hackathon": 97,
+      "speed": 92,
+      "value": 84,
+      "quality": 99
+    },
+    "reasoning": 97,
+    "bestFor": "Opus para problemas críticos; Haiku para sub-agentes veloces",
+    "pros": [
+      "Opus top en tareas largas autónomas",
+      "Haiku 4.5 ≈ Sonnet 4 a 1/3 del precio"
+    ],
+    "cons": [
+      "Opus quema créditos rápido"
+    ],
+    "config": {
+      "title": "Opus Arquitecto + Haiku Workers",
+      "lang": "json",
+      "code": "{ \"architect\": \"claude-opus-4-1\", \"workers\": \"claude-haiku-4-5\" }"
+    },
+    "agentTip": "Haiku explora/resume, Sonnet/Opus implementa y revisa.",
+    "url": "https://console.anthropic.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.390Z",
+    "logo": "https://cdn.simpleicons.org/anthropic/F5F5F7"
+  },
+  {
+    "category": "models",
+    "id": "gemini-3-pro",
+    "name": "Gemini 3 Pro / 2.5 Flash-Lite",
+    "provider": "Google DeepMind",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Frontier Multimodal",
+    "pricingTier": "freemium",
+    "priceLabel": "Free tier AI Studio / $2 - $12 per 1M",
+    "freeTier": "Free tier en AI Studio + Gemini CLI gratis",
+    "openRouterId": "google/gemini-2.5-flash-lite",
+    "githubRepo": null,
+    "metrics": {
+      "context": "1.0M",
+      "speedTps": 120,
+      "inputPer1M": 0.1,
+      "outputPer1M": 0.4,
+      "openWeights": false
+    },
+    "scores": {
+      "hackathon": 97,
+      "speed": 93,
+      "value": 96,
+      "quality": 97
+    },
+    "reasoning": 97,
+    "bestFor": "Multimodal frontier con 1M de contexto y Flash-Lite casi gratis",
+    "pros": [
+      "1M contexto",
+      "Flash-Lite $0.10/1M",
+      "Free tier generoso"
+    ],
+    "cons": [
+      "Rate limits del plan gratis"
+    ],
+    "config": {
+      "title": "Gemini CLI gratis",
+      "lang": "bash",
+      "code": "npm i -g @google/gemini-cli && gemini"
+    },
+    "agentTip": "Flash-Lite para routing/clasificación a costo casi cero.",
+    "url": "https://aistudio.google.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.390Z",
+    "logo": "https://cdn.simpleicons.org/googlegemini/8E75B2"
+  },
+  {
+    "category": "models",
+    "id": "grok-4",
+    "name": "xAI Grok 4 / Grok Code Fast",
+    "provider": "xAI",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Reasoning / Fast Coding",
+    "pricingTier": "freemium",
+    "priceLabel": "Code Fast $0.20 / Grok 4 $3 per 1M",
+    "freeTier": "Grok Code Fast gratis temporal en Cursor/Cline/OpenCode",
+    "openRouterId": "x-ai/grok-code-fast-1",
+    "githubRepo": null,
+    "metrics": {
+      "context": "256K",
+      "speedTps": 160,
+      "inputPer1M": 0.2,
+      "outputPer1M": 1.5,
+      "openWeights": false
+    },
+    "scores": {
+      "hackathon": 93,
+      "speed": 96,
+      "value": 93,
+      "quality": 93
+    },
+    "reasoning": 94,
+    "bestFor": "Coding agéntico ultrarrápido y barato (Code Fast) + razonamiento Grok 4",
+    "pros": [
+      "Grok Code Fast muy rápido y barato",
+      "Grok 4 fuerte en razonamiento"
+    ],
+    "cons": [
+      "Sin free tier permanente"
+    ],
+    "config": {
+      "title": "xAI SDK",
+      "lang": "ts",
+      "code": "const xai = new OpenAI({ baseURL: 'https://api.x.ai/v1', apiKey: process.env.XAI_API_KEY });"
+    },
+    "agentTip": "Code Fast como worker barato de implementación.",
+    "url": "https://console.x.ai",
+    "logo": "https://cdn.simpleicons.org/x/F5F5F7"
+  },
+  {
+    "category": "models",
+    "id": "llama-4",
+    "name": "Meta Llama 4 Maverick / Scout",
+    "provider": "Meta",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Open-Weights Multimodal",
+    "pricingTier": "gratis",
+    "priceLabel": "$0 en Groq/NIM/Cloudflare",
+    "freeTier": "Gratis en Groq, NVIDIA NIM, Cloudflare Workers AI, OpenRouter :free",
+    "openRouterId": "meta-llama/llama-4-maverick",
+    "githubRepo": "meta-llama/llama-models",
+    "metrics": {
+      "context": "524K",
+      "speedTps": 400,
+      "inputPer1M": 0.35,
+      "outputPer1M": 1,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 92,
+      "speed": 98,
+      "value": 99,
+      "quality": 87
+    },
+    "reasoning": 84,
+    "bestFor": "Multimodal open-weights rápido con contexto de hasta 10M (Scout)",
+    "pros": [
+      "Gratis en varios proveedores",
+      "Visión nativa",
+      "Muy rápido"
+    ],
+    "cons": [
+      "Coding por debajo de Qwen/DeepSeek"
+    ],
+    "config": {
+      "title": "Llama 4 en Groq",
+      "lang": "json",
+      "code": "{ \"model\": \"meta-llama/llama-4-maverick-17b-128e-instruct\" }"
+    },
+    "agentTip": "Worker de visión gratis para extraer datos de imágenes.",
+    "url": "https://llama.meta.com",
+    "liveSyncedAt": "2026-11-24T20:18:17.390Z",
+    "logo": "https://cdn.simpleicons.org/meta/0467DF"
+  },
+  {
+    "category": "models",
+    "id": "mistral-devstral",
+    "name": "Mistral Devstral / Magistral",
+    "provider": "Mistral AI",
+    "country": "FR",
+    "flag": "🇫🇷",
+    "countryName": "Francia",
+    "region": "Europa",
+    "subType": "Coding Agents / Reasoning",
+    "pricingTier": "gratis",
+    "priceLabel": "Apache 2.0 ($0 local / $0.10 API)",
+    "freeTier": "Devstral 24B Apache 2.0 local + OpenRouter :free",
+    "openRouterId": "mistralai/devstral-small",
+    "githubRepo": "mistralai/mistral-common",
+    "metrics": {
+      "context": "128K",
+      "speedTps": 130,
+      "inputPer1M": 0.1,
+      "outputPer1M": 0.3,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 92,
+      "speed": 94,
+      "value": 100,
+      "quality": 90
+    },
+    "reasoning": 86,
+    "bestFor": "Agentes de código (OpenCode / OpenHands) local o gratis",
+    "pros": [
+      "Entrenado para SWE-bench / agentes",
+      "Cabe en 1 GPU de 16-24GB",
+      "Apache 2.0"
+    ],
+    "cons": [
+      "No es generalista creativo"
+    ],
+    "config": {
+      "title": "Devstral en Ollama",
+      "lang": "bash",
+      "code": "ollama pull devstral && ollama serve"
+    },
+    "agentTip": "Top modelo local para OpenCode sin pagar nada.",
+    "url": "https://mistral.ai",
+    "logo": "https://cdn.simpleicons.org/mistralai/FA520F"
+  },
+  {
+    "category": "models",
+    "id": "gemma-3",
+    "name": "Google Gemma 3 27B / 3n",
+    "provider": "Google DeepMind",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Open-Weights Local / Mobile",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis (open-weights)",
+    "freeTier": "Gratis en AI Studio API, OpenRouter :free y local (Ollama, móvil)",
+    "openRouterId": "google/gemma-3-27b-it",
+    "githubRepo": "google-deepmind/gemma",
+    "metrics": {
+      "context": "131K",
+      "speedTps": 110,
+      "inputPer1M": 0.08,
+      "outputPer1M": 0.16,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 88,
+      "speed": 92,
+      "value": 100,
+      "quality": 84
+    },
+    "reasoning": 80,
+    "bestFor": "AI on-device/offline (Gemma 3n corre en celulares) y visión local",
+    "pros": [
+      "Corre en móviles y laptops",
+      "Visión + 140 idiomas",
+      "API gratis en AI Studio"
+    ],
+    "cons": [
+      "Razonamiento limitado frente a modelos grandes"
+    ],
+    "config": {
+      "title": "Gemma local",
+      "lang": "bash",
+      "code": "ollama pull gemma3:12b"
+    },
+    "agentTip": "Para hackathons de privacidad/offline o apps móviles con AI local.",
+    "url": "https://ai.google.dev/gemma",
+    "liveSyncedAt": "2026-11-24T20:18:17.390Z",
+    "logo": "https://cdn.simpleicons.org/googlegemini/8E75B2"
+  },
+  {
+    "category": "models",
+    "id": "microsoft-phi-4",
+    "name": "Microsoft Phi-4 / Phi-4 Reasoning",
+    "provider": "Microsoft",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Small Open-Weights",
+    "pricingTier": "gratis",
+    "priceLabel": "MIT ($0 local / GitHub Models)",
+    "freeTier": "Gratis en GitHub Models, Azure Foundry y Ollama",
+    "openRouterId": "microsoft/phi-4-reasoning-plus",
+    "githubRepo": "microsoft/PhiCookBook",
+    "metrics": {
+      "context": "32K",
+      "speedTps": 150,
+      "inputPer1M": 0.07,
+      "outputPer1M": 0.35,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 84,
+      "speed": 95,
+      "value": 100,
+      "quality": 82
+    },
+    "reasoning": 85,
+    "bestFor": "Razonamiento matemático en modelo de 14B que corre en cualquier laptop",
+    "pros": [
+      "MIT",
+      "14B con razonamiento sorprendente",
+      "Gratis en GitHub Models"
+    ],
+    "cons": [
+      "Contexto corto (32K)"
+    ],
+    "config": {
+      "title": "Phi-4 local",
+      "lang": "bash",
+      "code": "ollama pull phi4-reasoning"
+    },
+    "agentTip": "Sub-agente local de matemáticas/lógica sin internet.",
+    "url": "https://azure.microsoft.com/products/phi",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2300A4EF%22%3EMS%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "category": "models",
+    "id": "perplexity-sonar",
+    "name": "Perplexity Sonar Pro / Reasoning",
+    "provider": "Perplexity",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Search-Grounded LLM",
+    "pricingTier": "pago",
+    "priceLabel": "$1 - $3 per 1M + $5/1K búsquedas",
+    "freeTier": "Créditos con Perplexity Pro",
+    "openRouterId": "perplexity/sonar-pro",
+    "githubRepo": null,
+    "metrics": {
+      "context": "200K",
+      "speedTps": 90,
+      "inputPer1M": 3,
+      "outputPer1M": 15,
+      "openWeights": false
+    },
+    "scores": {
+      "hackathon": 89,
+      "speed": 88,
+      "value": 82,
+      "quality": 92
+    },
+    "reasoning": 90,
+    "bestFor": "Respuestas con búsqueda web en vivo y citas automáticas",
+    "pros": [
+      "Búsqueda web integrada con citas",
+      "Compatible OpenAI SDK"
+    ],
+    "cons": [
+      "Más caro por request"
+    ],
+    "config": {
+      "title": "Sonar",
+      "lang": "ts",
+      "code": "const pplx = new OpenAI({ baseURL: 'https://api.perplexity.ai', apiKey: process.env.PPLX_API_KEY });"
+    },
+    "agentTip": "Sub-agente investigador con fuentes verificables.",
+    "url": "https://docs.perplexity.ai",
+    "liveSyncedAt": "2026-11-24T20:18:17.390Z",
+    "logo": "https://cdn.simpleicons.org/perplexity/20B2AA"
+  },
+  {
+    "category": "models",
+    "id": "ai21-jamba",
+    "name": "AI21 Jamba 1.7",
+    "provider": "AI21 Labs",
+    "country": "IL",
+    "flag": "🇮🇱",
+    "countryName": "Israel",
+    "region": "Asia-Pac",
+    "subType": "Long Context SSM-Hybrid",
+    "pricingTier": "freemium",
+    "priceLabel": "Mini $0.20 / Large $2 per 1M",
+    "freeTier": "Créditos de prueba + open-weights",
+    "openRouterId": "ai21/jamba-mini-1.7",
+    "githubRepo": null,
+    "metrics": {
+      "context": "256K",
+      "speedTps": 120,
+      "inputPer1M": 0.2,
+      "outputPer1M": 0.4,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 82,
+      "speed": 91,
+      "value": 92,
+      "quality": 83
+    },
+    "reasoning": 80,
+    "bestFor": "Documentos larguísimos con arquitectura Mamba híbrida eficiente",
+    "pros": [
+      "256K contexto eficiente",
+      "Open-weights"
+    ],
+    "cons": [
+      "Menos fuerte en coding"
+    ],
+    "config": {
+      "title": "Jamba",
+      "lang": "json",
+      "code": "{ \"model\": \"ai21/jamba-mini-1.7\" }"
+    },
+    "agentTip": "Para resumir PDFs gigantes barato.",
+    "url": "https://www.ai21.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F472B6%22%3EJ2%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "category": "models",
+    "id": "sarvam",
+    "name": "Sarvam-M / Krutrim",
+    "provider": "Sarvam AI",
+    "country": "IN",
+    "flag": "🇮🇳",
+    "countryName": "India",
+    "region": "Asia-Pac",
+    "subType": "Multilingual Indic LLM",
+    "pricingTier": "freemium",
+    "priceLabel": "Free tier / bajo costo",
+    "freeTier": "Free tier en Sarvam API + OpenRouter :free",
+    "openRouterId": "sarvamai/sarvam-m",
+    "githubRepo": null,
+    "metrics": {
+      "context": "32K",
+      "speedTps": 100,
+      "inputPer1M": 0,
+      "outputPer1M": 0,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 78,
+      "speed": 88,
+      "value": 97,
+      "quality": 78
+    },
+    "reasoning": 78,
+    "bestFor": "Hackathons en India / idiomas índicos con voz y traducción",
+    "pros": [
+      "Fuerte en 10+ idiomas de India",
+      "Gratis en OpenRouter"
+    ],
+    "cons": [
+      "Nicho regional"
+    ],
+    "config": {
+      "title": "Sarvam-M",
+      "lang": "json",
+      "code": "{ \"model\": \"sarvamai/sarvam-m:free\" }"
+    },
+    "agentTip": "Backup gratis adicional en la rotación.",
+    "url": "https://www.sarvam.ai",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FB923C%22%3ESV%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "category": "models",
+    "id": "falcon-3",
+    "name": "TII Falcon 3 / Falcon-H1",
+    "provider": "TII Abu Dhabi",
+    "country": "AE",
+    "flag": "🇦🇪",
+    "countryName": "Emiratos Árabes",
+    "region": "Asia-Pac",
+    "subType": "Open-Weights Efficient",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis (open-weights)",
+    "freeTier": "Open-weights en HuggingFace / Ollama",
+    "openRouterId": null,
+    "githubRepo": null,
+    "metrics": {
+      "context": "32K",
+      "speedTps": 140,
+      "inputPer1M": 0,
+      "outputPer1M": 0,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 76,
+      "speed": 93,
+      "value": 100,
+      "quality": 76
+    },
+    "reasoning": 75,
+    "bestFor": "Modelos pequeños eficientes para edge/IoT y árabe",
+    "pros": [
+      "Muy livianos",
+      "Licencia abierta"
+    ],
+    "cons": [
+      "Por detrás de Qwen/Llama en calidad"
+    ],
+    "config": {
+      "title": "Falcon 3 local",
+      "lang": "bash",
+      "code": "ollama pull falcon3:7b"
+    },
+    "agentTip": "Para dispositivos edge con poca RAM.",
+    "url": "https://falconllm.tii.ae",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FACC15%22%3EFC%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "category": "models",
+    "id": "swallow-plamo",
+    "name": "Sakana / PLaMo / LLM-jp",
+    "provider": "Sakana AI / PFN",
+    "country": "JP",
+    "flag": "🇯🇵",
+    "countryName": "Japón",
+    "region": "Asia-Pac",
+    "subType": "Japanese LLMs / Evolutionary",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis (open-weights)",
+    "freeTier": "Open-weights en HuggingFace",
+    "openRouterId": null,
+    "githubRepo": "SakanaAI/AI-Scientist",
+    "metrics": {
+      "context": "32K",
+      "speedTps": 100,
+      "inputPer1M": 0,
+      "outputPer1M": 0,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 75,
+      "speed": 88,
+      "value": 100,
+      "quality": 77
+    },
+    "reasoning": 78,
+    "bestFor": "Japonés nativo y agentes científicos (AI Scientist)",
+    "pros": [
+      "AI Scientist open-source",
+      "Japonés de alta calidad"
+    ],
+    "cons": [
+      "Nicho regional"
+    ],
+    "config": {
+      "title": "AI Scientist",
+      "lang": "bash",
+      "code": "git clone https://github.com/SakanaAI/AI-Scientist"
+    },
+    "agentTip": "Inspiración para agentes de investigación autónoma.",
+    "url": "https://sakana.ai",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FB7185%22%3EJP%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "category": "models",
+    "id": "aleph-alpha",
+    "name": "Aleph Alpha Pharia / EuroLLM",
+    "provider": "Aleph Alpha / UTTER",
+    "country": "DE",
+    "flag": "🇩🇪",
+    "countryName": "Alemania",
+    "region": "Europa",
+    "subType": "Sovereign EU LLM",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis (open-weights)",
+    "freeTier": "Open-weights en HuggingFace",
+    "openRouterId": null,
+    "githubRepo": null,
+    "metrics": {
+      "context": "8K",
+      "speedTps": 110,
+      "inputPer1M": 0,
+      "outputPer1M": 0,
+      "openWeights": true
+    },
+    "scores": {
+      "hackathon": 72,
+      "speed": 88,
+      "value": 98,
+      "quality": 74
+    },
+    "reasoning": 72,
+    "bestFor": "Soberanía de datos UE y los 24 idiomas oficiales europeos",
+    "pros": [
+      "Cumplimiento GDPR / EU AI Act",
+      "Multilingüe europeo"
+    ],
+    "cons": [
+      "Contexto y calidad limitados"
+    ],
+    "config": {
+      "title": "EuroLLM",
+      "lang": "bash",
+      "code": "huggingface-cli download utter-project/EuroLLM-9B-Instruct"
+    },
+    "agentTip": "Para tracks gov-tech europeos.",
+    "url": "https://aleph-alpha.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3EEU%3C%2Ftext%3E%3C%2Fsvg%3E"
+  }
+]

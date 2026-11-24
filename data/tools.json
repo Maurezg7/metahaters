@@ -1,0 +1,1176 @@
+[
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "provider": "Anysphere",
+    "category": "tools",
+    "subType": "AI IDE",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "freemium",
+    "priceLabel": "Hobby $0 / Pro $20/mes",
+    "freeTier": "Plan Hobby con completions y requests limitados; Pro gratis 1 año para estudiantes (según promo)",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 3,
+      "teamFeatures": "Rules + MCP + Background Agents"
+    },
+    "scores": {
+      "hackathon": 98,
+      "speed": 95,
+      "value": 92,
+      "quality": 97
+    },
+    "bestFor": "Escribir el MVP con agentes dentro del editor, multi-archivo, con reglas de proyecto",
+    "pros": [
+      "Agent mode + Tab autocompletado top",
+      "Soporta MCP servers",
+      "Reglas por proyecto (.cursor/rules)"
+    ],
+    "cons": [
+      "Requests premium se agotan rápido en el plan gratis"
+    ],
+    "config": {
+      "title": ".cursor/rules/hackathon.mdc",
+      "lang": "md",
+      "code": "---\ndescription: Reglas de hackathon\nalwaysApply: true\n---\n- Prioriza que funcione la demo sobre la perfección.\n- Stack: Next.js + Tailwind + Supabase + Vercel AI SDK.\n- Nunca hardcodees secretos; usa .env.local.\n- Cada feature: commit pequeño + deploy preview.\n- Si un bug toma >15 min, propone un workaround."
+    },
+    "agentTip": "Define reglas por rol: frontend.mdc, backend.mdc, pitch.mdc, para que el agente actúe como sub-agente especializado.",
+    "url": "https://cursor.com",
+    "logo": "https://cdn.simpleicons.org/cursor/F5F5F7"
+  },
+  {
+    "id": "claude-code",
+    "name": "Claude Code",
+    "provider": "Anthropic",
+    "category": "tools",
+    "subType": "Terminal Coding Agent",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "pago",
+    "priceLabel": "Pro $20/mes o API por uso",
+    "freeTier": "Sin plan gratis permanente",
+    "githubRepo": "anthropics/claude-code",
+    "metrics": {
+      "setupMin": 2,
+      "teamFeatures": "Subagents + Hooks + MCP + CLAUDE.md"
+    },
+    "scores": {
+      "hackathon": 97,
+      "speed": 92,
+      "value": 86,
+      "quality": 98
+    },
+    "bestFor": "Orquestar sub-agentes en la terminal (tests, refactors, features en paralelo)",
+    "pros": [
+      "Sub-agentes nativos (.claude/agents)",
+      "Hooks para lint/test automático",
+      "Excelente en tareas largas"
+    ],
+    "cons": [
+      "De pago; vigila el consumo de tokens"
+    ],
+    "config": {
+      "title": ".claude/agents/tester.md (sub-agente)",
+      "lang": "md",
+      "code": "---\nname: tester\ndescription: Escribe y corre tests después de cada feature\ntools: Read, Edit, Bash\n---\nEres el QA del equipo. Tras cada cambio: escribe tests mínimos,\ncorre `npm test`, arregla fallos triviales y reporta en 3 líneas."
+    },
+    "agentTip": "Crea sub-agentes: architect, frontend, backend, tester y pitch-writer; el agente principal delega.",
+    "url": "https://docs.anthropic.com/en/docs/claude-code",
+    "logo": "https://cdn.simpleicons.org/anthropic/F5F5F7"
+  },
+  {
+    "id": "gemini-cli",
+    "name": "Gemini CLI",
+    "provider": "Google",
+    "category": "tools",
+    "subType": "Terminal Coding Agent",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis con cuenta Google",
+    "freeTier": "Cuota diaria gratuita generosa con Gemini 2.5 Pro (1M contexto)",
+    "githubRepo": "google-gemini/gemini-cli",
+    "metrics": {
+      "setupMin": 1,
+      "teamFeatures": "MCP + GEMINI.md + 1M ctx"
+    },
+    "scores": {
+      "hackathon": 95,
+      "speed": 90,
+      "value": 100,
+      "quality": 92
+    },
+    "bestFor": "Agente de terminal gratis con contexto de 1M tokens para todo el repo",
+    "pros": [
+      "Open source y gratis",
+      "Contexto gigante",
+      "Soporta MCP"
+    ],
+    "cons": [
+      "En picos puede degradar a modelos Flash"
+    ],
+    "config": {
+      "title": "Instalar y arrancar",
+      "lang": "bash",
+      "code": "npm install -g @google/gemini-cli\ngemini  # login con Google, luego: /init para generar GEMINI.md"
+    },
+    "agentTip": "Plan B gratuito perfecto para el equipo cuando se agoten los créditos de Cursor/Claude.",
+    "url": "https://github.com/google-gemini/gemini-cli",
+    "logo": "https://cdn.simpleicons.org/googlegemini/8E75B2"
+  },
+  {
+    "id": "trae",
+    "name": "Trae",
+    "provider": "ByteDance",
+    "category": "tools",
+    "subType": "AI IDE",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "freemium",
+    "priceLabel": "Free / Pro $10/mes",
+    "freeTier": "Plan gratis con acceso a modelos frontier (cuota limitada)",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 3,
+      "teamFeatures": "Builder mode + Agents + MCP"
+    },
+    "scores": {
+      "hackathon": 90,
+      "speed": 91,
+      "value": 97,
+      "quality": 88
+    },
+    "bestFor": "IDE agéntico barato/gratis alternativo a Cursor",
+    "pros": [
+      "Muy económico",
+      "Builder mode crea proyectos desde cero",
+      "Agentes personalizados"
+    ],
+    "cons": [
+      "Políticas de privacidad a revisar para código sensible"
+    ],
+    "config": {
+      "title": "Agente custom en Trae",
+      "lang": "md",
+      "code": "Nombre: Hack Builder\nPrompt: Construye MVP funcional primero, luego pule UI.\nHerramientas: terminal, editor, búsqueda web, MCP Supabase"
+    },
+    "agentTip": "Buena opción para equipos sin presupuesto que quieren experiencia tipo Cursor.",
+    "url": "https://www.trae.ai",
+    "logo": "https://cdn.simpleicons.org/bytedance/3C8CFF"
+  },
+  {
+    "id": "v0",
+    "name": "v0",
+    "provider": "Vercel",
+    "category": "tools",
+    "subType": "UI Generation",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "freemium",
+    "priceLabel": "Free $5 créditos/mes / Premium $20",
+    "freeTier": "Créditos mensuales gratis",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 1,
+      "teamFeatures": "Deploy directo a Vercel"
+    },
+    "scores": {
+      "hackathon": 94,
+      "speed": 97,
+      "value": 88,
+      "quality": 93
+    },
+    "bestFor": "Generar UI React + Tailwind + shadcn/ui lista para producción en minutos",
+    "pros": [
+      "UI bonita al instante",
+      "Exporta a tu repo",
+      "Deploy en 1 clic"
+    ],
+    "cons": [
+      "Créditos limitados en free"
+    ],
+    "config": {
+      "title": "Prompt ganador para v0",
+      "lang": "text",
+      "code": "Dashboard dark mode para [problema], con hero, 3 métricas clave animadas,\ntabla filtrable y CTA. Usa shadcn/ui, Tailwind, lucide icons. Mobile-first."
+    },
+    "agentTip": "Genera la landing y el dashboard en v0 mientras el backend se construye en paralelo.",
+    "url": "https://v0.dev",
+    "logo": "https://cdn.simpleicons.org/vercel/F5F5F7"
+  },
+  {
+    "id": "bolt-new",
+    "name": "Bolt.new",
+    "provider": "StackBlitz",
+    "category": "tools",
+    "subType": "Full-stack App Builder",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "freemium",
+    "priceLabel": "Free (tokens diarios) / Pro $20",
+    "freeTier": "Tokens diarios gratis",
+    "githubRepo": "stackblitz/bolt.new",
+    "metrics": {
+      "setupMin": 1,
+      "teamFeatures": "WebContainers + Supabase + Netlify"
+    },
+    "scores": {
+      "hackathon": 91,
+      "speed": 97,
+      "value": 88,
+      "quality": 87
+    },
+    "bestFor": "Prototipos full-stack en el navegador sin instalar nada",
+    "pros": [
+      "Corre Node en el browser",
+      "Integra Supabase y deploy",
+      "Open source (bolt.diy)"
+    ],
+    "cons": [
+      "Proyectos grandes se vuelven inestables"
+    ],
+    "config": {
+      "title": "bolt.diy local con cualquier modelo",
+      "lang": "bash",
+      "code": "git clone https://github.com/stackblitz-labs/bolt.diy && cd bolt.diy\npnpm install && pnpm run dev"
+    },
+    "agentTip": "Úsalo para validar la idea en 30 min antes de comprometer al equipo con un stack.",
+    "url": "https://bolt.new",
+    "logo": "https://cdn.simpleicons.org/stackblitz/1389FD"
+  },
+  {
+    "id": "lovable",
+    "name": "Lovable",
+    "provider": "Lovable",
+    "category": "tools",
+    "subType": "Full-stack App Builder",
+    "country": "SE",
+    "flag": "🇸🇪",
+    "countryName": "Suecia",
+    "region": "Europa",
+    "pricingTier": "freemium",
+    "priceLabel": "Free (5 msgs/día) / Pro $25",
+    "freeTier": "Mensajes diarios gratis",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 1,
+      "teamFeatures": "Supabase nativo + GitHub sync"
+    },
+    "scores": {
+      "hackathon": 90,
+      "speed": 96,
+      "value": 85,
+      "quality": 90
+    },
+    "bestFor": "No-code/low-code: app completa con auth y DB para perfiles no técnicos",
+    "pros": [
+      "UI muy cuidada",
+      "Supabase integrado",
+      "Sincroniza con GitHub"
+    ],
+    "cons": [
+      "Límite diario bajo en free"
+    ],
+    "config": {
+      "title": "Prompt inicial",
+      "lang": "text",
+      "code": "Crea una app [nombre] con login Supabase, dashboard con 3 KPIs,\nCRUD de [entidad] y página pública de landing. Paleta oscura, español."
+    },
+    "agentTip": "Ideal para que el integrante de negocio/diseño construya la landing mientras devs hacen el core.",
+    "url": "https://lovable.dev",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%23FFB21E%22%3ELO%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "vercel",
+    "name": "Vercel",
+    "provider": "Vercel",
+    "category": "tools",
+    "subType": "Hosting / Edge",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "freemium",
+    "priceLabel": "Hobby $0 / Pro $20",
+    "freeTier": "Hobby gratis: deploys ilimitados, previews por PR, AI SDK",
+    "githubRepo": "vercel/ai",
+    "metrics": {
+      "setupMin": 2,
+      "teamFeatures": "Preview deploys + AI SDK + Analytics"
+    },
+    "scores": {
+      "hackathon": 98,
+      "speed": 97,
+      "value": 95,
+      "quality": 97
+    },
+    "bestFor": "Deploy de Next.js/Astro/SvelteKit en segundos + Vercel AI SDK para streaming",
+    "pros": [
+      "Deploy con git push",
+      "Preview URL por PR",
+      "AI SDK multi-proveedor"
+    ],
+    "cons": [
+      "Hobby no permite uso comercial"
+    ],
+    "config": {
+      "title": "Vercel AI SDK streaming multi-proveedor",
+      "lang": "ts",
+      "code": "import { streamText } from 'ai';\nimport { openai } from '@ai-sdk/openai';\nconst result = streamText({ model: openai('gpt-4o-mini'), prompt });\nreturn result.toDataStreamResponse();"
+    },
+    "agentTip": "Comparte la preview URL con los jueces desde el minuto 1 y actualízala en cada push.",
+    "url": "https://vercel.com",
+    "logo": "https://cdn.simpleicons.org/vercel/F5F5F7"
+  },
+  {
+    "id": "cloudflare",
+    "name": "Cloudflare Workers + Pages",
+    "provider": "Cloudflare",
+    "category": "tools",
+    "subType": "Edge Hosting / AI",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "$0 (100K req/día) / $5/mes",
+    "freeTier": "Workers 100K req/día, Pages ilimitado, Workers AI, D1, R2, KV gratis",
+    "githubRepo": "cloudflare/workers-sdk",
+    "metrics": {
+      "setupMin": 3,
+      "teamFeatures": "Workers AI + D1 + R2 + Agents SDK"
+    },
+    "scores": {
+      "hackathon": 96,
+      "speed": 99,
+      "value": 100,
+      "quality": 94
+    },
+    "bestFor": "Backend serverless global gratis con AI, DB y storage incluidos",
+    "pros": [
+      "Free tier gigantesco",
+      "Workers AI con Llama/FLUX/Whisper gratis",
+      "Agents SDK con estado (Durable Objects)"
+    ],
+    "cons": [
+      "Runtime no es Node completo (algunas libs no funcionan)"
+    ],
+    "config": {
+      "title": "wrangler.toml con AI + D1",
+      "lang": "toml",
+      "code": "name = \"hack-api\"\nmain = \"src/index.ts\"\ncompatibility_date = \"2025-01-01\"\n[ai]\nbinding = \"AI\"\n[[d1_databases]]\nbinding = \"DB\"\ndatabase_name = \"hack\""
+    },
+    "agentTip": "Despliega metahaters (este sitio) gratis en Cloudflare Pages: es estático y ultraligero.",
+    "url": "https://workers.cloudflare.com",
+    "logo": "https://cdn.simpleicons.org/cloudflare/F38020"
+  },
+  {
+    "id": "dify",
+    "name": "Dify",
+    "provider": "LangGenius",
+    "category": "tools",
+    "subType": "LLM App / Agent Builder",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "freemium",
+    "priceLabel": "Open Source / Cloud Free",
+    "freeTier": "Self-host gratis + sandbox cloud con 200 mensajes",
+    "githubRepo": "langgenius/dify",
+    "metrics": {
+      "setupMin": 5,
+      "teamFeatures": "Workflows visuales + RAG + Agentes"
+    },
+    "scores": {
+      "hackathon": 93,
+      "speed": 90,
+      "value": 98,
+      "quality": 91
+    },
+    "bestFor": "Construir agentes y RAG visualmente, exponerlos como API en minutos",
+    "pros": [
+      "Editor visual de workflows",
+      "Soporta 100+ modelos (chinos y USA)",
+      "RAG integrado"
+    ],
+    "cons": [
+      "Self-host requiere Docker y algo de RAM"
+    ],
+    "config": {
+      "title": "Levantar Dify local",
+      "lang": "bash",
+      "code": "git clone https://github.com/langgenius/dify && cd dify/docker\ncp .env.example .env && docker compose up -d"
+    },
+    "agentTip": "Diseña el flujo del agente visualmente para mostrarlo en el pitch: los jueces entienden el diagrama.",
+    "url": "https://dify.ai",
+    "logo": "https://cdn.simpleicons.org/dify/1677FF"
+  },
+  {
+    "id": "n8n",
+    "name": "n8n",
+    "provider": "n8n GmbH",
+    "category": "tools",
+    "subType": "Workflow Automation / Agents",
+    "country": "DE",
+    "flag": "🇩🇪",
+    "countryName": "Alemania",
+    "region": "Europa",
+    "pricingTier": "freemium",
+    "priceLabel": "Self-host gratis / Cloud €20",
+    "freeTier": "Community edition gratis",
+    "githubRepo": "n8n-io/n8n",
+    "metrics": {
+      "setupMin": 3,
+      "teamFeatures": "400+ integraciones + AI Agent node"
+    },
+    "scores": {
+      "hackathon": 92,
+      "speed": 89,
+      "value": 97,
+      "quality": 91
+    },
+    "bestFor": "Automatizaciones con agentes que conectan WhatsApp, Gmail, Sheets, Slack, APIs",
+    "pros": [
+      "Nodo AI Agent con memoria y tools",
+      "400+ integraciones",
+      "Self-host en 1 comando"
+    ],
+    "cons": [
+      "Workflows complejos se vuelven difíciles de versionar"
+    ],
+    "config": {
+      "title": "n8n en 1 comando",
+      "lang": "bash",
+      "code": "docker run -it --rm -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n"
+    },
+    "agentTip": "Integra el agente con WhatsApp o Telegram para que los jueces lo prueben desde su celular.",
+    "url": "https://n8n.io",
+    "logo": "https://cdn.simpleicons.org/n8n/EA4B71"
+  },
+  {
+    "id": "langgraph",
+    "name": "LangGraph",
+    "provider": "LangChain",
+    "category": "tools",
+    "subType": "Agent Framework",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (MIT)",
+    "freeTier": "100% gratis; LangSmith tiene free tier para trazas",
+    "githubRepo": "langchain-ai/langgraph",
+    "metrics": {
+      "setupMin": 5,
+      "teamFeatures": "Multi-agent graphs + checkpoints + HITL"
+    },
+    "scores": {
+      "hackathon": 92,
+      "speed": 85,
+      "value": 100,
+      "quality": 94
+    },
+    "bestFor": "Sistemas multi-agente con estado, supervisor y human-in-the-loop",
+    "pros": [
+      "Control total del grafo",
+      "Persistencia y reintentos",
+      "Python y JS"
+    ],
+    "cons": [
+      "Más verboso que CrewAI para casos simples"
+    ],
+    "config": {
+      "title": "Supervisor multi-agente",
+      "lang": "python",
+      "code": "from langgraph_supervisor import create_supervisor\nfrom langgraph.prebuilt import create_react_agent\nresearcher = create_react_agent(model, tools=[search], name='researcher')\ncoder = create_react_agent(model, tools=[run_code], name='coder')\napp = create_supervisor([researcher, coder], model=model).compile()"
+    },
+    "agentTip": "Patrón supervisor + 2-4 workers especializados es el que mejor se ve en demos y diagramas.",
+    "url": "https://langchain-ai.github.io/langgraph",
+    "logo": "https://cdn.simpleicons.org/langchain/4ADE80"
+  },
+  {
+    "id": "crewai",
+    "name": "CrewAI",
+    "provider": "CrewAI",
+    "category": "tools",
+    "subType": "Agent Framework",
+    "country": "BR",
+    "flag": "🇧🇷",
+    "countryName": "Brasil / EE.UU.",
+    "region": "Latam",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (MIT)",
+    "freeTier": "100% gratis",
+    "githubRepo": "crewAIInc/crewAI",
+    "metrics": {
+      "setupMin": 4,
+      "teamFeatures": "Roles + Tasks + Flows"
+    },
+    "scores": {
+      "hackathon": 93,
+      "speed": 88,
+      "value": 100,
+      "quality": 90
+    },
+    "bestFor": "Equipos de agentes por roles (investigador, analista, escritor) en pocas líneas",
+    "pros": [
+      "Fundado por un brasileño",
+      "API muy intuitiva",
+      "Flows para orquestación determinista"
+    ],
+    "cons": [
+      "Menos control fino que LangGraph"
+    ],
+    "config": {
+      "title": "Crew mínimo",
+      "lang": "python",
+      "code": "from crewai import Agent, Task, Crew\nanalyst = Agent(role='Analista', goal='Encontrar insights', backstory='Experto en datos', llm='groq/llama-3.3-70b-versatile')\ntask = Task(description='Analiza {tema}', expected_output='5 bullets', agent=analyst)\nprint(Crew(agents=[analyst], tasks=[task]).kickoff(inputs={'tema': 'clima'}))"
+    },
+    "agentTip": "Usa modelos gratis de Groq como llm de cada agente para iterar sin costo.",
+    "url": "https://www.crewai.com",
+    "logo": "https://cdn.simpleicons.org/crewai/FF5A50"
+  },
+  {
+    "id": "mastra",
+    "name": "Mastra",
+    "provider": "Mastra",
+    "category": "tools",
+    "subType": "TS Agent Framework",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source",
+    "freeTier": "100% gratis",
+    "githubRepo": "mastra-ai/mastra",
+    "metrics": {
+      "setupMin": 3,
+      "teamFeatures": "Agents + Workflows + RAG + Evals"
+    },
+    "scores": {
+      "hackathon": 91,
+      "speed": 90,
+      "value": 100,
+      "quality": 90
+    },
+    "bestFor": "Agentes en TypeScript con workflows, memoria, RAG y playground local",
+    "pros": [
+      "TS nativo",
+      "Playground visual para depurar",
+      "Usa Vercel AI SDK"
+    ],
+    "cons": [
+      "Framework joven, APIs cambian"
+    ],
+    "config": {
+      "title": "Crear proyecto Mastra",
+      "lang": "bash",
+      "code": "npm create mastra@latest\ncd my-mastra-app && npm run dev  # playground en localhost:4111"
+    },
+    "agentTip": "Si el equipo es full TypeScript, Mastra evita mezclar Python en el stack.",
+    "url": "https://mastra.ai",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%23F5F5F7%22%3EMS%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "agentscope",
+    "name": "AgentScope / Qwen-Agent",
+    "provider": "Alibaba",
+    "category": "tools",
+    "subType": "Multi-agent Framework",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (Apache 2.0)",
+    "freeTier": "100% gratis",
+    "githubRepo": "modelscope/agentscope",
+    "metrics": {
+      "setupMin": 5,
+      "teamFeatures": "Multi-agent + MCP + Studio"
+    },
+    "scores": {
+      "hackathon": 85,
+      "speed": 86,
+      "value": 100,
+      "quality": 87
+    },
+    "bestFor": "Sistemas multi-agente con modelos Qwen/DeepSeek y despliegue distribuido",
+    "pros": [
+      "Optimizado para modelos chinos",
+      "Studio visual",
+      "Simulaciones con muchos agentes"
+    ],
+    "cons": [
+      "Documentación más orientada a China"
+    ],
+    "config": {
+      "title": "Instalar",
+      "lang": "bash",
+      "code": "pip install agentscope"
+    },
+    "agentTip": "Útil para simulaciones multi-agente (mercados, ciudades, debates) a bajo costo con Qwen.",
+    "url": "https://github.com/modelscope/agentscope",
+    "logo": "https://cdn.simpleicons.org/alibabacloud/FF6A00"
+  },
+  {
+    "id": "ollama",
+    "name": "Ollama",
+    "provider": "Ollama",
+    "category": "tools",
+    "subType": "Local LLM Runtime",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (MIT)",
+    "freeTier": "100% gratis y offline",
+    "githubRepo": "ollama/ollama",
+    "metrics": {
+      "setupMin": 2,
+      "teamFeatures": "API OpenAI-compatible local"
+    },
+    "scores": {
+      "hackathon": 92,
+      "speed": 80,
+      "value": 100,
+      "quality": 86
+    },
+    "bestFor": "Correr Qwen, DeepSeek, Llama, Gemma localmente sin internet ni costo",
+    "pros": [
+      "Offline: inmune al WiFi caído",
+      "Privacidad total",
+      "Un comando por modelo"
+    ],
+    "cons": [
+      "Depende de la GPU/RAM de la laptop"
+    ],
+    "config": {
+      "title": "Modelos recomendados para laptop",
+      "lang": "bash",
+      "code": "ollama pull qwen2.5-coder:7b\nollama pull deepseek-r1:8b\nollama pull nomic-embed-text"
+    },
+    "agentTip": "Descarga los modelos la noche anterior: el WiFi de las hackathons suele colapsar.",
+    "url": "https://ollama.com",
+    "logo": "https://cdn.simpleicons.org/ollama/F5F5F7"
+  },
+  {
+    "id": "mcp",
+    "name": "Model Context Protocol (MCP)",
+    "provider": "Anthropic + comunidad",
+    "category": "tools",
+    "subType": "Agent Tool Protocol",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Standard",
+    "freeTier": "100% gratis",
+    "githubRepo": "modelcontextprotocol/servers",
+    "metrics": {
+      "setupMin": 3,
+      "teamFeatures": "Miles de servers: GitHub, Supabase, Playwright, Figma"
+    },
+    "scores": {
+      "hackathon": 96,
+      "speed": 92,
+      "value": 100,
+      "quality": 95
+    },
+    "bestFor": "Darle herramientas reales a tus agentes (DB, browser, GitHub, Figma) con un estándar",
+    "pros": [
+      "Soportado por Claude, Cursor, Gemini CLI, Trae, VS Code",
+      "Miles de servers listos",
+      "SDKs TS/Python"
+    ],
+    "cons": [
+      "Cuidado con permisos de servers de terceros"
+    ],
+    "config": {
+      "title": "mcp.json para hackathon",
+      "lang": "json",
+      "code": "{\n  \"mcpServers\": {\n    \"supabase\": { \"command\": \"npx\", \"args\": [\"-y\", \"@supabase/mcp-server-supabase\", \"--access-token\", \"${SUPABASE_TOKEN}\"] },\n    \"playwright\": { \"command\": \"npx\", \"args\": [\"-y\", \"@playwright/mcp@latest\"] },\n    \"context7\": { \"command\": \"npx\", \"args\": [\"-y\", \"@upstash/context7-mcp\"] }\n  }\n}"
+    },
+    "agentTip": "Context7 MCP da docs actualizadas a tu agente: evita que use APIs deprecadas.",
+    "url": "https://modelcontextprotocol.io",
+    "logo": "https://cdn.simpleicons.org/modelcontextprotocol/F5F5F7"
+  },
+  {
+    "id": "devin",
+    "name": "Devin",
+    "provider": "Cognition AI",
+    "category": "tools",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Autonomous AI Software Engineer",
+    "pricingTier": "pago",
+    "priceLabel": "Core desde $20 (ACUs) / Team $500/mes",
+    "freeTier": "Sin plan gratis; pagas ACUs por trabajo autónomo",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 2,
+      "teamFeatures": "VM propia + Browser + Sesiones paralelas + PRs"
+    },
+    "scores": {
+      "hackathon": 97,
+      "speed": 92,
+      "value": 86,
+      "quality": 98
+    },
+    "bestFor": "Delegar features completas end-to-end en paralelo (código, tests, preview y PR) en su propia VM",
+    "pros": [
+      "Autonomía total: terminal, navegador, deploy preview",
+      "Sesiones en paralelo = devs extra",
+      "Integra GitHub, Slack y tu máquina local"
+    ],
+    "cons": [
+      "Pago por ACUs: conviene dar specs claras",
+      "Menos control línea a línea que un IDE"
+    ],
+    "config": {
+      "title": "Prompt eficiente para Devin",
+      "lang": "md",
+      "code": "Objetivo: [1 frase]\nStack: [exacto]\nCriterios de éxito: [3 bullets verificables]\nEntregable: PR + preview corriendo"
+    },
+    "agentTip": "Delega módulos enteros en paralelo mientras tú construyes otra parte en tu editor.",
+    "url": "https://devin.ai",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%23FFB21E%22%3EDV%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "opencode",
+    "name": "OpenCode",
+    "provider": "SST / OpenCode",
+    "category": "tools",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Open-Source Terminal Coding Agent",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (BYOK) / Zen pay-as-you-go",
+    "freeTier": "Gratis + 75+ proveedores incluyendo NVIDIA NIM, Groq, Ollama y OpenRouter :free",
+    "githubRepo": "sst/opencode",
+    "metrics": {
+      "setupMin": 2,
+      "teamFeatures": "TUI + Subagents + LSP + MCP + BYOK"
+    },
+    "scores": {
+      "hackathon": 97,
+      "speed": 94,
+      "value": 100,
+      "quality": 94
+    },
+    "bestFor": "Agente de terminal open-source que exprime modelos gratis con sub-agentes",
+    "pros": [
+      "100% open-source, cero lock-in",
+      "LSP integrado: el modelo ve errores de tipos al instante",
+      "Sub-agentes en .opencode/agent/*.md"
+    ],
+    "cons": [
+      "Modelos chicos necesitan buenos prompts (usa el pack Booster)"
+    ],
+    "config": {
+      "title": "OpenCode + NVIDIA NIM",
+      "lang": "bash",
+      "code": "npm i -g opencode-ai\nexport NVIDIA_API_KEY=nvapi-...\nopencode"
+    },
+    "agentTip": "Descarga el pack Booster de metahaters en .opencode/agent/.",
+    "url": "https://opencode.ai",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%234ADE80%22%3EOC%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "windsurf",
+    "name": "Windsurf",
+    "provider": "Cognition (ex-Codeium)",
+    "category": "tools",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "AI IDE",
+    "pricingTier": "freemium",
+    "priceLabel": "Free / Pro $15/mes",
+    "freeTier": "Plan gratis con créditos mensuales + SWE-1 lite ilimitado",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 3,
+      "teamFeatures": "Cascade Agent + Memories + MCP + Previews"
+    },
+    "scores": {
+      "hackathon": 95,
+      "speed": 94,
+      "value": 94,
+      "quality": 95
+    },
+    "bestFor": "Alternativa más barata a Cursor con Cascade y memorias automáticas",
+    "pros": [
+      "$15/mes",
+      "Cascade entiende bien repos grandes",
+      "Previews integrados"
+    ],
+    "cons": [
+      "Créditos frontier se agotan en maratones"
+    ],
+    "config": {
+      "title": ".windsurfrules",
+      "lang": "md",
+      "code": "- Código mínimo funcional primero\n- Verifica con build/test tras cada cambio\n- No inventes dependencias"
+    },
+    "agentTip": "Gran calidad/precio para todo el equipo.",
+    "url": "https://windsurf.com",
+    "logo": "https://cdn.simpleicons.org/windsurf/09B6A2"
+  },
+  {
+    "id": "cline-roo",
+    "name": "Cline / Roo Code / Kilo Code",
+    "provider": "Open Source (VS Code)",
+    "category": "tools",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "VS Code Autonomous Agent",
+    "pricingTier": "gratis",
+    "priceLabel": "Extensión $0 (BYOK)",
+    "freeTier": "Gratis y open-source; pagas solo la API (o $0 con modelos gratis)",
+    "githubRepo": "cline/cline",
+    "metrics": {
+      "setupMin": 2,
+      "teamFeatures": "Plan/Act + Custom Modes + MCP"
+    },
+    "scores": {
+      "hackathon": 95,
+      "speed": 91,
+      "value": 100,
+      "quality": 94
+    },
+    "bestFor": "Modo Plan (razonador) + modo Act (barato/gratis) dentro de VS Code",
+    "pros": [
+      "Modos por rol con distinto modelo",
+      "Soporta OpenRouter, NIM, DeepSeek, Ollama",
+      "Costo visible por request"
+    ],
+    "cons": [
+      "Sin caching consume muchos tokens en repos grandes"
+    ],
+    "config": {
+      "title": "Combo ganador Roo Code",
+      "lang": "text",
+      "code": "Architect -> deepseek/deepseek-r1\nCode -> qwen/qwen3-coder:free\nDebug -> nvidia/nemotron-ultra"
+    },
+    "agentTip": "Razonador en Architect, modelo gratis en Code.",
+    "url": "https://cline.bot",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%2338BDF8%22%3ECL%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "aider",
+    "name": "Aider",
+    "provider": "Aider-AI",
+    "category": "tools",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Git-Native Terminal Coder",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source + BYOK",
+    "freeTier": "Gratis; Repo-Map y modo Architect/Editor",
+    "githubRepo": "Aider-AI/aider",
+    "metrics": {
+      "setupMin": 2,
+      "teamFeatures": "Repo-Map + Auto-Commit + Architect/Editor"
+    },
+    "scores": {
+      "hackathon": 93,
+      "speed": 93,
+      "value": 100,
+      "quality": 93
+    },
+    "bestFor": "Exprimir modelos baratos (R1 planea + V3 edita) con commits automáticos",
+    "pros": [
+      "--architect dispara la precisión",
+      "Auto-commit (undo fácil)",
+      "Ligerísimo"
+    ],
+    "cons": [
+      "Menos visual que un IDE"
+    ],
+    "config": {
+      "title": "Aider Architect",
+      "lang": "bash",
+      "code": "aider --architect --model openrouter/deepseek/deepseek-r1 --editor-model openrouter/deepseek/deepseek-chat"
+    },
+    "agentTip": "Uno de los mejores hacks para que modelos baratos igualen a los caros.",
+    "url": "https://aider.chat",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%23A78BFA%22%3EAI%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "codex-cli",
+    "name": "OpenAI Codex CLI / Cloud",
+    "provider": "OpenAI",
+    "category": "tools",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Terminal + Cloud Coding Agent",
+    "pricingTier": "freemium",
+    "priceLabel": "Incluido en ChatGPT Plus $20 / API",
+    "freeTier": "Open-source CLI; uso incluido en planes ChatGPT",
+    "githubRepo": "openai/codex",
+    "metrics": {
+      "setupMin": 2,
+      "teamFeatures": "Sandbox + Cloud tasks + AGENTS.md"
+    },
+    "scores": {
+      "hackathon": 95,
+      "speed": 90,
+      "value": 92,
+      "quality": 97
+    },
+    "bestFor": "GPT-5 Codex en terminal o tareas en la nube en paralelo",
+    "pros": [
+      "Incluido en ChatGPT Plus",
+      "Sandbox seguro",
+      "Lee AGENTS.md"
+    ],
+    "cons": [
+      "Mejor con modelos OpenAI"
+    ],
+    "config": {
+      "title": "Codex CLI",
+      "lang": "bash",
+      "code": "npm i -g @openai/codex && codex"
+    },
+    "agentTip": "Si ya pagas ChatGPT Plus, es un agente 'gratis' extra.",
+    "url": "https://github.com/openai/codex",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%23FFB21E%22%3EOP%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "github-copilot",
+    "name": "GitHub Copilot (Agent Mode)",
+    "provider": "GitHub / Microsoft",
+    "category": "tools",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "IDE Assistant + Coding Agent",
+    "pricingTier": "freemium",
+    "priceLabel": "Free / Pro $10 / Pro+ $39",
+    "freeTier": "Free: 2,000 completions + 50 chats/mes; gratis para estudiantes verificados",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 1,
+      "teamFeatures": "Agent Mode + Coding Agent en Issues + MCP"
+    },
+    "scores": {
+      "hackathon": 92,
+      "speed": 92,
+      "value": 96,
+      "quality": 92
+    },
+    "bestFor": "El más barato con acceso a Claude/GPT/Gemini; gratis para estudiantes",
+    "pros": [
+      "$10/mes con modelos premium",
+      "Gratis con GitHub Student Pack",
+      "Asigna issues al agente"
+    ],
+    "cons": [
+      "Requests premium limitados"
+    ],
+    "config": {
+      "title": ".github/copilot-instructions.md",
+      "lang": "md",
+      "code": "- Stack: Next.js + Supabase\n- Tests con vitest\n- Respuestas concisas"
+    },
+    "agentTip": "Estudiante = Copilot Pro gratis. Actívalo antes del evento.",
+    "url": "https://github.com/features/copilot",
+    "logo": "https://cdn.simpleicons.org/githubcopilot/F5F5F7"
+  },
+  {
+    "id": "kiro",
+    "name": "Kiro",
+    "provider": "Amazon AWS",
+    "category": "tools",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Spec-Driven AI IDE",
+    "pricingTier": "freemium",
+    "priceLabel": "Free / Pro $20",
+    "freeTier": "Plan gratis con interacciones mensuales",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 3,
+      "teamFeatures": "Specs + Hooks + Steering"
+    },
+    "scores": {
+      "hackathon": 88,
+      "speed": 86,
+      "value": 90,
+      "quality": 91
+    },
+    "bestFor": "Desarrollo guiado por especificaciones (requirements -> design -> tasks)",
+    "pros": [
+      "Specs automáticos ordenan el trabajo",
+      "Hooks por evento"
+    ],
+    "cons": [
+      "Más lento para prototipos rápidos"
+    ],
+    "config": {
+      "title": "Steering file",
+      "lang": "md",
+      "code": ".kiro/steering/product.md -> objetivo, usuarios y criterios de éxito"
+    },
+    "agentTip": "Útil para dejar documentación impecable para el jurado.",
+    "url": "https://kiro.dev",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%23FFB21E%22%3EKI%3C%2Ftext%3E%3C%2Fsvg%3E"
+  },
+  {
+    "id": "qoder",
+    "name": "Qoder / Lingma",
+    "provider": "Alibaba",
+    "category": "tools",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "subType": "AI IDE",
+    "pricingTier": "freemium",
+    "priceLabel": "Free / Pro",
+    "freeTier": "Plan gratis con créditos",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 3,
+      "teamFeatures": "Quest Mode + Repo Wiki"
+    },
+    "scores": {
+      "hackathon": 86,
+      "speed": 88,
+      "value": 95,
+      "quality": 87
+    },
+    "bestFor": "IDE agéntico chino con wiki automática del repo",
+    "pros": [
+      "Repo Wiki auto-generada",
+      "Barato"
+    ],
+    "cons": [
+      "Joven"
+    ],
+    "config": {
+      "title": "Quest Mode",
+      "lang": "text",
+      "code": "Describe la feature -> Qoder genera plan + implementación"
+    },
+    "agentTip": "Alternativa barata si se acaba Cursor.",
+    "url": "https://qoder.com",
+    "logo": "https://cdn.simpleicons.org/alibabacloud/FF6A00"
+  },
+  {
+    "id": "zed",
+    "name": "Zed",
+    "provider": "Zed Industries",
+    "category": "tools",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Ultra-fast Editor + Agent",
+    "pricingTier": "freemium",
+    "priceLabel": "Free (BYOK) / Pro $20",
+    "freeTier": "Editor gratis + BYOK ilimitado + prompts gratis mensuales",
+    "githubRepo": "zed-industries/zed",
+    "metrics": {
+      "setupMin": 2,
+      "teamFeatures": "Agent Panel + Multiplayer + ACP"
+    },
+    "scores": {
+      "hackathon": 89,
+      "speed": 99,
+      "value": 96,
+      "quality": 89
+    },
+    "bestFor": "Editor en Rust ultra liviano con agente y colaboración en tiempo real",
+    "pros": [
+      "Ligerísimo (Rust, GPU)",
+      "Multiplayer nativo para el equipo",
+      "Soporta Claude Code/Gemini CLI vía ACP"
+    ],
+    "cons": [
+      "Menos extensiones que VS Code"
+    ],
+    "config": {
+      "title": "Zed + Ollama",
+      "lang": "json",
+      "code": "{ \"language_models\": { \"ollama\": { \"api_url\": \"http://localhost:11434\" } } }"
+    },
+    "agentTip": "Ideal en laptops con poca RAM.",
+    "url": "https://zed.dev",
+    "logo": "https://cdn.simpleicons.org/zedindustries/084CCF"
+  },
+  {
+    "id": "openhands",
+    "name": "OpenHands",
+    "provider": "All Hands AI",
+    "category": "tools",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Open-Source Autonomous Agent",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (MIT) + BYOK",
+    "freeTier": "Gratis self-host; cloud con créditos",
+    "githubRepo": "All-Hands-AI/OpenHands",
+    "metrics": {
+      "setupMin": 5,
+      "teamFeatures": "Sandbox Docker + Browser + Multi-agent"
+    },
+    "scores": {
+      "hackathon": 89,
+      "speed": 85,
+      "value": 100,
+      "quality": 90
+    },
+    "bestFor": "Alternativa open-source tipo Devin con sandbox Docker",
+    "pros": [
+      "Agente autónomo open-source",
+      "Funciona con Devstral/Qwen gratis"
+    ],
+    "cons": [
+      "Requiere Docker y configuración"
+    ],
+    "config": {
+      "title": "OpenHands local",
+      "lang": "bash",
+      "code": "uvx --python 3.12 openhands"
+    },
+    "agentTip": "Devin-like gratis con modelos locales para tareas largas.",
+    "url": "https://all-hands.dev",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%23FFB21E%22%3EOH%3C%2Ftext%3E%3C%2Fsvg%3E"
+  }
+]

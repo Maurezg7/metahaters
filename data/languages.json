@@ -1,0 +1,669 @@
+[
+  {
+    "id": "typescript",
+    "name": "TypeScript",
+    "provider": "Microsoft",
+    "category": "languages",
+    "subType": "Full-Stack / Web / Agents",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (Apache 2.0)",
+    "freeTier": "100% gratis",
+    "githubRepo": "microsoft/TypeScript",
+    "metrics": {
+      "learningCurve": "Media",
+      "aiSupport": "Excelente",
+      "ecosystem": "npm (3M+ paquetes)"
+    },
+    "scores": {
+      "hackathon": 99,
+      "speed": 90,
+      "value": 100,
+      "quality": 97
+    },
+    "bestFor": "Front + back + agentes en un solo lenguaje (Next.js, Hono, Vercel AI SDK, Mastra)",
+    "pros": [
+      "Un lenguaje para todo el stack",
+      "Los LLMs lo escriben mejor que casi cualquier otro",
+      "Tipos evitan bugs a las 4am"
+    ],
+    "cons": [
+      "Configuración de tsconfig/bundlers puede robar tiempo (usar plantillas)"
+    ],
+    "config": {
+      "title": "tsconfig.json para hackathon (estricto pero rápido)",
+      "lang": "json",
+      "code": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"module\": \"ESNext\",\n    \"moduleResolution\": \"Bundler\",\n    \"strict\": true,\n    \"skipLibCheck\": true,\n    \"noEmit\": true\n  }\n}"
+    },
+    "agentTip": "Comparte tipos entre frontend y agentes con Zod schemas: el mismo schema valida tool calls y formularios.",
+    "url": "https://www.typescriptlang.org",
+    "logo": "https://cdn.simpleicons.org/typescript/3178C6",
+    "frameworks": [
+      {
+        "name": "Next.js",
+        "advantage": "Full-stack React + API routes + deploy en 1 clic en Vercel"
+      },
+      {
+        "name": "Astro",
+        "advantage": "Zero-JS por defecto, webs ultrarrápidas y livianas"
+      },
+      {
+        "name": "Hono",
+        "advantage": "Backend Edge <14KB que corre en Cloudflare, Bun y Node"
+      },
+      {
+        "name": "Vite",
+        "advantage": "HMR instantáneo para SPAs y prototipos en segundos"
+      }
+    ]
+  },
+  {
+    "id": "python",
+    "name": "Python",
+    "provider": "Python Software Foundation",
+    "category": "languages",
+    "subType": "AI / Data / Backend",
+    "country": "NL",
+    "flag": "🇳🇱",
+    "countryName": "Países Bajos / Global",
+    "region": "Europa",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (PSF)",
+    "freeTier": "100% gratis",
+    "githubRepo": "python/cpython",
+    "metrics": {
+      "learningCurve": "Baja",
+      "aiSupport": "Excelente",
+      "ecosystem": "PyPI (600K+ paquetes)"
+    },
+    "scores": {
+      "hackathon": 98,
+      "speed": 72,
+      "value": 100,
+      "quality": 96
+    },
+    "bestFor": "AI/ML, data science, agentes (LangGraph, CrewAI, Agno) y APIs rápidas con FastAPI",
+    "pros": [
+      "Ecosistema AI #1 del mundo",
+      "FastAPI + Pydantic = API documentada en minutos",
+      "uv instala deps en segundos"
+    ],
+    "cons": [
+      "Más lento en runtime; frontend requiere otro stack o Streamlit/Gradio"
+    ],
+    "config": {
+      "title": "Setup ultrarrápido con uv",
+      "lang": "bash",
+      "code": "curl -LsSf https://astral.sh/uv/install.sh | sh\nuv init hack && cd hack\nuv add fastapi uvicorn pydantic-ai httpx\nuv run uvicorn main:app --reload"
+    },
+    "agentTip": "Usa uv en vez de pip/venv: ahorra 5-10 minutos por integrante en el setup inicial.",
+    "url": "https://www.python.org",
+    "logo": "https://cdn.simpleicons.org/python/3776AB",
+    "frameworks": [
+      {
+        "name": "FastAPI",
+        "advantage": "Swagger automático + validación Pydantic + async nativo"
+      },
+      {
+        "name": "LangGraph / PydanticAI",
+        "advantage": "Orquestación multi-agente con estado y tipos"
+      },
+      {
+        "name": "Django",
+        "advantage": "Admin panel, ORM y auth listos en 5 minutos"
+      },
+      {
+        "name": "Streamlit / Gradio",
+        "advantage": "UI de demo AI en 20 líneas sin escribir HTML"
+      }
+    ]
+  },
+  {
+    "id": "go",
+    "name": "Go",
+    "provider": "Google",
+    "category": "languages",
+    "subType": "Backend / Infra / CLIs",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (BSD)",
+    "freeTier": "100% gratis",
+    "githubRepo": "golang/go",
+    "metrics": {
+      "learningCurve": "Baja-Media",
+      "aiSupport": "Muy buena",
+      "ecosystem": "Stdlib potente"
+    },
+    "scores": {
+      "hackathon": 86,
+      "speed": 96,
+      "value": 100,
+      "quality": 92
+    },
+    "bestFor": "APIs de alta concurrencia, CLIs, servidores MCP y binarios únicos fáciles de desplegar",
+    "pros": [
+      "Binario único sin dependencias",
+      "Concurrencia simple (goroutines)",
+      "Compila en segundos"
+    ],
+    "cons": [
+      "Menos librerías AI que Python/TS"
+    ],
+    "config": {
+      "title": "Servidor HTTP mínimo",
+      "lang": "go",
+      "code": "package main\nimport (\"net/http\")\nfunc main() {\n  http.HandleFunc(\"/health\", func(w http.ResponseWriter, r *http.Request) { w.Write([]byte(\"ok\")) })\n  http.ListenAndServe(\":8080\", nil)\n}"
+    },
+    "agentTip": "Ideal para el servicio 'pesado' (websockets, colas) mientras el resto del equipo usa TS.",
+    "url": "https://go.dev",
+    "logo": "https://cdn.simpleicons.org/go/00ADD8",
+    "frameworks": [
+      {
+        "name": "Fiber / Gin",
+        "advantage": "APIs HTTP ultra rápidas con mínima RAM"
+      },
+      {
+        "name": "Echo",
+        "advantage": "Middleware limpio y WebSockets estables"
+      },
+      {
+        "name": "Cobra",
+        "advantage": "Estándar para construir CLIs profesionales"
+      }
+    ]
+  },
+  {
+    "id": "rust",
+    "name": "Rust",
+    "provider": "Rust Foundation",
+    "category": "languages",
+    "subType": "Systems / WASM / Web3",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos / Global",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (MIT/Apache)",
+    "freeTier": "100% gratis",
+    "githubRepo": "rust-lang/rust",
+    "metrics": {
+      "learningCurve": "Alta",
+      "aiSupport": "Buena",
+      "ecosystem": "crates.io"
+    },
+    "scores": {
+      "hackathon": 78,
+      "speed": 100,
+      "value": 100,
+      "quality": 95
+    },
+    "bestFor": "Hackathons Web3 (Solana), WASM de alto rendimiento, IoT y tooling",
+    "pros": [
+      "Máximo rendimiento y seguridad de memoria",
+      "Obligatorio en Solana/NEAR",
+      "WASM excelente"
+    ],
+    "cons": [
+      "Curva alta: el compilador puede consumir horas valiosas"
+    ],
+    "config": {
+      "title": "Proyecto WASM rápido",
+      "lang": "bash",
+      "code": "cargo install wasm-pack\ncargo new --lib motor && cd motor\nwasm-pack build --target web"
+    },
+    "agentTip": "Solo elígelo si el track lo pide (Solana, embebidos) o si el equipo ya lo domina.",
+    "url": "https://www.rust-lang.org",
+    "logo": "https://cdn.simpleicons.org/rust/FFFFFF",
+    "frameworks": [
+      {
+        "name": "Axum",
+        "advantage": "Backend async seguro sobre Tokio con rendimiento C++"
+      },
+      {
+        "name": "Tauri",
+        "advantage": "Apps de escritorio de 5MB (vs 150MB de Electron)"
+      },
+      {
+        "name": "Anchor",
+        "advantage": "Framework #1 para smart contracts en Solana"
+      }
+    ]
+  },
+  {
+    "id": "solidity",
+    "name": "Solidity",
+    "provider": "Ethereum Foundation",
+    "category": "languages",
+    "subType": "Smart Contracts / Web3",
+    "country": "CH",
+    "flag": "🇨🇭",
+    "countryName": "Suiza",
+    "region": "Europa",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (GPL)",
+    "freeTier": "100% gratis + testnets gratis",
+    "githubRepo": "ethereum/solidity",
+    "metrics": {
+      "learningCurve": "Media",
+      "aiSupport": "Buena",
+      "ecosystem": "Foundry / Hardhat / OpenZeppelin"
+    },
+    "scores": {
+      "hackathon": 85,
+      "speed": 80,
+      "value": 98,
+      "quality": 88
+    },
+    "bestFor": "Tracks de ETHGlobal, Base, Polygon, Arbitrum y premios de sponsors Web3",
+    "pros": [
+      "Muchísimos premios de sponsors Web3",
+      "OpenZeppelin = contratos seguros listos",
+      "Foundry compila y testea rapidísimo"
+    ],
+    "cons": [
+      "Errores cuestan dinero real en mainnet (quedarse en testnet)"
+    ],
+    "config": {
+      "title": "Foundry setup",
+      "lang": "bash",
+      "code": "curl -L https://foundry.paradigm.xyz | bash && foundryup\nforge init hack-contract && cd hack-contract\nforge test"
+    },
+    "agentTip": "Usa un sub-agente auditor (Slither + LLM) para revisar contratos antes de deployar a testnet.",
+    "url": "https://soliditylang.org",
+    "logo": "https://cdn.simpleicons.org/solidity/FFFFFF",
+    "frameworks": [
+      {
+        "name": "Foundry",
+        "advantage": "Tests y fuzzing en Rust 10x más rápido que Hardhat"
+      },
+      {
+        "name": "OpenZeppelin",
+        "advantage": "Contratos auditados (ERC-20/721/AA) listos para heredar"
+      },
+      {
+        "name": "Hardhat",
+        "advantage": "Ecosistema TypeScript gigante para scripts de deploy"
+      }
+    ]
+  },
+  {
+    "id": "kotlin",
+    "name": "Kotlin",
+    "provider": "JetBrains",
+    "category": "languages",
+    "subType": "Android / Multiplatform",
+    "country": "CZ",
+    "flag": "🇨🇿",
+    "countryName": "República Checa",
+    "region": "Europa",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (Apache 2.0)",
+    "freeTier": "100% gratis",
+    "githubRepo": "JetBrains/kotlin",
+    "metrics": {
+      "learningCurve": "Media",
+      "aiSupport": "Buena",
+      "ecosystem": "Android / JVM"
+    },
+    "scores": {
+      "hackathon": 80,
+      "speed": 88,
+      "value": 100,
+      "quality": 91
+    },
+    "bestFor": "Apps Android nativas y Compose Multiplatform",
+    "pros": [
+      "Lenguaje oficial de Android",
+      "Jetpack Compose es declarativo y rápido",
+      "Interop con Java"
+    ],
+    "cons": [
+      "Builds de Gradle lentos; para MVP web-first preferir PWA"
+    ],
+    "config": {
+      "title": "Gradle más rápido",
+      "lang": "properties",
+      "code": "org.gradle.parallel=true\norg.gradle.caching=true\norg.gradle.jvmargs=-Xmx4g"
+    },
+    "agentTip": "Si el reto es mobile pero el tiempo es corto, una PWA en TS suele ganar en velocidad de entrega.",
+    "url": "https://kotlinlang.org",
+    "logo": "https://cdn.simpleicons.org/kotlin/7F52FF",
+    "frameworks": [
+      {
+        "name": "Jetpack Compose",
+        "advantage": "UI declarativa moderna para Android y Multiplatform"
+      },
+      {
+        "name": "Ktor",
+        "advantage": "Microservicios livianos con coroutines nativas"
+      },
+      {
+        "name": "Spring Boot",
+        "advantage": "Ecosistema enterprise probado para backends grandes"
+      }
+    ]
+  },
+  {
+    "id": "dart",
+    "name": "Dart (Flutter)",
+    "provider": "Google",
+    "category": "languages",
+    "subType": "Mobile Cross-platform",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (BSD)",
+    "freeTier": "100% gratis",
+    "githubRepo": "dart-lang/sdk",
+    "metrics": {
+      "learningCurve": "Baja-Media",
+      "aiSupport": "Buena",
+      "ecosystem": "pub.dev"
+    },
+    "scores": {
+      "hackathon": 87,
+      "speed": 88,
+      "value": 100,
+      "quality": 90
+    },
+    "bestFor": "App iOS + Android + Web desde un mismo código con UI muy pulida",
+    "pros": [
+      "Hot reload instantáneo",
+      "UI consistente en todas las plataformas",
+      "Firebase integrado"
+    ],
+    "cons": [
+      "Bundle web pesado comparado con frameworks web nativos"
+    ],
+    "config": {
+      "title": "Crear app Flutter",
+      "lang": "bash",
+      "code": "flutter create --org com.hack --platforms=android,ios,web app\ncd app && flutter run -d chrome"
+    },
+    "agentTip": "Excelente para demos mobile visualmente impactantes en hackathons de impacto social.",
+    "url": "https://dart.dev",
+    "logo": "https://cdn.simpleicons.org/dart/0175C2",
+    "frameworks": [
+      {
+        "name": "Flutter",
+        "advantage": "1 código -> Android, iOS, Web y Desktop con 60fps"
+      },
+      {
+        "name": "Riverpod",
+        "advantage": "Manejo de estado seguro y escalable"
+      },
+      {
+        "name": "Serverpod",
+        "advantage": "Backend en Dart con generación automática de cliente"
+      }
+    ]
+  },
+  {
+    "id": "moonbit",
+    "name": "MoonBit",
+    "provider": "IDEA (Shenzhen)",
+    "category": "languages",
+    "subType": "WASM / AI-native",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source",
+    "freeTier": "100% gratis",
+    "githubRepo": "moonbitlang/core",
+    "metrics": {
+      "learningCurve": "Media",
+      "aiSupport": "Emergente",
+      "ecosystem": "En crecimiento"
+    },
+    "scores": {
+      "hackathon": 70,
+      "speed": 97,
+      "value": 100,
+      "quality": 82
+    },
+    "bestFor": "WASM ultra compacto y tracks experimentales de lenguajes nuevos",
+    "pros": [
+      "Binarios WASM diminutos",
+      "Diseñado para IA y tooling rápido",
+      "Compilación muy veloz"
+    ],
+    "cons": [
+      "Ecosistema joven; arriesgado para un MVP general"
+    ],
+    "config": {
+      "title": "Nuevo proyecto MoonBit",
+      "lang": "bash",
+      "code": "curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash\nmoon new hack && cd hack && moon run main"
+    },
+    "agentTip": "Útil como diferenciador técnico si hay premio a 'tecnología más innovadora'.",
+    "url": "https://www.moonbitlang.com",
+    "logo": "https://cdn.simpleicons.org/webassembly/654FF0",
+    "frameworks": [
+      {
+        "name": "MoonBit Core WASM",
+        "advantage": "Binarios WebAssembly de pocos KB y compilación instantánea"
+      }
+    ]
+  },
+  {
+    "id": "cangjie",
+    "name": "Cangjie (仓颉)",
+    "provider": "Huawei",
+    "category": "languages",
+    "subType": "HarmonyOS Native",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source",
+    "freeTier": "100% gratis",
+    "githubRepo": null,
+    "metrics": {
+      "learningCurve": "Media",
+      "aiSupport": "Limitada",
+      "ecosystem": "HarmonyOS NEXT"
+    },
+    "scores": {
+      "hackathon": 65,
+      "speed": 90,
+      "value": 100,
+      "quality": 80
+    },
+    "bestFor": "Hackathons de Huawei / apps nativas HarmonyOS NEXT",
+    "pros": [
+      "Nativo para el ecosistema HarmonyOS",
+      "Concurrencia ligera"
+    ],
+    "cons": [
+      "Comunidad pequeña fuera de China"
+    ],
+    "config": {
+      "title": "Hola mundo Cangjie",
+      "lang": "text",
+      "code": "main() {\n  println(\"Hola metahaters\")\n}"
+    },
+    "agentTip": "Solo si el sponsor es Huawei; si no, ArkTS/TypeScript es más productivo.",
+    "url": "https://cangjie-lang.cn",
+    "logo": "https://cdn.simpleicons.org/huawei/CF0A2C",
+    "frameworks": [
+      {
+        "name": "ArkUI / HarmonyOS SDK",
+        "advantage": "Integración nativa con dispositivos distribuidos Huawei"
+      }
+    ]
+  },
+  {
+    "id": "elixir",
+    "name": "Elixir",
+    "provider": "José Valim / Comunidad",
+    "category": "languages",
+    "subType": "Realtime / Concurrency",
+    "country": "BR",
+    "flag": "🇧🇷",
+    "countryName": "Brasil",
+    "region": "Latam",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (Apache 2.0)",
+    "freeTier": "100% gratis",
+    "githubRepo": "elixir-lang/elixir",
+    "metrics": {
+      "learningCurve": "Media-Alta",
+      "aiSupport": "Buena",
+      "ecosystem": "Phoenix / LiveView"
+    },
+    "scores": {
+      "hackathon": 79,
+      "speed": 90,
+      "value": 100,
+      "quality": 92
+    },
+    "bestFor": "Apps en tiempo real (chats, juegos, dashboards) con Phoenix LiveView",
+    "pros": [
+      "Creado por un brasileño",
+      "Realtime sin escribir JS con LiveView",
+      "Tolerancia a fallos (BEAM)"
+    ],
+    "cons": [
+      "Menos devs y ejemplos que TS/Python"
+    ],
+    "config": {
+      "title": "Phoenix LiveView",
+      "lang": "bash",
+      "code": "mix archive.install hex phx_new\nmix phx.new hack --database sqlite3\ncd hack && mix phx.server"
+    },
+    "agentTip": "Para dashboards en vivo con muchos usuarios simultáneos es imbatible.",
+    "url": "https://elixir-lang.org",
+    "logo": "https://cdn.simpleicons.org/elixir/A855F7",
+    "frameworks": [
+      {
+        "name": "Phoenix LiveView",
+        "advantage": "Apps en tiempo real interactivas sin escribir JavaScript"
+      },
+      {
+        "name": "Oban",
+        "advantage": "Colas de trabajos confiables sobre Postgres"
+      }
+    ]
+  },
+  {
+    "id": "lua",
+    "name": "Lua",
+    "provider": "PUC-Rio",
+    "category": "languages",
+    "subType": "Game / Embedded scripting",
+    "country": "BR",
+    "flag": "🇧🇷",
+    "countryName": "Brasil",
+    "region": "Latam",
+    "pricingTier": "gratis",
+    "priceLabel": "Open Source (MIT)",
+    "freeTier": "100% gratis",
+    "githubRepo": "lua/lua",
+    "metrics": {
+      "learningCurve": "Muy baja",
+      "aiSupport": "Buena",
+      "ecosystem": "LÖVE / Roblox / Defold"
+    },
+    "scores": {
+      "hackathon": 76,
+      "speed": 92,
+      "value": 100,
+      "quality": 84
+    },
+    "bestFor": "Game jams (LÖVE2D, Defold, Roblox Luau) y scripting embebido",
+    "pros": [
+      "Diseñado en Brasil",
+      "Ultraligero",
+      "Ideal para game jams de 48h"
+    ],
+    "cons": [
+      "Fuera de juegos su ecosistema es pequeño"
+    ],
+    "config": {
+      "title": "LÖVE2D main.lua",
+      "lang": "lua",
+      "code": "function love.draw()\n  love.graphics.print('metahaters', 400, 300)\nend"
+    },
+    "agentTip": "En game jams, un LLM genera mecánicas en Lua muy rápido gracias a su sintaxis simple.",
+    "url": "https://www.lua.org",
+    "logo": "https://cdn.simpleicons.org/lua/2C2D72",
+    "frameworks": [
+      {
+        "name": "LÖVE2D",
+        "advantage": "Juegos 2D completos en horas con cero boilerplate"
+      },
+      {
+        "name": "Defold / Roblox Luau",
+        "advantage": "Exportación ligera a web/mobile y monetización directa"
+      }
+    ]
+  },
+  {
+    "id": "swift",
+    "name": "Swift",
+    "provider": "Apple",
+    "category": "languages",
+    "subType": "iOS / visionOS",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "freemium",
+    "priceLabel": "Gratis / $99 año (App Store)",
+    "freeTier": "Lenguaje gratis; publicar requiere cuenta de pago",
+    "githubRepo": "swiftlang/swift",
+    "metrics": {
+      "learningCurve": "Media",
+      "aiSupport": "Buena",
+      "ecosystem": "SwiftUI / Apple Intelligence"
+    },
+    "scores": {
+      "hackathon": 79,
+      "speed": 92,
+      "value": 85,
+      "quality": 93
+    },
+    "bestFor": "Apps iOS nativas, visionOS, on-device ML con Core ML / Apple Foundation Models",
+    "pros": [
+      "SwiftUI muy productivo",
+      "Modelos on-device sin costo de API",
+      "Gran experiencia nativa"
+    ],
+    "cons": [
+      "Necesitas Mac + Xcode"
+    ],
+    "config": {
+      "title": "SwiftUI vista mínima",
+      "lang": "swift",
+      "code": "import SwiftUI\nstruct ContentView: View {\n  var body: some View { Text(\"metahaters\").font(.largeTitle).bold() }\n}"
+    },
+    "agentTip": "Ideal en hackathons de Apple o de privacidad (AI 100% local en el dispositivo).",
+    "url": "https://www.swift.org",
+    "logo": "https://cdn.simpleicons.org/swift/F05138",
+    "frameworks": [
+      {
+        "name": "SwiftUI",
+        "advantage": "Prototipado nativo Apple en tiempo real con previews"
+      },
+      {
+        "name": "MLX Swift / Core ML",
+        "advantage": "Corre LLMs on-device usando GPU/NPU de Apple gratis"
+      },
+      {
+        "name": "Vapor",
+        "advantage": "Backend async de alto rendimiento en Swift"
+      }
+    ]
+  }
+]

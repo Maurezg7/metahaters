@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>metahaters — Arsenal global para ganar hackathons</title>
+  <meta name="description" content="Catálogo ultraligero y autoactualizable de modelos AI, APIs, lenguajes, herramientas, estadísticas y configuraciones de agentes/sub-agentes para ganar hackathons." />
+  <link rel="icon" type="image/svg+xml" href="./assets/dmb-icono-app.svg" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <img class="brand-logo" src="./assets/dmb-logo-oro-sobre-negro.svg" alt="metahaters logo" width="40" height="40" />
+        <div>
+          <h1 class="brand-name">meta<span>haters</span></h1>
+          <p class="brand-sub">Hackathon Meta Index · AI · APIs · OS &amp; Distros</p>
+        </div>
+      </div>
+
+      <nav class="main-tabs" role="tablist" aria-label="Secciones principales">
+        <button class="tab-btn active" data-view="catalog" role="tab" aria-selected="true">Catálogo</button>
+        <button class="tab-btn" data-view="frameworks" role="tab" aria-selected="false">Frameworks</button>
+        <button class="tab-btn" data-view="os" role="tab" aria-selected="false">OS &amp; Navegadores</button>
+        <button class="tab-btn" data-view="stats" role="tab" aria-selected="false">Estadísticas &amp; Radar</button>
+        <button class="tab-btn" data-view="agents" role="tab" aria-selected="false">Agentes &amp; A2A</button>
+        <button class="tab-btn" data-view="intel" role="tab" aria-selected="false">Intel Global</button>
+        <button class="tab-btn" data-view="warroom" role="tab" aria-selected="false">War Room &amp; News</button>
+      </nav>
+
+      <div class="topbar-actions">
+        <button id="compare-open-btn" class="btn btn-ghost" title="Abrir comparador">
+          Comparar <span id="compare-count" class="pill">0</span>
+        </button>
+        <button id="live-sync-btn" class="btn btn-accent" title="Sincronizar precios y modelos en vivo desde OpenRouter">
+          <span class="dot" id="sync-dot"></span>
+          <span id="sync-label">Sync en vivo</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Hero KPIs -->
+    <section class="hero-strip" aria-label="Resumen del catálogo">
+      <div class="kpi">
+        <span class="kpi-label">Recursos curados</span>
+        <strong id="kpi-total">—</strong>
+        <small id="kpi-breakdown">Cargando...</small>
+      </div>
+      <div class="kpi">
+        <span class="kpi-label">Modelos en vivo (OpenRouter)</span>
+        <strong id="kpi-live">—</strong>
+        <small id="kpi-updated">Auto-sync cada 6h</small>
+      </div>
+      <div class="kpi">
+        <span class="kpi-label">Top 🇺🇸 EE.UU. vs 🇨🇳 China</span>
+        <strong id="kpi-geo">—</strong>
+        <small>Promedio Hackathon Score</small>
+      </div>
+      <div class="kpi">
+        <span class="kpi-label">Opciones Gratis / Freemium</span>
+        <strong id="kpi-free">—</strong>
+        <small>Listas para MVP $0</small>
+      </div>
+    </section>
+
+    <!-- VIEW 1: CATALOG -->
+    <section id="view-catalog" class="view active">
+      <div class="controls">
+        <div class="search-box">
+          <input id="search-input" type="search" placeholder="Buscar modelo, API, lenguaje, herramienta, país (ej: deepseek, gratis, voz, china, rag)..." autocomplete="off" />
+        </div>
+
+        <div class="filter-row">
+          <div class="chip-group" id="cat-filters" aria-label="Categoría">
+            <button class="chip active" data-cat="all">Todo</button>
+            <button class="chip" data-cat="models">Modelos AI</button>
+            <button class="chip" data-cat="apis">APIs</button>
+            <button class="chip" data-cat="languages">Lenguajes</button>
+            <button class="chip" data-cat="tools">Herramientas</button>
+          </div>
+
+          <div class="chip-group" id="price-filters" aria-label="Precio">
+            <button class="chip active" data-price="all">Todos $</button>
+            <button class="chip" data-price="gratis">Gratis</button>
+            <button class="chip" data-price="freemium">Freemium</button>
+            <button class="chip" data-price="pago">Pago</button>
+          </div>
+
+          <div class="chip-group" id="region-filters" aria-label="Región">
+            <button class="chip active" data-region="all">🌍 Todos</button>
+            <button class="chip" data-region="USA">🇺🇸 EE.UU.</button>
+            <button class="chip" data-region="China">🇨🇳 China</button>
+            <button class="chip" data-region="Europa">🇪🇺 Europa</button>
+            <button class="chip" data-region="Latam">🌎 Latam</button>
+            <button class="chip" data-region="Asia-Pac">🌏 Asia-Pac</button>
+          </div>
+
+          <label class="sort-wrap">
+            <span>Ordenar:</span>
+            <select id="sort-select">
+              <option value="hackathon">Hackathon Score</option>
+              <option value="value">Mejor Valor / Gratis</option>
+              <option value="speed">Velocidad</option>
+              <option value="quality">Calidad / Coding</option>
+              <option value="stars">GitHub Stars</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="results-bar">
+        <span id="results-count">0 resultados</span>
+        <span class="hint">Clic en cualquier tarjeta para ver configuración ganadora y prompt de agente · Usa "+ Comparar" para enfrentar hasta 4.</span>
+      </div>
+
+      <div id="catalog-grid" class="grid"></div>
+    </section>
+
+    <!-- VIEW 1B: OS & DISTROS -->
+    <section id="view-os" class="view">
+      <div class="controls">
+        <div class="search-box">
+          <input id="os-search-input" type="search" placeholder="Buscar sistema operativo o distro (ej: arch, alpine, windows, macos, bsd, procesos, nvidia, ligero)..." autocomplete="off" />
+        </div>
+        <div class="filter-row">
+          <div class="chip-group" id="os-type-filters">
+            <button class="chip active" data-ostype="all">Todos</button>
+            <button class="chip" data-ostype="OS">Sistemas Operativos</button>
+            <button class="chip" data-ostype="Distro">Distros Linux</button>
+          </div>
+          <div class="chip-group" id="os-family-filters">
+            <button class="chip active" data-osfam="all">Todas Familias</button>
+            <button class="chip" data-osfam="Linux">Linux</button>
+            <button class="chip" data-osfam="Windows">Windows</button>
+            <button class="chip" data-osfam="macOS">macOS</button>
+            <button class="chip" data-osfam="BSD">BSD</button>
+            <button class="chip" data-osfam="Mobile">Mobile / Otros</button>
+          </div>
+          <label class="sort-wrap">
+            <span>Ordenar:</span>
+            <select id="os-sort-select">
+              <option value="processes">Menos Procesos</option>
+              <option value="ram">Menor RAM en reposo</option>
+              <option value="hackathon">Hackathon Score</option>
+              <option value="stability">Estabilidad</option>
+              <option value="boot">Arranque más rápido</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <article class="panel mt">
+        <div class="panel-head">
+          <div>
+            <h2>Consumo de Procesos y RAM en Reposo (Benchmark Comparativo)</h2>
+            <p class="muted">Medición típica tras arranque limpio en escritorio/base. Menos procesos = menos overhead en CPU, batería y compilación.</p>
+          </div>
+          <span class="tag" id="os-count-tag">0 sistemas</span>
+        </div>
+        <div id="os-process-bars"></div>
+      </article>
+
+      <div id="os-grid" class="grid mt"></div>
+
+      <article class="panel mt-lg">
+        <div class="panel-head">
+          <div>
+            <h2>Navegadores Más Seguros y Más Livianos</h2>
+            <p class="muted">Privacidad real, anti-fingerprinting, RAM en reposo y procesos activos (ordenables por privacidad o ligereza).</p>
+          </div>
+          <div class="chip-group" id="browser-sort-filters">
+            <button class="chip active" data-bsort="privacy">Más Seguros</button>
+            <button class="chip" data-bsort="lightness">Más Livianos (RAM)</button>
+          </div>
+        </div>
+        <div id="browsers-grid" class="grid"></div>
+      </article>
+    </section>
+
+    <!-- VIEW: FRAMEWORKS POR ÁREA Y LENGUAJE -->
+    <section id="view-frameworks" class="view">
+      <div class="section-intro">
+        <h2>Mejores Frameworks por Área (¿Cuál gana en cada disciplina?)</h2>
+        <p class="muted">Data Science, Ciberseguridad, Fintech/Dinero, AI/Agentes, Web Full-Stack, Mobile, Desktop, Web3, Juegos e IoT.</p>
+      </div>
+      <div class="chip-group" id="fw-area-filters" style="margin-bottom:14px;"></div>
+      <div id="fw-areas-grid" class="grid grid-2"></div>
+
+      <article class="panel mt-lg">
+        <div class="panel-head">
+          <div>
+            <h2>Top Frameworks de Cada Lenguaje</h2>
+            <p class="muted">Resumen rápido de los frameworks más usados por ecosistema.</p>
+          </div>
+          <span class="tag">Por Lenguaje</span>
+        </div>
+        <div id="fw-by-lang-grid" class="grid"></div>
+      </article>
+    </section>
+
+    <!-- VIEW: INTEL GLOBAL (EMPLEO, DIVISAS EN VIVO, CRYPTO) -->
+    <section id="view-intel" class="view">
+      <article class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Tipos de Cambio en Vivo &amp; Conversor Instantáneo</h2>
+            <p class="muted" id="fx-status">Sincronizando tasas USD en tiempo real vía open.er-api.com…</p>
+          </div>
+          <span class="tag tag-gratis">Auto-Sync FX</span>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px;">
+          <input id="fx-amount" type="number" value="100" min="0" step="any" style="width:120px;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px;font-family:var(--mono);" />
+          <select id="fx-from" style="background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px;"></select>
+          <span class="muted">→</span>
+          <select id="fx-to" style="background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px;"></select>
+          <strong id="fx-result" style="font-family:var(--mono);font-size:1.1rem;color:var(--accent-strong);padding-left:6px;">—</strong>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Moneda</th><th>1 USD =</th><th>Participación / Rol</th><th>Riel de Pagos</th><th>Uso en Hackathons</th></tr>
+            </thead>
+            <tbody id="fx-table-body"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <div class="stats-grid mt">
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Idiomas Más Solicitados para Empleo Tech</h2>
+            <span class="tag">Mercado Global</span>
+          </div>
+          <div id="job-human-langs"></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Lenguajes de Programación Más Demandados</h2>
+            <span class="tag">Empleo &amp; Salario</span>
+          </div>
+          <div id="job-prog-langs"></div>
+        </article>
+      </div>
+
+      <article class="panel mt">
+        <div class="panel-head">
+          <div>
+            <h2>Estándares y Contratos Más Usados en Crypto / Web3</h2>
+            <p class="muted">ERC-20, ERC-721/1155, ERC-4337 Account Abstraction, ERC-4626 Vaults, Solana SPL Token-2022, x402 AI Payments y Safe/Chainlink.</p>
+          </div>
+          <span class="tag tag-freemium">Snippets Copiables</span>
+        </div>
+        <div id="crypto-contracts-grid" class="grid grid-2"></div>
+      </article>
+    </section>
+
+    <!-- VIEW: WAR ROOM & NOTICIAS DEV EN VIVO -->
+    <section id="view-warroom" class="view">
+      <div class="stats-grid">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Cronómetro de Hackathon &amp; Pitch</h2>
+              <p class="muted">Cuenta regresiva para el equipo o ensayo exacto de pitch de 3 minutos.</p>
+            </div>
+            <span class="tag tag-freemium" id="timer-mode-tag">24h Hackathon</span>
+          </div>
+          <div id="hack-timer-display" style="font-family:var(--mono);font-size:2.4rem;font-weight:800;color:var(--accent);text-align:center;margin:10px 0;">24:00:00</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:10px;">
+            <button class="chip" data-timer-preset="180">Pitch 3m</button>
+            <button class="chip" data-timer-preset="43200">12h</button>
+            <button class="chip active" data-timer-preset="86400">24h</button>
+            <button class="chip" data-timer-preset="172800">48h</button>
+          </div>
+          <div style="display:flex;gap:8px;justify-content:center;">
+            <button id="timer-start-btn" class="btn btn-accent">▶ Iniciar</button>
+            <button id="timer-pause-btn" class="btn btn-ghost">⏸ Pausar</button>
+            <button id="timer-reset-btn" class="btn btn-ghost">↺ Reset</button>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Checklist Anti-Desastre del Equipo</h2>
+              <p class="muted">Se guarda automáticamente en tu navegador.</p>
+            </div>
+            <span class="tag tag-gratis" id="checklist-progress">0/7</span>
+          </div>
+          <div id="warroom-checklist" style="display:flex;flex-direction:column;gap:8px;"></div>
+        </article>
+      </div>
+
+      <article class="panel mt">
+        <div class="panel-head">
+          <div>
+            <h2>Noticias Dev &amp; AI en Vivo (Hacker News + Dev.to)</h2>
+            <p class="muted" id="news-status">Actualización automática cada 30 min sin API keys.</p>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+            <div class="chip-group" id="news-filters">
+              <button class="chip active" data-nfilter="all">Todas</button>
+              <button class="chip" data-nfilter="ai">Solo AI &amp; LLMs</button>
+              <button class="chip" data-nfilter="HN">Hacker News</button>
+              <button class="chip" data-nfilter="Dev.to">Dev.to</button>
+            </div>
+            <button id="refresh-news-btn" class="btn btn-sm btn-accent">↻ Actualizar</button>
+          </div>
+        </div>
+        <div id="dev-news-list" class="grid grid-2"></div>
+      </article>
+
+      <div class="stats-grid mt">
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Plantilla de Pitch Ganador (3:00 min)</h2>
+            <button id="copy-pitch-btn" class="btn btn-sm btn-accent">Copiar Pitch</button>
+          </div>
+          <div class="code-block">
+            <div class="code-head"><span>pitch-3min.txt</span><span>guion jurado</span></div>
+            <pre id="pitch-template-pre"></pre>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Comandos de Emergencia (Túneles, Git, Puertos)</h2>
+            <span class="tag">1-Clic Copy</span>
+          </div>
+          <div id="emergency-cmds-list" style="display:flex;flex-direction:column;gap:8px;"></div>
+        </article>
+      </div>
+
+      <article class="panel mt">
+        <div class="panel-head">
+          <div>
+            <h2>Créditos Gratis, Becas &amp; Plataformas de Hackathons</h2>
+            <p class="muted">Packs gratuitos para estudiantes y dónde encontrar las mejores hackathons globales.</p>
+          </div>
+          <span class="tag tag-gratis">Perks $0</span>
+        </div>
+        <div id="free-credits-grid" class="grid"></div>
+      </article>
+    </section>
+
+    <!-- VIEW 2: STATS & LIVE RADAR -->
+    <section id="view-stats" class="view">
+      <article class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Comparativa IDEs &amp; Agentes AI — Devin vs Cursor vs Claude Code vs OpenCode vs Windsurf</h2>
+            <p class="muted">Precios, opción gratis (BYOK), autonomía, razonamiento y rendimiento real en código.</p>
+          </div>
+          <span class="tag tag-freemium">Precios &amp; Rendimiento</span>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>IDE / Agente</th>
+                <th>Precio</th>
+                <th>Opción Gratis</th>
+                <th>Autonomía</th>
+                <th>Razonam.</th>
+                <th>Coding</th>
+                <th>Vel.</th>
+                <th>Cuándo elegirlo</th>
+              </tr>
+            </thead>
+            <tbody id="ide-matrix-body"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="panel mt">
+        <div class="panel-head">
+          <div>
+            <h2>Plan B Anti-Sin-Créditos ($0) — Cadena de Supervivencia</h2>
+            <p class="muted">Qué activar al instante cuando se terminan los créditos pagos en plena hackathon.</p>
+          </div>
+          <span class="tag tag-gratis">Modo $0</span>
+        </div>
+        <div id="emergency-chain" class="grid grid-2"></div>
+      </article>
+
+      <div class="stats-grid mt">
+        <article class="panel">
+          <div class="panel-head">
+            <h2>🇺🇸 EE.UU. vs 🇨🇳 China vs 🇪🇺 Europa — Cara a Cara</h2>
+            <span class="tag">Modelos AI &amp; Herramientas</span>
+          </div>
+          <div id="geo-battle"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Rankings Ganadores</h2>
+            <div class="chip-group" id="rank-tabs">
+              <button class="chip active" data-rank="overall">Top Global</button>
+              <button class="chip" data-rank="free">Mejor Gratis</button>
+              <button class="chip" data-rank="paid">Mejor Pago</button>
+              <button class="chip" data-rank="speed">Más Rápido</button>
+            </div>
+          </div>
+          <div id="leaderboard-list"></div>
+        </article>
+      </div>
+
+      <article class="panel mt">
+        <div class="panel-head">
+          <div>
+            <h2>Radar en Vivo — Últimos Modelos AI (OpenRouter Auto-Sync)</h2>
+            <p class="muted">Se actualiza automáticamente en el navegador y vía GitHub Actions cada 24h con precios reales por 1M tokens y banderas por origen.</p>
+          </div>
+          <div class="chip-group" id="radar-filters">
+            <button class="chip active" data-radar="all">Todos</button>
+            <button class="chip" data-radar="free">Solo Gratis ($0)</button>
+            <button class="chip" data-radar="CN">🇨🇳 China</button>
+            <button class="chip" data-radar="US">🇺🇸 EE.UU.</button>
+            <button class="chip" data-radar="EU">🇪🇺 Europa</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>País</th>
+                <th>Modelo</th>
+                <th>Contexto</th>
+                <th>Input / 1M</th>
+                <th>Output / 1M</th>
+                <th>Tipo</th>
+              </tr>
+            </thead>
+            <tbody id="live-radar-body"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <!-- VIEW 3: AGENTS, SUB-AGENTS & WINNING STACKS -->
+    <section id="view-agents" class="view">
+      <div class="agents-toolbar">
+        <div>
+          <h2 style="margin:0;">Agentes &amp; Sub-Agentes Descargables (OpenCode / NVIDIA NIM / Claude / Cursor)</h2>
+          <p class="muted">Incluye el pack <strong>Frontier Booster</strong> para que modelos gratuitos o chicos rindan casi como Claude Sonnet / GPT-5. Descarga cada <code>.md</code> en 1 clic o el instalador completo.</p>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <div class="chip-group" id="agent-tier-filters">
+            <button class="chip active" data-atier="all">Todos</button>
+            <button class="chip" data-atier="booster">Booster OpenCode / NIM</button>
+            <button class="chip" data-atier="hackathon">Hackathon Squad</button>
+          </div>
+          <button id="download-all-agents-btn" class="btn btn-accent">⬇ Descargar Pack Completo (.sh)</button>
+        </div>
+      </div>
+      <div id="subagents-grid" class="grid grid-2"></div>
+
+      <div class="section-intro mt">
+        <h2>Comandos Multi-Agente — Agentes que Hablan Entre Ellos (A2A)</h2>
+        <p class="muted">Scripts y servidores listos para copiar o descargar en 1 clic: enjambre en <code>tmux</code> con bus JSONL, relay OpenCode, Bridge MCP entre Cursor/Claude/OpenCode, Claude Teams, loop Python con NVIDIA NIM y dúo Aider.</p>
+      </div>
+      <div id="multiagent-grid" class="grid grid-2"></div>
+
+      <div class="section-intro mt-lg">
+        <h2>Stacks Ganadores Pre-Armados</h2>
+        <p class="muted">Combinaciones probadas con costo real y comando de inicio en 1 clic.</p>
+      </div>
+      <div id="stacks-grid" class="grid grid-2"></div>
+
+      <div class="section-intro mt-lg">
+        <h2>Configuraciones Maestras (Copiar / Descargar)</h2>
+        <p class="muted">Archivos base listos para tu repositorio: reglas de agentes, router con auto-fallback USA+China y servidores MCP.</p>
+      </div>
+      <div id="master-configs" class="stack-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span><strong>metahaters</strong> · Zero-framework · Ultra ligero · Auto-actualizable</span>
+      <span id="footer-meta">Sincronizando fuentes...</span>
+    </div>
+  </footer>
+
+  <!-- Detail Modal -->
+  <dialog id="detail-modal" class="modal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div id="modal-title-wrap"></div>
+        <button id="modal-close" class="icon-btn" aria-label="Cerrar">✕</button>
+      </div>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </dialog>
+
+  <!-- Compare Modal -->
+  <dialog id="compare-modal" class="modal modal-wide">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h2>Comparador Lado a Lado</h2>
+          <p class="muted">El ganador de cada métrica se marca automáticamente en verde.</p>
+        </div>
+        <div class="modal-head-actions">
+          <button id="compare-clear" class="btn btn-ghost">Limpiar</button>
+          <button id="compare-close" class="icon-btn" aria-label="Cerrar">✕</button>
+        </div>
+      </div>
+      <div id="compare-body" class="modal-body"></div>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

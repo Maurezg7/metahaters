@@ -1,0 +1,122 @@
+{
+  "byArea": [
+    {
+      "id": "area-ds",
+      "area": "Data Science, Analytics & ML",
+      "winner": "Python — Polars + DuckDB + PyTorch (y Pandas por ecosistema)",
+      "whyWinner": "Pandas es el estándar universal con más tutoriales; Polars + DuckDB procesan 10x–50x más rápido con 1/4 de RAM; PyTorch domina Deep Learning.",
+      "frameworks": [
+        { "name": "Pandas", "lang": "Python", "use": "Limpieza tabular y prototipado rápido", "edge": "99% de ejemplos y datasets compatibles al instante" },
+        { "name": "Polars", "lang": "Python / Rust", "use": "DataFrames masivos multi-core", "edge": "Escrito en Rust, 10x–30x más rápido que Pandas" },
+        { "name": "DuckDB", "lang": "SQL / Python", "use": "OLAP embebido sobre Parquet/CSV", "edge": "Consultas SQL sobre millones de filas sin servidor" },
+        { "name": "PyTorch", "lang": "Python", "use": "Deep Learning, fine-tuning, visión/NLP", "edge": "Estándar en investigación, Hugging Face y producción" },
+        { "name": "scikit-learn / LightGBM", "lang": "Python", "use": "ML clásico y tabular", "edge": "Gana casi todas las competencias tabulares (Kaggle)" },
+        { "name": "Streamlit / Gradio", "lang": "Python", "use": "Dashboard y demo interactiva", "edge": "App visual de ML en <50 líneas de Python" }
+      ]
+    },
+    {
+      "id": "area-sec",
+      "area": "Ciberseguridad, AppSec & Pentesting Defensivo",
+      "winner": "Python (Scapy / Mitmproxy / Pwntools) + Go (Nuclei / ffuf) + Rust (Feroxbuster)",
+      "whyWinner": "Python domina scripting de red y análisis; Go genera binarios estáticos ultra rápidos para escaneo; Rust ofrece seguridad de memoria y velocidad extrema.",
+      "frameworks": [
+        { "name": "Scapy", "lang": "Python", "use": "Inspección y análisis de paquetes de red", "edge": "Control total de capas TCP/IP/DNS/Wi-Fi en Python" },
+        { "name": "Nuclei (ProjectDiscovery)", "lang": "Go / YAML", "use": "Escaneo de vulnerabilidades con plantillas", "edge": "Miles de templates YAML comunitarios y altísima velocidad" },
+        { "name": "Mitmproxy", "lang": "Python", "use": "Proxy HTTPS / auditoría de APIs", "edge": "Intercepta, inspecciona y scriptea tráfico HTTP/2 y WebSockets" },
+        { "name": "Semgrep", "lang": "OCaml / YAML", "use": "SAST / análisis estático de código", "edge": "Detecta secretos, XSS y SQLi en segundos en CI" },
+        { "name": "OWASP ZAP", "lang": "Java / API", "use": "DAST / auditoría de apps web", "edge": "Open-source estándar para auditar tus propios endpoints" },
+        { "name": "Frida", "lang": "JS / Python / C", "use": "Instrumentación dinámica mobile/desktop", "edge": "Inspección de binarios y apps Android/iOS en tiempo real" }
+      ]
+    },
+    {
+      "id": "area-fintech",
+      "area": "Fintech, Dinero, Pagos & Trading",
+      "winner": "Go (Gin/Fiber + Decimal) / Kotlin-Java (Spring Boot) + Rust (Axum) + Stripe/MercadoPago",
+      "whyWinner": "En dinero NUNCA uses float (usa decimal exacto). Go y Spring Boot lideran pasarelas y ledgers; Rust domina motores de matching de baja latencia; Python domina backtesting cuantitativo.",
+      "frameworks": [
+        { "name": "Spring Boot", "lang": "Java / Kotlin", "use": "Core bancario, pagos, cumplimiento", "edge": "Estándar bancario mundial, transacciones ACID y seguridad madura" },
+        { "name": "Go + shopspring/decimal", "lang": "Go", "use": "Microservicios de pagos y wallets", "edge": "Concurrencia barata, latencia predecible y binario único" },
+        { "name": "Axum + rust_decimal", "lang": "Rust", "use": "Motores de órdenes / HFT / exchanges", "edge": "Cero garbage collector, precisión decimal y microsegundos" },
+        { "name": "Stripe / Mercado Pago SDK", "lang": "TS / Python / Go", "use": "Cobros globales y Latam", "edge": "Checkout, suscripciones, Pix, QR y webhooks en 15 min" },
+        { "name": "QuantLib / VectorBT", "lang": "Python / C++", "use": "Finanzas cuantitativas y backtesting", "edge": "Pricing de derivados y simulación de estrategias en segundos" },
+        { "name": "TigerBeetle", "lang": "Zig / Clientes multi-lang", "use": "Base de datos contable (ledger)", "edge": "Contabilidad doble-entrada de >1M TPS sin inconsistencias" }
+      ]
+    },
+    {
+      "id": "area-ai",
+      "area": "AI, Agentes, RAG & Multimodal",
+      "winner": "Python (LangGraph + PydanticAI + FastAPI) + TypeScript (Vercel AI SDK)",
+      "whyWinner": "Python tiene el 100% del ecosistema ML/LLM; TypeScript con Vercel AI SDK gana cuando quieres streaming UI + tool calling directo en el frontend.",
+      "frameworks": [
+        { "name": "Vercel AI SDK", "lang": "TypeScript", "use": "Streaming UI + tool calling multi-LLM", "edge": "Cambia entre OpenAI, Claude, DeepSeek, Groq y NIM en 1 línea" },
+        { "name": "LangGraph", "lang": "Python / TS", "use": "Flujos multi-agente con estado", "edge": "Loops, checkpoints, human-in-the-loop y memoria persistente" },
+        { "name": "PydanticAI", "lang": "Python", "use": "Agentes tipados con salida JSON estricta", "edge": "Validación automática de schemas y dependencias limpias" },
+        { "name": "FastAPI", "lang": "Python", "use": "Servir modelos y APIs de AI", "edge": "Async nativo, SSE streaming y OpenAPI automático" },
+        { "name": "vLLM / llama.cpp", "lang": "Python / C++", "use": "Inferencia local / self-hosted", "edge": "Máximo throughput en GPU (vLLM) o CPU/Apple Silicon (llama.cpp)" }
+      ]
+    },
+    {
+      "id": "area-web",
+      "area": "Web Full-Stack, SaaS & Dashboards",
+      "winner": "TypeScript — Next.js / Astro / Hono (y SvelteKit / Django)",
+      "whyWinner": "Un solo lenguaje para front, back y validación; deploy gratuito en 30 segundos en Vercel o Cloudflare.",
+      "frameworks": [
+        { "name": "Next.js", "lang": "TypeScript", "use": "SaaS full-stack y MVPs de hackathon", "edge": "App Router, Server Actions, ecosistema gigante" },
+        { "name": "Astro", "lang": "TypeScript", "use": "Webs de contenido, landing, docs ultrarrápidas", "edge": "Cero JS innecesario por defecto, puntaje 100 en Lighthouse" },
+        { "name": "Hono", "lang": "TypeScript", "use": "APIs Edge (Cloudflare Workers, Bun, Node)", "edge": "Ultrapequeño (<14KB), tipado end-to-end (RPC) y rapidísimo" },
+        { "name": "SvelteKit", "lang": "TypeScript", "use": "Web apps rápidas con menos código", "edge": "Sin Virtual DOM, bundles diminutos y gran DX" },
+        { "name": "Django", "lang": "Python", "use": "SaaS con panel admin y auth al instante", "edge": "ORM, migraciones y Admin panel listos sin escribir CRUD" },
+        { "name": "Phoenix LiveView", "lang": "Elixir", "use": "Apps tiempo real sin escribir JS", "edge": "Millones de WebSockets concurrentes tolerantes a fallos" }
+      ]
+    },
+    {
+      "id": "area-mobile",
+      "area": "Mobile (iOS + Android) & Desktop Ligero",
+      "winner": "Flutter (Dart) / Expo React Native (TS) para Mobile · Tauri (Rust) para Desktop",
+      "whyWinner": "Flutter entrega UI 60/120fps idéntica en iOS/Android con 1 codebase; Expo comparte lógica con Next.js; Tauri crea apps desktop de ~5MB en vez de 150MB de Electron.",
+      "frameworks": [
+        { "name": "Flutter", "lang": "Dart", "use": "iOS + Android + Web desde 1 código", "edge": "Hot reload instantáneo y UI súper pulida sin depender de widgets nativos" },
+        { "name": "React Native + Expo", "lang": "TypeScript", "use": "Mobile para equipos web/JS", "edge": "Expo Go prueba en tu celular escaneando QR en 10 segundos" },
+        { "name": "Tauri 2", "lang": "Rust + Web", "use": "Apps Desktop y Mobile ligeras", "edge": "Consume 10x menos RAM y disco que Electron" },
+        { "name": "SwiftUI / Jetpack Compose", "lang": "Swift / Kotlin", "use": "Apps 100% nativas (cámara, AR, ML local)", "edge": "Acceso directo a CoreML/MLX en Apple y hardware Android" }
+      ]
+    },
+    {
+      "id": "area-web3",
+      "area": "Web3, Smart Contracts & DeFi",
+      "winner": "Foundry + OpenZeppelin (Solidity EVM) · Anchor (Rust Solana)",
+      "whyWinner": "Foundry compila y testea en Rust con fuzzing nativo; OpenZeppelin provee contratos auditados para no introducir vulnerabilidades; Anchor simplifica Solana 10x.",
+      "frameworks": [
+        { "name": "Foundry (Forge/Cast/Anvil)", "lang": "Solidity / Rust", "use": "Compilar, testear y deployar EVM", "edge": "Tests en Solidity, fuzzing y forks de mainnet en milisegundos" },
+        { "name": "OpenZeppelin Contracts", "lang": "Solidity", "use": "Estándares ERC auditados", "edge": "Base segura obligatoria para ERC-20, ERC-721, AccessControl y Timelock" },
+        { "name": "viem + wagmi", "lang": "TypeScript", "use": "Frontend Web3 conectado a wallets", "edge": "Mucho más liviano y tipado que ethers.js v5" },
+        { "name": "Anchor", "lang": "Rust", "use": "Programas on-chain en Solana", "edge": "Genera IDL/cliente TS automático y evita bugs de serialización" }
+      ]
+    },
+    {
+      "id": "area-games-iot",
+      "area": "Juegos, 3D, IoT & CLIs/DevOps",
+      "winner": "Godot / Three.js (Juegos/3D) · ESP-IDF / Embassy (IoT) · Go Cobra / Rust Clap (CLI)",
+      "whyWinner": "Godot es open-source, liviano y exporta a web/desktop; Three.js corre 3D en el navegador; Go/Rust compilan CLIs de un solo binario sin runtime.",
+      "frameworks": [
+        { "name": "Godot 4", "lang": "GDScript / C#", "use": "Juegos 2D/3D indie y game jams", "edge": "Open-source (MIT), pesa ~60MB y exporta a HTML5" },
+        { "name": "Three.js / React Three Fiber", "lang": "TypeScript", "use": "Experiencias 3D interactivas en web", "edge": "Corre en cualquier navegador sin instalar nada" },
+        { "name": "ESP-IDF / PlatformIO", "lang": "C / C++", "use": "ESP32, sensores, robótica e IoT", "edge": "Wi-Fi/BLE y drivers de hardware listos" },
+        { "name": "Cobra + Bubble Tea", "lang": "Go", "use": "CLIs y TUIs hermosas para DevOps", "edge": "Binario único multiplataforma (usado por Docker, Kubernetes, gh)" }
+      ]
+    }
+  ],
+  "byLanguage": [
+    { "lang": "Python", "flag": "🇳🇱", "logo": "https://cdn.simpleicons.org/python/3776AB", "top": ["FastAPI (APIs/AI)", "Pandas / Polars (Data)", "PyTorch (DL)", "LangGraph / PydanticAI (Agentes)", "Scapy / Mitmproxy (Seguridad)", "Django (SaaS)", "Streamlit (Demos)"] },
+    { "lang": "TypeScript", "flag": "🇺🇸", "logo": "https://cdn.simpleicons.org/typescript/3178C6", "top": ["Next.js (Full-Stack)", "Astro (Web ultra-ligera)", "Hono (Edge API)", "Vercel AI SDK (LLMs)", "Expo / React Native (Mobile)", "Three.js (3D)", "viem + wagmi (Web3)"] },
+    { "lang": "Go", "flag": "🇺🇸", "logo": "https://cdn.simpleicons.org/go/00ADD8", "top": ["Gin / Fiber (APIs/Fintech)", "Cobra + Bubble Tea (CLI/DevOps)", "Nuclei / ffuf (Seguridad)", "Temporal (Workflows)", "TinyGo (IoT/Wasm)"] },
+    { "lang": "Rust", "flag": "🇺🇸", "logo": "https://cdn.simpleicons.org/rust/F5F5F7", "top": ["Axum / Actix Web (APIs ultra-rápidas)", "Tauri (Desktop ligero)", "Polars (Data Engine)", "Anchor (Solana Web3)", "Bevy (Juegos)", "Embassy (IoT)", "Clap (CLI)"] },
+    { "lang": "Java / Kotlin", "flag": "🇺🇸", "logo": "https://cdn.simpleicons.org/kotlin/7F52FF", "top": ["Spring Boot (Banca/Fintech)", "Ktor (Microservicios async)", "Jetpack Compose / KMP (Mobile)", "Quarkus (Java cloud ligero)"] },
+    { "lang": "C / C++", "flag": "🇺🇸", "logo": "https://cdn.simpleicons.org/cplusplus/00599C", "top": ["ESP-IDF / Arduino (IoT)", "Unreal / Raylib (Juegos)", "llama.cpp (AI local)", "OpenCV (Visión)", "QuantLib (Trading/HFT)"] },
+    { "lang": "C#", "flag": "🇺🇸", "logo": "https://cdn.simpleicons.org/dotnet/512BD4", "top": ["ASP.NET Core (Enterprise/Fintech)", "Unity / Godot C# (Juegos)", "Blazor (Web)", "MAUI (Cross-platform)"] },
+    { "lang": "Solidity", "flag": "🇨🇭", "logo": "https://cdn.simpleicons.org/solidity/F5F5F7", "top": ["Foundry (Testing/Deploy)", "OpenZeppelin (Contratos auditados)", "Hardhat (Ecosistema JS)", "Slither (Auditoría estática)"] },
+    { "lang": "Dart", "flag": "🇺🇸", "logo": "https://cdn.simpleicons.org/dart/0175C2", "top": ["Flutter (iOS/Android/Web/Desktop)", "Riverpod (Estado)", "Serverpod (Backend Dart)"] },
+    { "lang": "Swift", "flag": "🇺🇸", "logo": "https://cdn.simpleicons.org/swift/F05138", "top": ["SwiftUI (iOS/macOS/visionOS)", "MLX (LLMs en Apple Silicon)", "Vapor (Backend Swift)"] },
+    { "lang": "Elixir", "flag": "🇧🇷", "logo": "https://cdn.simpleicons.org/elixir/9B6BFF", "top": ["Phoenix + LiveView (Tiempo real)", "Oban (Jobs)", "Nx / Bumblebee (ML en BEAM)"] }
+  ]
+}

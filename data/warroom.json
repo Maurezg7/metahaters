@@ -1,0 +1,28 @@
+{
+  "checklist": [
+    { "id": "chk-1", "phase": "Hora 0–2", "text": "Definir MVP de 1 sola feature ganadora (máx. 3 pantallas) y repartir roles." },
+    { "id": "chk-2", "phase": "Hora 0–2", "text": "Crear repo + .gitignore (.env afuera) + deploy vacío en Vercel/Cloudflare." },
+    { "id": "chk-3", "phase": "Hora 2–12", "text": "Activar botón 'Demo Data / Mock' por si se cae el WiFi o una API frente al jurado." },
+    { "id": "chk-4", "phase": "Hora 12–18", "text": "Probar flujo completo de punta a punta en el navegador (móvil + desktop)." },
+    { "id": "chk-5", "phase": "Últimas 4h", "text": "Grabar video backup de 90s de la demo funcionando (por si falla el proyector/red)." },
+    { "id": "chk-6", "phase": "Últimas 2h", "text": "README limpio con arquitectura, screenshots, link live y pasos de instalación." },
+    { "id": "chk-7", "phase": "Última 1h", "text": "Congelar código (NO refactors de último minuto) y ensayar pitch exacto en 3:00 min." }
+  ],
+  "pitchTemplate": "1) GANCHO + PROBLEMA (0:00 - 0:30):\n   \"Hoy [usuario] pierde [X horas / $Y] haciendo [dolor concreto].\"\n\n2) DEMO EN VIVO (0:30 - 2:00) — LO MÁS IMPORTANTE:\n   - Muestra el flujo real en 3 clics (con datos pre-cargados si hace falta).\n   - Destaca el momento 'WOW' (ej. agente en vivo, velocidad, ahorro real).\n\n3) CÓMO FUNCIONA BAJO EL CAPÓ (2:00 - 2:30):\n   - Stack ligero + modelos AI/APIs usados + por qué escala y cuesta casi $0.\n\n4) IMPACTO + SIGUIENTE PASO (2:30 - 3:00):\n   - Quién paga por esto, métricas de prueba hoy y cierre memorable.",
+  "freeCredits": [
+    { "name": "GitHub Student Developer Pack", "flag": "🇺🇸", "perk": "Copilot Pro gratis, dominios .me/.tech, $100 Azure, $200 DigitalOcean, JetBrains, Namecheap", "url": "https://education.github.com/pack" },
+    { "name": "Google Cloud / Firebase", "flag": "🇺🇸", "perk": "$300 gratis 90 días + Gemini AI Studio gratis + Firebase Spark", "url": "https://cloud.google.com/free" },
+    { "name": "Microsoft Azure for Students", "flag": "🇺🇸", "perk": "$100 crédito sin tarjeta con correo universitario", "url": "https://azure.microsoft.com/free/students/" },
+    { "name": "NVIDIA Developer / NIM", "flag": "🇺🇸", "perk": "Créditos gratuitos de API para DeepSeek, Qwen, Kimi, GLM, Llama y Nemotron", "url": "https://build.nvidia.com" },
+    { "name": "Cloudflare + Supabase + Vercel", "flag": "🇺🇸", "perk": "Deploy full-stack + Postgres + Edge Functions + KV gratis en minutos", "url": "https://workers.cloudflare.com" },
+    { "name": "Plataformas de Hackathons", "flag": "🌍", "perk": "Devpost · DoraHacks (Web3/AI) · ETHGlobal · Lablab.ai (AI) · MLH · Kaggle", "url": "https://devpost.com/hackathons" }
+  ],
+  "emergencyCommands": [
+    { "title": "Exponer localhost al jurado SIN cuenta (HTTPS gratis)", "cmd": "npx cloudflared tunnel --url http://localhost:3000" },
+    { "title": "Túnel SSH instantáneo sin instalar nada", "cmd": "ssh -R 80:localhost:3000 nokey@localhost.run" },
+    { "title": "Liberar puerto ocupado (ej. 3000) al instante", "cmd": "fuser -k 3000/tcp || lsof -ti:3000 | xargs kill -9" },
+    { "title": "Deshacer último commit roto sin perder tus archivos", "cmd": "git reset --soft HEAD~1" },
+    { "title": "Levantar servidor estático en 1 segundo", "cmd": "python3 -m http.server 8080 --bind 0.0.0.0" },
+    { "title": "Verificar que NO subiste secretos antes del push", "cmd": "git diff --cached | grep -Ei '(api_key|secret|nvapi-|sk-|ghp_|token)' || echo 'Limpio ✓'" }
+  ]
+}

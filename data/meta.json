@@ -1,0 +1,27 @@
+{
+  "name": "metahaters",
+  "version": "1.0.0",
+  "lastUpdated": "2026-11-24T20:18:17.449Z",
+  "autoUpdateIntervalHours": 6,
+  "counts": {
+    "models": 44,
+    "apis": 22,
+    "languages": 12,
+    "tools": 28,
+    "liveModels": 60
+  },
+  "sources": [
+    {
+      "name": "OpenRouter Models API",
+      "url": "https://openrouter.ai/api/v1/models",
+      "status": "ok",
+      "totalSeen": 469
+    },
+    {
+      "name": "GitHub REST API",
+      "url": "https://api.github.com",
+      "status": "partial (rate-limited)",
+      "reposUpdated": 0
+    }
+  ]
+}

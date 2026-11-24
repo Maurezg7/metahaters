@@ -1,0 +1,140 @@
+{
+  "ideMatrix": [
+    {
+      "name": "Devin",
+      "flag": "🇺🇸",
+      "type": "Agente Autónomo Cloud",
+      "price": "Desde $20 (ACUs) / Team $500",
+      "freeOption": "No (pago por ACUs)",
+      "models": "Propio + Frontier multi-modelo",
+      "autonomy": 99,
+      "reasoning": 96,
+      "coding": 97,
+      "speed": 90,
+      "bestWhen": "Quieres delegar features/PRs enteros en paralelo en su propia VM con browser y preview."
+    },
+    {
+      "name": "Cursor",
+      "flag": "🇺🇸",
+      "type": "AI IDE (VS Code fork)",
+      "price": "Free / Pro $20 / Ultra $200",
+      "freeOption": "Hobby limitado",
+      "models": "Claude, GPT-5, Gemini, Grok, Composer",
+      "autonomy": 88,
+      "reasoning": 96,
+      "coding": 98,
+      "speed": 96,
+      "bestWhen": "Programas activamente en tu máquina y quieres el mejor Tab + Agent mode interactivo."
+    },
+    {
+      "name": "Claude Code",
+      "flag": "🇺🇸",
+      "type": "Agente Terminal (CLI)",
+      "price": "Pro $20 / Max $100-200 / API",
+      "freeOption": "BYOK con Z.ai GLM o DeepSeek endpoint",
+      "models": "Claude Sonnet/Opus/Haiku (o Anthropic-compat)",
+      "autonomy": 95,
+      "reasoning": 98,
+      "coding": 99,
+      "speed": 91,
+      "bestWhen": "Refactors grandes, sub-agentes nativos y máxima calidad de código en terminal."
+    },
+    {
+      "name": "OpenCode",
+      "flag": "🇺🇸",
+      "type": "Agente Terminal Open-Source",
+      "price": "$0 (BYOK: NIM / Groq / OpenRouter)",
+      "freeOption": "100% gratis con NVIDIA NIM / :free / Ollama",
+      "models": "75+ proveedores (DeepSeek, Qwen, Kimi, GLM, Claude, GPT)",
+      "autonomy": 90,
+      "reasoning": 92,
+      "coding": 94,
+      "speed": 94,
+      "bestWhen": "Se te acabaron los créditos pagos y quieres exprimir modelos gratis + sub-agentes Booster."
+    },
+    {
+      "name": "Windsurf",
+      "flag": "🇺🇸",
+      "type": "AI IDE (VS Code fork)",
+      "price": "Free / Pro $15/mes",
+      "freeOption": "Free con créditos + SWE-1 lite",
+      "models": "Claude, GPT, Gemini, SWE-1",
+      "autonomy": 87,
+      "reasoning": 94,
+      "coding": 95,
+      "speed": 95,
+      "bestWhen": "Buscas experiencia tipo Cursor más barata ($15) con buena indexación de repo."
+    },
+    {
+      "name": "Codex CLI / Cloud",
+      "flag": "🇺🇸",
+      "type": "CLI + Sandbox Cloud",
+      "price": "Incluido en ChatGPT Plus $20 / API",
+      "freeOption": "Incluido si ya pagas ChatGPT Plus",
+      "models": "GPT-5 / GPT-5 Codex / o4-mini",
+      "autonomy": 92,
+      "reasoning": 98,
+      "coding": 97,
+      "speed": 90,
+      "bestWhen": "Bugs complejos de razonamiento profundo y tareas en sandbox en paralelo."
+    },
+    {
+      "name": "Cline / Roo Code",
+      "flag": "🇺🇸",
+      "type": "Extensión VS Code Open-Source",
+      "price": "$0 + API (BYOK)",
+      "freeOption": "100% gratis con OpenRouter :free / NIM / Ollama",
+      "models": "Cualquier API (Plan R1 + Act Qwen/V3)",
+      "autonomy": 90,
+      "reasoning": 93,
+      "coding": 94,
+      "speed": 90,
+      "bestWhen": "Quieres combinar un razonador (R1) para planear y un modelo gratis para editar en VS Code."
+    },
+    {
+      "name": "Gemini CLI",
+      "flag": "🇺🇸",
+      "type": "Agente Terminal Open-Source",
+      "price": "$0 (cuenta Google)",
+      "freeOption": "Cuota diaria generosa con 1M contexto",
+      "models": "Gemini 2.5 Pro / Flash",
+      "autonomy": 86,
+      "reasoning": 95,
+      "coding": 92,
+      "speed": 91,
+      "bestWhen": "Plan B gratis inmediato con 1M de tokens para leer el repo entero sin pagar."
+    },
+    {
+      "name": "Trae",
+      "flag": "🇨🇳",
+      "type": "AI IDE",
+      "price": "Free / Pro $10/mes",
+      "freeOption": "Plan gratis con acceso a modelos top",
+      "models": "Claude, GPT, DeepSeek, Doubao",
+      "autonomy": 84,
+      "reasoning": 90,
+      "coding": 89,
+      "speed": 91,
+      "bestWhen": "Alternativa económica ($0-$10) con Builder mode para crear MVPs rápidos."
+    },
+    {
+      "name": "Aider",
+      "flag": "🇺🇸",
+      "type": "CLI Git-Native",
+      "price": "$0 + API (BYOK)",
+      "freeOption": "Gratis con DeepSeek/OpenRouter/NIM/Ollama",
+      "models": "Modo Architect (R1) + Editor (V3/Qwen)",
+      "autonomy": 82,
+      "reasoning": 94,
+      "coding": 93,
+      "speed": 93,
+      "bestWhen": "Máxima precisión gastando centavos gracias al modo --architect y commits limpios."
+    }
+  ],
+  "emergencyChain": [
+    { "step": "1", "when": "Se acabó Cursor / Claude Code", "switchTo": "🇺🇸 OpenCode + 🇺🇸 NVIDIA NIM (DeepSeek V3/R1, Qwen 3, Kimi K2, GLM)", "cost": "$0", "note": "Activa el sub-agente 00-frontier-booster.md para mantener calidad frontier." },
+    { "step": "2", "when": "Rate limit en NVIDIA NIM (~40 RPM)", "switchTo": "🇺🇸 Gemini CLI (cuenta Google, 1M ctx) + 🇨🇳 Qwen Code CLI (2K req/día)", "cost": "$0", "note": "Dos CLIs gratuitas con cuotas diarias altísimas sin tarjeta." },
+    { "step": "3", "when": "Necesitas velocidad extrema en la app", "switchTo": "🇺🇸 Groq (Llama 3.3 / gpt-oss / Whisper) + 🇺🇸 Cerebras (1M tok/día)", "cost": "$0", "note": "500 a 2,000 tok/s gratis para demos en vivo." },
+    { "step": "4", "when": "Se cayó el WiFi de la hackathon", "switchTo": "🇺🇸 Ollama local (🇨🇳 qwen2.5-coder:14b + 🇫🇷 devstral + 🇺🇸 gpt-oss:20b)", "cost": "$0 offline", "note": "100% sin internet, compatible con OpenCode y Zed." }
+  ]
+}

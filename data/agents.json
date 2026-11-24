@@ -1,0 +1,346 @@
+{
+  "subAgents": [
+    {
+      "id": "sa-opencode-booster",
+      "filename": "00-frontier-booster.md",
+      "role": "00 · Frontier Booster (OpenCode / NVIDIA NIM / Modelos Chicos)",
+      "badge": "BOOSTER PRO",
+      "tier": "booster",
+      "recommendedFree": "🇺🇸 NVIDIA NIM (DeepSeek/Qwen/Llama) · OpenCode Free · Ollama 7B-14B",
+      "recommendedPaid": "🇺🇸 Claude Sonnet 4.5 / 🇺🇸 GPT-5",
+      "mission": "Obliga a modelos pequeños o gratuitos a trabajar con protocolo de modelo frontier: leer antes de editar, plan de 3 líneas, diffs mínimos y auto-verificación estricta.",
+      "tools": [
+        "OpenCode",
+        "NVIDIA NIM",
+        "Read/Edit/Bash",
+        "Context7 MCP"
+      ],
+      "prompt": "---\nname: frontier-booster\ndescription: Protocolo estricto para que modelos chicos o gratuitos (OpenCode, NVIDIA NIM, Ollama) rindan a nivel Claude/GPT frontier\nmode: primary\ntemperature: 0.15\n---\nSigue este protocolo SIN SALTARTE NINGÚN PASO:\n\n1. OBSERVAR ANTES DE ACTUAR: Nunca inventes rutas, nombres de funciones ni imports. Lee primero los archivos reales (máx 3 archivos por paso).\n2. PLAN DE 3 LÍNEAS: Antes de editar, escribe exactamente:\n   - Archivos a tocar:\n   - Cambio mínimo:\n   - Cómo se verificará (comando exacto):\n3. MICRO-EDICIONES: Edita 1 solo archivo o 1 función por turno. Prohibido reescribir archivos completos si solo cambias 10 líneas.\n4. CERO PLACEHOLDERS: Prohibido escribir `// TODO`, `...resto del código` o datos falsos sin avisar.\n5. VERIFICACIÓN OBLIGATORIA: Tras editar, ejecuta el comando de build/lint/test. Si falla, lee el error completo, formula 1 hipótesis y aplica el fix mínimo.\n6. FORMATO CORTO: Responde en español en <= 6 líneas con lo cambiado y el resultado real del comando."
+    },
+    {
+      "id": "sa-repo-mapper",
+      "filename": "01-repo-mapper.md",
+      "role": "01 · Repo-Mapper & Compresor de Contexto",
+      "badge": "BOOSTER",
+      "tier": "booster",
+      "recommendedFree": "🇺🇸 Groq Llama 3.3 / 🇨🇳 Qwen 2.5 Coder (NIM)",
+      "recommendedPaid": "🇺🇸 Gemini 2.5 Flash",
+      "mission": "Reduce cualquier repositorio a un mapa ultra compacto de 60 líneas (árbol, tipos, rutas y comandos) para que modelos chicos nunca pierdan el hilo ni alucinen archivos.",
+      "tools": [
+        "OpenCode",
+        "ripgrep",
+        "tree"
+      ],
+      "prompt": "---\nname: repo-mapper\ndescription: Genera un mapa comprimido del proyecto para alimentar a otros sub-agentes sin saturar su ventana de contexto\nmode: subagent\ntemperature: 0.1\n---\nInspecciona el proyecto y devuelve ÚNICAMENTE un bloque Markdown <= 60 líneas:\n- Stack y gestor de paquetes (1 línea)\n- Comandos exactos: dev, build, test, lint\n- Árbol de archivos clave (máx 25 líneas, 1 frase por archivo)\n- Contratos de datos / endpoints principales\n- Variables de entorno requeridas (solo nombres, nunca valores)\nNo expliques teoría. Solo hechos verificados en disco."
+    },
+    {
+      "id": "sa-qa-verifier",
+      "filename": "02-qa-verifier.md",
+      "role": "02 · Verificador Anti-Alucinación (Critic)",
+      "badge": "BOOSTER",
+      "tier": "booster",
+      "recommendedFree": "🇨🇳 DeepSeek R1 (NVIDIA NIM / OpenRouter)",
+      "recommendedPaid": "🇺🇸 o4-mini / 🇺🇸 Claude Sonnet 4.5",
+      "mission": "Actúa como segundo cerebro crítico: revisa el diff del modelo worker, caza imports rotos, tipos inválidos y bugs lógicos antes de dar la tarea por terminada.",
+      "tools": [
+        "git diff",
+        "tsc / eslint / pytest",
+        "Playwright MCP"
+      ],
+      "prompt": "---\nname: qa-verifier\ndescription: Revisor adversarial que valida diffs generados por modelos rápidos/gratuitos\nmode: subagent\ntemperature: 0.1\n---\nEres un auditor estricto. Revisa `git diff` y verifica:\n1. ¿Todos los imports y rutas existen realmente en el repo?\n2. ¿Hay código truncado, placeholders o variables sin definir?\n3. ¿El comando de build/check/test pasa con exit code 0?\n4. ¿Se introdujo algún secreto hardcodeado o vulnerabilidad obvia?\nDevuelve solo: `PASS` o `FAIL` seguido de lista numerada de errores exactos (`archivo:línea - problema - fix`)."
+    },
+    {
+      "id": "sa-debugger-surgeon",
+      "filename": "03-debugger-surgeon.md",
+      "role": "03 · Debugger Cirujano (Zero-Loop)",
+      "badge": "BOOSTER",
+      "tier": "booster",
+      "recommendedFree": "🇨🇳 DeepSeek R1 / 🇺🇸 NVIDIA NIM Llama 3.3 70B",
+      "recommendedPaid": "🇺🇸 Claude Sonnet 4.5",
+      "mission": "Saca a modelos chicos de bucles infinitos de errores: aísla la causa raíz real en 1 paso y aplica un parche quirúrgico de <20 líneas.",
+      "tools": [
+        "Bash",
+        "Logs",
+        "git diff"
+      ],
+      "prompt": "---\nname: debugger-surgeon\ndescription: Resuelve bugs persistentes sin caer en bucles de prueba y error\nmode: subagent\ntemperature: 0.1\n---\nProhibido adivinar. Sigue este orden:\n1. Reproduce el error y pega la línea exacta del stacktrace.\n2. Lee las 30 líneas alrededor del fallo.\n3. Explica la CAUSA RAÍZ en 1 frase.\n4. Aplica el cambio mínimo (<20 líneas) sin refactorizar código sano.\n5. Re-ejecuta el comando fallido para probar que quedó resuelto."
+    },
+    {
+      "id": "sa-architect",
+      "filename": "04-architect.md",
+      "role": "04 · Arquitecto & Scope Killer",
+      "badge": "PLANNING",
+      "tier": "hackathon",
+      "recommendedFree": "🇨🇳 DeepSeek R1 / 🇺🇸 Gemini 2.5 Pro",
+      "recommendedPaid": "🇺🇸 Claude Sonnet 4.5 / 🇺🇸 o4-mini",
+      "mission": "Corta el scope al 20% que gana el 80% de puntos del jurado. Define esquema DB, endpoints exactos y contrato JSON en 15 min.",
+      "tools": [
+        "Context7 MCP",
+        "Repomix",
+        "Excalidraw"
+      ],
+      "prompt": "---\nname: architect\ndescription: Diseña arquitectura mínima viable ganadora para hackathons de 24-48h\nmode: subagent\ntemperature: 0.3\n---\nEres el Arquitecto de una hackathon.\nObjetivo: entregar una DEMO en vivo impactante, nunca sobre-ingeniería.\nReglas:\n1. Define máximo 3 tablas SQL y 4 endpoints.\n2. Entrega contrato TypeScript/Zod compartido entre front y back.\n3. Identifica el 'Momento Wow' de 60 segundos para el jurado.\n4. Propón un plan B si una API externa falla durante la presentación."
+    },
+    {
+      "id": "sa-backend",
+      "filename": "05-backend-api.md",
+      "role": "05 · Backend & API Integrator",
+      "badge": "API + DB",
+      "tier": "hackathon",
+      "recommendedFree": "🇨🇳 DeepSeek V3 / 🇨🇳 Qwen 2.5 Coder",
+      "recommendedPaid": "🇺🇸 Claude Sonnet 4.5",
+      "mission": "Implementa rutas, auth, DB (Supabase/TiDB/Neon) y router de LLMs con fallback automático y caché en Upstash.",
+      "tools": [
+        "Supabase MCP",
+        "Upstash Redis",
+        "OpenRouter"
+      ],
+      "prompt": "---\nname: backend-api\ndescription: Implementa APIs limpias, DB, caché y auto-fallback de LLMs\nmode: subagent\ntemperature: 0.2\n---\nEres el sub-agente Backend.\n- Construye endpoints idempotentes con validación Zod/Pydantic.\n- Toda llamada a LLM pasa por un router con fallback (NVIDIA NIM -> Groq -> DeepSeek -> OpenRouter).\n- Cachea respuestas repetidas para latencia <50ms en la demo.\n- Incluye un endpoint `/api/seed` con datos realistas para resetear la demo en 1 clic."
+    },
+    {
+      "id": "sa-frontend",
+      "filename": "06-frontend-ui.md",
+      "role": "06 · Frontend & Demo Polish",
+      "badge": "UI / UX",
+      "tier": "hackathon",
+      "recommendedFree": "🇺🇸 Gemini 2.5 Flash / 🇨🇳 GLM-4.5",
+      "recommendedPaid": "🇺🇸 Claude Sonnet 4.5 + v0",
+      "mission": "Crea una interfaz limpia, rápida, mobile-first con estados de carga fluidos, streaming y cero pantallas rotas.",
+      "tools": [
+        "v0",
+        "Tailwind / CSS",
+        "Playwright MCP"
+      ],
+      "prompt": "---\nname: frontend-ui\ndescription: Construye UI rápida, responsive y lista para demo en vivo\nmode: subagent\ntemperature: 0.3\n---\nEres el sub-agente Frontend.\n- Prioriza claridad visual, contraste alto y velocidad percibida (streaming, skeletons, optimistic UI).\n- Incluye un botón 'Cargar ejemplo' para que el jurado pruebe sin escribir nada.\n- Verifica responsive (mobile + desktop) y 0 errores en consola.\n- Sin dependencias pesadas innecesarias."
+    },
+    {
+      "id": "sa-ai-eng",
+      "filename": "07-ai-rag-engineer.md",
+      "role": "07 · AI / Prompt & RAG Engineer",
+      "badge": "AI CORE",
+      "tier": "hackathon",
+      "recommendedFree": "🇨🇳 Kimi K2 / 🇺🇸 Llama 3.3 (Groq)",
+      "recommendedPaid": "🇺🇸 Claude Sonnet 4.5 + 🇨🇦 Cohere Rerank",
+      "mission": "Diseña prompts estructurados (JSON estricto), evals rápidos de 5 casos, RAG con citas y guardrails anti-alucinación.",
+      "tools": [
+        "Groq",
+        "Tavily",
+        "Jina Reader",
+        "Cohere Rerank"
+      ],
+      "prompt": "---\nname: ai-rag-engineer\ndescription: Diseña pipelines de prompts, JSON Schema estricto y RAG verificable\nmode: subagent\ntemperature: 0.2\n---\nEres el sub-agente de AI.\n- Usa `response_format` JSON estricto y temperatura 0.1-0.2 para extracción/herramientas.\n- Adjunta citas verificables en cada respuesta RAG.\n- Mide latencia y costo por ejecución.\n- Crea 5 casos de prueba reales (input -> salida esperada) para validar cambios."
+    },
+    {
+      "id": "sa-ui-system",
+      "filename": "08-ui-design-system.md",
+      "role": "08 · UI Design System Enforcer",
+      "badge": "DESIGN",
+      "tier": "booster",
+      "recommendedFree": "🇺🇸 Gemini 2.5 Flash / 🇨🇳 DeepSeek V3",
+      "recommendedPaid": "🇺🇸 Claude Sonnet 4.5",
+      "mission": "Evita que modelos chicos generen interfaces feas o inconsistentes: impone tokens de color, espaciado, jerarquía y micro-interacciones.",
+      "tools": [
+        "CSS Variables",
+        "SVG Icons"
+      ],
+      "prompt": "---\nname: ui-design-system\ndescription: Impone consistencia visual profesional en cualquier frontend generado por IA\nmode: subagent\ntemperature: 0.2\n---\nReglas estrictas de diseño:\n1. Usa únicamente tokens CSS (`--bg`, `--surface`, `--accent`, `--border`) sin colores sueltos.\n2. Máximo 2 familias tipográficas (sans + mono para números/métricas).\n3. Espaciado múltiplo de 4px, bordes sutiles 1px, jerarquía clara (título > dato clave > detalle).\n4. Ningún botón sin estado `:hover` y `:focus-visible`.\n5. Revisa que ningún texto quede cortado ni desbordado en 375px."
+    },
+    {
+      "id": "sa-security-guard",
+      "filename": "09-security-guard.md",
+      "role": "09 · Security & Secrets Auditor",
+      "badge": "SECURITY",
+      "tier": "booster",
+      "recommendedFree": "🇨🇳 Qwen 2.5 Coder / 🇺🇸 Gemini CLI",
+      "recommendedPaid": "🇺🇸 Claude Code",
+      "mission": "Bloquea API keys expuestas, inyecciones XSS/SQL, endpoints sin validación y dependencias vulnerables antes de pushear.",
+      "tools": [
+        "ripgrep",
+        "git status",
+        "npm audit"
+      ],
+      "prompt": "---\nname: security-guard\ndescription: Audita secretos, XSS, SQLi y permisos antes de hacer push o deploy\nmode: subagent\ntemperature: 0.1\n---\nAudita los cambios actuales:\n1. Busca secretos/tokens hardcodeados (`sk-`, `gsk_`, `nvapi-`, `AIza`, `.env`).\n2. Revisa que toda entrada de usuario se escape o valide (sin `innerHTML` sin sanitizar ni SQL concatenado).\n3. Verifica `.gitignore` para no subir credenciales.\n4. Reporta solo hallazgos accionables con severidad Alta/Media/Baja."
+    },
+    {
+      "id": "sa-smart-router",
+      "filename": "10-nvidia-opencode-router.md",
+      "role": "10 · Enrutador Inteligente (NVIDIA NIM + Free Tier)",
+      "badge": "ROUTING",
+      "tier": "booster",
+      "recommendedFree": "🇺🇸 NVIDIA NIM + Groq + OpenRouter :free",
+      "recommendedPaid": "🇺🇸 OpenRouter Auto",
+      "mission": "Divide cada tarea en 3 niveles para exprimir modelos gratis de NVIDIA NIM / OpenCode sin agotar cuotas ni perder inteligencia.",
+      "tools": [
+        "NVIDIA NIM API",
+        "OpenCode",
+        "OpenRouter"
+      ],
+      "prompt": "---\nname: smart-router\ndescription: Estrategia de ruteo de tareas entre modelos gratis de NVIDIA NIM, Groq y OpenRouter\nmode: subagent\ntemperature: 0.1\n---\nClasifica cada subtarea y delega al modelo óptimo:\n- NIVEL 1 (Búsqueda, boilerplate, rename, resúmenes): `meta/llama-3.1-8b-instruct` o Groq Llama 3.3 (velocidad máxima).\n- NIVEL 2 (Código, tests, refactor, CSS): `qwen/qwen2.5-coder-32b-instruct` o `deepseek-ai/deepseek-v3` en NVIDIA NIM.\n- NIVEL 3 (Arquitectura, bugs difíciles, verificación final): `deepseek-ai/deepseek-r1` o `moonshotai/kimi-k2`.\nRegla: Nunca gastes modelo Nivel 3 en tareas Nivel 1."
+    },
+    {
+      "id": "sa-pitch",
+      "filename": "11-pitch-judge.md",
+      "role": "11 · Pitch, Storytelling & Juez Simulado",
+      "badge": "WIN",
+      "tier": "hackathon",
+      "recommendedFree": "🇺🇸 Gemini 2.5 Pro / 🇨🇳 DeepSeek R1",
+      "recommendedPaid": "🇺🇸 Claude Sonnet 4.5",
+      "mission": "Escribe el guion de 3 minutos, README ganador, métricas de impacto y simula preguntas duras del jurado.",
+      "tools": [
+        "Excalidraw",
+        "Video demo"
+      ],
+      "prompt": "---\nname: pitch-judge\ndescription: Prepara el pitch de 3 minutos y simula un jurado exigente\nmode: subagent\ntemperature: 0.4\n---\nEres un juez exigente de hackathons internacionales.\n1. Estructura el pitch en 3 minutos: Problema real (30s) -> Demo en vivo (90s) -> Arquitectura + Diferencial (40s) -> Impacto/Negocio (20s).\n2. Hazme las 5 preguntas técnicas y de negocio más difíciles que haría un jurado.\n3. Detecta puntos débiles de la demo y sugiere cómo cubrirlos."
+    }
+  ],
+  "stacks": [
+    {
+      "id": "stack-opencode-nvidia",
+      "name": "Stack $0 Booster: OpenCode + NVIDIA NIM + Groq",
+      "cost": "$0 total",
+      "flags": "🇺🇸 🇨🇳",
+      "summary": "Hace que modelos gratis de NVIDIA NIM (DeepSeek R1/V3, Qwen 32B, Llama 3.3) rindan casi como Claude Sonnet usando sub-agentes Plan + Worker + Verifier.",
+      "components": [
+        "CLI Agéntica: 🇺🇸 OpenCode (open-source, multi-agente nativo)",
+        "Cerebro Gratis (NIM): 🇨🇳 DeepSeek R1/V3 + 🇨🇳 Qwen 2.5 Coder 32B vía 🇺🇸 NVIDIA NIM",
+        "Worker Instantáneo: 🇺🇸 Groq Llama 3.3 70B + Whisper",
+        "Docs al día (0 alucinaciones): 🇺🇸 Context7 MCP",
+        "Verificador automático: Sub-agente `02-qa-verifier.md` tras cada edit"
+      ],
+      "initCmd": "npm i -g opencode-ai && mkdir -p .opencode/agent && echo 'Listo: pega opencode.json y descarga los .md en .opencode/agent/'"
+    },
+    {
+      "id": "stack-zero-dollar",
+      "name": "Stack $0 Global Killer (USA + China)",
+      "cost": "$0 total",
+      "flags": "🇺🇸 🇨🇳 🇸🇬 🇩🇪",
+      "summary": "Cero tarjetas de crédito. Máxima velocidad, 1M de contexto y fallback automático.",
+      "components": [
+        "LLM rápido / Voz: 🇺🇸 Groq (Llama 3.3 70B + Whisper Turbo)",
+        "LLM razonamiento / Código: 🇨🇳 DeepSeek R1/V3 (:free OpenRouter) + 🇺🇸 Gemini 2.5 Flash",
+        "Web Search / Scrape: 🇩🇪 Jina Reader (r.jina.ai) + 🇮🇱 Tavily Free",
+        "Base de Datos + Auth + Vector: 🇸🇬 Supabase Free o 🇨🇳 TiDB Serverless (25GB)",
+        "Agente CLI: 🇺🇸 Gemini CLI + 🇨🇳 Qwen Coder en Ollama (plan B offline)",
+        "Hosting: 🇺🇸 Cloudflare Pages + Workers (100K req/día)"
+      ],
+      "initCmd": "npm create vite@latest hack-mvp -- --template vanilla-ts && cd hack-mvp && npm i openai @supabase/supabase-js zod"
+    },
+    {
+      "id": "stack-usa-pro",
+      "name": "Stack USA Flagship Pro (Velocidad Máxima)",
+      "cost": "~$20-40 en el finde",
+      "flags": "🇺🇸 🇨🇦",
+      "summary": "La combinación con mayor tasa de victorias en hackathons de AI aplicada.",
+      "components": [
+        "IDE + Agentes: 🇺🇸 Cursor + Claude Code (con sub-agentes)",
+        "Modelos: 🇺🇸 Claude Sonnet 4.5 (core) + 🇺🇸 Gemini 2.5 Flash (multimodal) + 🇨🇦 Cohere Rerank",
+        "UI Instantánea: 🇺🇸 v0 + Tailwind + shadcn/ui",
+        "DB + Cache: 🇺🇸 Neon Postgres + 🇺🇸 Upstash Redis",
+        "Scraping + Pagos: 🇺🇸 Firecrawl + 🇺🇸 Stripe Agent Toolkit",
+        "Deploy: 🇺🇸 Vercel + Vercel AI SDK"
+      ],
+      "initCmd": "npx create-next-app@latest hack-pro --ts --tailwind --app && cd hack-pro && npm i ai @ai-sdk/anthropic @ai-sdk/google zod"
+    },
+    {
+      "id": "stack-china-meta",
+      "name": "Stack China Ultra-Cost & Open-Weights",
+      "cost": "$0 - $3 en el finde",
+      "flags": "🇨🇳 🇺🇸",
+      "summary": "Rendimiento frontier a 1/10 del costo, 100% portable y sin lock-in.",
+      "components": [
+        "IDE Agéntico: 🇨🇳 Trae + 🇨🇳 Dify (orquestación visual)",
+        "Modelos: 🇨🇳 DeepSeek V3 + 🇨🇳 DeepSeek R1 + 🇨🇳 Kimi K2 (agentes) + 🇨🇳 Qwen 2.5 Coder",
+        "Inferencia: 🇨🇳 SiliconFlow + 🇺🇸 OpenRouter (failover)",
+        "DB Vectorial 25GB gratis: 🇨🇳 TiDB Serverless",
+        "Media / Video Demo: 🇨🇳 MiniMax Hailuo / fal.ai (Kling/Wan)"
+      ],
+      "initCmd": "mkdir hack-cn && cd hack-cn && npm init -y && npm i openai dotenv zod"
+    }
+  ],
+  "masterConfigs": [
+    {
+      "id": "cfg-opencode-json",
+      "filename": "opencode.json",
+      "title": "opencode.json (NVIDIA NIM Gratis + OpenRouter + Groq listos para OpenCode)",
+      "lang": "json",
+      "code": "{\n  \"$schema\": \"https://opencode.ai/config.json\",\n  \"model\": \"nvidia/deepseek-ai/deepseek-v3.2\",\n  \"small_model\": \"nvidia/qwen/qwen2.5-coder-32b-instruct\",\n  \"instructions\": [\"AGENTS.md\"],\n  \"provider\": {\n    \"nvidia\": {\n      \"npm\": \"@ai-sdk/openai-compatible\",\n      \"name\": \"NVIDIA NIM\",\n      \"options\": {\n        \"baseURL\": \"https://integrate.api.nvidia.com/v1\",\n        \"apiKey\": \"{env:NVIDIA_API_KEY}\"\n      },\n      \"models\": {\n        \"deepseek-ai/deepseek-v3.2\": { \"name\": \"DeepSeek V3 (NIM)\" },\n        \"deepseek-ai/deepseek-r1\": { \"name\": \"DeepSeek R1 Reasoning (NIM)\" },\n        \"qwen/qwen2.5-coder-32b-instruct\": { \"name\": \"Qwen 2.5 Coder 32B (NIM)\" },\n        \"meta/llama-3.3-70b-instruct\": { \"name\": \"Llama 3.3 70B (NIM)\" }\n      }\n    }\n  },\n  \"mcp\": {\n    \"context7\": { \"type\": \"local\", \"command\": [\"npx\", \"-y\", \"@upstash/context7-mcp\"] }\n  }\n}"
+    },
+    {
+      "id": "cfg-agents-md",
+      "filename": "AGENTS.md",
+      "title": "AGENTS.md (Eleva cualquier modelo chico/gratis a flujo tipo Claude/GPT-5)",
+      "lang": "md",
+      "code": "# AGENTS.md — Frontier Booster Mode (metahaters)\n\n## Reglas anti-alucinación (OBLIGATORIO para modelos chicos/gratis)\n1. **Leer antes de escribir**: jamás supongas rutas, columnas ni funciones sin leer el archivo.\n2. **Plan de 3 líneas**: antes de tocar código indica archivos, cambio mínimo y comando de verificación.\n3. **Diff quirúrgico**: modifica solo lo necesario; nunca trunques archivos con `// ... resto`.\n4. **Loop de verificación**: después de editar corre build/lint/test. Si falla, lee el error completo antes de reintentar.\n5. **Delegar a sub-agentes**: usa `repo-mapper` para explorar, `qa-verifier` para auditar el diff y `debugger-surgeon` si fallas 2 veces seguidas.\n6. **Fallback obligatorio**: toda llamada LLM usa `nvidia-nim-router.ts` (NVIDIA NIM -> Groq -> OpenRouter).\n7. **Cero secretos en git**: usa `.env.local`."
+    },
+    {
+      "id": "cfg-ai-router",
+      "filename": "nvidia-nim-router.ts",
+      "title": "nvidia-nim-router.ts (Auto-Fallback NVIDIA NIM + Groq + DeepSeek + OpenRouter)",
+      "lang": "ts",
+      "code": "const PROVIDERS = [\n  { name: 'nvidia-nim', url: 'https://integrate.api.nvidia.com/v1/chat/completions', key: process.env.NVIDIA_API_KEY, model: 'qwen/qwen2.5-coder-32b-instruct' },\n  { name: 'groq', url: 'https://api.groq.com/openai/v1/chat/completions', key: process.env.GROQ_API_KEY, model: 'llama-3.3-70b-versatile' },\n  { name: 'deepseek', url: 'https://api.deepseek.com/v1/chat/completions', key: process.env.DEEPSEEK_API_KEY, model: 'deepseek-chat' },\n  { name: 'openrouter', url: 'https://openrouter.ai/api/v1/chat/completions', key: process.env.OPENROUTER_API_KEY, model: 'google/gemini-2.5-flash' }\n];\n\nexport async function askLLM(messages: { role: string; content: string }[]) {\n  for (const p of PROVIDERS) {\n    if (!p.key) continue;\n    try {\n      const res = await fetch(p.url, {\n        method: 'POST',\n        headers: { Authorization: `Bearer ${p.key}`, 'Content-Type': 'application/json' },\n        body: JSON.stringify({ model: p.model, messages, temperature: 0.15 }),\n        signal: AbortSignal.timeout(12000)\n      });\n      if (res.ok) return { provider: p.name, data: await res.json() };\n    } catch { /* intenta siguiente proveedor */ }\n  }\n  throw new Error('Todos los proveedores fallaron');\n}"
+    },
+    {
+      "id": "cfg-mcp-json",
+      "filename": "mcp.json",
+      "title": "mcp.json (Superpoderes MCP para OpenCode, Cursor, Claude Code y Trae)",
+      "lang": "json",
+      "code": "{\n  \"mcpServers\": {\n    \"context7\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@upstash/context7-mcp\"]\n    },\n    \"playwright\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@playwright/mcp@latest\"]\n    },\n    \"supabase\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@supabase/mcp-server-supabase\", \"--access-token\", \"${SUPABASE_ACCESS_TOKEN}\"]\n    }\n  }\n}"
+    }
+  ],
+  "multiAgentCommands": [
+    {
+      "id": "ma-tmux-swarm",
+      "title": "Enjambre tmux (4 Agentes hablando por Bus JSONL)",
+      "badge": "tmux + OpenCode / NIM ($0)",
+      "filename": "swarm-tmux.sh",
+      "protocol": "Shared Bus (.metahaters/bus.jsonl)",
+      "summary": "Lanza 4 agentes en paneles paralelos (Arquitecto, Backend, Frontend, QA) que se envían mensajes y handoffs en tiempo real por un bus compartido sin pisarse archivos.",
+      "command": "#!/usr/bin/env bash\n# swarm-tmux.sh — Multi-agente paralelo con bus compartido (.metahaters/bus.jsonl)\nset -euo pipefail\nmkdir -p .metahaters\n: > .metahaters/bus.jsonl\n\nSESSION=\"mh-swarm\"\ntmux kill-session -t \"$SESSION\" 2>/dev/null || true\ntmux new-session -d -s \"$SESSION\" -n \"agents\"\n\n# Panel 0: Arquitecto (escribe plan y contratos al bus)\ntmux send-keys -t \"$SESSION:0.0\" \"opencode run --agent architect \\\"Lee el repo, define el plan MVP y escribe las tareas para @backend y @frontend en .metahaters/bus.jsonl (1 JSON por línea con from, to, task, files).\\\"\" C-m\n\n# Panel 1: Backend (escucha tareas para @backend y avisa a @qa)\ntmux split-window -h -t \"$SESSION:0\"\ntmux send-keys -t \"$SESSION:0.1\" \"opencode run --agent backend \\\"Lee .metahaters/bus.jsonl buscando mensajes to=backend. Implementa solo tus archivos y al terminar agrega un JSON to=qa con status=ready y endpoints creados.\\\"\" C-m\n\n# Panel 2: Frontend (escucha tareas para @frontend y avisa a @qa)\ntmux split-window -v -t \"$SESSION:0.0\"\ntmux send-keys -t \"$SESSION:0.2\" \"opencode run --agent frontend \\\"Lee .metahaters/bus.jsonl buscando mensajes to=frontend. Conecta los endpoints del bus y al terminar agrega un JSON to=qa con status=ready.\\\"\" C-m\n\n# Panel 3: QA Verifier + Monitor del Bus en vivo\ntmux split-window -v -t \"$SESSION:0.1\"\ntmux send-keys -t \"$SESSION:0.3\" \"tail -f .metahaters/bus.jsonl\" C-m\n\ntmux select-layout -t \"$SESSION:0\" tiled\ntmux attach -t \"$SESSION\""
+    },
+    {
+      "id": "ma-opencode-relay",
+      "title": "Relay Automático OpenCode (Mapper → Arquitecto → Coder → QA)",
+      "badge": "OpenCode CLI ($0)",
+      "filename": "opencode-relay.sh",
+      "protocol": "Handoff secuencial + Loop de corrección",
+      "summary": "Hace que 4 sub-agentes se pasen la posta automáticamente: uno mapea el repo, otro diseña, otro programa con Frontier Booster y el QA le devuelve bugs al Debugger hasta pasar tests.",
+      "command": "#!/usr/bin/env bash\n# opencode-relay.sh — Uso: ./opencode-relay.sh \"Crear endpoint de pagos + UI checkout\"\nset -euo pipefail\nGOAL=\"${1:?Pasa el objetivo entre comillas}\"\nmkdir -p .metahaters\n\necho \"[1/4] Repo Mapper generando mapa compacto...\"\nopencode run --agent repo-mapper \"Genera el mapa de <=60 líneas del proyecto y guárdalo en .metahaters/map.md\"\n\necho \"[2/4] Arquitecto diseñando plan...\"\nopencode run --agent architect \"Lee .metahaters/map.md. Diseña el plan mínimo para: $GOAL. Guarda el contrato en .metahaters/handoff.md\"\n\necho \"[3/4] Frontier Booster implementando...\"\nopencode run --agent frontier-booster \"Lee .metahaters/handoff.md e implementa el cambio mínimo sin placeholders. Ejecuta tests/build.\"\n\necho \"[4/4] QA Verifier auditando y llamando a Debugger si falla...\"\nif ! opencode run --agent qa-verifier \"Audita git diff contra .metahaters/handoff.md. Si hay errores escribe .metahaters/bugs.md y responde FAIL; si todo pasa responde PASS.\"; then\n  opencode run --agent debugger-surgeon \"Lee .metahaters/bugs.md, reproduce, aplica el parche mínimo y vuelve a correr tests.\"\nfi"
+    },
+    {
+      "id": "ma-mcp-bridge",
+      "title": "Bridge MCP Agent-to-Agent (Cursor ↔ Claude Code ↔ OpenCode ↔ Windsurf)",
+      "badge": "Cross-IDE MCP ($0)",
+      "filename": "agent-bus-mcp.mjs",
+      "protocol": "MCP stdio + bus JSONL compartido",
+      "summary": "Permite que agentes corriendo en IDEs distintos (ej. Claude Code en terminal + Cursor + OpenCode con NVIDIA NIM) se manden mensajes y tareas entre sí usando herramientas MCP.",
+      "command": "#!/usr/bin/env node\n// agent-bus-mcp.mjs — Regístralo en mcp.json para que agentes de distintos IDEs hablen entre sí\n// Uso en mcp.json: { \"agent-bus\": { \"command\": \"node\", \"args\": [\"./agent-bus-mcp.mjs\"] } }\nimport fs from \"node:fs\";\nimport readline from \"node:readline\";\n\nconst BUS = process.env.AGENT_BUS_FILE || \".metahaters/agent-bus.jsonl\";\nfs.mkdirSync(\".metahaters\", { recursive: true });\nif (!fs.existsSync(BUS)) fs.writeFileSync(BUS, \"\");\n\nconst tools = [\n  {\n    name: \"send_agent_message\",\n    description: \"Envía un mensaje o tarea a otro agente (ej. backend, frontend, qa, cursor, opencode)\",\n    inputSchema: {\n      type: \"object\",\n      properties: {\n        from: { type: \"string\" },\n        to: { type: \"string\" },\n        message: { type: \"string\" },\n        files: { type: \"array\", items: { type: \"string\" } }\n      },\n      required: [\"from\", \"to\", \"message\"]\n    }\n  },\n  {\n    name: \"read_agent_inbox\",\n    description: \"Lee los últimos mensajes dirigidos a este agente (o to=all)\",\n    inputSchema: {\n      type: \"object\",\n      properties: { agent: { type: \"string\" }, limit: { type: \"number\" } },\n      required: [\"agent\"]\n    }\n  }\n];\n\nconst send = (obj) => process.stdout.write(JSON.stringify(obj) + \"\\n\");\nconst rl = readline.createInterface({ input: process.stdin });\n\nrl.on(\"line\", (line) => {\n  if (!line.trim()) return;\n  const req = JSON.parse(line);\n  if (req.method === \"initialize\") {\n    return send({ jsonrpc: \"2.0\", id: req.id, result: { protocolVersion: \"2024-11-05\", capabilities: { tools: {} }, serverInfo: { name: \"metahaters-agent-bus\", version: \"1.0.0\" } } });\n  }\n  if (req.method === \"tools/list\") {\n    return send({ jsonrpc: \"2.0\", id: req.id, result: { tools } });\n  }\n  if (req.method === \"tools/call\") {\n    const { name, arguments: args = {} } = req.params;\n    if (name === \"send_agent_message\") {\n      const entry = { ts: new Date().toISOString(), from: args.from, to: args.to, message: args.message, files: args.files || [] };\n      fs.appendFileSync(BUS, JSON.stringify(entry) + \"\\n\");\n      return send({ jsonrpc: \"2.0\", id: req.id, result: { content: [{ type: \"text\", text: \"Mensaje enviado a \" + args.to }] } });\n    }\n    if (name === \"read_agent_inbox\") {\n      const rows = fs.readFileSync(BUS, \"utf8\").trim().split(\"\\n\").filter(Boolean).map((l) => JSON.parse(l));\n      const inbox = rows.filter((r) => r.to === args.agent || r.to === \"all\").slice(-(args.limit || 15));\n      return send({ jsonrpc: \"2.0\", id: req.id, result: { content: [{ type: \"text\", text: JSON.stringify(inbox, null, 2) }] } });\n    }\n  }\n});"
+    },
+    {
+      "id": "ma-claude-teams",
+      "title": "Claude Code Agent Teams + Git Worktrees Paralelos",
+      "badge": "Claude Code Nativo",
+      "filename": "claude-teams.sh",
+      "protocol": "Lead ↔ Teammates con buzón nativo",
+      "summary": "Activa equipos nativos de Claude Code donde el Lead coordina sub-agentes que se mensajen entre sí y trabajan en branches/worktrees separados sin conflictos.",
+      "command": "#!/usr/bin/env bash\n# claude-teams.sh — Lanza un equipo multi-agente coordinado en Claude Code\nexport CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1\n\n# Opción A: Usar Claude nativo (o redirigir a Z.ai GLM / DeepSeek si se acabaron créditos)\n# export ANTHROPIC_BASE_URL=\"https://api.z.ai/api/anthropic\"\n# export ANTHROPIC_AUTH_TOKEN=\"$ZAI_API_KEY\"\n\nclaude \"Crea un equipo de 3 agentes que se comuniquen entre sí:\n1) @backend: crea los endpoints y avisa por mensaje al equipo el contrato JSON exacto.\n2) @frontend: espera el contrato de @backend y construye la UI conectada.\n3) @qa: revisa ambos diffs, corre los tests y devuelve cualquier bug directo al agente responsable hasta que todo pase.\""
+    },
+    {
+      "id": "ma-python-a2a",
+      "title": "Loop A2A Python (Planner ↔ Coder ↔ Critic con NVIDIA NIM / Groq)",
+      "badge": "Python Zero-Framework ($0)",
+      "filename": "a2a-loop.py",
+      "protocol": "Debate iterativo hasta APROBADO",
+      "summary": "3 agentes en Python puro usando OpenAI SDK apuntando a NVIDIA NIM gratis (DeepSeek R1 + Qwen Coder + Llama Critic) que debaten y refinan el código hasta pasar la auditoría.",
+      "command": "#!/usr/bin/env python3\n# pip install openai\n# export NVIDIA_API_KEY=\"nvapi-...\"\nimport os, sys\nfrom openai import OpenAI\n\nclient = OpenAI(base_url=\"https://integrate.api.nvidia.com/v1\", api_key=os.environ[\"NVIDIA_API_KEY\"])\n\ndef ask(model, system, prompt):\n    r = client.chat.completions.create(\n        model=model,\n        temperature=0.15,\n        messages=[{\"role\": \"system\", \"content\": system}, {\"role\": \"user\", \"content\": prompt}],\n    )\n    return r.choices[0].message.content\n\ngoal = \" \".join(sys.argv[1:]) or \"API FastAPI de tareas con SQLite y tests pytest\"\n\n# 1. Planner (DeepSeek R1 razonador)\nplan = ask(\"deepseek-ai/deepseek-r1\", \"Eres Arquitecto. Devuelve un plan concreto en <=12 líneas.\", goal)\nprint(\"\\n=== PLANNER ===\\n\", plan)\n\ncode, feedback = \"\", \"\"\nfor round_n in range(1, 4):\n    # 2. Coder (Qwen 2.5 Coder 32B)\n    code = ask(\n        \"qwen/qwen2.5-coder-32b-instruct\",\n        \"Eres Coder estricto. Código completo ejecutable, cero placeholders.\",\n        f\"Plan:\\n{plan}\\n\\nFeedback previo del Critic:\\n{feedback}\\n\\nGenera la solución completa:\"\n    )\n    # 3. Critic (Llama 3.3 70B)\n    feedback = ask(\n        \"meta/llama-3.3-70b-instruct\",\n        \"Eres QA Critic. Si el código es sólido responde exactamente APROBADO en la primera línea; si no, lista los bugs exactos.\",\n        f\"Objetivo: {goal}\\n\\nCódigo:\\n{code}\"\n    )\n    print(f\"\\n=== CRITIC RONDA {round_n} ===\\n\", feedback[:400])\n    if feedback.strip().startswith(\"APROBADO\"):\n        break\n\nprint(\"\\n=== CÓDIGO FINAL APROBADO ===\\n\", code)"
+    },
+    {
+      "id": "ma-aider-pair",
+      "title": "Dúo Aider Architect (Razonador R1 ↔ Editor Qwen/V3)",
+      "badge": "Aider + OpenRouter / NIM ($0)",
+      "filename": "aider-duo.sh",
+      "protocol": "Architect -> Editor handoff automático",
+      "summary": "Un modelo razonador piensa la arquitectura y le dicta instrucciones precisas a un modelo editor rápido y barato para aplicar diffs limpios con auto-commits.",
+      "command": "#!/usr/bin/env bash\n# aider-duo.sh — Razonador (DeepSeek R1) hablando con Editor (Qwen Coder) gratis vía OpenRouter/NIM\nexport OPENROUTER_API_KEY=\"${OPENROUTER_API_KEY:?Define OPENROUTER_API_KEY}\"\n\naider \\\n  --architect \\\n  --model openrouter/deepseek/deepseek-r1:free \\\n  --editor-model openrouter/qwen/qwen-2.5-coder-32b-instruct:free \\\n  --auto-test \\\n  --test-cmd \"npm test\" \\\n  --yes-always"
+    }
+  ]
+}

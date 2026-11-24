@@ -1,0 +1,986 @@
+[
+  {
+    "id": "openrouter-api",
+    "name": "OpenRouter",
+    "provider": "OpenRouter",
+    "category": "apis",
+    "subType": "AI Router / Unified API",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "freemium",
+    "priceLabel": "Modelos :free $0 / Pay-as-you-go",
+    "freeTier": "Decenas de modelos ':free' (DeepSeek, Qwen, Llama, Gemini) con 1 sola API key",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 2,
+      "latencyMs": 180,
+      "freeLimit": "50-1000 req/día en :free",
+      "sla": "Multi-provider fallback"
+    },
+    "scores": {
+      "hackathon": 99,
+      "speed": 95,
+      "value": 99,
+      "quality": 96
+    },
+    "bestFor": "Cambiar entre modelos chinos y estadounidenses sin cambiar 1 línea de código + fallback automático",
+    "pros": [
+      "300+ modelos en 1 sola API OpenAI-compatible",
+      "Auto-fallback si un proveedor cae en la demo",
+      "Catálogo público JSON en vivo"
+    ],
+    "cons": [
+      "Pequeño overhead de routing (~30ms)"
+    ],
+    "config": {
+      "title": "Router con Fallback Automático (USA + China)",
+      "lang": "ts",
+      "code": "const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {\n  method: 'POST',\n  headers: { Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`, 'Content-Type': 'application/json' },\n  body: JSON.stringify({\n    models: ['deepseek/deepseek-chat-v3:free', 'google/gemini-2.5-flash', 'meta-llama/llama-3.3-70b-instruct:free'],\n    messages\n  })\n});"
+    },
+    "agentTip": "Usa siempre el campo `models: [...]` (array) para que si un modelo da 429 en plena presentación, OpenRouter haga failover automático.",
+    "url": "https://openrouter.ai"
+  },
+  {
+    "id": "groq-api",
+    "name": "Groq Cloud",
+    "provider": "Groq",
+    "category": "apis",
+    "subType": "Ultra-Fast Inference",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis / $0.05-$0.59 per 1M",
+    "freeTier": "Hasta 14,400 req/día gratis sin tarjeta (Llama, Qwen, Kimi, Whisper)",
+    "githubRepo": "groq/groq-typescript",
+    "metrics": {
+      "setupMin": 2,
+      "latencyMs": 120,
+      "freeLimit": "14,400 RPD",
+      "sla": "LPU Hardware"
+    },
+    "scores": {
+      "hackathon": 98,
+      "speed": 100,
+      "value": 100,
+      "quality": 93
+    },
+    "bestFor": "Inferencia instantánea para demos en vivo, voz y agentes multi-paso",
+    "pros": [
+      "LPU hardware: 300-1200 tok/s",
+      "Whisper + LLM + Vision en una misma API gratis",
+      "Compatible OpenAI SDK"
+    ],
+    "cons": [
+      "Límites de tokens por minuto (TPM) en plan gratuito"
+    ],
+    "config": {
+      "title": "Env listo para Groq",
+      "lang": "bash",
+      "code": "GROQ_API_KEY=gsk_...\nOPENAI_BASE_URL=https://api.groq.com/openai/v1"
+    },
+    "agentTip": "Combina Groq para pasos rápidos de agentes (routing/extraction) y reserva modelos lentos solo para síntesis final.",
+    "url": "https://console.groq.com",
+    "github": {
+      "stars": 269,
+      "pushedAt": "2026-10-12",
+      "license": "Apache-2.0"
+    }
+  },
+  {
+    "id": "cerebras-api",
+    "name": "Cerebras Inference",
+    "provider": "Cerebras",
+    "category": "apis",
+    "subType": "Ultra-Fast Inference",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis (1M tok/día) / Pago",
+    "freeTier": "1,000,000 tokens diarios gratis sin tarjeta a >2,000 tok/s",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 2,
+      "latencyMs": 95,
+      "freeLimit": "1M tok/día",
+      "sla": "Wafer-Scale Engine"
+    },
+    "scores": {
+      "hackathon": 96,
+      "speed": 100,
+      "value": 99,
+      "quality": 91
+    },
+    "bestFor": "Generación instantánea de UI/código y agentes que hacen 20 llamadas en 3 segundos",
+    "pros": [
+      "Hasta 2,600 tok/s (el más rápido del mundo)",
+      "1M tokens gratis por día",
+      "Qwen + Llama disponibles"
+    ],
+    "cons": [
+      "Catálogo más reducido que OpenRouter"
+    ],
+    "config": {
+      "title": "Cerebras OpenAI-compatible",
+      "lang": "ts",
+      "code": "const cerebras = new OpenAI({ baseURL: 'https://api.cerebras.ai/v1', apiKey: process.env.CEREBRAS_API_KEY });"
+    },
+    "agentTip": "Perfecto para generar código HTML/SVG o análisis en tiempo real mientras el juez escribe.",
+    "url": "https://cloud.cerebras.ai"
+  },
+  {
+    "id": "siliconflow-api",
+    "name": "SiliconFlow",
+    "provider": "SiliconFlow",
+    "category": "apis",
+    "subType": "China AI Inference",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "freemium",
+    "priceLabel": "Modelos Gratis + Ultra bajo costo",
+    "freeTier": "Modelos open-weights gratis (Qwen, GLM, InternLM) + créditos iniciales",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 3,
+      "latencyMs": 220,
+      "freeLimit": "Free models + créditos",
+      "sla": "High throughput CN"
+    },
+    "scores": {
+      "hackathon": 90,
+      "speed": 89,
+      "value": 96,
+      "quality": 90
+    },
+    "bestFor": "Acceso rápido a todo el ecosistema AI chino (DeepSeek, Qwen, GLM, FLUX, CosyVoice)",
+    "pros": [
+      "Reúne los mejores modelos chinos en una API",
+      "Precios muy bajos",
+      "Incluye TTS/Embeddings/Rerankers chinos"
+    ],
+    "cons": [
+      "Mayor latencia desde Latam/Europa que Groq"
+    ],
+    "config": {
+      "title": "SiliconFlow Unified CN Endpoint",
+      "lang": "ts",
+      "code": "const sf = new OpenAI({ baseURL: 'https://api.siliconflow.cn/v1', apiKey: process.env.SILICONFLOW_API_KEY });"
+    },
+    "agentTip": "Excelente backup si DeepSeek API oficial está congestionada.",
+    "url": "https://siliconflow.cn"
+  },
+  {
+    "id": "github-models",
+    "name": "GitHub Models",
+    "provider": "GitHub / Microsoft",
+    "category": "apis",
+    "subType": "Free AI Prototyping",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "$0 con tu token de GitHub",
+    "freeTier": "Gratis con cuenta GitHub (GPT-4o, DeepSeek, Llama, Mistral, Phi, Cohere)",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 1,
+      "latencyMs": 250,
+      "freeLimit": "50-150 req/día",
+      "sla": "Azure AI Foundry"
+    },
+    "scores": {
+      "hackathon": 93,
+      "speed": 85,
+      "value": 99,
+      "quality": 93
+    },
+    "bestFor": "Empezar en 60 segundos usando tu GITHUB_TOKEN sin crear cuentas nuevas ni poner tarjeta",
+    "pros": [
+      "Cero tarjetas de crédito",
+      "Acceso gratis a modelos OpenAI, DeepSeek y Mistral",
+      "Setup en 1 minuto"
+    ],
+    "cons": [
+      "Límites diarios bajos (solo prototipo/demo, no tráfico masivo)"
+    ],
+    "config": {
+      "title": "Usar GITHUB_TOKEN como API Key de AI",
+      "lang": "ts",
+      "code": "const ghAI = new OpenAI({\n  baseURL: 'https://models.inference.ai.azure.com',\n  apiKey: process.env.GITHUB_TOKEN\n});"
+    },
+    "agentTip": "Ideal para equipos estudiantiles sin tarjeta de crédito que necesitan modelos pagos gratis.",
+    "url": "https://github.com/marketplace/models"
+  },
+  {
+    "id": "supabase-api",
+    "name": "Supabase",
+    "provider": "Supabase",
+    "category": "apis",
+    "subType": "Postgres + Auth + Vector + Realtime",
+    "country": "SG",
+    "flag": "🇸🇬",
+    "countryName": "Singapur / Global",
+    "region": "Asia-Pac",
+    "pricingTier": "freemium",
+    "priceLabel": "$0 (500MB + 50K MAU) / $25/mes",
+    "freeTier": "2 proyectos gratis: Postgres + pgvector + Auth + Storage + Realtime",
+    "githubRepo": "supabase/supabase",
+    "metrics": {
+      "setupMin": 3,
+      "latencyMs": 45,
+      "freeLimit": "500MB DB, 50K Auth",
+      "sla": "99.9%"
+    },
+    "scores": {
+      "hackathon": 99,
+      "speed": 96,
+      "value": 98,
+      "quality": 97
+    },
+    "bestFor": "Backend completo en 3 minutos (DB relacional, RAG con pgvector, Auth, Realtime)",
+    "pros": [
+      "Todo en uno: reemplaza 4 servicios",
+      "pgvector listo para RAG",
+      "MCP server oficial para Cursor/Claude"
+    ],
+    "cons": [
+      "Proyectos gratis se pausan tras 7 días de inactividad"
+    ],
+    "config": {
+      "title": "Supabase Client + pgvector RAG",
+      "lang": "sql",
+      "code": "create extension if not exists vector;\ncreate table docs (id bigserial primary key, content text, embedding vector(1536));"
+    },
+    "agentTip": "Conecta el Supabase MCP server a tu agente para que cree tablas, RLS y queries automáticamente.",
+    "url": "https://supabase.com",
+    "github": {
+      "stars": 115376,
+      "pushedAt": "2026-11-24",
+      "license": "Apache-2.0"
+    }
+  },
+  {
+    "id": "tidb-serverless",
+    "name": "TiDB Serverless (PingCAP)",
+    "provider": "PingCAP",
+    "category": "apis",
+    "subType": "Distributed SQL + Vector",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "freemium",
+    "priceLabel": "$0 (25GB + Vector) / Pay-as-you-go",
+    "freeTier": "5 clusters gratis, 25GB almacenamiento, Vector Search integrado sin tarjeta",
+    "githubRepo": "pingcap/tidb",
+    "metrics": {
+      "setupMin": 3,
+      "latencyMs": 55,
+      "freeLimit": "25GB + 250M RUs",
+      "sla": "Serverless auto-scale"
+    },
+    "scores": {
+      "hackathon": 92,
+      "speed": 91,
+      "value": 98,
+      "quality": 91
+    },
+    "bestFor": "Apps AI con mucho volumen de datos y búsqueda vectorial MySQL-compatible gratis",
+    "pros": [
+      "Free tier gigantesco (25GB)",
+      "Búsqueda híbrida SQL + Vector nativa",
+      "Escala a cero"
+    ],
+    "cons": [
+      "Ecosistema ligeramente menos extendido que Postgres/Supabase"
+    ],
+    "config": {
+      "title": "TiDB Vector Search SQL",
+      "lang": "sql",
+      "code": "CREATE TABLE items (id INT PRIMARY KEY, text TEXT, vec VECTOR(1536));\nSELECT text, VEC_COSINE_DISTANCE(vec, '[...]') AS dist FROM items ORDER BY dist LIMIT 5;"
+    },
+    "agentTip": "Si superas los 500MB gratis de Supabase en una hackathon de datos masivos, TiDB Serverless te da 25GB gratis.",
+    "url": "https://tidbcloud.com",
+    "github": {
+      "stars": 40770,
+      "pushedAt": "2026-11-24",
+      "license": "Apache-2.0"
+    }
+  },
+  {
+    "id": "neon-db",
+    "name": "Neon Postgres",
+    "provider": "Neon",
+    "category": "apis",
+    "subType": "Serverless Postgres",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "freemium",
+    "priceLabel": "$0 (0.5GB + Branching) / $19/mes",
+    "freeTier": "10 proyectos gratis con DB branching instantáneo",
+    "githubRepo": "neondatabase/neon",
+    "metrics": {
+      "setupMin": 2,
+      "latencyMs": 40,
+      "freeLimit": "190 compute hrs/mes",
+      "sla": "Serverless"
+    },
+    "scores": {
+      "hackathon": 94,
+      "speed": 96,
+      "value": 95,
+      "quality": 95
+    },
+    "bestFor": "Postgres serverless en Vercel/Cloudflare Workers con ramas de DB por PR",
+    "pros": [
+      "Driver HTTP para Edge/Workers",
+      "Database branching en 1 segundo",
+      "Integración nativa Vercel"
+    ],
+    "cons": [
+      "Solo base de datos (sin Auth ni Storage integrados)"
+    ],
+    "config": {
+      "title": "Neon Edge Driver",
+      "lang": "ts",
+      "code": "import { neon } from '@neondatabase/serverless';\nconst sql = neon(process.env.DATABASE_URL!);\nconst rows = await sql`SELECT * FROM projects LIMIT 10`;"
+    },
+    "agentTip": "Usa DB branching antes de dejar que un agente corra migraciones destructivas.",
+    "url": "https://neon.tech",
+    "github": {
+      "stars": 23391,
+      "pushedAt": "2026-08-31",
+      "license": "Apache-2.0"
+    }
+  },
+  {
+    "id": "upstash-redis",
+    "name": "Upstash Redis / QStash",
+    "provider": "Upstash",
+    "category": "apis",
+    "subType": "Serverless Redis / Rate Limit / Queues",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "freemium",
+    "priceLabel": "$0 (500K cmds/mes) / Pay-per-req",
+    "freeTier": "500K comandos Redis/mes + Vector + QStash gratis",
+    "githubRepo": "upstash/redis-js",
+    "metrics": {
+      "setupMin": 2,
+      "latencyMs": 20,
+      "freeLimit": "500K cmds/mes",
+      "sla": "Global Edge"
+    },
+    "scores": {
+      "hackathon": 93,
+      "speed": 98,
+      "value": 96,
+      "quality": 94
+    },
+    "bestFor": "Caché de respuestas LLM (ahorra dinero y acelera la demo) + rate limiting + memoria de agentes",
+    "pros": [
+      "HTTP REST (funciona en cualquier Edge/Serverless)",
+      "Rate limit en 5 líneas",
+      "QStash para cron/colas"
+    ],
+    "cons": [
+      "Límite de 256MB en plan gratis"
+    ],
+    "config": {
+      "title": "Caché de LLM en 4 líneas",
+      "lang": "ts",
+      "code": "import { Redis } from '@upstash/redis';\nconst redis = Redis.fromEnv();\nconst cached = await redis.get(promptHash);\nif (cached) return cached;"
+    },
+    "agentTip": "Cachea las respuestas de tu demo en Upstash para que los clics repetidos de los jueces carguen en 20ms.",
+    "url": "https://upstash.com",
+    "github": {
+      "stars": 987,
+      "pushedAt": "2026-11-24",
+      "license": "MIT"
+    }
+  },
+  {
+    "id": "tavily-api",
+    "name": "Tavily Search API",
+    "provider": "Tavily",
+    "category": "apis",
+    "subType": "AI Web Search",
+    "country": "IL",
+    "flag": "🇮🇱",
+    "countryName": "Israel / EE.UU.",
+    "region": "Asia-Pac",
+    "pricingTier": "freemium",
+    "priceLabel": "$0 (1,000 req/mes) / Pago",
+    "freeTier": "1,000 búsquedas AI gratis al mes sin tarjeta",
+    "githubRepo": "tavily-ai/tavily-python",
+    "metrics": {
+      "setupMin": 2,
+      "latencyMs": 650,
+      "freeLimit": "1,000 req/mes",
+      "sla": "LLM-ready JSON"
+    },
+    "scores": {
+      "hackathon": 95,
+      "speed": 90,
+      "value": 97,
+      "quality": 94
+    },
+    "bestFor": "Dar acceso a internet en vivo a tus agentes sin parsear HTML",
+    "pros": [
+      "Devuelve contenido ya limpio para LLMs",
+      "1,000 búsquedas gratis",
+      "Integración nativa LangGraph/Vercel AI"
+    ],
+    "cons": [
+      "Menos control que scraping directo en sitios con login"
+    ],
+    "config": {
+      "title": "Búsqueda web para Agentes",
+      "lang": "ts",
+      "code": "const r = await fetch('https://api.tavily.com/search', {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json' },\n  body: JSON.stringify({ api_key: process.env.TAVILY_API_KEY, query, search_depth: 'basic', max_results: 5 })\n});"
+    },
+    "agentTip": "Conecta Tavily como herramienta #1 de cualquier agente investigador o fact-checker.",
+    "url": "https://tavily.com",
+    "github": {
+      "stars": 1433,
+      "pushedAt": "2026-10-26",
+      "license": "MIT"
+    }
+  },
+  {
+    "id": "firecrawl-api",
+    "name": "Firecrawl",
+    "provider": "Mendable / Firecrawl",
+    "category": "apis",
+    "subType": "Web Scraping to Markdown",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "freemium",
+    "priceLabel": "$0 (500 créditos) / $16/mes",
+    "freeTier": "500 páginas scrapeadas gratis + Open Source self-host",
+    "githubRepo": "mendableai/firecrawl",
+    "metrics": {
+      "setupMin": 2,
+      "latencyMs": 1200,
+      "freeLimit": "500 páginas",
+      "sla": "JS Rendering"
+    },
+    "scores": {
+      "hackathon": 94,
+      "speed": 88,
+      "value": 92,
+      "quality": 95
+    },
+    "bestFor": "Convertir cualquier sitio web o documentación en Markdown/JSON estructurado para agentes",
+    "pros": [
+      "Renderiza SPAs con JS",
+      "Extracción JSON por schema",
+      "Open Source + MCP oficial"
+    ],
+    "cons": [
+      "Los 500 créditos se van rápido si haces crawl profundo"
+    ],
+    "config": {
+      "title": "Scrape a Markdown limpio",
+      "lang": "ts",
+      "code": "const r = await fetch('https://api.firecrawl.dev/v1/scrape', {\n  method: 'POST',\n  headers: { Authorization: `Bearer ${process.env.FIRECRAWL_API_KEY}`, 'Content-Type': 'application/json' },\n  body: JSON.stringify({ url, formats: ['markdown'] })\n});"
+    },
+    "agentTip": "Si solo necesitas leer una URL rápida gratis sin límite de cuenta, usa `https://r.jina.ai/TU_URL` como alternativa $0.",
+    "url": "https://firecrawl.dev",
+    "github": {
+      "stars": 208756,
+      "pushedAt": "2026-11-24",
+      "license": "AGPL-3.0"
+    }
+  },
+  {
+    "id": "jina-reader",
+    "name": "Jina Reader API",
+    "provider": "Jina AI",
+    "category": "apis",
+    "subType": "Zero-Config Web to Markdown",
+    "country": "DE",
+    "flag": "🇩🇪",
+    "countryName": "Alemania",
+    "region": "Europa",
+    "pricingTier": "gratis",
+    "priceLabel": "$0 (sin API key básica) / Pago",
+    "freeTier": "Gratis anteponiendo https://r.jina.ai/ a cualquier URL",
+    "githubRepo": "jina-ai/reader",
+    "metrics": {
+      "setupMin": 1,
+      "latencyMs": 800,
+      "freeLimit": "20 RPM gratis",
+      "sla": "Open Source"
+    },
+    "scores": {
+      "hackathon": 95,
+      "speed": 96,
+      "value": 100,
+      "quality": 91
+    },
+    "bestFor": "Leer cualquier página web o buscar (`s.jina.ai`) en 1 línea de fetch sin registrarte",
+    "pros": [
+      "Funciona sin API key en 10 segundos",
+      "Markdown súper limpio",
+      "Open source"
+    ],
+    "cons": [
+      "Rate limit de 20 req/min sin key"
+    ],
+    "config": {
+      "title": "Web-to-Markdown en 1 línea",
+      "lang": "ts",
+      "code": "const md = await fetch(`https://r.jina.ai/${encodeURIComponent(targetUrl)}`).then(r => r.text());"
+    },
+    "agentTip": "El truco más rápido de hackathon para alimentar agentes con URLs en vivo.",
+    "url": "https://jina.ai/reader",
+    "github": {
+      "stars": 12277,
+      "pushedAt": "2026-05-22",
+      "license": "Apache-2.0"
+    }
+  },
+  {
+    "id": "mercado-pago-api",
+    "name": "Mercado Pago API",
+    "provider": "Mercado Libre",
+    "category": "apis",
+    "subType": "Payments Latam",
+    "country": "AR",
+    "flag": "🇦🇷",
+    "countryName": "Argentina / Latam",
+    "region": "Latam",
+    "pricingTier": "freemium",
+    "priceLabel": "Sandbox $0 / Comisión por cobro",
+    "freeTier": "Sandbox y credenciales de prueba 100% gratis para demos",
+    "githubRepo": "mercadopago/sdk-nodejs",
+    "metrics": {
+      "setupMin": 8,
+      "latencyMs": 220,
+      "freeLimit": "Sandbox ilimitado",
+      "sla": "99.95%"
+    },
+    "scores": {
+      "hackathon": 90,
+      "speed": 84,
+      "value": 95,
+      "quality": 90
+    },
+    "bestFor": "Hackathons en Latinoamérica: Checkout Pro, QR, suscripciones y webhooks reales",
+    "pros": [
+      "Estándar absoluto en Argentina, Brasil, México, Chile, Colombia",
+      "Checkout Pro en 15 líneas",
+      "Sandbox gratis"
+    ],
+    "cons": [
+      "Requiere configurar usuarios de prueba correctamente"
+    ],
+    "config": {
+      "title": "Checkout Pro Preferencia rápida",
+      "lang": "ts",
+      "code": "import { MercadoPagoConfig, Preference } from 'mercadopago';\nconst client = new MercadoPagoConfig({ accessToken: process.env.MP_ACCESS_TOKEN! });\nconst pref = await new Preference(client).create({ body: { items: [{ id: '1', title: 'Plan Pro', quantity: 1, unit_price: 5000 }] } });"
+    },
+    "agentTip": "En hackathons de Latam, mostrar un pago real en sandbox de Mercado Pago suma puntos enormes de viabilidad de negocio.",
+    "url": "https://www.mercadopago.com.ar/developers"
+  },
+  {
+    "id": "stripe-api",
+    "name": "Stripe",
+    "provider": "Stripe",
+    "category": "apis",
+    "subType": "Payments Global",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos / Irlanda",
+    "region": "USA",
+    "pricingTier": "freemium",
+    "priceLabel": "Test Mode $0 / 2.9% + $0.30",
+    "freeTier": "Test mode ilimitado + Stripe CLI + Agent Toolkit gratis",
+    "githubRepo": "stripe/stripe-node",
+    "metrics": {
+      "setupMin": 5,
+      "latencyMs": 140,
+      "freeLimit": "Test mode ilimitado",
+      "sla": "99.99%"
+    },
+    "scores": {
+      "hackathon": 94,
+      "speed": 91,
+      "value": 95,
+      "quality": 98
+    },
+    "bestFor": "Pagos globales, SaaS billing, Payment Links y Stripe Agent Toolkit",
+    "pros": [
+      "Mejor DX de pagos del mundo",
+      "Payment Links sin código",
+      "MCP / Agent Toolkit oficial"
+    ],
+    "cons": [
+      "No disponible nativamente en todos los países de Latam"
+    ],
+    "config": {
+      "title": "Stripe Checkout en 10 líneas",
+      "lang": "ts",
+      "code": "const session = await stripe.checkout.sessions.create({\n  mode: 'payment',\n  line_items: [{ price_data: { currency: 'usd', product_data: { name: 'Pro' }, unit_amount: 900 }, quantity: 1 }],\n  success_url: `${BASE_URL}/ok`, cancel_url: `${BASE_URL}/cancel`\n});"
+    },
+    "agentTip": "Usa Stripe Agent Toolkit para que tu agente genere links de cobro autónomos en la demo.",
+    "url": "https://stripe.com/docs"
+  },
+  {
+    "id": "open-meteo",
+    "name": "Open-Meteo",
+    "provider": "Open-Meteo",
+    "category": "apis",
+    "subType": "Weather / Climate / Agro",
+    "country": "CH",
+    "flag": "🇨🇭",
+    "countryName": "Suiza",
+    "region": "Europa",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (sin API key)",
+    "freeTier": "10,000 llamadas/día gratis, open-source, sin registro",
+    "githubRepo": "open-meteo/open-meteo",
+    "metrics": {
+      "setupMin": 1,
+      "latencyMs": 80,
+      "freeLimit": "10,000 req/día",
+      "sla": "Open Source"
+    },
+    "scores": {
+      "hackathon": 96,
+      "speed": 99,
+      "value": 100,
+      "quality": 95
+    },
+    "bestFor": "Hackathons de AgroTech, clima, logística, energía solar y calidad del aire",
+    "pros": [
+      "Cero API key, cero registro",
+      "Datos históricos + pronóstico + radiación solar + humedad suelo",
+      "Ultra rápida"
+    ],
+    "cons": [
+      "Uso comercial masivo requiere licencia"
+    ],
+    "config": {
+      "title": "Clima + Suelo sin API Key",
+      "lang": "ts",
+      "code": "const url = 'https://api.open-meteo.com/v1/forecast?latitude=-24.78&longitude=-65.41&current=temperature_2m,relative_humidity_2m,wind_speed_10m';\nconst weather = await fetch(url).then(r => r.json());"
+    },
+    "agentTip": "Perfecta como fuente de datos reales en vivo para demos de impacto ambiental o agro.",
+    "url": "https://open-meteo.com"
+  },
+  {
+    "id": "deepgram-api",
+    "name": "Deepgram Nova-3",
+    "provider": "Deepgram",
+    "category": "apis",
+    "subType": "Real-time Voice / STT / Agent",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "freemium",
+    "priceLabel": "$200 créditos gratis / $0.0043/min",
+    "freeTier": "$200 en créditos gratis al registrarse (sin tarjeta)",
+    "githubRepo": "deepgram/deepgram-js-sdk",
+    "metrics": {
+      "setupMin": 4,
+      "latencyMs": 150,
+      "freeLimit": "$200 créditos gratis",
+      "sla": "WebSocket Streaming"
+    },
+    "scores": {
+      "hackathon": 95,
+      "speed": 97,
+      "value": 98,
+      "quality": 96
+    },
+    "bestFor": "Transcripción en vivo por WebSocket con diarización de hablantes y Voice Agent API",
+    "pros": [
+      "$200 gratis alcanza para 50 hackathons",
+      "Streaming real-time ultra preciso",
+      "Diarización nativa"
+    ],
+    "cons": [
+      "WebSockets requieren backend o token temporal"
+    ],
+    "config": {
+      "title": "Deepgram Streaming STT (Español)",
+      "lang": "ts",
+      "code": "const ws = new WebSocket('wss://api.deepgram.com/v1/listen?model=nova-3&language=es&smart_format=true&diarize=true', ['token', apiKey]);"
+    },
+    "agentTip": "Úsalo cuando tu hackathon necesite transcribir conversaciones en vivo con múltiples personas.",
+    "url": "https://console.deepgram.com"
+  },
+  {
+    "id": "fal-ai",
+    "name": "fal.ai",
+    "provider": "fal.ai",
+    "category": "apis",
+    "subType": "Generative Media API",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "pago",
+    "priceLabel": "Pay-per-run ($0.003+/img)",
+    "freeTier": "Créditos de prueba iniciales; cobro exacto por segundo de GPU",
+    "githubRepo": "fal-ai/fal-js",
+    "metrics": {
+      "setupMin": 3,
+      "latencyMs": 700,
+      "freeLimit": "Pay-per-use barato",
+      "sla": "Fastest GPU cold start"
+    },
+    "scores": {
+      "hackathon": 93,
+      "speed": 96,
+      "value": 90,
+      "quality": 96
+    },
+    "bestFor": "FLUX, Kling 🇨🇳, Wan 🇨🇳, MiniMax Video 🇨🇳, Whisper y 3D en 1 sola API ultrarrápida",
+    "pros": [
+      "Aloja modelos de imagen/video chinos y USA más recientes",
+      "Latencia sub-segundo en imagen",
+      "SDK limpio"
+    ],
+    "cons": [
+      "Requiere recargar saldo para uso intensivo de video"
+    ],
+    "config": {
+      "title": "Generación instantánea en fal.ai",
+      "lang": "ts",
+      "code": "import { fal } from '@fal-ai/client';\nconst out = await fal.subscribe('fal-ai/flux/schnell', { input: { prompt: 'Futuristic hackathon trophy' } });"
+    },
+    "agentTip": "El mejor hub para meter generación de video (Kling/Wan) o 3D en tu demo sin montar GPUs.",
+    "url": "https://fal.ai"
+  },
+  {
+    "id": "resend-api",
+    "name": "Resend",
+    "provider": "Resend",
+    "category": "apis",
+    "subType": "Transactional Email",
+    "country": "BR",
+    "flag": "🇧🇷",
+    "countryName": "Brasil / EE.UU.",
+    "region": "Latam",
+    "pricingTier": "freemium",
+    "priceLabel": "$0 (3,000 emails/mes) / $20/mes",
+    "freeTier": "3,000 emails/mes (100/día) gratis con DX impecable",
+    "githubRepo": "resend/resend-node",
+    "metrics": {
+      "setupMin": 2,
+      "latencyMs": 110,
+      "freeLimit": "3,000 emails/mes",
+      "sla": "99.9%"
+    },
+    "scores": {
+      "hackathon": 92,
+      "speed": 97,
+      "value": 96,
+      "quality": 95
+    },
+    "bestFor": "Alertas por correo, magic links y reportes automáticos enviados por agentes",
+    "pros": [
+      "Setup en 2 minutos",
+      "React Email templates",
+      "3K emails gratis"
+    ],
+    "cons": [
+      "Sin dominio propio solo envía a tu propio email verificado"
+    ],
+    "config": {
+      "title": "Enviar email desde agente",
+      "lang": "ts",
+      "code": "import { Resend } from 'resend';\nconst resend = new Resend(process.env.RESEND_API_KEY);\nawait resend.emails.send({ from: 'onboarding@resend.dev', to: 'juez@demo.com', subject: 'Alerta', html: '<b>Listo</b>' });"
+    },
+    "agentTip": "Enviar un email o alerta real al celular de un juez durante la demo causa efecto 'wow' instantáneo.",
+    "url": "https://resend.com"
+  },
+  {
+    "id": "nvidia-nim-api",
+    "name": "NVIDIA NIM (build.nvidia.com)",
+    "provider": "NVIDIA",
+    "category": "apis",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Free Multi-Model AI Inference",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis (API key free tier)",
+    "freeTier": "Una key gratis para DeepSeek R1/V3, Qwen 3, Llama 4, Kimi K2, GLM, gpt-oss y Nemotron",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 2,
+      "latencyMs": 210,
+      "freeLimit": "~40 RPM gratis",
+      "sla": "OpenAI-compatible"
+    },
+    "scores": {
+      "hackathon": 98,
+      "speed": 90,
+      "value": 100,
+      "quality": 95
+    },
+    "bestFor": "Salvavidas #1 cuando se acaban los créditos: modelos top chinos y USA gratis",
+    "pros": [
+      "1 key para DeepSeek, Qwen, Kimi, GLM, Llama, Nemotron",
+      "Compatible con OpenCode / OpenAI SDK",
+      "Sin tarjeta"
+    ],
+    "cons": [
+      "~40 RPM; combinar con Groq/OpenRouter"
+    ],
+    "config": {
+      "title": "Conectar NVIDIA NIM",
+      "lang": "bash",
+      "code": "export NVIDIA_API_KEY=nvapi-...\n# Base URL: https://integrate.api.nvidia.com/v1"
+    },
+    "agentTip": "Úsalo en opencode.json con el sub-agente Frontier Booster.",
+    "url": "https://build.nvidia.com"
+  },
+  {
+    "id": "chutes-api",
+    "name": "Chutes AI",
+    "provider": "Chutes (Bittensor)",
+    "category": "apis",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Decentralized Free Inference",
+    "pricingTier": "freemium",
+    "priceLabel": "Free tier / ultra barato",
+    "freeTier": "Modelos open-weights (DeepSeek, Qwen, GLM, Kimi) gratis o casi gratis; también vía OpenRouter :free",
+    "githubRepo": null,
+    "metrics": {
+      "setupMin": 2,
+      "latencyMs": 300,
+      "freeLimit": "Límite diario gratis",
+      "sla": "Descentralizado"
+    },
+    "scores": {
+      "hackathon": 88,
+      "speed": 82,
+      "value": 99,
+      "quality": 88
+    },
+    "bestFor": "Proveedor detrás de muchos modelos :free de OpenRouter",
+    "pros": [
+      "DeepSeek/Qwen/GLM/Kimi casi gratis",
+      "OpenAI-compatible"
+    ],
+    "cons": [
+      "Latencia variable"
+    ],
+    "config": {
+      "title": "Chutes OpenAI-compatible",
+      "lang": "ts",
+      "code": "const chutes = new OpenAI({ baseURL: 'https://llm.chutes.ai/v1', apiKey: process.env.CHUTES_API_KEY });"
+    },
+    "agentTip": "Último eslabón de tu cadena de fallback gratis.",
+    "url": "https://chutes.ai"
+  },
+  {
+    "id": "together-api",
+    "name": "Together AI",
+    "provider": "Together AI",
+    "category": "apis",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "subType": "Open-Model Inference",
+    "pricingTier": "freemium",
+    "priceLabel": "Free models / pay-as-you-go",
+    "freeTier": "Modelos gratis (Llama 3.3 70B Free, DeepSeek R1 Distill Free, FLUX schnell Free)",
+    "githubRepo": "togethercomputer/together-typescript",
+    "metrics": {
+      "setupMin": 2,
+      "latencyMs": 180,
+      "freeLimit": "Modelos *-Free",
+      "sla": "99.9%"
+    },
+    "scores": {
+      "hackathon": 90,
+      "speed": 92,
+      "value": 95,
+      "quality": 92
+    },
+    "bestFor": "Inferencia de 200+ modelos open con fine-tuning barato",
+    "pros": [
+      "Endpoints *-Free",
+      "Fine-tuning LoRA barato"
+    ],
+    "cons": [
+      "Free models con rate limit bajo"
+    ],
+    "config": {
+      "title": "Together",
+      "lang": "ts",
+      "code": "const together = new OpenAI({ baseURL: 'https://api.together.xyz/v1', apiKey: process.env.TOGETHER_API_KEY });"
+    },
+    "agentTip": "Para fine-tunear un modelo pequeño durante la hackathon.",
+    "url": "https://together.ai"
+  },
+  {
+    "id": "hf-inference",
+    "name": "Hugging Face Inference Providers",
+    "provider": "Hugging Face",
+    "category": "apis",
+    "country": "FR",
+    "flag": "🇫🇷",
+    "countryName": "Francia / EE.UU.",
+    "region": "Europa",
+    "subType": "Unified Open-Model Router",
+    "pricingTier": "freemium",
+    "priceLabel": "Créditos mensuales gratis / PRO $9",
+    "freeTier": "Créditos mensuales gratis para miles de modelos (via Groq, Together, Fireworks, Novita...)",
+    "githubRepo": "huggingface/huggingface.js",
+    "metrics": {
+      "setupMin": 2,
+      "latencyMs": 250,
+      "freeLimit": "Créditos mensuales",
+      "sla": "Multi-provider"
+    },
+    "scores": {
+      "hackathon": 91,
+      "speed": 88,
+      "value": 95,
+      "quality": 92
+    },
+    "bestFor": "Acceso a cualquier modelo de HuggingFace con una sola key + Spaces para deploy gratis",
+    "pros": [
+      "1M+ modelos",
+      "Spaces con GPU ZeroGPU gratis",
+      "Router OpenAI-compatible"
+    ],
+    "cons": [
+      "Créditos gratis pequeños"
+    ],
+    "config": {
+      "title": "HF Router",
+      "lang": "ts",
+      "code": "const hf = new OpenAI({ baseURL: 'https://router.huggingface.co/v1', apiKey: process.env.HF_TOKEN });"
+    },
+    "agentTip": "Despliega la demo en un Space gratis con Gradio.",
+    "url": "https://huggingface.co/docs/inference-providers"
+  }
+]

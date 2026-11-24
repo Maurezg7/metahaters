@@ -1,0 +1,1000 @@
+[
+  {
+    "id": "os-arch",
+    "name": "Arch Linux (Hyprland / i3)",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Independiente (Rolling)",
+    "initSystem": "systemd",
+    "country": "CA",
+    "flag": "🇨🇦",
+    "countryName": "Canadá / Global",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 390,
+      "idleProcesses": 78,
+      "diskGb": 4.5,
+      "cpuIdlePct": 0.4,
+      "bootSec": 7
+    },
+    "scores": {
+      "hackathon": 96,
+      "lightness": 94,
+      "devXp": 97,
+      "stability": 82
+    },
+    "bestFor": "Máximo control, paquetes siempre al día (AUR) y consumo mínimo de RAM/CPU",
+    "pros": [
+      "AUR tiene literalmente todo (IDEs, SDKs, CLIs) en 1 comando",
+      "Consumo mínimo (~390MB RAM)",
+      "Arch Wiki es la mejor documentación técnica del mundo"
+    ],
+    "cons": [
+      "No actualizar (`pacman -Syu`) 1 hora antes de una hackathon",
+      "Instalación inicial requiere experiencia"
+    ],
+    "config": {
+      "title": "Stack Hackathon en Arch (yay)",
+      "lang": "bash",
+      "code": "yay -S --needed docker docker-compose bun-bin uv fnm-bin ripgrep fd lazygit github-cli"
+    },
+    "url": "https://archlinux.org",
+    "logo": "https://cdn.simpleicons.org/archlinux/1793D1"
+  },
+  {
+    "id": "os-cachyos",
+    "name": "CachyOS",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Arch (x86-64-v3/v4)",
+    "initSystem": "systemd",
+    "country": "DE",
+    "flag": "🇩🇪",
+    "countryName": "Alemania",
+    "region": "Europa",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 580,
+      "idleProcesses": 96,
+      "diskGb": 8,
+      "cpuIdlePct": 0.5,
+      "bootSec": 6
+    },
+    "scores": {
+      "hackathon": 95,
+      "lightness": 89,
+      "devXp": 95,
+      "stability": 85
+    },
+    "bestFor": "Arch listo en 5 minutos con kernel BORE/sched-ext optimizado para compilar rapidísimo",
+    "pros": [
+      "Paquetes compilados para CPU moderna (x86-64-v3/v4)",
+      "Instalador gráfico fácil",
+      "Mantiene AUR + velocidad brutal"
+    ],
+    "cons": [
+      "Rolling release agresivo; hacer snapshot Btrfs antes de actualizar"
+    ],
+    "config": {
+      "title": "Activar zram + Docker en CachyOS",
+      "lang": "bash",
+      "code": "sudo pacman -S docker docker-buildx && sudo systemctl enable --now docker"
+    },
+    "url": "https://cachyos.org",
+    "logo": "https://cdn.simpleicons.org/archlinux/FFB21E"
+  },
+  {
+    "id": "os-alpine",
+    "name": "Alpine Linux",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Independiente (musl + BusyBox)",
+    "initSystem": "OpenRC",
+    "country": "NO",
+    "flag": "🇳🇴",
+    "countryName": "Noruega / Global",
+    "region": "Europa",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 60,
+      "idleProcesses": 22,
+      "diskGb": 0.35,
+      "cpuIdlePct": 0.1,
+      "bootSec": 3
+    },
+    "scores": {
+      "hackathon": 93,
+      "lightness": 100,
+      "devXp": 84,
+      "stability": 96
+    },
+    "bestFor": "Contenedores Docker de 5MB, VPS baratos, edge y servidores ultraligeros",
+    "pros": [
+      "Solo ~22 procesos y ~60MB de RAM",
+      "Imagen Docker base de 7MB",
+      "Superficie de ataque mínima (musl)"
+    ],
+    "cons": [
+      "Algunos binarios compilados con glibc (ej: wheels Python pesados) dan problemas en musl"
+    ],
+    "config": {
+      "title": "Dockerfile ultraligero para hackathon",
+      "lang": "dockerfile",
+      "code": "FROM node:22-alpine\nWORKDIR /app\nCOPY . .\nRUN npm ci --omit=dev\nCMD [\"node\", \"server.js\"]"
+    },
+    "url": "https://alpinelinux.org",
+    "logo": "https://cdn.simpleicons.org/alpinelinux/0D597F"
+  },
+  {
+    "id": "os-void",
+    "name": "Void Linux",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Independiente (Rolling)",
+    "initSystem": "runit",
+    "country": "ES",
+    "flag": "🇪🇸",
+    "countryName": "España / Global",
+    "region": "Europa",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 210,
+      "idleProcesses": 44,
+      "diskGb": 2.2,
+      "cpuIdlePct": 0.2,
+      "bootSec": 4
+    },
+    "scores": {
+      "hackathon": 87,
+      "lightness": 98,
+      "devXp": 85,
+      "stability": 92
+    },
+    "bestFor": "Laptops con poca RAM, arranque en 4 segundos sin systemd",
+    "pros": [
+      "runit consume casi nada (~44 procesos)",
+      "Gestor XBPS rapidísimo",
+      "Rolling muy estable"
+    ],
+    "cons": [
+      "Repositorio más pequeño que Arch/Ubuntu",
+      "Menor soporte plug-and-play para apps propietarias"
+    ],
+    "config": {
+      "title": "Instalar toolchain base en Void",
+      "lang": "bash",
+      "code": "sudo xbps-install -Suy git curl nodejs python3 docker ripgrep"
+    },
+    "url": "https://voidlinux.org",
+    "logo": "https://cdn.simpleicons.org/voidlinux/478061"
+  },
+  {
+    "id": "os-debian",
+    "name": "Debian 12/13 (XFCE / Minimal)",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Independiente",
+    "initSystem": "systemd",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos / Global",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 460,
+      "idleProcesses": 108,
+      "diskGb": 4,
+      "cpuIdlePct": 0.3,
+      "bootSec": 8
+    },
+    "scores": {
+      "hackathon": 94,
+      "lightness": 91,
+      "devXp": 90,
+      "stability": 100
+    },
+    "bestFor": "Estabilidad absoluta en servidores y laptops que nunca pueden colgarse en la demo",
+    "pros": [
+      "Indestructible (estabilidad 100%)",
+      "Bajo consumo en XFCE/LXQt",
+      "Compatible con casi todo paquete .deb"
+    ],
+    "cons": [
+      "Paquetes de sistema antiguos (usar uv/fnm/Docker para runtimes nuevos)"
+    ],
+    "config": {
+      "title": "Limpiar servicios innecesarios en Debian",
+      "lang": "bash",
+      "code": "systemd-analyze blame | head -n 15\nsudo apt install -y zram-tools git curl build-essential"
+    },
+    "url": "https://www.debian.org",
+    "logo": "https://cdn.simpleicons.org/debian/A81D33"
+  },
+  {
+    "id": "os-ubuntu",
+    "name": "Ubuntu 24.04 LTS",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Debian",
+    "initSystem": "systemd",
+    "country": "GB",
+    "flag": "🇬🇧",
+    "countryName": "Reino Unido",
+    "region": "Europa",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Pro gratis 5 PCs)",
+    "resources": {
+      "idleRamMb": 1180,
+      "idleProcesses": 168,
+      "diskGb": 12,
+      "cpuIdlePct": 0.8,
+      "bootSec": 12
+    },
+    "scores": {
+      "hackathon": 92,
+      "lightness": 74,
+      "devXp": 94,
+      "stability": 93
+    },
+    "bestFor": "Compatibilidad universal con CUDA/NVIDIA, tutoriales, cloud VMs y Docker",
+    "pros": [
+      "El estándar de facto en servidores y CI/CD",
+      "Drivers NVIDIA/CUDA sin dolor",
+      "Soporte oficial de todos los SDKs"
+    ],
+    "cons": [
+      "Snaps y GNOME consumen bastante RAM (~1.2GB en reposo)",
+      "Más procesos en segundo plano que Debian/Arch"
+    ],
+    "config": {
+      "title": "Optimizar Ubuntu para dev rápido",
+      "lang": "bash",
+      "code": "sudo apt update && sudo apt install -y zram-config build-essential ripgrep jq"
+    },
+    "url": "https://ubuntu.com",
+    "logo": "https://cdn.simpleicons.org/ubuntu/E95420"
+  },
+  {
+    "id": "os-fedora",
+    "name": "Fedora Workstation / Sway",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Red Hat / RPM",
+    "initSystem": "systemd",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 980,
+      "idleProcesses": 148,
+      "diskGb": 9.5,
+      "cpuIdlePct": 0.6,
+      "bootSec": 10
+    },
+    "scores": {
+      "hackathon": 93,
+      "lightness": 79,
+      "devXp": 95,
+      "stability": 91
+    },
+    "bestFor": "Equilibrio ideal entre paquetes muy nuevos y estabilidad (usado por Linus Torvalds)",
+    "pros": [
+      "Kernel, PipeWire y Wayland siempre frescos",
+      "SELinux + Podman nativos",
+      "Spins ligeros (Sway/XFCE ~500MB)"
+    ],
+    "cons": [
+      "Codecs propietarios requieren activar RPM Fusion"
+    ],
+    "config": {
+      "title": "Dev setup Fedora (dnf5)",
+      "lang": "bash",
+      "code": "sudo dnf install -y git gh ripgrep podman-docker @development-tools"
+    },
+    "url": "https://fedoraproject.org",
+    "logo": "https://cdn.simpleicons.org/fedora/51A2DA"
+  },
+  {
+    "id": "os-mint",
+    "name": "Linux Mint (Cinnamon / XFCE)",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Ubuntu LTS / Debian",
+    "initSystem": "systemd",
+    "country": "IE",
+    "flag": "🇮🇪",
+    "countryName": "Irlanda",
+    "region": "Europa",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 680,
+      "idleProcesses": 122,
+      "diskGb": 9,
+      "cpuIdlePct": 0.5,
+      "bootSec": 10
+    },
+    "scores": {
+      "hackathon": 89,
+      "lightness": 85,
+      "devXp": 88,
+      "stability": 95
+    },
+    "bestFor": "Migrantes de Windows que quieren estabilidad sin Snaps y consumo moderado",
+    "pros": [
+      "Cero Snaps por defecto",
+      "Muy estable y fácil de usar",
+      "XFCE baja a ~520MB RAM"
+    ],
+    "cons": [
+      "Paquetes base pueden ser algo viejos sin PPA/Flatpak"
+    ],
+    "config": {
+      "title": "Herramientas dev en Mint",
+      "lang": "bash",
+      "code": "sudo apt install -y git curl build-essential flatpak"
+    },
+    "url": "https://linuxmint.com",
+    "logo": "https://cdn.simpleicons.org/linuxmint/87CF3E"
+  },
+  {
+    "id": "os-popos",
+    "name": "Pop!_OS (COSMIC)",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Ubuntu (System76)",
+    "initSystem": "systemd",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 920,
+      "idleProcesses": 142,
+      "diskGb": 10,
+      "cpuIdlePct": 0.6,
+      "bootSec": 10
+    },
+    "scores": {
+      "hackathon": 93,
+      "lightness": 81,
+      "devXp": 95,
+      "stability": 90
+    },
+    "bestFor": "Desarrolladores AI/ML con GPU NVIDIA + auto-tiling nativo en escritorio COSMIC (Rust)",
+    "pros": [
+      "ISO con NVIDIA CUDA preconfigurado",
+      "Auto-tiling sin configurar i3/Hyprland",
+      "Escritorio COSMIC en Rust súper fluido"
+    ],
+    "cons": [
+      "Transición a COSMIC puede tener detalles menores en apps legacy"
+    ],
+    "config": {
+      "title": "Verificar GPU NVIDIA + CUDA",
+      "lang": "bash",
+      "code": "nvidia-smi && sudo apt install -y system76-cuda-latest"
+    },
+    "url": "https://pop.system76.com",
+    "logo": "https://cdn.simpleicons.org/popos/48B9C7"
+  },
+  {
+    "id": "os-nixos",
+    "name": "NixOS",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Independiente (Declarativo)",
+    "initSystem": "systemd",
+    "country": "NL",
+    "flag": "🇳🇱",
+    "countryName": "Países Bajos",
+    "region": "Europa",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 520,
+      "idleProcesses": 92,
+      "diskGb": 8,
+      "cpuIdlePct": 0.4,
+      "bootSec": 8
+    },
+    "scores": {
+      "hackathon": 90,
+      "lightness": 89,
+      "devXp": 94,
+      "stability": 97
+    },
+    "bestFor": "Entornos 100% reproducibles (`flake.nix`) y rollback instantáneo si algo se rompe",
+    "pros": [
+      "Rollback en 1 reinicio si rompes el sistema",
+      "Todo el equipo comparte el mismo entorno exacto",
+      "100K+ paquetes en nixpkgs"
+    ],
+    "cons": [
+      "Curva de aprendizaje empinada (no aprender Nix durante una hackathon)"
+    ],
+    "config": {
+      "title": "Shell reproducible al vuelo",
+      "lang": "bash",
+      "code": "nix-shell -p nodejs_22 python312 uv ripgrep jq"
+    },
+    "url": "https://nixos.org",
+    "logo": "https://cdn.simpleicons.org/nixos/5277C3"
+  },
+  {
+    "id": "os-endeavouros",
+    "name": "EndeavourOS",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Arch Linux",
+    "initSystem": "systemd",
+    "country": "NL",
+    "flag": "🇳🇱",
+    "countryName": "Países Bajos",
+    "region": "Europa",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 540,
+      "idleProcesses": 90,
+      "diskGb": 6.5,
+      "cpuIdlePct": 0.4,
+      "bootSec": 7
+    },
+    "scores": {
+      "hackathon": 93,
+      "lightness": 90,
+      "devXp": 94,
+      "stability": 86
+    },
+    "bestFor": "Arch puro con instalador gráfico en 10 min, yay preinstalado y cero bloat",
+    "pros": [
+      "Casi idéntico a Arch puro",
+      "yay preinstalado",
+      "Comunidad súper amigable"
+    ],
+    "cons": [
+      "Requiere mantenimiento básico de Arch"
+    ],
+    "config": {
+      "title": "Refrescar mirrors y utilidades",
+      "lang": "bash",
+      "code": "eos-rankmirrors && yay -S --needed docker uv fnm-bin"
+    },
+    "url": "https://endeavouros.com",
+    "logo": "https://cdn.simpleicons.org/endeavouros/7F3FBF"
+  },
+  {
+    "id": "os-opensuse",
+    "name": "openSUSE Tumbleweed",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "SUSE (RPM)",
+    "initSystem": "systemd",
+    "country": "DE",
+    "flag": "🇩🇪",
+    "countryName": "Alemania",
+    "region": "Europa",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 780,
+      "idleProcesses": 130,
+      "diskGb": 8.5,
+      "cpuIdlePct": 0.5,
+      "bootSec": 9
+    },
+    "scores": {
+      "hackathon": 88,
+      "lightness": 83,
+      "devXp": 89,
+      "stability": 95
+    },
+    "bestFor": "Rolling release testeado automáticamente con Snapper Btrfs rollbacks de fábrica",
+    "pros": [
+      "Snapshots Btrfs automáticos antes de cada update",
+      "openQA testea cada release",
+      "YaST potente"
+    ],
+    "cons": [
+      "zypper es más lento que pacman/dnf5"
+    ],
+    "config": {
+      "title": "Rollback instantáneo con Snapper",
+      "lang": "bash",
+      "code": "sudo snapper list && sudo snapper rollback <id>"
+    },
+    "url": "https://www.opensuse.org",
+    "logo": "https://cdn.simpleicons.org/opensuse/73BA25"
+  },
+  {
+    "id": "os-kali",
+    "name": "Kali Linux",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Debian Testing",
+    "initSystem": "systemd",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 620,
+      "idleProcesses": 112,
+      "diskGb": 14,
+      "cpuIdlePct": 0.5,
+      "bootSec": 9
+    },
+    "scores": {
+      "hackathon": 86,
+      "lightness": 84,
+      "devXp": 84,
+      "stability": 84
+    },
+    "bestFor": "CTFs, hackathons de ciberseguridad, auditoría web/red y pentesting defensivo",
+    "pros": [
+      "600+ herramientas de seguridad listas (nmap, Burp, ffuf, Wireshark)",
+      "Corre genial en VM/Live USB"
+    ],
+    "cons": [
+      "No recomendada como OS diario de uso general"
+    ],
+    "config": {
+      "title": "Metapaquete liviano de ciberseguridad",
+      "lang": "bash",
+      "code": "sudo apt update && sudo apt install -y kali-tools-top10"
+    },
+    "url": "https://www.kali.org",
+    "logo": "https://cdn.simpleicons.org/kalilinux/557C94"
+  },
+  {
+    "id": "os-deepin",
+    "name": "Deepin / openKylin",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Debian / Independiente",
+    "initSystem": "systemd",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 1120,
+      "idleProcesses": 156,
+      "diskGb": 13,
+      "cpuIdlePct": 0.9,
+      "bootSec": 12
+    },
+    "scores": {
+      "hackathon": 80,
+      "lightness": 73,
+      "devXp": 82,
+      "stability": 84
+    },
+    "bestFor": "Escritorio DDE ultra pulido con apps chinas/AI integradas y estética tipo macOS",
+    "pros": [
+      "UI muy cuidada lista de fábrica",
+      "Asistente AI integrado en escritorio",
+      "Base Debian familiar"
+    ],
+    "cons": [
+      "Mayor consumo de RAM que XFCE/Arch",
+      "Mirrors fuera de Asia pueden ser más lentos"
+    ],
+    "config": {
+      "title": "Cambiar a mirrors globales rápidos",
+      "lang": "bash",
+      "code": "sudo apt update && sudo apt install -y git curl docker.io"
+    },
+    "url": "https://www.deepin.org",
+    "logo": "https://cdn.simpleicons.org/deepin/007CFF"
+  },
+  {
+    "id": "os-antix",
+    "name": "antiX / Puppy Linux",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Debian (sin systemd)",
+    "initSystem": "sysvinit / runit",
+    "country": "GR",
+    "flag": "🇬🇷",
+    "countryName": "Grecia / Australia",
+    "region": "Europa",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 145,
+      "idleProcesses": 38,
+      "diskGb": 1.8,
+      "cpuIdlePct": 0.2,
+      "bootSec": 5
+    },
+    "scores": {
+      "hackathon": 81,
+      "lightness": 99,
+      "devXp": 74,
+      "stability": 91
+    },
+    "bestFor": "Resucitar notebooks viejas de 2-4GB RAM y correr Live USB completamente en RAM",
+    "pros": [
+      "~145MB RAM y ~38 procesos",
+      "Arranca desde pendrive en cualquier PC",
+      "Funciona en hardware de hace 15 años"
+    ],
+    "cons": [
+      "Interfaz retro y menos cómoda para IDEs modernos pesados"
+    ],
+    "config": {
+      "title": "Modo Live en RAM",
+      "lang": "text",
+      "code": "Boot parameter: toram  # Carga todo el sistema en memoria para velocidad extrema"
+    },
+    "url": "https://antixlinux.com",
+    "logo": "https://cdn.simpleicons.org/linux/FFB21E"
+  },
+  {
+    "id": "os-gentoo",
+    "name": "Gentoo Linux",
+    "family": "Linux",
+    "osType": "Distro",
+    "base": "Source-based",
+    "initSystem": "OpenRC / systemd",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (Open Source)",
+    "resources": {
+      "idleRamMb": 260,
+      "idleProcesses": 52,
+      "diskGb": 6,
+      "cpuIdlePct": 0.2,
+      "bootSec": 5
+    },
+    "scores": {
+      "hackathon": 74,
+      "lightness": 96,
+      "devXp": 82,
+      "stability": 90
+    },
+    "bestFor": "Control total de flags del compilador y binarios a medida de tu CPU",
+    "pros": [
+      "Cero dependencias innecesarias (USE flags)",
+      "Ahora soporta paquetes binarios (binhost)",
+      "Ultra ligero"
+    ],
+    "cons": [
+      "Compilar actualizaciones consume tiempo valioso (no instalar durante hackathon)"
+    ],
+    "config": {
+      "title": "Usar binarios rápidos en Gentoo",
+      "lang": "bash",
+      "code": "emerge --getbinpkg dev-vcs/git net-libs/nodejs"
+    },
+    "url": "https://www.gentoo.org",
+    "logo": "https://cdn.simpleicons.org/gentoo/9999FF"
+  },
+  {
+    "id": "os-macos",
+    "name": "macOS (Apple Silicon)",
+    "family": "macOS",
+    "osType": "OS",
+    "base": "Darwin / XNU (UNIX)",
+    "initSystem": "launchd",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "pago",
+    "priceLabel": "Incluido con Mac ($999+)",
+    "resources": {
+      "idleRamMb": 3400,
+      "idleProcesses": 295,
+      "diskGb": 25,
+      "cpuIdlePct": 1.2,
+      "bootSec": 11
+    },
+    "scores": {
+      "hackathon": 95,
+      "lightness": 58,
+      "devXp": 97,
+      "stability": 95
+    },
+    "bestFor": "Batería de 15+ horas en hackathons presenciales, LLMs locales con RAM unificada (MLX) y apps iOS",
+    "pros": [
+      "Batería imbatible sin enchufe",
+      "RAM unificada corre modelos 32B-70B local con MLX/Ollama",
+      "UNIX nativo + Figma/Xcode/Audio pro"
+    ],
+    "cons": [
+      "Alto consumo base de RAM/procesos (~3.4GB, ~295 procesos)",
+      "Docker corre dentro de VM Linux (OrbStack lo hace ligero)",
+      "Hardware caro"
+    ],
+    "config": {
+      "title": "OrbStack + Homebrew (Docker ultra ligero en Mac)",
+      "lang": "bash",
+      "code": "brew install --cask orbstack && brew install uv fnm ripgrep gh"
+    },
+    "url": "https://www.apple.com/macos",
+    "logo": "https://cdn.simpleicons.org/apple/FFFFFF"
+  },
+  {
+    "id": "os-windows11",
+    "name": "Windows 11 + WSL2",
+    "family": "Windows",
+    "osType": "OS",
+    "base": "Windows NT + Hyper-V WSL2",
+    "initSystem": "NT Service Control Manager",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "pago",
+    "priceLabel": "Licencia ~$139 / OEM",
+    "resources": {
+      "idleRamMb": 4200,
+      "idleProcesses": 215,
+      "diskGb": 34,
+      "cpuIdlePct": 2.4,
+      "bootSec": 16
+    },
+    "scores": {
+      "hackathon": 86,
+      "lightness": 42,
+      "devXp": 86,
+      "stability": 84
+    },
+    "bestFor": "Compatibilidad máxima de hardware/drivers, Gaming/Unity/Unreal, .NET y WSL2",
+    "pros": [
+      "Corre 100% de software comercial, juegos y drivers",
+      "WSL2 da Linux real + GPU passthrough",
+      "Excelente para C#, Unity, Unreal y CUDA"
+    ],
+    "cons": [
+      "Mayor consumo de RAM y procesos en reposo (~4.2GB, ~215 procesos + telemetría)",
+      "Windows Update puede reiniciar en mal momento (pausar antes del evento)"
+    ],
+    "config": {
+      "title": "Limitar RAM de WSL2 (.wslconfig) + pausar updates",
+      "lang": "ini",
+      "code": "# C:\\Users\\TU_USER\\.wslconfig\n[wsl2]\nmemory=6GB\nprocessors=6\nautoMemoryReclaim=gradual"
+    },
+    "url": "https://www.microsoft.com/windows",
+    "logo": "https://cdn.simpleicons.org/windows/0078D4"
+  },
+  {
+    "id": "os-win-ltsc",
+    "name": "Windows 10/11 LTSC / Debloated",
+    "family": "Windows",
+    "osType": "OS",
+    "base": "Windows NT Enterprise",
+    "initSystem": "NT SCM",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "pago",
+    "priceLabel": "Licencia Enterprise",
+    "resources": {
+      "idleRamMb": 1750,
+      "idleProcesses": 105,
+      "diskGb": 16,
+      "cpuIdlePct": 0.9,
+      "bootSec": 10
+    },
+    "scores": {
+      "hackathon": 88,
+      "lightness": 72,
+      "devXp": 86,
+      "stability": 92
+    },
+    "bestFor": "Windows sin bloatware, sin Copilot/Widgets y mitad de procesos que Win11 normal",
+    "pros": [
+      "Reduce procesos casi a la mitad (~105)",
+      "Sin actualizaciones de funciones sorpresivas",
+      "Mantiene compatibilidad Win32/CUDA"
+    ],
+    "cons": [
+      "No incluye Microsoft Store de serie",
+      "Licenciamiento empresarial"
+    ],
+    "config": {
+      "title": "Instalar winget + WSL2 rápido",
+      "lang": "powershell",
+      "code": "wsl --install -d Ubuntu-24.04"
+    },
+    "url": "https://learn.microsoft.com/windows/whats-new/ltsc/",
+    "logo": "https://cdn.simpleicons.org/windows/FFB21E"
+  },
+  {
+    "id": "os-freebsd",
+    "name": "FreeBSD",
+    "family": "BSD",
+    "osType": "OS",
+    "base": "BSD UNIX",
+    "initSystem": "rc.d",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (BSD License)",
+    "resources": {
+      "idleRamMb": 190,
+      "idleProcesses": 34,
+      "diskGb": 2.5,
+      "cpuIdlePct": 0.2,
+      "bootSec": 6
+    },
+    "scores": {
+      "hackathon": 80,
+      "lightness": 97,
+      "devXp": 80,
+      "stability": 98
+    },
+    "bestFor": "Servidores de red de alto rendimiento, ZFS nativo, Jails ultraligeros",
+    "pros": [
+      "~34 procesos en reposo",
+      "ZFS + Jails son roca sólida",
+      "Licencia BSD permisiva (base de PlayStation/Netflix CDN)"
+    ],
+    "cons": [
+      "Sin Docker nativo Linux (usa Jails/bhyve)",
+      "Menor soporte WiFi en laptops nuevas"
+    ],
+    "config": {
+      "title": "Paquetes dev en FreeBSD",
+      "lang": "bash",
+      "code": "sudo pkg install -y git node22 python311 ripgrep"
+    },
+    "url": "https://www.freebsd.org",
+    "logo": "https://cdn.simpleicons.org/freebsd/AB2B28"
+  },
+  {
+    "id": "os-openbsd",
+    "name": "OpenBSD",
+    "family": "BSD",
+    "osType": "OS",
+    "base": "BSD UNIX",
+    "initSystem": "rc.d",
+    "country": "CA",
+    "flag": "🇨🇦",
+    "countryName": "Canadá",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "100% Gratis (ISC/BSD)",
+    "resources": {
+      "idleRamMb": 140,
+      "idleProcesses": 28,
+      "diskGb": 1.6,
+      "cpuIdlePct": 0.2,
+      "bootSec": 6
+    },
+    "scores": {
+      "hackathon": 75,
+      "lightness": 99,
+      "devXp": 76,
+      "stability": 99
+    },
+    "bestFor": "Firewalls, routers, seguridad extrema y auditoría (creadores de OpenSSH)",
+    "pros": [
+      "Seguridad por defecto sin rival (pledge/unveil)",
+      "~28 procesos en reposo",
+      "Man pages impecables"
+    ],
+    "cons": [
+      "Rendimiento SMP y ecosistema de contenedores inferiores a Linux"
+    ],
+    "config": {
+      "title": "Instalar herramientas básicas",
+      "lang": "bash",
+      "code": "doas pkg_add git python3 node"
+    },
+    "url": "https://www.openbsd.org",
+    "logo": "https://cdn.simpleicons.org/openbsd/F2CA30"
+  },
+  {
+    "id": "os-chromeos",
+    "name": "ChromeOS / ChromeOS Flex",
+    "family": "Other",
+    "osType": "OS",
+    "base": "Gentoo + Linux Crostini",
+    "initSystem": "Upstart / systemd (VM)",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryName": "Estados Unidos",
+    "region": "USA",
+    "pricingTier": "gratis",
+    "priceLabel": "Gratis (Flex)",
+    "resources": {
+      "idleRamMb": 1350,
+      "idleProcesses": 135,
+      "diskGb": 10,
+      "cpuIdlePct": 0.7,
+      "bootSec": 7
+    },
+    "scores": {
+      "hackathon": 77,
+      "lightness": 78,
+      "devXp": 76,
+      "stability": 93
+    },
+    "bestFor": "Desarrollo 100% en la nube (Codespaces, Bolt, v0, Replit) en laptops económicas",
+    "pros": [
+      "Arranque en 7s y actualizaciones silenciosas",
+      "Contenedor Linux Debian integrado (Crostini)",
+      "Gran batería"
+    ],
+    "cons": [
+      "Limitado para GPU local, Docker pesado o apps nativas complejas"
+    ],
+    "config": {
+      "title": "Activar entorno Linux en ChromeOS",
+      "lang": "text",
+      "code": "Ajustes -> Avanzado -> Desarrolladores -> Entorno de desarrollo Linux -> Activar"
+    },
+    "url": "https://chromeos.google",
+    "logo": "https://cdn.simpleicons.org/googlechrome/4285F4"
+  },
+  {
+    "id": "os-harmonyos",
+    "name": "HarmonyOS NEXT",
+    "family": "Mobile",
+    "osType": "OS",
+    "base": "Microkernel Huawei (sin AOSP)",
+    "initSystem": "HarmonyOS Init",
+    "country": "CN",
+    "flag": "🇨🇳",
+    "countryName": "China",
+    "region": "China",
+    "pricingTier": "freemium",
+    "priceLabel": "SDK Gratis / Dispositivos Huawei",
+    "resources": {
+      "idleRamMb": 1400,
+      "idleProcesses": 110,
+      "diskGb": 11,
+      "cpuIdlePct": 0.5,
+      "bootSec": 9
+    },
+    "scores": {
+      "hackathon": 72,
+      "lightness": 80,
+      "devXp": 74,
+      "stability": 88
+    },
+    "bestFor": "Hackathons de ecosistema Huawei, IoT distribuido y apps ArkTS/Cangjie",
+    "pros": [
+      "Microkernel muy eficiente en memoria",
+      "Conectividad multi-dispositivo nativa",
+      "Alta fluidez"
+    ],
+    "cons": [
+      "No ejecuta APKs de Android en NEXT",
+      "Ecosistema aún concentrado en China"
+    ],
+    "config": {
+      "title": "IDE oficial DevEco Studio",
+      "lang": "text",
+      "code": "Descargar DevEco Studio (ArkTS + Cangjie) desde developer.huawei.com"
+    },
+    "url": "https://developer.huawei.com",
+    "logo": "https://cdn.simpleicons.org/huawei/CF0A2C"
+  }
+]
