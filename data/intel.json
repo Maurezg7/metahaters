@@ -1,23 +1,128 @@
 {
   "jobHumanLanguages": [
-    { "lang": "Inglés (B2–C1)", "flag": "🇺🇸", "demand": 99, "salaryBoost": "+40% a +120% (remoto USD)", "why": "Obligatorio para roles globales remotos, docs técnicas, pitch internacional y salarios en USD." },
-    { "lang": "Chino Mandarín", "flag": "🇨🇳", "demand": 84, "salaryBoost": "+25% a +50% (AI/Hardware/Comercio)", "why": "Ecosistema clave en AI open-source (DeepSeek, Qwen, Kimi), manufactura, robótica y supply chain." },
-    { "lang": "Alemán", "flag": "🇩🇪", "demand": 80, "salaryBoost": "+20% a +40% (EU/DACH)", "why": "Mayor mercado tech de Europa (Alemania, Suiza, Austria): automotriz, fintech, ingeniería y salarios altos." },
-    { "lang": "Español", "flag": "🌎", "demand": 78, "salaryBoost": "Base Latam + Nearshore EE.UU.", "why": "2do idioma nativo global; clave para hubs nearshore (México, Colombia, Argentina, España) y fintech Latam." },
-    { "lang": "Japonés", "flag": "🇯🇵", "demand": 72, "salaryBoost": "+20% a +35% (Tokio/Robótica/Gaming)", "why": "Fuerte escasez de ingenieros bilingües en robótica, videojuegos, fintech y visas tech facilitadas." },
-    { "lang": "Portugués", "flag": "🇧🇷", "demand": 70, "salaryBoost": "Mercado #1 de Latam (Brasil)", "why": "Brasil concentra la mayor inversión VC y fintech de Sudamérica (Nubank, Pix, Mercado Libre)." },
-    { "lang": "Francés", "flag": "🇫🇷", "demand": 68, "salaryBoost": "EU / Canadá / Hub AI París", "why": "París es hub líder de AI en Europa (Mistral, Hugging Face) + acceso a Canadá (Quebec)." }
+    {
+      "lang": "Inglés (B2–C1)",
+      "flag": "🇺🇸",
+      "demand": 99,
+      "salaryBoost": "+40% a +120% (remoto USD)",
+      "why": "Obligatorio para roles globales remotos, docs técnicas, pitch internacional y salarios en USD."
+    },
+    {
+      "lang": "Chino Mandarín",
+      "flag": "🇨🇳",
+      "demand": 84,
+      "salaryBoost": "+25% a +50% (AI/Hardware/Comercio)",
+      "why": "Ecosistema clave en AI open-source (DeepSeek, Qwen, Kimi), manufactura, robótica y supply chain."
+    },
+    {
+      "lang": "Alemán",
+      "flag": "🇩🇪",
+      "demand": 80,
+      "salaryBoost": "+20% a +40% (EU/DACH)",
+      "why": "Mayor mercado tech de Europa (Alemania, Suiza, Austria): automotriz, fintech, ingeniería y salarios altos."
+    },
+    {
+      "lang": "Español",
+      "flag": "🌎",
+      "demand": 78,
+      "salaryBoost": "Base Latam + Nearshore EE.UU.",
+      "why": "2do idioma nativo global; clave para hubs nearshore (México, Colombia, Argentina, España) y fintech Latam."
+    },
+    {
+      "lang": "Japonés",
+      "flag": "🇯🇵",
+      "demand": 72,
+      "salaryBoost": "+20% a +35% (Tokio/Robótica/Gaming)",
+      "why": "Fuerte escasez de ingenieros bilingües en robótica, videojuegos, fintech y visas tech facilitadas."
+    },
+    {
+      "lang": "Portugués",
+      "flag": "🇧🇷",
+      "demand": 70,
+      "salaryBoost": "Mercado #1 de Latam (Brasil)",
+      "why": "Brasil concentra la mayor inversión VC y fintech de Sudamérica (Nubank, Pix, Mercado Libre)."
+    },
+    {
+      "lang": "Francés",
+      "flag": "🇫🇷",
+      "demand": 68,
+      "salaryBoost": "EU / Canadá / Hub AI París",
+      "why": "París es hub líder de AI en Europa (Mistral, Hugging Face) + acceso a Canadá (Quebec)."
+    }
   ],
   "jobProgLanguages": [
-    { "lang": "Python", "flag": "🇳🇱", "demand": 98, "avgRole": "AI/ML, Data, Backend, SecOps", "salaryTier": "Muy Alto", "note": "#1 en vacantes de AI, Data Science y automatización." },
-    { "lang": "TypeScript / JS", "flag": "🇺🇸", "demand": 97, "avgRole": "Full-Stack, Frontend, Startups", "salaryTier": "Alto", "note": "Mayor volumen total de ofertas remotas y startups." },
-    { "lang": "SQL", "flag": "🇺🇸", "demand": 95, "avgRole": "Transversal (Data, Backend, Analytics)", "salaryTier": "Esencial", "note": "Pedido en casi toda entrevista backend/data." },
-    { "lang": "Java / Kotlin", "flag": "🇺🇸", "demand": 91, "avgRole": "Banca, Enterprise, Android", "salaryTier": "Alto", "note": "Estabilidad y enorme demanda en bancos y corporativos." },
-    { "lang": "Go", "flag": "🇺🇸", "demand": 88, "avgRole": "Cloud, Infra, Fintech, Microservicios", "salaryTier": "Muy Alto", "note": "Excelente relación demanda / pocos candidatos." },
-    { "lang": "C#", "flag": "🇺🇸", "demand": 85, "avgRole": "Enterprise, Fintech, Gaming (Unity)", "salaryTier": "Alto", "note": "Muy fuerte en empresas Microsoft, banca y videojuegos." },
-    { "lang": "Rust", "flag": "🇺🇸", "demand": 82, "avgRole": "Sistemas, Web3/Solana, Infra AI, Trading", "salaryTier": "Top / Escaso", "note": "De los mejores pagos por hora cuando hay vacante." },
-    { "lang": "C / C++", "flag": "🇺🇸", "demand": 81, "avgRole": "HFT, Embebidos, Motores AI/GPU, Juegos", "salaryTier": "Top", "note": "Crítico en CUDA, robótica, trading y sistemas de tiempo real." },
-    { "lang": "Solidity", "flag": "🇨🇭", "demand": 72, "avgRole": "Smart Contracts, Auditoría Web3", "salaryTier": "Top (Nicho)", "note": "Remoto 100% en USD/USDC; auditorías muy bien pagas." }
+    {
+      "lang": "Python",
+      "flag": "🇳🇱",
+      "demand": 98,
+      "avgRole": "AI/ML, Data, Backend, SecOps",
+      "salaryTier": "Muy Alto",
+      "note": "#1 en vacantes de AI, Data Science y automatización."
+    },
+    {
+      "lang": "TypeScript / JS",
+      "flag": "🇺🇸",
+      "demand": 97,
+      "avgRole": "Full-Stack, Frontend, Startups",
+      "salaryTier": "Alto",
+      "note": "Mayor volumen total de ofertas remotas y startups."
+    },
+    {
+      "lang": "SQL",
+      "flag": "🇺🇸",
+      "demand": 95,
+      "avgRole": "Transversal (Data, Backend, Analytics)",
+      "salaryTier": "Esencial",
+      "note": "Pedido en casi toda entrevista backend/data."
+    },
+    {
+      "lang": "Java / Kotlin",
+      "flag": "🇺🇸",
+      "demand": 91,
+      "avgRole": "Banca, Enterprise, Android",
+      "salaryTier": "Alto",
+      "note": "Estabilidad y enorme demanda en bancos y corporativos."
+    },
+    {
+      "lang": "Go",
+      "flag": "🇺🇸",
+      "demand": 88,
+      "avgRole": "Cloud, Infra, Fintech, Microservicios",
+      "salaryTier": "Muy Alto",
+      "note": "Excelente relación demanda / pocos candidatos."
+    },
+    {
+      "lang": "C#",
+      "flag": "🇺🇸",
+      "demand": 85,
+      "avgRole": "Enterprise, Fintech, Gaming (Unity)",
+      "salaryTier": "Alto",
+      "note": "Muy fuerte en empresas Microsoft, banca y videojuegos."
+    },
+    {
+      "lang": "Rust",
+      "flag": "🇺🇸",
+      "demand": 82,
+      "avgRole": "Sistemas, Web3/Solana, Infra AI, Trading",
+      "salaryTier": "Top / Escaso",
+      "note": "De los mejores pagos por hora cuando hay vacante."
+    },
+    {
+      "lang": "C / C++",
+      "flag": "🇺🇸",
+      "demand": 81,
+      "avgRole": "HFT, Embebidos, Motores AI/GPU, Juegos",
+      "salaryTier": "Top",
+      "note": "Crítico en CUDA, robótica, trading y sistemas de tiempo real."
+    },
+    {
+      "lang": "Solidity",
+      "flag": "🇨🇭",
+      "demand": 72,
+      "avgRole": "Smart Contracts, Auditoría Web3",
+      "salaryTier": "Top (Nicho)",
+      "note": "Remoto 100% en USD/USDC; auditorías muy bien pagas."
+    }
   ],
   "fallbackFx": {
     "base": "USD",
@@ -27,28 +132,91 @@
       "EUR": 0.92,
       "GBP": 0.79,
       "CNY": 7.24,
-      "JPY": 154.0,
+      "JPY": 154,
       "CHF": 0.88,
       "CAD": 1.39,
-      "ARS": 1050.0,
+      "ARS": 1050,
       "MXN": 20.1,
       "BRL": 5.75,
-      "COP": 4350.0,
-      "CLP": 965.0,
+      "COP": 4350,
+      "CLP": 965,
       "PEN": 3.77,
       "INR": 84.4
     }
   },
   "topFiatCurrencies": [
-    { "code": "USD", "flag": "🇺🇸", "name": "Dólar EE.UU.", "share": "~88% FX global", "rail": "ACH / Wire / FedNow / Stripe", "use": "Moneda base de APIs AI, cloud, SaaS y pagos remotos." },
-    { "code": "EUR", "flag": "🇪🇺", "name": "Euro", "share": "~31% FX global", "rail": "SEPA Instant (gratis/10s)", "use": "Pagos instantáneos en toda la Eurozona." },
-    { "code": "CNY", "flag": "🇨🇳", "name": "Yuan / Renminbi", "share": "~7% FX (en alza)", "rail": "Alipay / WeChat Pay / CIPS", "use": "Comercio global, hardware y APIs chinas." },
-    { "code": "JPY", "flag": "🇯🇵", "name": "Yen Japonés", "share": "~17% FX global", "rail": "Zengin / PayPay", "use": "3ra moneda más operada en mercados FX." },
-    { "code": "GBP", "flag": "🇬🇧", "name": "Libra Esterlina", "share": "~13% FX global", "rail": "Faster Payments (UK)", "use": "Hub fintech de Londres." },
-    { "code": "BRL", "flag": "🇧🇷", "name": "Real Brasileño", "share": "Líder Latam", "rail": "Pix (instantáneo 24/7, $0)", "use": "El sistema de pagos instantáneos más adoptado del mundo." },
-    { "code": "MXN", "flag": "🇲🇽", "name": "Peso Mexicano", "share": "Top Latam FX", "rail": "SPEI / CoDi (instantáneo)", "use": "Remesas, nearshore y fintech México." },
-    { "code": "INR", "flag": "🇮🇳", "name": "Rupia India", "share": "Líder volumen QR", "rail": "UPI (billones de tx/mes)", "use": "Referente mundial en micropagos instantáneos." },
-    { "code": "ARS", "flag": "🇦🇷", "name": "Peso Argentino", "share": "Hub Crypto/Stablecoins", "rail": "Transferencias 3.0 / Mercado Pago / USDT-USDC", "use": "Altísima adopción de wallets digitales y stablecoins." }
+    {
+      "code": "USD",
+      "flag": "🇺🇸",
+      "name": "Dólar EE.UU.",
+      "share": "~88% FX global",
+      "rail": "ACH / Wire / FedNow / Stripe",
+      "use": "Moneda base de APIs AI, cloud, SaaS y pagos remotos."
+    },
+    {
+      "code": "EUR",
+      "flag": "🇪🇺",
+      "name": "Euro",
+      "share": "~31% FX global",
+      "rail": "SEPA Instant (gratis/10s)",
+      "use": "Pagos instantáneos en toda la Eurozona."
+    },
+    {
+      "code": "CNY",
+      "flag": "🇨🇳",
+      "name": "Yuan / Renminbi",
+      "share": "~7% FX (en alza)",
+      "rail": "Alipay / WeChat Pay / CIPS",
+      "use": "Comercio global, hardware y APIs chinas."
+    },
+    {
+      "code": "JPY",
+      "flag": "🇯🇵",
+      "name": "Yen Japonés",
+      "share": "~17% FX global",
+      "rail": "Zengin / PayPay",
+      "use": "3ra moneda más operada en mercados FX."
+    },
+    {
+      "code": "GBP",
+      "flag": "🇬🇧",
+      "name": "Libra Esterlina",
+      "share": "~13% FX global",
+      "rail": "Faster Payments (UK)",
+      "use": "Hub fintech de Londres."
+    },
+    {
+      "code": "BRL",
+      "flag": "🇧🇷",
+      "name": "Real Brasileño",
+      "share": "Líder Latam",
+      "rail": "Pix (instantáneo 24/7, $0)",
+      "use": "El sistema de pagos instantáneos más adoptado del mundo."
+    },
+    {
+      "code": "MXN",
+      "flag": "🇲🇽",
+      "name": "Peso Mexicano",
+      "share": "Top Latam FX",
+      "rail": "SPEI / CoDi (instantáneo)",
+      "use": "Remesas, nearshore y fintech México."
+    },
+    {
+      "code": "INR",
+      "flag": "🇮🇳",
+      "name": "Rupia India",
+      "share": "Líder volumen QR",
+      "rail": "UPI (billones de tx/mes)",
+      "use": "Referente mundial en micropagos instantáneos."
+    },
+    {
+      "code": "ARS",
+      "flag": "🇦🇷",
+      "name": "Peso Argentino",
+      "share": "Hub Crypto/Stablecoins",
+      "rail": "Transferencias 3.0 / Mercado Pago / USDT-USDC",
+      "use": "Altísima adopción de wallets digitales y stablecoins."
+    }
   ],
   "cryptoContracts": [
     {
@@ -58,7 +226,8 @@
       "usage": "Tokens fungibles & Stablecoins (USDC, USDT, DAI)",
       "share": "#1 absoluto en volumen DeFi",
       "why": "Interfaz estándar transfer / approve / transferFrom compatible con todas las wallets y DEXs.",
-      "snippet": "import \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\ncontract HackToken is ERC20 { constructor() ERC20(\"Hack\", \"HCK\") { _mint(msg.sender, 1e24); } }"
+      "snippet": "import \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\ncontract HackToken is ERC20 { constructor() ERC20(\"Hack\", \"HCK\") { _mint(msg.sender, 1e24); } }",
+      "url": "https://eips.ethereum.org/EIPS/eip-20"
     },
     {
       "standard": "ERC-721 / ERC-1155",
@@ -67,7 +236,8 @@
       "usage": "NFTs únicos (721), tickets, badges, ítems de juego multi-token (1155)",
       "share": "Estándar gaming, credenciales y RWA",
       "why": "ERC-1155 ahorra hasta 80% de gas al mintear lotes (batch) en hackathons.",
-      "snippet": "import \"@openzeppelin/contracts/token/ERC1155/ERC1155.sol\";"
+      "snippet": "import \"@openzeppelin/contracts/token/ERC1155/ERC1155.sol\";",
+      "url": "https://eips.ethereum.org/EIPS/eip-721"
     },
     {
       "standard": "ERC-4337 + EIP-7702",
@@ -76,7 +246,8 @@
       "usage": "Account Abstraction / Smart Wallets sin gas (Paymasters) + Passkeys",
       "share": "Clave para UX sin seed-phrase",
       "why": "Los jurados entran con huella/FaceID sin pagar gas ni instalar MetaMask.",
-      "snippet": "// Usa Permissionless.js (Pimlico) o Coinbase Smart Wallet + Paymaster en Base Sepolia ($0)"
+      "snippet": "// Usa Permissionless.js (Pimlico) o Coinbase Smart Wallet + Paymaster en Base Sepolia ($0)",
+      "url": "https://eips.ethereum.org/EIPS/eip-4337"
     },
     {
       "standard": "ERC-4626",
@@ -85,7 +256,8 @@
       "usage": "Tokenized Vaults (rendimiento / staking / yield)",
       "share": "Estándar DeFi moderno",
       "why": "Unifica depósitos y retiros de vaults para componibilidad inmediata con otros protocolos.",
-      "snippet": "import \"@openzeppelin/contracts/token/ERC20/extensions/ERC4626.sol\";"
+      "snippet": "import \"@openzeppelin/contracts/token/ERC20/extensions/ERC4626.sol\";",
+      "url": "https://eips.ethereum.org/EIPS/eip-4626"
     },
     {
       "standard": "SPL Token / Token-2022",
@@ -94,7 +266,8 @@
       "usage": "Tokens ultrarrápidos (<400ms, ~$0.00025/tx) con Transfer Hooks y fees nativos",
       "share": "#1 en volumen retail/memecoins/pagos rápidos",
       "why": "Token-2022 incluye transfer fees, metadata y confidential transfers sin escribir código custom.",
-      "snippet": "spl-token create-token --program-2022 --enable-metadata"
+      "snippet": "spl-token create-token --program-2022 --enable-metadata",
+      "url": "https://spl.solana.com/token-2022"
     },
     {
       "standard": "x402 (HTTP 402 AI Payments)",
@@ -103,7 +276,8 @@
       "usage": "Micropagos máquina-a-máquina entre Agentes AI por HTTP",
       "share": "Tendencia #1 en hackathons AI + Crypto",
       "why": "Un agente paga $0.001 en USDC por llamada API sin API keys ni suscripciones.",
-      "snippet": "// Middleware x402: responde HTTP 402 Payment Required -> el agente firma pago USDC y reintenta"
+      "snippet": "// Middleware x402: responde HTTP 402 Payment Required -> el agente firma pago USDC y reintenta",
+      "url": "https://www.x402.org"
     },
     {
       "standard": "Safe (Multisig) + Chainlink Oracles + CCIP",
@@ -112,7 +286,8 @@
       "usage": "Tesorería multifirma, precios reales off-chain y puentes cross-chain",
       "share": "Estándar institucional de seguridad",
       "why": "Evita punto único de fallo y conecta precios reales (BTC/USD, clima, APIs) on-chain.",
-      "snippet": "// Chainlink Price Feed: AggregatorV3Interface(feed).latestRoundData();"
+      "snippet": "// Chainlink Price Feed: AggregatorV3Interface(feed).latestRoundData();",
+      "url": "https://safe.global"
     }
   ],
   "browsers": [
@@ -128,8 +303,15 @@
       "privacy": 99,
       "lightness": 86,
       "bestFor": "Máxima privacidad diaria sin telemetría y uBlock Origin preinstalado",
-      "pros": ["Cero telemetría ni Pocket", "uBlock Origin integrado", "ResistFingerprinting activo"],
-      "cons": ["Algunas webs rompen por protección anti-fingerprinting estricta"]
+      "pros": [
+        "Cero telemetría ni Pocket",
+        "uBlock Origin integrado",
+        "ResistFingerprinting activo"
+      ],
+      "cons": [
+        "Algunas webs rompen por protección anti-fingerprinting estricta"
+      ],
+      "url": "https://librewolf.net"
     },
     {
       "id": "br-mullvad",
@@ -143,8 +325,15 @@
       "privacy": 100,
       "lightness": 84,
       "bestFor": "Anti-fingerprinting nivel Tor Browser pero rápido (con VPN, sin red Tor)",
-      "pros": ["Desarrollado junto al Tor Project", "Todos los usuarios lucen idénticos", "Modo privado por defecto"],
-      "cons": ["No guarda sesiones ni cookies al cerrar (intencional)"]
+      "pros": [
+        "Desarrollado junto al Tor Project",
+        "Todos los usuarios lucen idénticos",
+        "Modo privado por defecto"
+      ],
+      "cons": [
+        "No guarda sesiones ni cookies al cerrar (intencional)"
+      ],
+      "url": "https://mullvad.net/en/browser"
     },
     {
       "id": "br-tor",
@@ -158,8 +347,14 @@
       "privacy": 100,
       "lightness": 78,
       "bestFor": "Anonimato de red real (oculta IP con 3 saltos cifrados)",
-      "pros": ["Oculta IP real y evade censura", "Aislamiento total por dominio"],
-      "cons": ["Latencia alta por los 3 saltos; muchos captchas"]
+      "pros": [
+        "Oculta IP real y evade censura",
+        "Aislamiento total por dominio"
+      ],
+      "cons": [
+        "Latencia alta por los 3 saltos; muchos captchas"
+      ],
+      "url": "https://www.torproject.org"
     },
     {
       "id": "br-brave",
@@ -173,8 +368,15 @@
       "privacy": 94,
       "lightness": 82,
       "bestFor": "Mejor equilibrio privacidad + compatibilidad 100% DevTools/Web3 en hackathons",
-      "pros": ["Shields bloquea trackers/ads en C++ nativo", "DevTools Chromium completos", "Soporta extensiones Chrome"],
-      "cons": ["Conviene desactivar Leo AI / Rewards / News en ajustes para dejarlo ultra limpio"]
+      "pros": [
+        "Shields bloquea trackers/ads en C++ nativo",
+        "DevTools Chromium completos",
+        "Soporta extensiones Chrome"
+      ],
+      "cons": [
+        "Conviene desactivar Leo AI / Rewards / News en ajustes para dejarlo ultra limpio"
+      ],
+      "url": "https://brave.com"
     },
     {
       "id": "br-ungoogled",
@@ -188,8 +390,15 @@
       "privacy": 95,
       "lightness": 90,
       "bestFor": "Chromium más liviano y rápido sin llamadas a servidores de Google",
-      "pros": ["Zero servicios de Google", "Más liviano que Chrome/Brave", "DevTools de Chromium intactos"],
-      "cons": ["Sin auto-updater nativo; extensiones requieren configuración manual"]
+      "pros": [
+        "Zero servicios de Google",
+        "Más liviano que Chrome/Brave",
+        "DevTools de Chromium intactos"
+      ],
+      "cons": [
+        "Sin auto-updater nativo; extensiones requieren configuración manual"
+      ],
+      "url": "https://github.com/ungoogled-software/ungoogled-chromium"
     },
     {
       "id": "br-firefox-arkenfox",
@@ -203,8 +412,14 @@
       "privacy": 97,
       "lightness": 80,
       "bestFor": "Control granular de privacidad + Multi-Account Containers para separar clientes/cuentas",
-      "pros": ["Multi-Account Containers (ideal para múltiples cuentas cloud)", "Manifest V2 (uBlock completo)"],
-      "cons": ["Requiere aplicar user.js para endurecerlo"]
+      "pros": [
+        "Multi-Account Containers (ideal para múltiples cuentas cloud)",
+        "Manifest V2 (uBlock completo)"
+      ],
+      "cons": [
+        "Requiere aplicar user.js para endurecerlo"
+      ],
+      "url": "https://github.com/arkenfox/user.js"
     },
     {
       "id": "br-zen",
@@ -218,8 +433,14 @@
       "privacy": 91,
       "lightness": 79,
       "bestFor": "Productividad tipo Arc pero open-source, privado y sin Electron/Chrome",
-      "pros": ["Workspaces + Split View nativo (docs + preview lado a lado)", "Open-source y sin telemetría"],
-      "cons": ["Aún en evolución rápida"]
+      "pros": [
+        "Workspaces + Split View nativo (docs + preview lado a lado)",
+        "Open-source y sin telemetría"
+      ],
+      "cons": [
+        "Aún en evolución rápida"
+      ],
+      "url": "https://zen-browser.app"
     },
     {
       "id": "br-qutebrowser",
@@ -233,8 +454,15 @@
       "privacy": 89,
       "lightness": 96,
       "bestFor": "Ultra liviano controlado 100% con teclado estilo Vim en Arch/Hyprland/i3",
-      "pros": ["Consume <200 MB RAM", "Navegación sin mouse (hints Vim)", "Bloqueador integrado"],
-      "cons": ["Curva de aprendizaje Vim; sin extensiones Chrome"]
+      "pros": [
+        "Consume <200 MB RAM",
+        "Navegación sin mouse (hints Vim)",
+        "Bloqueador integrado"
+      ],
+      "cons": [
+        "Curva de aprendizaje Vim; sin extensiones Chrome"
+      ],
+      "url": "https://qutebrowser.org"
     },
     {
       "id": "br-safari-orion",
@@ -248,8 +476,14 @@
       "privacy": 88,
       "lightness": 94,
       "bestFor": "Máxima duración de batería y menor RAM en MacBook Apple Silicon",
-      "pros": ["Consume mucha menos batería que Chrome en Mac", "Orion soporta extensiones Chrome + Firefox y cero telemetría"],
-      "cons": ["Solo ecosistema Apple"]
+      "pros": [
+        "Consume mucha menos batería que Chrome en Mac",
+        "Orion soporta extensiones Chrome + Firefox y cero telemetría"
+      ],
+      "cons": [
+        "Solo ecosistema Apple"
+      ],
+      "url": "https://kagi.com/orion"
     },
     {
       "id": "br-lynx",
@@ -263,8 +497,14 @@
       "privacy": 100,
       "lightness": 100,
       "bestFor": "Leer docs en SSH, servidores sin GUI o máquinas con 512MB RAM",
-      "pros": ["6 MB de RAM, 1 solo proceso", "Inmune a trackers JS y malvertising"],
-      "cons": ["Sin JavaScript ni multimedia"]
+      "pros": [
+        "6 MB de RAM, 1 solo proceso",
+        "Inmune a trackers JS y malvertising"
+      ],
+      "cons": [
+        "Sin JavaScript ni multimedia"
+      ],
+      "url": "https://lynx.invisible-island.net"
     }
   ]
 }

@@ -214,9 +214,10 @@ function renderCatalog() {
         </div>
 
         <div class="card-foot">
-          <button class="btn btn-sm btn-accent" data-open="${esc(it.id)}">Config &amp; Agente</button>
+          <button class="btn btn-sm btn-accent" data-open="${esc(it.id)}">Config &amp; Tutorial</button>
+          <a class="btn btn-sm btn-ghost" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">Sitio ↗</a>
           <button class="btn btn-sm ${inCompare ? 'btn-accent' : 'btn-ghost'}" data-compare="${esc(it.id)}">
-            ${inCompare ? '✓ En comparador' : '+ Comparar'}
+            ${inCompare ? '✓' : '+'}
           </button>
         </div>
       </article>
@@ -311,8 +312,11 @@ function renderOS() {
         </div>
 
         <div class="card-foot">
-          <span class="tag tag-${esc(o.pricingTier)}">${esc(o.priceLabel)}</span>
-          <button class="btn btn-sm btn-accent" data-open-os="${esc(o.id)}">Detalle &amp; Setup</button>
+          <span class="tag tag-${esc(o.pricingTier || 'gratis')}">${esc(o.priceLabel || 'Gratis')}</span>
+          <div style="display:flex;gap:6px;">
+            ${o.url ? `<a class="btn btn-sm btn-ghost" href="${esc(o.url)}" target="_blank" rel="noopener noreferrer">Sitio ↗</a>` : ''}
+            <button class="btn btn-sm btn-accent" data-open-os="${esc(o.id)}">Detalle &amp; Setup</button>
+          </div>
         </div>
       </article>
     `;
@@ -544,7 +548,8 @@ function renderBrowsers() {
           <div><strong style="color:#fda4af;">Contra</strong><ul>${b.cons.slice(0, 2).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
         </div>
         <div class="card-foot">
-          <button class="btn btn-sm btn-accent" data-open-browser="${esc(b.id)}">Cómo Descargar (Linux/Mac/Win/Android)</button>
+          <button class="btn btn-sm btn-accent" data-open-browser="${esc(b.id)}">Tutorial Descarga</button>
+          ${b.url ? `<a class="btn btn-sm btn-ghost" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">Sitio oficial ↗</a>` : ''}
         </div>
       </article>
     `;
@@ -583,7 +588,7 @@ function renderApiOccasions() {
             ${o.apis.map((a) => `
               <tr>
                 <td class="mono">#${a.rank}</td>
-                <td><div class="card-title-row">${logoBadge({ name: a.name, logo: a.logo, flag: a.flag, country: '' })}<strong>${esc(a.name)}</strong></div></td>
+                <td><div class="card-title-row">${logoBadge({ name: a.name, logo: a.logo, flag: a.flag, country: '' })}<a href="${esc(a.url || '#')}" target="_blank" rel="noopener noreferrer" style="color:var(--text);font-weight:700;text-decoration:none;">${esc(a.name)} <span style="color:var(--accent-strong);">↗</span></a></div></td>
                 <td><span class="tag tag-${esc(a.tier)}">${esc(a.tier.toUpperCase())}</span></td>
                 <td>${esc(a.freeLimit)}</td>
                 <td class="mono">${esc(a.paidCost)}</td>
@@ -709,7 +714,10 @@ function renderIntel() {
           <span class="tag tag-freemium">${c.flag} ${esc(c.chain)}</span>
           <h3 class="card-title" style="margin-top:6px;">${esc(c.standard)}</h3>
         </div>
-        <button class="btn btn-sm btn-accent" data-copy-crypto="${idx}">Copiar Snippet</button>
+        <div style="display:flex;gap:6px;">
+          ${c.url ? `<a class="btn btn-sm btn-ghost" href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">Spec ↗</a>` : ''}
+          <button class="btn btn-sm btn-accent" data-copy-crypto="${idx}">Copiar Snippet</button>
+        </div>
       </div>
       <div class="card-sub"><strong>${esc(c.share)}</strong> · ${esc(c.usage)}</div>
       <p class="card-desc">${esc(c.why)}</p>
@@ -839,6 +847,9 @@ function renderStats() {
           <span class="tag tag-gratis">${esc(t.price)}</span>
         </div>
         <p class="card-desc">${esc(t.use)}</p>
+        <div class="card-foot">
+          <a class="btn btn-sm btn-accent" href="${esc(t.url || '#')}" target="_blank" rel="noopener noreferrer">Sitio oficial ↗</a>
+        </div>
       </article>
     `).join('');
   }
@@ -848,7 +859,7 @@ function renderStats() {
     const sc = (v) => `<span class="score-pill ${v >= 96 ? 'gold' : v >= 92 ? 'hi' : ''}">${v}</span>`;
     $('#ide-matrix-body').innerHTML = state.comparisons.ideMatrix.map((row) => `
       <tr>
-        <td>${row.flag} <strong>${esc(row.name)}</strong><div class="card-sub">${esc(row.type)}</div></td>
+        <td>${row.flag} <a href="${esc(row.url || '#')}" target="_blank" rel="noopener noreferrer" style="color:var(--text);font-weight:700;text-decoration:none;">${esc(row.name)} <span style="color:var(--accent-strong);">↗</span></a><div class="card-sub">${esc(row.type)}</div></td>
         <td class="mono">${esc(row.price)}</td>
         <td>${esc(row.freeOption)}</td>
         <td>${sc(row.autonomy)}</td>

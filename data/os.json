@@ -1046,7 +1046,8 @@
       "Consume más disco/RAM que Arch minimal",
       "Sistema inmutable requiere acostumbrarse a Flatpak/Distrobox"
     ],
-    "command": "ujust setup-luks-tpm-unlock && ujust install-resolve  # menús gaming con ujust"
+    "command": "ujust setup-luks-tpm-unlock && ujust install-resolve  # menús gaming con ujust",
+    "url": "https://bazzite.gg"
   },
   {
     "id": "os-nobara",
@@ -1084,7 +1085,8 @@
     "cons": [
       "Mantenida por equipo chico (actualizaciones algo rezagadas respecto a Fedora upstream)"
     ],
-    "command": "nobara-sync cli  # actualizar sistema y drivers de forma segura"
+    "command": "nobara-sync cli  # actualizar sistema y drivers de forma segura",
+    "url": "https://nobaraproject.org"
   },
   {
     "id": "os-steamos",
@@ -1121,7 +1123,8 @@
     "cons": [
       "Soporte oficial centrado en AMD/handhelds; menos ideal para escritorio NVIDIA"
     ],
-    "command": "steamos-readonly disable  # solo si necesitas modificar el sistema raíz"
+    "command": "steamos-readonly disable  # solo si necesitas modificar el sistema raíz",
+    "url": "https://store.steampowered.com/steamos"
   },
   {
     "id": "os-garuda",
@@ -1159,7 +1162,8 @@
     "cons": [
       "Edición Dragonized consume más RAM que Arch limpio por efectos KDE"
     ],
-    "command": "garuda-update && garuda-gamer"
+    "command": "garuda-update && garuda-gamer",
+    "url": "https://garudalinux.org"
   },
   {
     "id": "os-pikaos",
@@ -1196,7 +1200,8 @@
     "cons": [
       "Comunidad más chica que CachyOS o Bazzite"
     ],
-    "command": "pikman update && pikman upgrade"
+    "command": "pikman update && pikman upgrade",
+    "url": "https://wiki.pika-os.com"
   },
   {
     "id": "os-chimeraos",
@@ -1233,7 +1238,8 @@
     "cons": [
       "No pensada como PC de escritorio tradicional"
     ],
-    "command": "frzr-unlock  # acceso avanzado al sistema inmutable"
+    "command": "frzr-unlock  # acceso avanzado al sistema inmutable",
+    "url": "https://chimeraos.org"
   },
   {
     "id": "os-regata",
@@ -1270,7 +1276,8 @@
     "cons": [
       "Comunidad mayormente en portugués/español"
     ],
-    "command": "sudo zypper dup"
+    "command": "sudo zypper dup",
+    "url": "https://www.regataos.com.br"
   },
   {
     "id": "os-qubes",
@@ -1309,7 +1316,8 @@
       "Exige 16GB+ RAM y hardware compatible con VT-x/VT-d",
       "No sirve para gaming GPU"
     ],
-    "command": "qvm-run --dispvm=fedora-dvm firefox  # abrir navegador desechable aislado"
+    "command": "qvm-run --dispvm=fedora-dvm firefox  # abrir navegador desechable aislado",
+    "url": "https://www.qubes-os.org"
   },
   {
     "id": "os-tails",
@@ -1347,7 +1355,8 @@
     "cons": [
       "Todo es más lento por Tor; persistencia cifrada opcional"
     ],
-    "command": "# Flashea la imagen .img en un USB de 8GB+ con BalenaEtcher o dd"
+    "command": "# Flashea la imagen .img en un USB de 8GB+ con BalenaEtcher o dd",
+    "url": "https://tails.net"
   },
   {
     "id": "os-whonix",
@@ -1384,7 +1393,8 @@
     "cons": [
       "Requiere virtualización (2 VMs en paralelo)"
     ],
-    "command": "# Importa Whonix-Gateway y Whonix-Workstation en KVM/QEMU o VirtualBox"
+    "command": "# Importa Whonix-Gateway y Whonix-Workstation en KVM/QEMU o VirtualBox",
+    "url": "https://www.whonix.org"
   },
   {
     "id": "os-kicksecure",
@@ -1421,7 +1431,8 @@
     "cons": [
       "Algunos binarios/JIT pueden requerir ajustar perfiles de seguridad"
     ],
-    "command": "# Instalable como ISO o encima de Debian: https://www.kicksecure.com"
+    "command": "# Instalable como ISO o encima de Debian: https://www.kicksecure.com",
+    "url": "https://www.kicksecure.com"
   },
   {
     "id": "os-graphene",
@@ -1459,7 +1470,8 @@
     "cons": [
       "Requiere un teléfono Google Pixel con bootloader desbloqueable"
     ],
-    "command": "# Web Installer oficial (Chrome/Brave): https://grapheneos.org/install/web"
+    "command": "# Web Installer oficial (Chrome/Brave): https://grapheneos.org/install/web",
+    "url": "https://grapheneos.org"
   },
   {
     "id": "os-parrot",
@@ -1496,6 +1508,7 @@
     "cons": [
       "Paquetes algo menos frecuentes que Kali rolling"
     ],
-    "command": "sudo parrot-upgrade"
+    "command": "sudo parrot-upgrade",
+    "url": "https://parrotsec.org"
   }
 ]

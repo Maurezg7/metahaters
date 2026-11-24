@@ -11,7 +11,8 @@
       "reasoning": 96,
       "coding": 97,
       "speed": 90,
-      "bestWhen": "Quieres delegar features/PRs enteros en paralelo en su propia VM con browser y preview."
+      "bestWhen": "Quieres delegar features/PRs enteros en paralelo en su propia VM con browser y preview.",
+      "url": "https://devin.ai"
     },
     {
       "name": "Cursor",
@@ -24,7 +25,8 @@
       "reasoning": 96,
       "coding": 98,
       "speed": 96,
-      "bestWhen": "Programas activamente en tu máquina y quieres el mejor Tab + Agent mode interactivo."
+      "bestWhen": "Programas activamente en tu máquina y quieres el mejor Tab + Agent mode interactivo.",
+      "url": "https://cursor.com"
     },
     {
       "name": "Claude Code",
@@ -37,7 +39,8 @@
       "reasoning": 98,
       "coding": 99,
       "speed": 91,
-      "bestWhen": "Refactors grandes, sub-agentes nativos y máxima calidad de código en terminal."
+      "bestWhen": "Refactors grandes, sub-agentes nativos y máxima calidad de código en terminal.",
+      "url": "https://docs.anthropic.com/en/docs/claude-code"
     },
     {
       "name": "OpenCode",
@@ -50,7 +53,8 @@
       "reasoning": 92,
       "coding": 94,
       "speed": 94,
-      "bestWhen": "Se te acabaron los créditos pagos y quieres exprimir modelos gratis + sub-agentes Booster."
+      "bestWhen": "Se te acabaron los créditos pagos y quieres exprimir modelos gratis + sub-agentes Booster.",
+      "url": "https://opencode.ai"
     },
     {
       "name": "Windsurf",
@@ -63,7 +67,8 @@
       "reasoning": 94,
       "coding": 95,
       "speed": 95,
-      "bestWhen": "Buscas experiencia tipo Cursor más barata ($15) con buena indexación de repo."
+      "bestWhen": "Buscas experiencia tipo Cursor más barata ($15) con buena indexación de repo.",
+      "url": "https://windsurf.com"
     },
     {
       "name": "Codex CLI / Cloud",
@@ -76,7 +81,8 @@
       "reasoning": 98,
       "coding": 97,
       "speed": 90,
-      "bestWhen": "Bugs complejos de razonamiento profundo y tareas en sandbox en paralelo."
+      "bestWhen": "Bugs complejos de razonamiento profundo y tareas en sandbox en paralelo.",
+      "url": "https://openai.com/codex"
     },
     {
       "name": "Cline / Roo Code",
@@ -89,7 +95,8 @@
       "reasoning": 93,
       "coding": 94,
       "speed": 90,
-      "bestWhen": "Quieres combinar un razonador (R1) para planear y un modelo gratis para editar en VS Code."
+      "bestWhen": "Quieres combinar un razonador (R1) para planear y un modelo gratis para editar en VS Code.",
+      "url": "https://cline.bot"
     },
     {
       "name": "Gemini CLI",
@@ -102,7 +109,8 @@
       "reasoning": 95,
       "coding": 92,
       "speed": 91,
-      "bestWhen": "Plan B gratis inmediato con 1M de tokens para leer el repo entero sin pagar."
+      "bestWhen": "Plan B gratis inmediato con 1M de tokens para leer el repo entero sin pagar.",
+      "url": "https://github.com/google-gemini/gemini-cli"
     },
     {
       "name": "Trae",
@@ -115,7 +123,8 @@
       "reasoning": 90,
       "coding": 89,
       "speed": 91,
-      "bestWhen": "Alternativa económica ($0-$10) con Builder mode para crear MVPs rápidos."
+      "bestWhen": "Alternativa económica ($0-$10) con Builder mode para crear MVPs rápidos.",
+      "url": "https://www.trae.ai"
     },
     {
       "name": "Aider",
@@ -128,7 +137,8 @@
       "reasoning": 94,
       "coding": 93,
       "speed": 93,
-      "bestWhen": "Máxima precisión gastando centavos gracias al modo --architect y commits limpios."
+      "bestWhen": "Máxima precisión gastando centavos gracias al modo --architect y commits limpios.",
+      "url": "https://aider.chat"
     }
   ],
   "emergencyChain": [
@@ -243,7 +253,8 @@
       "cat": "AI Gateway & Router",
       "price": "Open Source ($0)",
       "use": "Proxy único OpenAI-compatible que balancea 100+ LLMs (NIM, Groq, DeepSeek, Claude, Ollama) con fallback automático.",
-      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%234ADE80%22%3ELL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%234ADE80%22%3ELL%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "url": "https://www.litellm.ai"
     },
     {
       "name": "Langfuse",
@@ -252,7 +263,8 @@
       "cat": "Observabilidad AI",
       "price": "Free 50K obs/mes / OSS",
       "use": "Traza prompts, latencia, costos por usuario y evals de tus agentes AI en producción.",
-      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3ELF%3C%2Ftext%3E%3C%2Fsvg%3E"
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3ELF%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "url": "https://langfuse.com"
     },
     {
       "name": "Open WebUI",
@@ -261,7 +273,8 @@
       "cat": "UI Local / Self-Host",
       "price": "Open Source ($0)",
       "use": "Interfaz tipo ChatGPT local conectada a Ollama, NVIDIA NIM, OpenRouter y RAG de documentos.",
-      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F5F5F7%22%3EOW%3C%2Ftext%3E%3C%2Fsvg%3E"
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F5F5F7%22%3EOW%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "url": "https://openwebui.com"
     },
     {
       "name": "LM Studio",
@@ -270,7 +283,8 @@
       "cat": "Runner Local GGUF/MLX",
       "price": "Gratis ($0)",
       "use": "Descarga y corre modelos locales con 1 clic en Windows/Mac/Linux exponiendo API localhost:1234.",
-      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23A78BFA%22%3ELM%3C%2Ftext%3E%3C%2Fsvg%3E"
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23A78BFA%22%3ELM%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "url": "https://lmstudio.ai"
     },
     {
       "name": "Excalidraw",
@@ -279,7 +293,8 @@
       "cat": "Diagramas & Pitch",
       "price": "Gratis ($0) / OSS",
       "use": "Dibuja diagramas de arquitectura limpios para el README y las slides del jurado en 3 minutos.",
-      "logo": "https://cdn.simpleicons.org/excalidraw/A78BFA"
+      "logo": "https://cdn.simpleicons.org/excalidraw/A78BFA",
+      "url": "https://excalidraw.com"
     },
     {
       "name": "Bruno / Hoppscotch",
@@ -288,7 +303,8 @@
       "cat": "Testing APIs (sin Postman)",
       "price": "Open Source ($0)",
       "use": "Alternativa ultra ligera y offline a Postman (guarda colecciones en git sin exigir login).",
-      "logo": "https://cdn.simpleicons.org/hoppscotch/FFB21E"
+      "logo": "https://cdn.simpleicons.org/hoppscotch/FFB21E",
+      "url": "https://www.usebruno.com"
     },
     {
       "name": "Coolify / Dokploy",
@@ -297,7 +313,8 @@
       "cat": "Self-Host PaaS",
       "price": "Open Source ($0)",
       "use": "Tu propio Vercel/Heroku gratis sobre cualquier VPS de $4 con HTTPS automático y Docker.",
-      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23A78BFA%22%3ECL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23A78BFA%22%3ECL%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "url": "https://coolify.io"
     },
     {
       "name": "PostHog",
@@ -306,7 +323,8 @@
       "cat": "Analytics & Session Replay",
       "price": "Free 1M eventos/mes",
       "use": "Métricas de uso, funnels y grabación de sesiones para mostrar tracción real al jurado.",
-      "logo": "https://cdn.simpleicons.org/posthog/FFB21E"
+      "logo": "https://cdn.simpleicons.org/posthog/FFB21E",
+      "url": "https://posthog.com"
     },
     {
       "name": "Sentry",
@@ -315,7 +333,8 @@
       "cat": "Monitoreo de Errores",
       "price": "Free 5K errores/mes",
       "use": "Captura excepciones de front y back en tiempo real antes de que fallen en la demo.",
-      "logo": "https://cdn.simpleicons.org/sentry/FB7185"
+      "logo": "https://cdn.simpleicons.org/sentry/FB7185",
+      "url": "https://sentry.io"
     },
     {
       "name": "Beekeeper Studio",
@@ -324,7 +343,8 @@
       "cat": "Cliente SQL / DB",
       "price": "Open Source ($0)",
       "use": "Cliente liviano y moderno para inspeccionar Postgres, Supabase, SQLite y MySQL.",
-      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3EBK%3C%2Ftext%3E%3C%2Fsvg%3E"
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3EBK%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "url": "https://www.beekeeperstudio.io"
     },
     {
       "name": "Figma",
@@ -333,7 +353,8 @@
       "cat": "Diseño UI / Prototipos",
       "price": "Free Starter ($0)",
       "use": "Wireframes rápidos y Figma MCP para que Cursor/Claude Code conviertan pantallas directo a código.",
-      "logo": "https://cdn.simpleicons.org/figma/F24E1E"
+      "logo": "https://cdn.simpleicons.org/figma/F24E1E",
+      "url": "https://www.figma.com"
     },
     {
       "name": "Cloudflared / Tailscale",
@@ -342,7 +363,8 @@
       "cat": "Tunnels & Red Privada",
       "price": "Gratis ($0)",
       "use": "Expón tu localhost con HTTPS en 1 comando o conecta las laptops de tus 4 amigos en red privada Mesh.",
-      "logo": "https://cdn.simpleicons.org/tailscale/38BDF8"
+      "logo": "https://cdn.simpleicons.org/tailscale/38BDF8",
+      "url": "https://tailscale.com"
     }
   ]
 }
