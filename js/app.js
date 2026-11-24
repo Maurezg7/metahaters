@@ -10,6 +10,7 @@ const state = {
   apiOccasions: [],
   apiOccFilter: 'all',
   intel: null,
+  osTuning: null,
   warroom: null,
   devNews: [],
   newsFilter: 'all',
@@ -370,6 +371,144 @@ function openOSDetail(id) {
   $('#detail-modal').showModal();
 }
 
+function getInstallGuide(item) {
+  const ov = state.osTuning?.installOverrides?.[item.id];
+  if (ov) return ov;
+  const name = item.name || 'Herramienta';
+  const url = item.url || '';
+  if (item.category === 'models' || item.category === 'apis') {
+    const base = `# 1. Instala el SDK OpenAI-compatible (funciona igual en todos los OS)\nnpm install openai   # o: pip install openai\n\n# 2. Exporta tu API Key (consíguela en ${url})\nexport API_KEY="tu-key-aqui"\n\n# 3. Pega el snippet de configuración de abajo y listo.`;
+    return {
+      linux: base,
+      macos: base,
+      windows: `# PowerShell:\nnpm install openai   # o: pip install openai\n$env:API_KEY="tu-key-aqui"\n# Obtén la key en: ${url}`,
+      android: `# En Termux (descargar desde F-Droid):\npkg update && pkg install -y nodejs-lts python\nnpm install openai\nexport API_KEY="tu-key-aqui"`
+    };
+  }
+  if (item.category === 'languages') {
+    const id = item.id || '';
+    const langMap = {
+      typescript: {
+        linux: "curl -fsSL https://fnm.vercel.app/install | bash && fnm install 22\nnpm i -g typescript tsx pnpm",
+        macos: "brew install node pnpm && npm i -g typescript tsx",
+        windows: "winget install OpenJS.NodeJS.LTS && npm i -g typescript tsx pnpm",
+        android: "# En Termux:\npkg install -y nodejs-lts && npm i -g typescript tsx"
+      },
+      python: {
+        linux: "curl -LsSf https://astral.sh/uv/install.sh | sh\nuv python install 3.12",
+        macos: "brew install uv python@3.12",
+        windows: "winget install Astral-Sh.Uv Python.Python.3.12",
+        android: "# En Termux:\npkg install -y python python-pip"
+      },
+      go: {
+        linux: "# Arch: sudo pacman -S go\n# Debian/Ubuntu: sudo apt install golang-go\n# Oficial: https://go.dev/dl/",
+        macos: "brew install go",
+        windows: "winget install GoLang.Go",
+        android: "# En Termux:\npkg install -y golang"
+      },
+      rust: {
+        linux: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh",
+        macos: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh",
+        windows: "winget install Rustlang.Rustup",
+        android: "# En Termux:\npkg install -y rust"
+      }
+    };
+    if (langMap[id]) return langMap[id];
+  }
+  return {
+    linux: `# Descarga / instala ${name} en Linux:\n# Docs oficiales: ${url}\n# Revisa el snippet de configuración abajo para el comando exacto.`,
+    macos: `# Instala ${name} en macOS (Homebrew o web oficial):\n# brew search ${name.toLowerCase().split(' ')[0]}\n# Docs: ${url}`,
+    windows: `# Instala ${name} en Windows (winget o web oficial):\n# winget search "${name.split(' ')[0]}"\n# Docs: ${url}`,
+    android: `# En Android usa Termux (F-Droid) si es CLI/API, o accede vía navegador móvil a:\n# ${url}`
+  };
+}
+
+function renderInstallTabsHTML(guide) {
+  return `
+    <div class="box" id="install-guide-box">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
+        <h4 style="margin:0;color:var(--accent-strong);">Tutorial de Descarga / Instalación por Sistema Operativo</h4>
+        <div class="chip-group" id="modal-os-tabs">
+          <button class="chip active" data-mos="linux">Linux</button>
+          <button class="chip" data-mos="macos">macOS</button>
+          <button class="chip" data-mos="windows">Windows</button>
+          <button class="chip" data-mos="android">Android</button>
+        </div>
+      </div>
+      <div class="code-block" style="margin:0;">
+        <div class="code-head">
+          <span id="modal-os-label">Linux</span>
+          <button class="btn btn-sm btn-accent" id="modal-copy-install">Copiar comando</button>
+        </div>
+        <pre id="modal-os-pre">${esc(guide.linux)}</pre>
+      </div>
+    </div>
+  `;
+}
+
+function bindInstallTabs(guide) {
+  const labels = { linux: 'Linux', macos: 'macOS', windows: 'Windows', android: 'Android (Termux / Móvil)' };
+  let cur = 'linux';
+  $('#modal-os-tabs')?.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-mos]');
+    if (!btn) return;
+    cur = btn.dataset.mos;
+    $$('#modal-os-tabs .chip').forEach((c) => c.classList.toggle('active', c === btn));
+    $('#modal-os-label').textContent = labels[cur] || cur;
+    $('#modal-os-pre').textContent = guide[cur] || '';
+  });
+  const copyBtn = $('#modal-copy-install');
+  if (copyBtn) copyBtn.onclick = () => copyText(guide[cur] || '', `Comando para ${labels[cur]} copiado`);
+}
+
+function renderOsTuning() {
+  if (!state.osTuning?.tuningGuides) return;
+  $('#os-tuning-grid').innerHTML = state.osTuning.tuningGuides.map((g) => `
+    <article class="card">
+      <div class="card-top">
+        <div class="card-title-row">
+          ${logoBadge({ name: g.os, logo: g.logo, flag: g.flag, country: '' })}
+          <div>
+            <span class="tag tag-gratis">${esc(g.badge)}</span>
+            <h3 class="card-title" style="margin-top:4px;">${esc(g.os)}</h3>
+          </div>
+        </div>
+        <button class="btn btn-sm btn-accent" data-copy-tune="${esc(g.id)}">Copiar</button>
+      </div>
+      <p class="card-desc">${esc(g.summary)}</p>
+      <div class="code-block">
+        <div class="code-head"><span>Comandos de optimización</span><span>listos</span></div>
+        <pre>${esc(g.commands)}</pre>
+      </div>
+    </article>
+  `).join('');
+}
+
+function openBrowserDetail(id) {
+  const b = state.intel?.browsers?.find((x) => x.id === id);
+  if (!b) return;
+  const guide = getInstallGuide(b);
+  $('#modal-title-wrap').innerHTML = `
+    <div class="card-title-row">
+      ${logoBadge(b)}
+      <div>
+        <h2>${esc(b.name)}</h2>
+        <p class="muted">${esc(b.engine)} · Privacidad ${b.privacy}/100 · RAM ~${b.idleRamMb} MB</p>
+      </div>
+    </div>
+  `;
+  $('#modal-body').innerHTML = `
+    <div class="box"><h4>Ideal para</h4><div>${esc(b.bestFor)}</div></div>
+    ${renderInstallTabsHTML(guide)}
+    <div class="pros-cons">
+      <div class="box"><h4 style="color:#86efac;">Ventajas</h4><ul class="bullet-list">${b.pros.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
+      <div class="box"><h4 style="color:#fda4af;">Cuidados</h4><ul class="bullet-list">${b.cons.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
+    </div>
+  `;
+  bindInstallTabs(guide);
+  $('#detail-modal').showModal();
+}
+
 function renderBrowsers() {
   if (!state.intel?.browsers) return;
   const list = [...state.intel.browsers].sort((a, b) =>
@@ -399,6 +538,9 @@ function renderBrowsers() {
         <div class="mini-pros">
           <div><strong style="color:#86efac;">Pro</strong><ul>${b.pros.slice(0, 2).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
           <div><strong style="color:#fda4af;">Contra</strong><ul>${b.cons.slice(0, 2).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
+        </div>
+        <div class="card-foot">
+          <button class="btn btn-sm btn-accent" data-open-browser="${esc(b.id)}">Cómo Descargar (Linux/Mac/Win/Android)</button>
         </div>
       </article>
     `;
@@ -880,6 +1022,7 @@ function openDetail(id) {
       <div><strong>${esc(it.priceLabel)}</strong> — ${esc(it.freeTier)}</div>
     </div>
     ${fwModalHtml}
+    ${renderInstallTabsHTML(getInstallGuide(it))}
 
     <div class="pros-cons">
       <div class="box">
@@ -906,6 +1049,7 @@ function openDetail(id) {
     </div>
   `;
 
+  bindInstallTabs(getInstallGuide(it));
   $('#modal-copy-code').onclick = () => copyText(it.config.code, 'Configuración copiada');
   $('#detail-modal').showModal();
 }
@@ -1123,6 +1267,15 @@ function bindEvents() {
 
   // Delegated clicks
   document.addEventListener('click', (e) => {
+    const openBr = e.target.closest('[data-open-browser]');
+    if (openBr) return openBrowserDetail(openBr.dataset.openBrowser);
+
+    const copyTune = e.target.closest('[data-copy-tune]');
+    if (copyTune) {
+      const g = state.osTuning?.tuningGuides?.find((x) => x.id === copyTune.dataset.copyTune);
+      if (g) copyText(g.commands, `Optimización ${g.os} copiada`);
+    }
+
     const openOs = e.target.closest('[data-open-os]');
     if (openOs) return openOSDetail(openOs.dataset.openOs);
 
@@ -1208,7 +1361,7 @@ function bindEvents() {
 
 async function init() {
   bindEvents();
-  const [models, apis, languages, tools, osList, agents, comparisons, frameworks, apiOccasions, intel, warroom, meta, liveStatic] = await Promise.all([
+  const [models, apis, languages, tools, osList, agents, comparisons, frameworks, apiOccasions, intel, osTuning, warroom, meta, liveStatic] = await Promise.all([
     fetch('./data/models.json').then((r) => r.json()),
     fetch('./data/apis.json').then((r) => r.json()),
     fetch('./data/languages.json').then((r) => r.json()),
@@ -1219,6 +1372,7 @@ async function init() {
     fetch('./data/frameworks.json').then((r) => r.json()),
     fetch('./data/api-occasions.json').then((r) => r.json()),
     fetch('./data/intel.json').then((r) => r.json()),
+    fetch('./data/os-tuning.json').then((r) => r.json()),
     fetch('./data/warroom.json').then((r) => r.json()),
     fetch('./data/meta.json').then((r) => r.json()),
     fetch('./data/live-models.json').then((r) => r.ok ? r.json() : []).catch(() => [])
@@ -1231,6 +1385,7 @@ async function init() {
   state.frameworks = frameworks;
   state.apiOccasions = apiOccasions;
   state.intel = intel;
+  state.osTuning = osTuning;
   state.warroom = warroom;
   state.meta = meta;
   state.liveModels = liveStatic;
@@ -1240,6 +1395,7 @@ async function init() {
   renderApiOccasions();
   renderFrameworks();
   renderOS();
+  renderOsTuning();
   renderBrowsers();
   renderStats();
   renderAgents();

@@ -1,0 +1,138 @@
+{
+  "tuningGuides": [
+    {
+      "id": "tune-linux",
+      "os": "Linux (Arch / Debian / Ubuntu / Fedora)",
+      "flag": "🇫🇮",
+      "logo": "https://cdn.simpleicons.org/linux/FCC624",
+      "badge": "RAM & Boot -40%",
+      "summary": "Reduce procesos idle, acelera disco/swap con ZRAM, limita logs de systemd y maximiza batería en laptops de hackathon.",
+      "commands": "# 1. Ver qué retrasa el arranque y desactivar servicios inútiles\nsystemd-analyze blame | head -n 15\nsudo systemctl disable --now bluetooth.service cups.service ModemManager.service 2>/dev/null || true\n\n# 2. Limitar logs de journald a 100MB\nsudo journalctl --vacuum-size=100M\n\n# 3. Optimizar swappiness y caché en RAM (ideal para ZRAM)\necho -e 'vm.swappiness=10\\nvm.vfs_cache_pressure=50' | sudo tee /etc/sysctl.d/99-metahaters.conf\nsudo sysctl --system\n\n# 4. ZRAM + batería (Arch/Debian/Fedora)\n# Arch:   sudo pacman -S zram-generator auto-cpufreq\n# Debian: sudo apt install zram-tools tlp && sudo systemctl enable --now tlp\n# Fedora: sudo dnf install tlp && sudo systemctl enable --now tlp"
+    },
+    {
+      "id": "tune-windows",
+      "os": "Windows 11 / 10 + WSL2",
+      "flag": "🇺🇸",
+      "logo": "https://cdn.simpleicons.org/windows/0078D6",
+      "badge": "Debloat + WSL2 rápido",
+      "summary": "Limpia telemetría y bloatware sin romper Windows Update, activa plan Ultimate Performance y limita la RAM de WSL2.",
+      "commands": "# 1. Chris Titus WinUtil (PowerShell como Administrador — debloat seguro + tweaks)\niwr -useb https://christitus.com/win | iex\n\n# 2. Activar Plan de Energía Máximo Rendimiento\npowercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61\n\n# 3. Limitar RAM de WSL2 para que no se coma toda la laptop (%USERPROFILE%\\.wslconfig)\n@'\n[wsl2]\nmemory=6GB\nprocessors=4\nswap=2GB\nautoMemoryReclaim=gradual\n'@ | Set-Content \"$env:USERPROFILE\\.wslconfig\"\nwsl --shutdown\n\n# 4. Instalar stack dev limpio con winget\nwinget install Git.Git OpenJS.NodeJS.LTS Python.Python.3.12 Astral-Sh.Uv"
+    },
+    {
+      "id": "tune-macos",
+      "os": "macOS (Apple Silicon M1/M2/M3/M4 & Intel)",
+      "flag": "🇺🇸",
+      "logo": "https://cdn.simpleicons.org/apple/F5F5F7",
+      "badge": "Animaciones 0ms + OrbStack",
+      "summary": "Quita animaciones lentas del Dock/Finder, acelera el teclado, excluye node_modules de Spotlight y cambia Docker Desktop por OrbStack.",
+      "commands": "# 1. Dock instantáneo sin delay y animaciones rápidas\ndefaults write com.apple.dock autohide-delay -float 0\ndefaults write com.apple.dock autohide-time-modifier -float 0.15\ndefaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false\nkillall Dock\n\n# 2. Teclado ultra rápido para programar (reinicia sesión tras aplicar)\ndefaults write NSGlobalDomain KeyRepeat -int 2\ndefaults write NSGlobalDomain InitialKeyRepeat -int 15\n\n# 3. Cambia Docker Desktop (pesado) por OrbStack (3x menos RAM y batería)\nbrew install --cask orbstack\n\n# 4. Limpiar caches gigantes de Homebrew / Xcode / npm\nbrew cleanup -s && npm cache clean --force\n# Tip: Agrega ~/code o node_modules a Privacidad de Spotlight (mds_stores baja CPU a 0%)"
+    },
+    {
+      "id": "tune-android",
+      "os": "Android (Sin Root — Debloat + Termux Dev)",
+      "flag": "🇺🇸",
+      "logo": "https://cdn.simpleicons.org/android/3DDC84",
+      "badge": "Animaciones 0.5x + Termux AI",
+      "summary": "Acelera cualquier Android sin root usando ADB/Shizuku, bloquea anuncios a nivel DNS y convierte el celular en estación de emergencia con Termux.",
+      "commands": "# 1. En el celular: Ajustes -> Acerca del teléfono -> toca 7 veces 'Número de compilación'\n#    Opciones de desarrollador -> Escalas de animación (ventana/transición/animador) = 0.5x o 0x\n#    DNS Privado -> dns.adguard-dns.com (bloquea ads y trackers sin app)\n\n# 2. Debloat seguro por USB con ADB (sin root; reemplaza el paquete bloat)\nadb shell settings put global window_animation_scale 0.5\nadb shell settings put global transition_animation_scale 0.5\nadb shell settings put global animator_duration_scale 0.5\n# Listar apps bloat: adb shell pm list packages | grep -i facebook\n# Desinstalar para usuario 0: adb shell pm uninstall -k --user 0 com.facebook.katana\n\n# 3. Termux (descarga desde F-Droid, NO Play Store) — correr Node, Python y agentes AI en Android\npkg update && pkg upgrade -y\npkg install git nodejs-lts python openssh tmux\nnpm i -g opencode-ai"
+    }
+  ],
+  "installOverrides": {
+    "cursor": {
+      "linux": "# Descarga AppImage o .deb desde cursor.com\ncurl -fsSL https://cursor.com/download -o /dev/null && echo 'Descarga .AppImage/.deb en https://cursor.com'\nchmod +x Cursor-*.AppImage && ./Cursor-*.AppImage",
+      "macos": "brew install --cask cursor",
+      "windows": "winget install Anysphere.Cursor",
+      "android": "# No nativo en Android. Usa Termux + OpenCode/Claude Code o conecta por SSH a tu PC/VM."
+    },
+    "claude-code": {
+      "linux": "npm install -g @anthropic-ai/claude-code\nclaude",
+      "macos": "brew install --cask claude-code\n# o: npm install -g @anthropic-ai/claude-code",
+      "windows": "irm https://claude.ai/install.ps1 | iex\n# o en WSL2: npm install -g @anthropic-ai/claude-code",
+      "android": "# En Termux (F-Droid):\npkg install nodejs-lts git && npm i -g @anthropic-ai/claude-code"
+    },
+    "opencode": {
+      "linux": "curl -fsSL https://opencode.ai/install | bash\n# o: npm i -g opencode-ai",
+      "macos": "brew install opencode\n# o: curl -fsSL https://opencode.ai/install | bash",
+      "windows": "npm i -g opencode-ai\n# Recomendado en WSL2 para mejor rendimiento",
+      "android": "# En Termux (F-Droid):\npkg install nodejs-lts git && npm i -g opencode-ai"
+    },
+    "gemini-cli": {
+      "linux": "npm install -g @google/gemini-cli && gemini",
+      "macos": "brew install gemini-cli && gemini",
+      "windows": "npm install -g @google/gemini-cli && gemini",
+      "android": "# En Termux:\npkg install nodejs-lts && npm i -g @google/gemini-cli && gemini"
+    },
+    "windsurf": {
+      "linux": "# Debian/Ubuntu: descarga .deb desde windsurf.com\n# Arch (AUR): yay -S windsurf",
+      "macos": "brew install --cask windsurf",
+      "windows": "winget install Codeium.Windsurf",
+      "android": "# Solo desktop. Usa OpenCode en Termux como compañero móvil."
+    },
+    "zed": {
+      "linux": "curl -f https://zed.dev/install.sh | sh",
+      "macos": "brew install --cask zed",
+      "windows": "winget install ZedIndustries.Zed",
+      "android": "# Solo desktop (macOS/Linux/Windows)."
+    },
+    "ollama": {
+      "linux": "curl -fsSL https://ollama.com/install.sh | sh\nollama pull qwen2.5-coder:7b",
+      "macos": "brew install --cask ollama\nollama pull qwen2.5-coder:7b",
+      "windows": "winget install Ollama.Ollama\nollama pull qwen2.5-coder:7b",
+      "android": "# En Termux (con 8GB+ RAM):\npkg install ollama && ollama serve &\nollama pull qwen2.5-coder:1.5b"
+    },
+    "aider": {
+      "linux": "python3 -m pip install aider-install && aider-install",
+      "macos": "brew install aider",
+      "windows": "py -m pip install aider-install && aider-install",
+      "android": "# En Termux:\npkg install python git && pip install aider-chat"
+    },
+    "codex-cli": {
+      "linux": "npm install -g @openai/codex && codex",
+      "macos": "brew install --cask codex && codex",
+      "windows": "npm install -g @openai/codex && codex",
+      "android": "# En Termux:\npkg install nodejs-lts && npm i -g @openai/codex"
+    },
+    "br-librewolf": {
+      "linux": "# Arch: yay -S librewolf-bin\n# Debian/Ubuntu: sudo apt install extrepo && sudo extrepo enable librewolf && sudo apt update && sudo apt install librewolf\n# Flatpak: flatpak install flathub io.gitlab.librewolf-community",
+      "macos": "brew install --cask librewolf",
+      "windows": "winget install LibreWolf.LibreWolf",
+      "android": "# Alternativa equivalente en Android: IronFox o Mull (F-Droid) / Firefox + uBlock Origin"
+    },
+    "br-brave": {
+      "linux": "curl -fsS https://dl.brave.com/install.sh | sh",
+      "macos": "brew install --cask brave-browser",
+      "windows": "winget install Brave.Brave",
+      "android": "# Play Store / F-Droid (via Obtainium): busca 'Brave Private Web Browser'"
+    },
+    "br-mullvad": {
+      "linux": "# Flatpak: flatpak install flathub net.mullvad.MullvadBrowser\n# Arch: yay -S mullvad-browser-bin",
+      "macos": "brew install --cask mullvad-browser",
+      "windows": "winget install MullvadVPN.MullvadBrowser",
+      "android": "# Usa Tor Browser o IronFox en Android."
+    },
+    "br-tor": {
+      "linux": "flatpak install flathub org.torproject.torbrowser-launcher",
+      "macos": "brew install --cask tor-browser",
+      "windows": "winget install TorProject.TorBrowser",
+      "android": "# Descarga 'Tor Browser' oficial en Play Store o F-Droid (Guardian Project)."
+    },
+    "br-zen": {
+      "linux": "flatpak install flathub app.zen_browser.zen",
+      "macos": "brew install --cask zen-browser",
+      "windows": "winget install Zen-Team.Zen-Browser",
+      "android": "# Solo desktop por ahora."
+    },
+    "br-ungoogled": {
+      "linux": "flatpak install flathub io.github.ungoogled_software.ungoogled_chromium",
+      "macos": "brew install --cask eloston-chromium",
+      "windows": "winget install eloston.ungoogled-chromium",
+      "android": "# Alternativa Android: Cromite (desde GitHub / F-Droid via Obtainium)."
+    },
+    "br-qutebrowser": {
+      "linux": "# Arch: sudo pacman -S qutebrowser\n# Debian/Ubuntu: sudo apt install qutebrowser\n# Fedora: sudo dnf install qutebrowser",
+      "macos": "brew install --cask qutebrowser",
+      "windows": "winget install qutebrowser.qutebrowser",
+      "android": "# Solo desktop."
+    }
+  }
+}
