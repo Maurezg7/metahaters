@@ -47,7 +47,7 @@ a:hover { text-decoration: underline; }
 .brand-name span { color: var(--accent); }
 .brand-sub { margin: 0; font-size: 0.74rem; color: var(--muted); }
 
-.main-tabs { display: flex; gap: 6px; background: var(--surface); padding: 4px; border-radius: 9px; border: 1px solid var(--border); }
+.main-tabs { display: flex; flex-wrap: wrap; gap: 6px; background: var(--surface); padding: 4px; border-radius: 9px; border: 1px solid var(--border); }
 .tab-btn {
   border: 0; background: transparent; color: var(--muted); padding: 7px 13px;
   border-radius: 6px; font-size: 0.88rem; font-weight: 600; cursor: pointer;
@@ -312,4 +312,5 @@ a:hover { text-decoration: underline; }
 @media (max-width: 560px) {
   .hero-strip { grid-template-columns: 1fr; }
   .topbar-inner { padding: 10px 14px; }
+  #browsers-grid { grid-template-columns: 1fr; }
 }

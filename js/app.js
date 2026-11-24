@@ -564,18 +564,14 @@ function openBrowserDetail(id) {
 function renderBrowsers() {
   if (!state.intel?.browsers) return;
   const list = state.intel.browsers
-    .filter((b) => {
-      const plats = b.platforms || ['PC'];
-      if (state.browserPlat === 'PC') return plats.includes('PC');
-      if (state.browserPlat === 'mobile') return plats.includes('Android') || plats.includes('iOS');
-      return true;
-    })
+    .filter((b) => state.browserPlat === 'all' || b.platforms.includes(state.browserPlat))
     .sort((a, b) =>
       state.browserSort === 'lightness' ? a.idleRamMb - b.idleRamMb : b.privacy - a.privacy
     );
+  $('#browser-count').textContent = `${list.length} ${list.length === 1 ? 'navegador' : 'navegadores'}`;
   $('#browsers-grid').innerHTML = list.map((b) => {
     const ramCls = b.idleRamMb <= 250 ? 'low' : b.idleRamMb <= 380 ? 'med' : 'high';
-    const platsHtml = (b.platforms || ['PC']).map((p) => `<span class="tag">${esc(p)}</span>`).join('');
+    const platsHtml = b.platforms.map((p) => `<span class="tag">${p === 'PC' ? 'Escritorio' : esc(p)}</span>`).join('');
     return `
       <article class="card">
         <div class="card-top">
@@ -1267,6 +1263,7 @@ function bindEvents() {
   $('#sort-select').addEventListener('change', (e) => { state.sort = e.target.value; renderCatalog(); });
   $('#os-search-input').addEventListener('input', (e) => { state.osQuery = e.target.value; renderOS(); });
   $('#os-sort-select').addEventListener('change', (e) => { state.osSort = e.target.value; renderOS(); });
+  $('#browser-sort-select').addEventListener('change', (e) => { state.browserSort = e.target.value; renderBrowsers(); });
 
   // Filter chips helper
   const bindChips = (sel, attr, key, cb) => {
@@ -1274,7 +1271,10 @@ function bindEvents() {
       const btn = e.target.closest('.chip');
       if (!btn) return;
       state[key] = btn.dataset[attr];
-      $$(sel + ' .chip').forEach((c) => c.classList.toggle('active', c === btn));
+      $$(sel + ' .chip').forEach((c) => {
+        c.classList.toggle('active', c === btn);
+        if (c.hasAttribute('aria-pressed')) c.setAttribute('aria-pressed', String(c === btn));
+      });
       cb();
     });
   };
@@ -1283,7 +1283,6 @@ function bindEvents() {
   bindChips('#region-filters', 'region', 'region', renderCatalog);
   bindChips('#os-type-filters', 'ostype', 'osType', renderOS);
   bindChips('#os-family-filters', 'osfam', 'osFamily', renderOS);
-  bindChips('#browser-sort-filters', 'bsort', 'browserSort', renderBrowsers);
   bindChips('#browser-plat-filters', 'bplat', 'browserPlat', renderBrowsers);
   bindChips('#fw-area-filters', 'fwarea', 'fwArea', renderFrameworks);
   bindChips('#api-occ-filters', 'apiocc', 'apiOccFilter', renderApiOccasions);

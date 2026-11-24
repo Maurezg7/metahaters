@@ -22,7 +22,8 @@
       <nav class="main-tabs" role="tablist" aria-label="Secciones principales">
         <button class="tab-btn active" data-view="catalog" role="tab" aria-selected="true">Catálogo</button>
         <button class="tab-btn" data-view="frameworks" role="tab" aria-selected="false">Frameworks &amp; APIs</button>
-        <button class="tab-btn" data-view="os" role="tab" aria-selected="false">OS &amp; Navegadores</button>
+        <button class="tab-btn" data-view="os" role="tab" aria-selected="false">Sistemas operativos</button>
+        <button class="tab-btn" id="tab-browsers" data-view="browsers" role="tab" aria-controls="view-browsers" aria-selected="false">Navegadores web</button>
         <button class="tab-btn" data-view="stats" role="tab" aria-selected="false">Estadísticas &amp; Radar</button>
         <button class="tab-btn" data-view="agents" role="tab" aria-selected="false">Agentes &amp; A2A</button>
         <button class="tab-btn" data-view="intel" role="tab" aria-selected="false">Intel Global</button>
@@ -178,27 +179,32 @@
         </div>
         <div id="os-tuning-grid" class="grid grid-2"></div>
       </article>
+    </section>
 
-      <article class="panel mt-lg">
-        <div class="panel-head">
-          <div>
-            <h2>Navegadores Web Más Seguros, Livianos y de Terceros (PC &amp; Smartphones)</h2>
-            <p class="muted">Navegadores web para Windows/macOS/Linux, Android e iOS con privacidad real, anti-fingerprinting, RAM idle y links oficiales.</p>
-          </div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            <div class="chip-group" id="browser-plat-filters">
-              <button class="chip active" data-bplat="all">Todos</button>
-              <button class="chip" data-bplat="PC">Ordenadores (PC)</button>
-              <button class="chip" data-bplat="mobile">Smartphones (Android/iOS)</button>
-            </div>
-            <div class="chip-group" id="browser-sort-filters">
-              <button class="chip active" data-bsort="privacy">Más Seguros</button>
-              <button class="chip" data-bsort="lightness">Más Livianos (RAM)</button>
-            </div>
-          </div>
+    <section id="view-browsers" class="view" role="tabpanel" aria-labelledby="tab-browsers">
+      <div class="controls">
+        <div>
+          <h2>Navegadores web</h2>
+          <p class="muted">Compara opciones para escritorio y smartphones, con enlaces oficiales y guías de instalación.</p>
         </div>
-        <div id="browsers-grid" class="grid"></div>
-      </article>
+        <div class="filter-row">
+          <div class="chip-group" id="browser-plat-filters" role="group" aria-label="Filtrar por dispositivo">
+            <button class="chip active" data-bplat="all" aria-pressed="true">Todos</button>
+            <button class="chip" data-bplat="PC" aria-pressed="false">Escritorio</button>
+            <button class="chip" data-bplat="Android" aria-pressed="false">Android</button>
+            <button class="chip" data-bplat="iOS" aria-pressed="false">iOS</button>
+          </div>
+          <label class="sort-wrap">
+            <span>Ordenar por:</span>
+            <select id="browser-sort-select">
+              <option value="privacy">Privacidad</option>
+              <option value="lightness">Menor RAM estimada</option>
+            </select>
+          </label>
+        </div>
+        <span class="muted" id="browser-count" role="status"></span>
+      </div>
+      <div id="browsers-grid" class="grid mt"></div>
     </section>
 
     <!-- VIEW: FRAMEWORKS POR ÁREA Y LENGUAJE + APIs POR OCASIÓN -->
