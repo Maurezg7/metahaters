@@ -132,9 +132,217 @@
     }
   ],
   "emergencyChain": [
-    { "step": "1", "when": "Se acabó Cursor / Claude Code", "switchTo": "🇺🇸 OpenCode + 🇺🇸 NVIDIA NIM (DeepSeek V3/R1, Qwen 3, Kimi K2, GLM)", "cost": "$0", "note": "Activa el sub-agente 00-frontier-booster.md para mantener calidad frontier." },
-    { "step": "2", "when": "Rate limit en NVIDIA NIM (~40 RPM)", "switchTo": "🇺🇸 Gemini CLI (cuenta Google, 1M ctx) + 🇨🇳 Qwen Code CLI (2K req/día)", "cost": "$0", "note": "Dos CLIs gratuitas con cuotas diarias altísimas sin tarjeta." },
-    { "step": "3", "when": "Necesitas velocidad extrema en la app", "switchTo": "🇺🇸 Groq (Llama 3.3 / gpt-oss / Whisper) + 🇺🇸 Cerebras (1M tok/día)", "cost": "$0", "note": "500 a 2,000 tok/s gratis para demos en vivo." },
-    { "step": "4", "when": "Se cayó el WiFi de la hackathon", "switchTo": "🇺🇸 Ollama local (🇨🇳 qwen2.5-coder:14b + 🇫🇷 devstral + 🇺🇸 gpt-oss:20b)", "cost": "$0 offline", "note": "100% sin internet, compatible con OpenCode y Zed." }
+    {
+      "step": "1",
+      "when": "Se acabó Cursor / Claude Code",
+      "switchTo": "🇺🇸 OpenCode + 🇺🇸 NVIDIA NIM (DeepSeek V3/R1, Qwen 3, Kimi K2, GLM)",
+      "cost": "$0",
+      "note": "Activa el sub-agente 00-frontier-booster.md para mantener calidad frontier."
+    },
+    {
+      "step": "2",
+      "when": "Rate limit en NVIDIA NIM (~40 RPM)",
+      "switchTo": "🇺🇸 Gemini CLI (cuenta Google, 1M ctx) + 🇨🇳 Qwen Code CLI (2K req/día)",
+      "cost": "$0",
+      "note": "Dos CLIs gratuitas con cuotas diarias altísimas sin tarjeta."
+    },
+    {
+      "step": "3",
+      "when": "Necesitas velocidad extrema en la app",
+      "switchTo": "🇺🇸 Groq (Llama 3.3 / gpt-oss / Whisper) + 🇺🇸 Cerebras (1M tok/día)",
+      "cost": "$0",
+      "note": "500 a 2,000 tok/s gratis para demos en vivo."
+    },
+    {
+      "step": "4",
+      "when": "Se cayó el WiFi de la hackathon",
+      "switchTo": "🇺🇸 Ollama local (🇨🇳 qwen2.5-coder:14b + 🇫🇷 devstral + 🇺🇸 gpt-oss:20b)",
+      "cost": "$0 offline",
+      "note": "100% sin internet, compatible con OpenCode y Zed."
+    }
+  ],
+  "aiTaskMatrix": [
+    {
+      "task": "Coding, Refactors & Agentes",
+      "bestPaid": "🇺🇸 Claude Sonnet/Opus 4.5 · GPT-5 Codex",
+      "bestFree": "🇨🇳 DeepSeek V3.2 · Qwen 3 Coder · Kimi K2.5 (NIM/OR)",
+      "coding": 99,
+      "reasoning": 96,
+      "speed": 92,
+      "why": "Claude lidera precisión en diffs multi-archivo; DeepSeek V3.2 y Qwen 3 Coder dan ~90% de esa calidad a $0 o 20x menos."
+    },
+    {
+      "task": "Razonamiento Profundo, Math & Bugs Difíciles",
+      "bestPaid": "🇺🇸 OpenAI o3 / GPT-5 · Gemini 2.5 Pro",
+      "bestFree": "🇨🇳 DeepSeek R1 · 🇺🇸 NVIDIA Nemotron Ultra (NIM)",
+      "coding": 95,
+      "reasoning": 99,
+      "speed": 78,
+      "why": "Cadena de pensamiento extensa para arquitectura, algoritmos, seguridad y bugs donde modelos rápidos fallan."
+    },
+    {
+      "task": "Contexto Gigante (Repo entero / PDFs / Video)",
+      "bestPaid": "🇺🇸 Gemini 2.5 Pro (1M–2M tokens)",
+      "bestFree": "🇺🇸 Gemini CLI (1M) · 🇨🇳 MiniMax M1 (1M) · 🇺🇸 Llama 4 Scout (10M)",
+      "coding": 91,
+      "reasoning": 95,
+      "speed": 88,
+      "why": "Lee el proyecto completo, logs enormes o videos sin recortar ni perder referencias."
+    },
+    {
+      "task": "UI, Frontend & Diseño Visual",
+      "bestPaid": "🇺🇸 Claude Sonnet 4.5 + v0",
+      "bestFree": "🇨🇳 GLM-4.6/5 · Kimi K2.5 · Qwen 3",
+      "coding": 97,
+      "reasoning": 91,
+      "speed": 93,
+      "why": "Claude genera layouts y CSS limpios al primer intento; GLM-5 y Kimi K2.5 sorprenden en estética y SVG gratis."
+    },
+    {
+      "task": "Velocidad Extrema, Voz & Tiempo Real",
+      "bestPaid": "🇺🇸 Gemini 2.5 Flash · GPT-4.1 mini",
+      "bestFree": "🇺🇸 Groq (Llama 3.3 / Whisper) · Cerebras (1M tok/día)",
+      "coding": 85,
+      "reasoning": 83,
+      "speed": 100,
+      "why": "500 a 2,000 tokens/seg para demos en vivo, agentes de voz y autocompletado instantáneo."
+    },
+    {
+      "task": "Búsqueda Web, Docs & Citas Verificadas",
+      "bestPaid": "🇺🇸 Perplexity Sonar Pro",
+      "bestFree": "🇺🇸 Tavily (1K/mes) + 🇩🇪 Jina Reader + 🇨🇳 DeepSeek",
+      "coding": 80,
+      "reasoning": 92,
+      "speed": 94,
+      "why": "Devuelve respuestas actualizadas con fuentes citadas sin alucinar versiones viejas."
+    },
+    {
+      "task": "Imágenes, Video & Audio Multimodal",
+      "bestPaid": "🇩🇪 FLUX.1 Pro · 🇺🇸 ElevenLabs · Google Veo",
+      "bestFree": "🇩🇪 FLUX.1 Schnell (fal/HF) · 🇺🇸 Groq Whisper · 🇨🇳 Kling/Seedance",
+      "coding": 70,
+      "reasoning": 75,
+      "speed": 92,
+      "why": "Genera assets de pitch, logos, demos con voz realista y transcripción en milisegundos."
+    },
+    {
+      "task": "Offline / Privacidad 100% Local (Sin WiFi)",
+      "bestPaid": "🇺🇸 Apple Silicon + MLX / LM Studio",
+      "bestFree": "🇨🇳 Qwen 2.5 Coder 14B/32B · 🇫🇷 Devstral · 🇺🇸 gpt-oss 20B (Ollama)",
+      "coding": 89,
+      "reasoning": 86,
+      "speed": 90,
+      "why": "Cero datos salen de tu laptop y sigues programando aunque se caiga el internet del evento."
+    }
+  ],
+  "thirdPartyTools": [
+    {
+      "name": "LiteLLM",
+      "flag": "🇺🇸",
+      "country": "US",
+      "cat": "AI Gateway & Router",
+      "price": "Open Source ($0)",
+      "use": "Proxy único OpenAI-compatible que balancea 100+ LLMs (NIM, Groq, DeepSeek, Claude, Ollama) con fallback automático.",
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%234ADE80%22%3ELL%3C%2Ftext%3E%3C%2Fsvg%3E"
+    },
+    {
+      "name": "Langfuse",
+      "flag": "🇩🇪",
+      "country": "DE",
+      "cat": "Observabilidad AI",
+      "price": "Free 50K obs/mes / OSS",
+      "use": "Traza prompts, latencia, costos por usuario y evals de tus agentes AI en producción.",
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3ELF%3C%2Ftext%3E%3C%2Fsvg%3E"
+    },
+    {
+      "name": "Open WebUI",
+      "flag": "🇨🇦",
+      "country": "CA",
+      "cat": "UI Local / Self-Host",
+      "price": "Open Source ($0)",
+      "use": "Interfaz tipo ChatGPT local conectada a Ollama, NVIDIA NIM, OpenRouter y RAG de documentos.",
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F5F5F7%22%3EOW%3C%2Ftext%3E%3C%2Fsvg%3E"
+    },
+    {
+      "name": "LM Studio",
+      "flag": "🇺🇸",
+      "country": "US",
+      "cat": "Runner Local GGUF/MLX",
+      "price": "Gratis ($0)",
+      "use": "Descarga y corre modelos locales con 1 clic en Windows/Mac/Linux exponiendo API localhost:1234.",
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23A78BFA%22%3ELM%3C%2Ftext%3E%3C%2Fsvg%3E"
+    },
+    {
+      "name": "Excalidraw",
+      "flag": "🇺🇸",
+      "country": "US",
+      "cat": "Diagramas & Pitch",
+      "price": "Gratis ($0) / OSS",
+      "use": "Dibuja diagramas de arquitectura limpios para el README y las slides del jurado en 3 minutos.",
+      "logo": "https://cdn.simpleicons.org/excalidraw/A78BFA"
+    },
+    {
+      "name": "Bruno / Hoppscotch",
+      "flag": "🇮🇳",
+      "country": "IN",
+      "cat": "Testing APIs (sin Postman)",
+      "price": "Open Source ($0)",
+      "use": "Alternativa ultra ligera y offline a Postman (guarda colecciones en git sin exigir login).",
+      "logo": "https://cdn.simpleicons.org/hoppscotch/FFB21E"
+    },
+    {
+      "name": "Coolify / Dokploy",
+      "flag": "🇭🇺",
+      "country": "HU",
+      "cat": "Self-Host PaaS",
+      "price": "Open Source ($0)",
+      "use": "Tu propio Vercel/Heroku gratis sobre cualquier VPS de $4 con HTTPS automático y Docker.",
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23A78BFA%22%3ECL%3C%2Ftext%3E%3C%2Fsvg%3E"
+    },
+    {
+      "name": "PostHog",
+      "flag": "🇬🇧",
+      "country": "GB",
+      "cat": "Analytics & Session Replay",
+      "price": "Free 1M eventos/mes",
+      "use": "Métricas de uso, funnels y grabación de sesiones para mostrar tracción real al jurado.",
+      "logo": "https://cdn.simpleicons.org/posthog/FFB21E"
+    },
+    {
+      "name": "Sentry",
+      "flag": "🇺🇸",
+      "country": "US",
+      "cat": "Monitoreo de Errores",
+      "price": "Free 5K errores/mes",
+      "use": "Captura excepciones de front y back en tiempo real antes de que fallen en la demo.",
+      "logo": "https://cdn.simpleicons.org/sentry/FB7185"
+    },
+    {
+      "name": "Beekeeper Studio",
+      "flag": "🇺🇸",
+      "country": "US",
+      "cat": "Cliente SQL / DB",
+      "price": "Open Source ($0)",
+      "use": "Cliente liviano y moderno para inspeccionar Postgres, Supabase, SQLite y MySQL.",
+      "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3EBK%3C%2Ftext%3E%3C%2Fsvg%3E"
+    },
+    {
+      "name": "Figma",
+      "flag": "🇺🇸",
+      "country": "US",
+      "cat": "Diseño UI / Prototipos",
+      "price": "Free Starter ($0)",
+      "use": "Wireframes rápidos y Figma MCP para que Cursor/Claude Code conviertan pantallas directo a código.",
+      "logo": "https://cdn.simpleicons.org/figma/F24E1E"
+    },
+    {
+      "name": "Cloudflared / Tailscale",
+      "flag": "🇺🇸",
+      "country": "US",
+      "cat": "Tunnels & Red Privada",
+      "price": "Gratis ($0)",
+      "use": "Expón tu localhost con HTTPS en 1 comando o conecta las laptops de tus 4 amigos en red privada Mesh.",
+      "logo": "https://cdn.simpleicons.org/tailscale/38BDF8"
+    }
   ]
 }

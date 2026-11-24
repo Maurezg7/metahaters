@@ -806,6 +806,39 @@ async function loadDevNews(force = false) {
 
 function renderStats() {
   // Geo head-to-head
+  // AI by Task Matrix & Third-Party Tools
+  if (state.comparisons?.aiTaskMatrix) {
+    const sc = (v) => `<span class="score-pill ${v >= 95 ? 'gold' : v >= 88 ? 'hi' : ''}">${v}</span>`;
+    $('#ai-task-matrix-body').innerHTML = state.comparisons.aiTaskMatrix.map((row) => `
+      <tr>
+        <td><strong>${esc(row.task)}</strong></td>
+        <td>${esc(row.bestPaid)}</td>
+        <td style="color:#86efac;">${esc(row.bestFree)}</td>
+        <td>${sc(row.coding)}</td>
+        <td>${sc(row.reasoning)}</td>
+        <td>${sc(row.speed)}</td>
+        <td class="card-sub" style="color:#D4D4DD;">${esc(row.why)}</td>
+      </tr>
+    `).join('');
+  }
+  if (state.comparisons?.thirdPartyTools) {
+    $('#third-party-grid').innerHTML = state.comparisons.thirdPartyTools.map((t) => `
+      <article class="card">
+        <div class="card-top">
+          <div class="card-title-row">
+            ${logoBadge(t)}
+            <div>
+              <h3 class="card-title">${esc(t.name)}</h3>
+              <div class="card-sub">${esc(t.cat)}</div>
+            </div>
+          </div>
+          <span class="tag tag-gratis">${esc(t.price)}</span>
+        </div>
+        <p class="card-desc">${esc(t.use)}</p>
+      </article>
+    `).join('');
+  }
+
   // IDE & Coding Agents Comparison Matrix
   if (state.comparisons?.ideMatrix) {
     const sc = (v) => `<span class="score-pill ${v >= 96 ? 'gold' : v >= 92 ? 'hi' : ''}">${v}</span>`;
