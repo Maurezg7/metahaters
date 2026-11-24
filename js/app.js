@@ -12,6 +12,7 @@ const state = {
   intel: null,
   osTuning: null,
   warroom: null,
+  devPicks: null,
   devNews: [],
   newsFilter: 'all',
   fxRates: null,
@@ -1001,6 +1002,86 @@ function renderStats() {
     : `<tr><td colspan="6" class="muted">Sin modelos en este filtro. Pulsa "Sync en vivo" para actualizar.</td></tr>`;
 }
 
+const usd = new Intl.NumberFormat('es-AR', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 5
+});
+const fmtUsd = (value) => `US$ ${usd.format(value)}`;
+
+function pickLinks(item) {
+  const link = (label, url) =>
+    `<a class="btn btn-sm btn-ghost" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${label} ↗</a>`;
+  return `<div class="card-foot">
+    ${link('Sitio oficial', item.url)}
+    ${link('Tarifas', item.pricingUrl)}
+    ${item.guideUrl ? link('Guía de instalación', item.guideUrl) : ''}
+  </div>`;
+}
+
+function renderCiPicks() {
+  const runners = [...state.devPicks.ci].sort((a, b) => a.usdPerMinute - b.usdPerMinute);
+  $('#ci-grid').innerHTML = runners.map((runner) => `
+    <article class="card">
+      <div class="card-title-row">
+        ${logoBadge(runner)}
+        <div>
+          <h3 class="card-title">${esc(runner.name)}</h3>
+          <div class="card-sub">${esc(runner.label)}</div>
+        </div>
+      </div>
+      <p class="card-price">${fmtUsd(runner.usdPerMinute)}/min · ${fmtUsd(runner.usdPerMinute * 1000)} por 1.000 min</p>
+      <p class="card-desc">${esc(runner.description)}</p>
+      <p class="card-desc">${esc(runner.terms)}</p>
+      ${pickLinks(runner)}
+    </article>
+  `).join('');
+}
+
+function renderVideoPicks() {
+  if (!state.devPicks) return;
+  const byPrice = (a, b) => a.usdPerSecond - b.usdPerSecond;
+  const byRank = (a, b) => (a.rank ?? Infinity) - (b.rank ?? Infinity) || byPrice(a, b);
+  const videos = [...state.devPicks.video].sort($('#video-sort-select').value === 'price' ? byPrice : byRank);
+  $('#video-grid').innerHTML = videos.map((video) => `
+    <article class="card">
+      <div class="card-title-row">
+        ${logoBadge(video)}
+        <div>
+          <h3 class="card-title">${esc(video.name)}</h3>
+          <div class="card-sub">${esc(video.provider)} · ${video.rank ? `#${video.rank} en Arena` : 'Sin puesto verificado'}</div>
+        </div>
+      </div>
+      <p class="card-price">${fmtUsd(video.usdPerSecond)}/s · ${fmtUsd(video.usdPerSecond * 5)} por 5 s</p>
+      <div class="card-sub">${esc(video.resolution)} · ${esc(video.billingProvider)}</div>
+      <p class="card-desc">${esc(video.description)}</p>
+      ${pickLinks(video)}
+    </article>
+  `).join('');
+}
+
+let devPicksRequest;
+function loadDevPicks() {
+  if (devPicksRequest) return;
+  const statuses = ['#ci-status', '#video-status'].map($);
+  statuses.forEach((el) => { el.textContent = 'Cargando comparativa…'; });
+  devPicksRequest = fetch('./data/dev-picks.json')
+    .then((response) => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.json();
+    })
+    .then((picks) => {
+      state.devPicks = picks;
+      renderCiPicks();
+      renderVideoPicks();
+      statuses.forEach((el) => { el.hidden = true; });
+    })
+    .catch(() => {
+      state.devPicks = null;
+      devPicksRequest = null;
+      statuses.forEach((el) => { el.textContent = 'No se pudo cargar. Pulsa la pestaña para reintentar.'; });
+    });
+}
+
 function renderAgents() {
   if (!state.agents) return;
 
@@ -1255,6 +1336,7 @@ function bindEvents() {
       state.view = btn.dataset.view;
       $$('.tab-btn').forEach((b) => { b.classList.toggle('active', b === btn); b.setAttribute('aria-selected', String(b === btn)); });
       $$('.view').forEach((v) => v.classList.toggle('active', v.id === `view-${state.view}`));
+      if (state.view === 'ci' || state.view === 'video') loadDevPicks();
     });
   });
 
@@ -1264,6 +1346,7 @@ function bindEvents() {
   $('#os-search-input').addEventListener('input', (e) => { state.osQuery = e.target.value; renderOS(); });
   $('#os-sort-select').addEventListener('change', (e) => { state.osSort = e.target.value; renderOS(); });
   $('#browser-sort-select').addEventListener('change', (e) => { state.browserSort = e.target.value; renderBrowsers(); });
+  $('#video-sort-select').addEventListener('change', renderVideoPicks);
 
   // Filter chips helper
   const bindChips = (sel, attr, key, cb) => {

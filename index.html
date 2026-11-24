@@ -24,6 +24,8 @@
         <button class="tab-btn" data-view="frameworks" role="tab" aria-selected="false">Frameworks &amp; APIs</button>
         <button class="tab-btn" data-view="os" role="tab" aria-selected="false">Sistemas operativos</button>
         <button class="tab-btn" id="tab-browsers" data-view="browsers" role="tab" aria-controls="view-browsers" aria-selected="false">Navegadores web</button>
+        <button class="tab-btn" id="tab-ci" data-view="ci" role="tab" aria-controls="view-ci" aria-selected="false">CI/CD</button>
+        <button class="tab-btn" id="tab-video" data-view="video" role="tab" aria-controls="view-video" aria-selected="false">IA para video</button>
         <button class="tab-btn" data-view="stats" role="tab" aria-selected="false">Estadísticas &amp; Radar</button>
         <button class="tab-btn" data-view="agents" role="tab" aria-selected="false">Agentes &amp; A2A</button>
         <button class="tab-btn" data-view="intel" role="tab" aria-selected="false">Intel Global</button>
@@ -382,6 +384,57 @@
           <span class="tag tag-gratis">Perks $0</span>
         </div>
         <div id="free-credits-grid" class="grid"></div>
+      </article>
+    </section>
+
+    <section id="view-ci" class="view" role="tabpanel" aria-labelledby="tab-ci">
+      <article class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>CI/CD sin gastar de más</h2>
+            <p class="muted">Los runners ejecutan tus tests, builds y despliegues de GitHub Actions. Estas opciones cambian la máquina que los ejecuta, no tu pipeline.</p>
+          </div>
+        </div>
+        <p class="card-desc"><strong>¿Migrar de Ubicloud a Jog?</strong> No mires solo la tarifa base por 1.000 minutos. Antes de cambiar, compara el saldo incluido y mide tiempo total, cola y caché con el mismo job.</p>
+        <p class="muted">Tarifas de lista en USD por minuto para Linux x64 de 2 vCPU, antes de créditos, cuotas e impuestos. Precios revisados el <time datetime="2026-11-24">24 nov 2026</time>.</p>
+        <p id="ci-status" class="muted" role="status">Cargando comparativa…</p>
+        <div id="ci-grid" class="grid resource-grid mt"></div>
+      </article>
+      <article class="panel mt">
+        <h3>Skill oficial: Right-size Jog runners</h3>
+        <p class="card-desc">Una vez que tu CI ya corre en Jog, la skill consulta el uso medido de CPU, RAM y disco por job y propone un PR que ajusta <code>runs-on</code>. Sirve para pagar menos cuando sobran recursos o acelerar los jobs que están al límite. Requiere acceso de solo lectura a las recomendaciones de Jog; revisa el PR antes de aplicarlo.</p>
+        <div class="filter-row mt">
+          <a class="btn btn-sm btn-accent" href="https://usejog.com/skills/jog/SKILL.md" target="_blank" rel="noopener noreferrer">Ver skill oficial ↗</a>
+          <a class="btn btn-sm btn-ghost" href="https://usejog.com/docs/agents/" target="_blank" rel="noopener noreferrer">Guía para agentes ↗</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="view-video" class="view" role="tabpanel" aria-labelledby="tab-video">
+      <article class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>IA para video: ranking y precios</h2>
+            <p class="muted">Selección para trailers, clips de demo y prototipos. El puesto es de <a href="https://arena.ai/leaderboard/video/text-to-video" target="_blank" rel="noopener noreferrer">Text-to-Video Arena</a> (8 nov 2026) y solo se muestra si corresponde a la variante exacta.</p>
+          </div>
+        </div>
+        <div class="filter-row">
+          <label class="sort-wrap">
+            <span>Ordenar por:</span>
+            <select id="video-sort-select">
+              <option value="rank">Ranking de calidad</option>
+              <option value="price">Menor costo de referencia</option>
+            </select>
+          </label>
+        </div>
+        <p class="muted">API en USD por segundo generado, a la resolución indicada. El costo equivalente a 5 segundos sirve de referencia: la duración mínima, el audio y el precio final pueden variar. Precios revisados el <time datetime="2026-11-24">24 nov 2026</time>.</p>
+        <p id="video-status" class="muted" role="status">Cargando comparativa…</p>
+        <div id="video-grid" class="grid resource-grid mt"></div>
+      </article>
+      <article class="panel mt">
+        <h3>Para probar sin API o arrancar con poco presupuesto</h3>
+        <p class="card-desc"><a href="https://pika.art/pricing" target="_blank" rel="noopener noreferrer">Pika</a> tiene plan gratuito y Starter por US$ 10 al mes con facturación mensual. <a href="https://runway.com/pricing" target="_blank" rel="noopener noreferrer">Runway Web</a> ofrece 125 créditos iniciales de una sola vez. Son planes web: no equivalen a créditos de API.</p>
+        <p class="muted"><strong>¿«Orana» u «Ocana»?</strong> El nombre no está confirmado. Si era de OpenAI, podría ser <a href="https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation" target="_blank" rel="noopener noreferrer">Sora</a>, retirado en la web y en la API. Si era de Google, podría ser Gemini Omni; si era un modelo abierto con audio sincronizado, <a href="https://github.com/character-ai/Ovi" target="_blank" rel="noopener noreferrer">Ovi</a> es otra posibilidad.</p>
       </article>
     </section>
 

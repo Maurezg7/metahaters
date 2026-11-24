@@ -126,6 +126,8 @@ a:hover { text-decoration: underline; }
 /* Cards Grid */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(305px, 1fr)); gap: 13px; }
 .grid-2 { grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); }
+.resource-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 285px), 1fr)); }
+.resource-grid .card-foot { justify-content: flex-start; flex-wrap: wrap; }
 
 .card {
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
