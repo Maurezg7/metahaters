@@ -83,7 +83,7 @@
     "url": "https://docs.anthropic.com/en/docs/claude-code",
     "logo": "https://cdn.simpleicons.org/anthropic/F5F5F7",
     "github": {
-      "stars": 156943,
+      "stars": 156944,
       "pushedAt": "2026-11-24",
       "license": null
     }
@@ -130,7 +130,7 @@
     "url": "https://github.com/google-gemini/gemini-cli",
     "logo": "https://cdn.simpleicons.org/googlegemini/8E75B2",
     "github": {
-      "stars": 109064,
+      "stars": 109065,
       "pushedAt": "2026-11-24",
       "license": "Apache-2.0"
     }
@@ -863,7 +863,7 @@
     "url": "https://opencode.ai",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%234ADE80%22%3EOC%3C%2Ftext%3E%3C%2Fsvg%3E",
     "github": {
-      "stars": 228964,
+      "stars": 228966,
       "pushedAt": "2026-11-24",
       "license": "MIT"
     }
@@ -952,7 +952,7 @@
     "url": "https://cline.bot",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%2338BDF8%22%3ECL%3C%2Ftext%3E%3C%2Fsvg%3E",
     "github": {
-      "stars": 71871,
+      "stars": 71870,
       "pushedAt": "2026-11-23",
       "license": "Apache-2.0"
     }
@@ -1046,7 +1046,7 @@
     "url": "https://github.com/openai/codex",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%23FFB21E%22%3EOP%3C%2Ftext%3E%3C%2Fsvg%3E",
     "github": {
-      "stars": 136334,
+      "stars": 136332,
       "pushedAt": "2026-11-24",
       "license": "Apache-2.0"
     }
