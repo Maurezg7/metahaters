@@ -1,5 +1,33 @@
 [
   {
+    "id": "upstage/solar-mini-4-5",
+    "name": "Upstage: Solar Mini 4.5 (Preview)",
+    "provider": "upstage",
+    "country": "KR",
+    "flag": "🇰🇷",
+    "countryName": "Corea del Sur",
+    "region": "Asia-Pac",
+    "context": "524K",
+    "inputPer1M": 0.01,
+    "outputPer1M": 0.04,
+    "isFree": false,
+    "created": 1795562304
+  },
+  {
+    "id": "upstage/solar-pro-4-contributor",
+    "name": "Upstage: Solar Pro 4 Contributor",
+    "provider": "upstage",
+    "country": "KR",
+    "flag": "🇰🇷",
+    "countryName": "Corea del Sur",
+    "region": "Asia-Pac",
+    "context": "524K",
+    "inputPer1M": 0.09,
+    "outputPer1M": 0.36,
+    "isFree": false,
+    "created": 1795562304
+  },
+  {
     "id": "mistralai/pixtral-large-2502",
     "name": "Mistral: Pixtral Large 2502",
     "provider": "mistralai",
@@ -456,8 +484,8 @@
     "countryName": "China",
     "region": "China",
     "context": "1.0M",
-    "inputPer1M": 0.03,
-    "outputPer1M": 0.2,
+    "inputPer1M": 0.15,
+    "outputPer1M": 0.6,
     "isFree": false,
     "created": 1792225624
   },
@@ -810,33 +838,5 @@
     "outputPer1M": 0.25,
     "isFree": false,
     "created": 1790100786
-  },
-  {
-    "id": "openai/gpt-6-sol-pro",
-    "name": "OpenAI: GPT-6 Sol Pro",
-    "provider": "openai",
-    "country": "US",
-    "flag": "🇺🇸",
-    "countryName": "Estados Unidos",
-    "region": "USA",
-    "context": "1.1M",
-    "inputPer1M": 2,
-    "outputPer1M": 10,
-    "isFree": false,
-    "created": 1790100781
-  },
-  {
-    "id": "openai/gpt-6-sol-pro:batch",
-    "name": "OpenAI: GPT-6 Sol Pro (batch)",
-    "provider": "openai",
-    "country": "US",
-    "flag": "🇺🇸",
-    "countryName": "Estados Unidos",
-    "region": "USA",
-    "context": "1.1M",
-    "inputPer1M": 1,
-    "outputPer1M": 5,
-    "isFree": false,
-    "created": 1790100781
   }
 ]
