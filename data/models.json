@@ -43,9 +43,9 @@
     },
     "agentTip": "Úsalo como worker principal para sub-agentes de código, tests y transformación de datos sin quemar presupuesto.",
     "url": "https://platform.deepseek.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.934Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.097Z",
     "github": {
-      "stars": 104915,
+      "stars": 104919,
       "pushedAt": "2025-08-28",
       "license": "MIT"
     },
@@ -95,9 +95,9 @@
     },
     "agentTip": "Asigna R1 exclusivamente al sub-agente Arquitecto y al Debugger cuando otro modelo entra en bucle.",
     "url": "https://platform.deepseek.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.934Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "github": {
-      "stars": 92062,
+      "stars": 92063,
       "pushedAt": "2025-06-27",
       "license": "MIT"
     },
@@ -148,7 +148,7 @@
     },
     "agentTip": "El mejor orquestador y agente Frontend/Full-Stack. Activa prompt caching para bajar el costo de tus agentes 70-90%.",
     "url": "https://console.anthropic.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.934Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "https://cdn.simpleicons.org/anthropic/F5F5F7"
   },
   {
@@ -195,7 +195,7 @@
     },
     "agentTip": "Pon thinkingBudget: 0 para respuestas en <500ms en demos en vivo, o súbelo para tareas de análisis multimodal.",
     "url": "https://aistudio.google.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.934Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "https://cdn.simpleicons.org/googlegemini/8E75B2"
   },
   {
@@ -242,7 +242,7 @@
     },
     "agentTip": "Úsalo como revisor de arquitectura total: cabe todo tu código + docs + reglas de la hackathon en un solo prompt.",
     "url": "https://aistudio.google.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "https://cdn.simpleicons.org/googlegemini/8E75B2"
   },
   {
@@ -289,7 +289,7 @@
     },
     "agentTip": "Ideal como Router/Classifier barato antes de despachar a modelos pesados.",
     "url": "https://platform.openai.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F5F5F7%22%3EOA%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
@@ -335,7 +335,7 @@
     },
     "agentTip": "Usa reasoning_effort: 'low' para velocidad en demo y 'high' para diseñar algoritmos críticos.",
     "url": "https://platform.openai.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F5F5F7%22%3EOA%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
@@ -382,9 +382,9 @@
     },
     "agentTip": "Tenlo pre-descargado en Ollama como plan B offline cuando el WiFi del evento colapse.",
     "url": "https://qwenlm.github.io",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "github": {
-      "stars": 16876,
+      "stars": 16877,
       "pushedAt": "2026-03-24",
       "license": null
     },
@@ -406,10 +406,10 @@
     "openRouterId": "moonshotai/kimi-k2",
     "githubRepo": "MoonshotAI/Kimi-K2",
     "metrics": {
-      "context": "262K",
+      "context": "131K",
       "speedTps": 110,
-      "inputPer1M": 0.6,
-      "outputPer1M": 3,
+      "inputPer1M": 0.57,
+      "outputPer1M": 2.3,
       "openWeights": true
     },
     "scores": {
@@ -434,9 +434,9 @@
     },
     "agentTip": "Brutal para agentes con 5-15 herramientas MCP simultáneas sin pagar precios de modelos cerrados USA.",
     "url": "https://platform.moonshot.ai",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "github": {
-      "stars": 11129,
+      "stars": 11130,
       "pushedAt": "2026-01-21",
       "license": "NOASSERTION"
     },
@@ -486,7 +486,7 @@
     },
     "agentTip": "Úsalo como worker gratuito para scraping semántico, resúmenes y pipelines en background.",
     "url": "https://open.bigmodel.cn",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "github": {
       "stars": 7078,
       "pushedAt": "2026-08-05",
@@ -563,8 +563,8 @@
     "metrics": {
       "context": "131K",
       "speedTps": 450,
-      "inputPer1M": 0.71,
-      "outputPer1M": 0.71,
+      "inputPer1M": 0.59,
+      "outputPer1M": 0.79,
       "openWeights": true
     },
     "scores": {
@@ -589,7 +589,7 @@
     },
     "agentTip": "El rey indiscutible para demos de voz en vivo frente a jurados: latencia imperceptible.",
     "url": "https://console.groq.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "github": {
       "stars": 7731,
       "pushedAt": "2026-02-11",
@@ -738,7 +738,7 @@
     },
     "agentTip": "Agrega Cohere Rerank sobre cualquier vector DB para impresionar a jueces con respuestas sin alucinaciones.",
     "url": "https://dashboard.cohere.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%234ADE80%22%3ECO%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
@@ -928,7 +928,7 @@
     "agentTip": "Pipeline de voz $0 ganador: Micrófono -> Groq Whisper -> Groq Llama 3.3 -> Web Speech / ElevenLabs.",
     "url": "https://console.groq.com",
     "github": {
-      "stars": 113585,
+      "stars": 113600,
       "pushedAt": "2026-08-31",
       "license": "MIT"
     },
@@ -952,8 +952,8 @@
     "metrics": {
       "context": "262K",
       "speedTps": 98,
-      "inputPer1M": 0.5,
-      "outputPer1M": 2.5,
+      "inputPer1M": 0.6,
+      "outputPer1M": 3,
       "openWeights": true
     },
     "scores": {
@@ -979,10 +979,10 @@
     },
     "agentTip": "Reemplazo de emergencia para Claude Sonnet en OpenCode/Cline cuando te quedas sin cuota.",
     "url": "https://platform.moonshot.ai",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FFB21E%22%3EKM%3C%2Ftext%3E%3C%2Fsvg%3E",
     "github": {
-      "stars": 11129,
+      "stars": 11130,
       "pushedAt": "2026-01-21",
       "license": "NOASSERTION"
     }
@@ -1003,7 +1003,7 @@
     "openRouterId": "z-ai/glm-4.6",
     "githubRepo": "zai-org/GLM-4.5",
     "metrics": {
-      "context": "205K",
+      "context": "203K",
       "speedTps": 92,
       "inputPer1M": 0.5,
       "outputPer1M": 2,
@@ -1032,7 +1032,7 @@
     },
     "agentTip": "Cambias 2 variables de entorno y sigues usando Claude Code con GLM por centavos.",
     "url": "https://z.ai",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%2338BDF8%22%3EGL%3C%2Ftext%3E%3C%2Fsvg%3E",
     "github": {
       "stars": 4432,
@@ -1085,10 +1085,10 @@
     },
     "agentTip": "Caballo de batalla #1 cuando se agotan tus créditos pagos.",
     "url": "https://qwenlm.github.io",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "https://cdn.simpleicons.org/alibabacloud/FF6A00",
     "github": {
-      "stars": 16876,
+      "stars": 16877,
       "pushedAt": "2026-03-24",
       "license": null
     }
@@ -1138,7 +1138,7 @@
     },
     "agentTip": "El reemplazo más barato de Sonnet: mismo flujo de Claude Code a ~1/10 del precio.",
     "url": "https://platform.deepseek.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "https://cdn.simpleicons.org/deepseek/4D6BFE",
     "github": {
       "stars": 1682,
@@ -1191,10 +1191,10 @@
     },
     "agentTip": "Buen worker barato para sub-agentes de implementación.",
     "url": "https://www.minimax.io",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23FB7185%22%3EMM%3C%2Ftext%3E%3C%2Fsvg%3E",
     "github": {
-      "stars": 2605,
+      "stars": 2604,
       "pushedAt": "2026-10-26",
       "license": "NOASSERTION"
     }
@@ -1244,7 +1244,7 @@
     },
     "agentTip": "Úsalo para demos de agentes que manejan apps visualmente.",
     "url": "https://seed.bytedance.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "https://cdn.simpleicons.org/bytedance/3C8CFF",
     "github": {
       "stars": 11702,
@@ -1452,7 +1452,7 @@
     "url": "https://build.nvidia.com",
     "logo": "https://cdn.simpleicons.org/nvidia/76B900",
     "github": {
-      "stars": 18794,
+      "stars": 18795,
       "pushedAt": "2026-11-26",
       "license": "Apache-2.0"
     }
@@ -1502,7 +1502,7 @@
     },
     "agentTip": "Úsalo para destrabar; delega lo repetitivo a modelos baratos.",
     "url": "https://platform.openai.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F5F5F7%22%3EOA%3C%2Ftext%3E%3C%2Fsvg%3E"
   },
   {
@@ -1550,7 +1550,7 @@
     },
     "agentTip": "Ideal como cerebro razonador gratis para el sub-agente QA Verifier.",
     "url": "https://openai.com/open-models",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2213%22%20fill%3D%22%23F5F5F7%22%3EOA%3C%2Ftext%3E%3C%2Fsvg%3E",
     "github": {
       "stars": 20572,
@@ -1602,7 +1602,7 @@
     },
     "agentTip": "Haiku explora/resume, Sonnet/Opus implementa y revisa.",
     "url": "https://console.anthropic.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "https://cdn.simpleicons.org/anthropic/F5F5F7"
   },
   {
@@ -1650,7 +1650,7 @@
     },
     "agentTip": "Flash-Lite para routing/clasificación a costo casi cero.",
     "url": "https://aistudio.google.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.935Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "https://cdn.simpleicons.org/googlegemini/8E75B2"
   },
   {
@@ -1744,7 +1744,7 @@
     },
     "agentTip": "Worker de visión gratis para extraer datos de imágenes.",
     "url": "https://llama.meta.com",
-    "liveSyncedAt": "2026-11-26T16:28:29.936Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "https://cdn.simpleicons.org/meta/0467DF",
     "github": {
       "stars": 7731,
@@ -1849,7 +1849,7 @@
     },
     "agentTip": "Para hackathons de privacidad/offline o apps móviles con AI local.",
     "url": "https://ai.google.dev/gemma",
-    "liveSyncedAt": "2026-11-26T16:28:29.936Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "https://cdn.simpleicons.org/googlegemini/8E75B2",
     "github": {
       "stars": 5879,
@@ -1953,7 +1953,7 @@
     },
     "agentTip": "Sub-agente investigador con fuentes verificables.",
     "url": "https://docs.perplexity.ai",
-    "liveSyncedAt": "2026-11-26T16:28:29.936Z",
+    "liveSyncedAt": "2026-11-27T01:39:28.098Z",
     "logo": "https://cdn.simpleicons.org/perplexity/20B2AA"
   },
   {
