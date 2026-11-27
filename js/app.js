@@ -1,4 +1,4 @@
-import { fetchLiveOpenRouter, getCachedLiveSync, fetchLiveFX, fetchDevNews } from './updater.js';
+import { fetchLiveOpenRouter, fetchLiveFX, fetchDevNews } from './updater.js';
 
 const state = {
   items: [],
@@ -12,12 +12,13 @@ const state = {
   intel: null,
   osTuning: null,
   warroom: null,
+  checklist: {},
   devPicks: null,
   devNews: [],
   newsFilter: 'all',
   fxRates: null,
   meta: null,
-  view: 'catalog',
+  view: 'home',
   cat: 'all',
   price: 'all',
   region: 'all',
@@ -138,7 +139,9 @@ function getFilteredItems() {
   return state.items
     .filter((it) => {
       if (state.cat !== 'all' && it.category !== state.cat) return false;
-      if (state.price !== 'all' && it.pricingTier !== state.price) return false;
+      if (state.price === 'budget') {
+        if (!['gratis', 'freemium'].includes(it.pricingTier)) return false;
+      } else if (state.price !== 'all' && it.pricingTier !== state.price) return false;
       if (state.region !== 'all' && it.region !== state.region) return false;
       if (q) {
         const hay = `${it.name} ${it.provider} ${it.subType} ${it.countryName} ${it.region} ${it.pricingTier} ${it.bestFor} ${it.freeTier} ${it.agentTip}`.toLowerCase();
@@ -153,12 +156,14 @@ function getFilteredItems() {
 }
 
 function renderCatalog() {
+  $('#catalog-reset').hidden = !catalogParams().size;
+  if (!state.meta) return;
   const list = getFilteredItems();
   $('#results-count').textContent = `${list.length} resultado${list.length === 1 ? '' : 's'}`;
   const grid = $('#catalog-grid');
 
   if (!list.length) {
-    grid.innerHTML = `<div class="panel"><p class="muted">Sin resultados para esos filtros. Prueba limpiar la búsqueda o cambiar de región.</p></div>`;
+    grid.innerHTML = `<div class="panel"><p class="muted">No hay resultados. Prueba otro término o limpia los filtros.</p></div>`;
     return;
   }
 
@@ -814,7 +819,7 @@ function renderNews() {
 
 function renderWarRoom() {
   if (!state.warroom) return;
-  const saved = JSON.parse(localStorage.getItem('metahaters_checklist_v1') || '{}');
+  const saved = state.checklist;
   const items = state.warroom.checklist;
   const done = items.filter((i) => saved[i.id]).length;
   $('#checklist-progress').textContent = `${done}/${items.length}`;
@@ -1329,20 +1334,110 @@ async function runLiveSync(force = false) {
   }
 }
 
-function bindEvents() {
-  // Main view tabs
-  $$('.tab-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      state.view = btn.dataset.view;
-      $$('.tab-btn').forEach((b) => { b.classList.toggle('active', b === btn); b.setAttribute('aria-selected', String(b === btn)); });
-      $$('.view').forEach((v) => v.classList.toggle('active', v.id === `view-${state.view}`));
-      if (state.view === 'ci' || state.view === 'video') loadDevPicks();
-    });
+const catalogDefaults = { query: '', cat: 'all', price: 'all', region: 'all', sort: 'hackathon' };
+const catalogSelects = { price: '#price-filter', region: '#region-filter', sort: '#sort-select' };
+
+function catalogParams() {
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries(catalogDefaults)) {
+    if (state[key] !== value) params.set(key, state[key]);
+  }
+  return params;
+}
+
+function setCatalogControls(params) {
+  const cats = $$('#cat-filters .chip');
+  const cat = params.get('cat');
+  state.cat = cats.some((btn) => btn.dataset.cat === cat) ? cat : catalogDefaults.cat;
+  for (const btn of cats) {
+    const active = btn.dataset.cat === state.cat;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
+  }
+  for (const [key, selector] of Object.entries(catalogSelects)) {
+    const select = $(selector);
+    const value = params.get(key);
+    select.value = state[key] = Array.from(select.options).some((opt) => opt.value === value) ? value : catalogDefaults[key];
+  }
+  $('#search-input').value = state.query = (params.get('query') ?? '').slice(0, 160);
+  if (['price', 'region', 'sort'].some((key) => state[key] !== catalogDefaults[key])) $('#catalog-filters').open = true;
+}
+
+function updateCatalog() {
+  const params = catalogParams();
+  history.replaceState(null, '', `#catalog${params.size ? `?${params}` : ''}`);
+  renderCatalog();
+}
+
+const viewPanels = new Map($$('.view').map((panel) => [panel.id.slice(5), panel]));
+const siteMenu = $('#site-menu');
+const needsCore = (view) => !['home', 'ci', 'video'].includes(view);
+
+function openRoute(focusHeading = false) {
+  if (location.hash === '#main-content') return;
+  const [path, query] = location.hash.slice(1).split('?', 2);
+  const view = viewPanels.has(path) ? path : 'home';
+  state.view = view;
+  siteMenu.open = false;
+  viewPanels.forEach((panel, key) => panel.classList.toggle('active', key === view));
+  $$('.primary-nav [data-view]').forEach((link) => {
+    if (link.dataset.view === view) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
   });
+  const heading = viewPanels.get(view).querySelector('[tabindex="-1"]');
+  document.title = view === 'home' ? 'metahaters — Kit para hackathons' : `${heading.textContent} · metahaters`;
+  $('#section-tools').hidden = view === 'home';
+
+  if (view === 'catalog') {
+    setCatalogControls(new URLSearchParams(query));
+    renderCatalog();
+  }
+  if (needsCore(view)) loadCore();
+  else {
+    $('#data-status').hidden = true;
+    if (view !== 'home') loadDevPicks();
+  }
+  if (focusHeading) {
+    heading.focus({ preventScroll: true });
+    window.scrollTo(0, 0);
+  }
+}
+
+function bindEvents() {
+  window.addEventListener('hashchange', () => openRoute(true));
+  document.addEventListener('click', (event) => {
+    if (siteMenu.open && !siteMenu.contains(event.target)) siteMenu.open = false;
+    const link = event.target.closest('a[href^="#"]');
+    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.hash === '#main-content') {
+      event.preventDefault();
+      $('#main-content').focus({ preventScroll: true });
+      $('#main-content').scrollIntoView();
+    } else if (link.hash === location.hash) {
+      event.preventDefault();
+      openRoute(true);
+    }
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && siteMenu.open) {
+      siteMenu.open = false;
+      siteMenu.querySelector('summary').focus();
+    }
+  });
+  $('#copy-section-link').onclick = () => copyText(location.href, 'Enlace de la sección copiado');
+  $('#brief-copy').onclick = () => copyText($('#brief-text').value, 'Brief copiado');
+  $('#data-retry').onclick = loadCore;
 
   // Search & sort
-  $('#search-input').addEventListener('input', (e) => { state.query = e.target.value; renderCatalog(); });
-  $('#sort-select').addEventListener('change', (e) => { state.sort = e.target.value; renderCatalog(); });
+  $('#search-input').addEventListener('input', (e) => { state.query = e.target.value; updateCatalog(); });
+  for (const [key, selector] of Object.entries(catalogSelects)) {
+    $(selector).addEventListener('change', (e) => { state[key] = e.target.value; updateCatalog(); });
+  }
+  $('#catalog-reset').onclick = () => {
+    setCatalogControls(new URLSearchParams());
+    updateCatalog();
+    $('#search-input').focus();
+  };
   $('#os-search-input').addEventListener('input', (e) => { state.osQuery = e.target.value; renderOS(); });
   $('#os-sort-select').addEventListener('change', (e) => { state.osSort = e.target.value; renderOS(); });
   $('#browser-sort-select').addEventListener('change', (e) => { state.browserSort = e.target.value; renderBrowsers(); });
@@ -1361,9 +1456,7 @@ function bindEvents() {
       cb();
     });
   };
-  bindChips('#cat-filters', 'cat', 'cat', renderCatalog);
-  bindChips('#price-filters', 'price', 'price', renderCatalog);
-  bindChips('#region-filters', 'region', 'region', renderCatalog);
+  bindChips('#cat-filters', 'cat', 'cat', updateCatalog);
   bindChips('#os-type-filters', 'ostype', 'osType', renderOS);
   bindChips('#os-family-filters', 'osfam', 'osFamily', renderOS);
   bindChips('#browser-plat-filters', 'bplat', 'browserPlat', renderBrowsers);
@@ -1404,9 +1497,12 @@ function bindEvents() {
   $('#warroom-checklist').addEventListener('change', (e) => {
     const chk = e.target.closest('[data-chk]');
     if (!chk) return;
-    const saved = JSON.parse(localStorage.getItem('metahaters_checklist_v1') || '{}');
-    saved[chk.dataset.chk] = chk.checked;
-    localStorage.setItem('metahaters_checklist_v1', JSON.stringify(saved));
+    state.checklist[chk.dataset.chk] = chk.checked;
+    try {
+      localStorage.setItem('metahaters_checklist_v1', JSON.stringify(state.checklist));
+    } catch {
+      toast('El navegador no pudo guardar el checklist');
+    }
     renderWarRoom();
   });
 
@@ -1548,7 +1644,7 @@ function bindEvents() {
     renderCatalog();
     $('#compare-modal').close();
   };
-  $('#live-sync-btn').onclick = () => runLiveSync(true);
+  $('#live-sync-btn').onclick = () => { if (coreReady) runLiveSync(true); };
 
   ['#detail-modal', '#compare-modal'].forEach((id) => {
     $(id).addEventListener('click', (e) => {
@@ -1557,23 +1653,15 @@ function bindEvents() {
   });
 }
 
-async function init() {
-  bindEvents();
+async function initCore() {
+  const getData = async (name) => {
+    const response = await fetch(`./data/${name}.json`);
+    if (!response.ok) throw new Error(`${name}: HTTP ${response.status}`);
+    return response.json();
+  };
   const [models, apis, languages, tools, osList, agents, comparisons, frameworks, apiOccasions, intel, osTuning, warroom, meta, liveStatic] = await Promise.all([
-    fetch('./data/models.json').then((r) => r.json()),
-    fetch('./data/apis.json').then((r) => r.json()),
-    fetch('./data/languages.json').then((r) => r.json()),
-    fetch('./data/tools.json').then((r) => r.json()),
-    fetch('./data/os.json').then((r) => r.json()),
-    fetch('./data/agents.json').then((r) => r.json()),
-    fetch('./data/comparisons.json').then((r) => r.json()),
-    fetch('./data/frameworks.json').then((r) => r.json()),
-    fetch('./data/api-occasions.json').then((r) => r.json()),
-    fetch('./data/intel.json').then((r) => r.json()),
-    fetch('./data/os-tuning.json').then((r) => r.json()),
-    fetch('./data/warroom.json').then((r) => r.json()),
-    fetch('./data/meta.json').then((r) => r.json()),
-    fetch('./data/live-models.json').then((r) => r.ok ? r.json() : []).catch(() => [])
+    ...['models', 'apis', 'languages', 'tools', 'os', 'agents', 'comparisons', 'frameworks', 'api-occasions', 'intel', 'os-tuning', 'warroom', 'meta'].map(getData),
+    getData('live-models').catch(() => [])
   ]);
 
   state.items = [...models, ...apis, ...languages, ...tools];
@@ -1587,6 +1675,11 @@ async function init() {
   state.warroom = warroom;
   state.meta = meta;
   state.liveModels = liveStatic;
+  try {
+    state.checklist = JSON.parse(localStorage.getItem('metahaters_checklist_v1') || '{}') ?? {};
+  } catch {
+    state.checklist = {};
+  }
 
   renderKPIs();
   renderCatalog();
@@ -1610,12 +1703,32 @@ async function init() {
     $('#fx-status').textContent = state.intel.fallbackFx.updated;
   });
 
-  // Auto-sync in background if cache is missing or expired
-  if (!getCachedLiveSync()) {
-    runLiveSync(false);
-  } else {
-    runLiveSync(false);
-  }
+  runLiveSync(false);
 }
 
-init();
+let coreReady = false;
+let coreRequest;
+function loadCore() {
+  const status = $('#data-status');
+  if (coreReady) {
+    status.hidden = true;
+    return;
+  }
+  status.hidden = false;
+  if (coreRequest) return;
+  $('#data-message').textContent = 'Cargando recursos…';
+  $('#data-retry').hidden = true;
+  coreRequest = initCore()
+    .then(() => {
+      coreReady = true;
+      status.hidden = true;
+    })
+    .catch(() => {
+      coreRequest = null;
+      $('#data-message').textContent = 'No se pudieron cargar los recursos. Revisa la conexión y vuelve a intentar.';
+      $('#data-retry').hidden = false;
+    });
+}
+
+bindEvents();
+openRoute();

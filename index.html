@@ -3,130 +3,216 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>metahaters — Arsenal global para ganar hackathons</title>
-  <meta name="description" content="Catálogo ultraligero y autoactualizable de modelos AI, APIs, lenguajes, herramientas, estadísticas y configuraciones de agentes/sub-agentes para ganar hackathons." />
+  <title>metahaters — Kit para hackathons</title>
+  <meta name="description" content="Encuentra herramientas, compara precios, prepara un plan B si se acaban los créditos y organiza la demo de tu hackathon." />
   <link rel="icon" type="image/png" href="./assets/metahaters-logo.png" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <div class="brand">
-        <img class="brand-logo" src="./assets/metahaters-logo.png" alt="metahaters logo" width="40" height="40" />
+      <a class="brand" href="#home" aria-label="metahaters — Inicio">
+        <img class="brand-logo" src="./assets/metahaters-logo.png" alt="" width="40" height="40" />
         <div>
-          <h1 class="brand-name">meta<span>haters</span></h1>
-          <p class="brand-sub">Hackathon Meta Index · AI · APIs · OS &amp; Distros</p>
+          <span class="brand-name">meta<span>haters</span></span>
+          <p class="brand-sub">Kit para hackathons</p>
         </div>
-      </div>
-
-      <nav class="main-tabs" role="tablist" aria-label="Secciones principales">
-        <button class="tab-btn active" data-view="catalog" role="tab" aria-selected="true">Catálogo</button>
-        <button class="tab-btn" data-view="frameworks" role="tab" aria-selected="false">Frameworks &amp; APIs</button>
-        <button class="tab-btn" data-view="os" role="tab" aria-selected="false">Sistemas operativos</button>
-        <button class="tab-btn" id="tab-browsers" data-view="browsers" role="tab" aria-controls="view-browsers" aria-selected="false">Navegadores web</button>
-        <button class="tab-btn" id="tab-ci" data-view="ci" role="tab" aria-controls="view-ci" aria-selected="false">CI/CD</button>
-        <button class="tab-btn" id="tab-video" data-view="video" role="tab" aria-controls="view-video" aria-selected="false">IA para video</button>
-        <button class="tab-btn" data-view="stats" role="tab" aria-selected="false">Estadísticas &amp; Radar</button>
-        <button class="tab-btn" data-view="agents" role="tab" aria-selected="false">Agentes &amp; A2A</button>
-        <button class="tab-btn" data-view="intel" role="tab" aria-selected="false">Intel Global</button>
-        <button class="tab-btn" data-view="warroom" role="tab" aria-selected="false">War Room &amp; News</button>
+      </a>
+      <nav class="primary-nav" aria-label="Secciones principales">
+        <a class="nav-shortcut" href="#home" data-view="home" aria-current="page">Inicio</a>
+        <a class="nav-shortcut" href="#catalog" data-view="catalog">Catálogo</a>
+        <a class="nav-shortcut" href="#warroom" data-view="warroom">War Room</a>
+        <details id="site-menu" class="site-menu">
+          <summary>Secciones</summary>
+          <div class="menu-panel">
+            <div>
+              <p class="eyebrow">Construir</p>
+              <a href="#catalog" data-view="catalog">Catálogo</a>
+              <a href="#frameworks" data-view="frameworks">Frameworks y APIs</a>
+              <a href="#agents" data-view="agents">Agentes</a>
+              <a href="#ci" data-view="ci">CI/CD</a>
+            </div>
+            <div>
+              <p class="eyebrow">Comparar</p>
+              <a href="#stats" data-view="stats">Rankings y radar</a>
+              <a href="#os" data-view="os">Sistemas operativos</a>
+              <a href="#browsers" data-view="browsers">Navegadores web</a>
+              <a href="#video" data-view="video">IA para video</a>
+            </div>
+            <div>
+              <p class="eyebrow">Coordinar</p>
+              <a href="#warroom" data-view="warroom">War Room</a>
+              <a href="#intel" data-view="intel">Intel global</a>
+            </div>
+          </div>
+        </details>
       </nav>
-
-      <div class="topbar-actions">
-        <button id="compare-open-btn" class="btn btn-ghost" title="Abrir comparador">
-          Comparar <span id="compare-count" class="pill">0</span>
-        </button>
-        <button id="live-sync-btn" class="btn btn-accent" title="Sincronizar precios y modelos en vivo desde OpenRouter">
-          <span class="dot" id="sync-dot"></span>
-          <span id="sync-label">Sync en vivo</span>
-        </button>
-      </div>
     </div>
   </header>
 
-  <main class="wrap">
-    <!-- Hero KPIs -->
-    <section class="hero-strip" aria-label="Resumen del catálogo">
-      <div class="kpi">
-        <span class="kpi-label">Recursos curados</span>
-        <strong id="kpi-total">—</strong>
-        <small id="kpi-breakdown">Cargando...</small>
+  <main id="main-content" class="wrap" tabindex="-1">
+    <section id="view-home" class="view landing active" aria-labelledby="home-title">
+      <div class="landing-hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="hero-dot"></span> Manual de campo para hackathons</p>
+          <h1 id="home-title" tabindex="-1">Menos vueltas.<br><span>Más demo.</span></h1>
+          <p class="hero-lead">Encuentra el stack para tu idea, un plan B cuando se acaban los créditos y lo necesario para llegar al pitch.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#catalog">Explorar catálogo <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-ghost" href="#warroom">Organizar la entrega <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="hero-emblem" aria-hidden="true">
+          <span class="emblem-label">METAHATERS / M·D·E·L</span>
+          <img src="./assets/metahaters-logo.png" alt="" width="256" height="256" />
+          <span class="emblem-label">Hackathon kit · 01</span>
+        </div>
       </div>
-      <div class="kpi">
-        <span class="kpi-label">Modelos en vivo (OpenRouter)</span>
-        <strong id="kpi-live">—</strong>
-        <small id="kpi-updated">Auto-sync cada 6h</small>
-      </div>
-      <div class="kpi">
-        <span class="kpi-label">Top 🇺🇸 EE.UU. vs 🇨🇳 China</span>
-        <strong id="kpi-geo">—</strong>
-        <small>Promedio Hackathon Score</small>
-      </div>
-      <div class="kpi">
-        <span class="kpi-label">Opciones Gratis / Freemium</span>
-        <strong id="kpi-free">—</strong>
-        <small>Listas para MVP $0</small>
-      </div>
+
+      <section class="landing-block" aria-labelledby="quick-title">
+        <p class="eyebrow">01 / Atajos</p>
+        <h2 id="quick-title">¿Qué necesitas ahora?</h2>
+        <div class="quick-grid">
+          <a class="quick-card" href="#catalog?price=budget">
+            <span class="quick-code">01 / PRESUPUESTO</span>
+            <strong>Me quedé sin créditos</strong>
+            <span>Abre el catálogo filtrado por gratis y freemium.</span>
+            <span class="quick-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="quick-card" href="#frameworks">
+            <span class="quick-code">02 / STACK</span>
+            <strong>Necesito un stack</strong>
+            <span>Busca frameworks y compara APIs para tu caso de uso.</span>
+            <span class="quick-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="quick-card" href="#warroom">
+            <span class="quick-code">03 / ENTREGA</span>
+            <strong>La demo es hoy</strong>
+            <span>Abre el brief, el cronómetro y el checklist de entrega.</span>
+            <span class="quick-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="landing-block" aria-labelledby="directory-title">
+        <p class="eyebrow">02 / Directorio</p>
+        <h2 id="directory-title">Todas las secciones</h2>
+        <div class="directory-grid">
+          <article class="directory-group">
+            <h3>Construir</h3>
+            <a href="#catalog"><strong>Catálogo</strong><span>Modelos, APIs, lenguajes y herramientas.</span></a>
+            <a href="#frameworks"><strong>Frameworks y APIs</strong><span>Qué usar para mapas, pagos, datos y más.</span></a>
+            <a href="#agents"><strong>Agentes</strong><span>Roles, configuraciones y scripts descargables.</span></a>
+            <a href="#ci"><strong>CI/CD</strong><span>Costos de runners, caché y guías.</span></a>
+          </article>
+          <article class="directory-group">
+            <h3>Comparar</h3>
+            <a href="#stats"><strong>Rankings y radar</strong><span>Modelos e IDEs por tarea, precio y disponibilidad.</span></a>
+            <a href="#os"><strong>Sistemas operativos</strong><span>Distros, consumo y guías de optimización.</span></a>
+            <a href="#browsers"><strong>Navegadores web</strong><span>Escritorio, Android e iOS; privacidad y RAM.</span></a>
+            <a href="#video"><strong>IA para video</strong><span>Modelos para trailers y demos, con tarifas y ranking.</span></a>
+          </article>
+          <article class="directory-group">
+            <h3>Coordinar</h3>
+            <a href="#warroom"><strong>War Room</strong><span>Brief, checklist, ensayo de pitch y noticias dev.</span></a>
+            <a href="#intel"><strong>Intel global</strong><span>Divisas, empleo tech y estándares de Web3.</span></a>
+          </article>
+        </div>
+      </section>
+      <noscript><p class="panel">Activa JavaScript para abrir el catálogo y las herramientas.</p></noscript>
     </section>
 
+    <div id="section-tools" class="section-tools" hidden>
+      <a href="#home">← Inicio</a>
+      <button id="copy-section-link" class="btn btn-sm btn-ghost" type="button">Copiar enlace</button>
+    </div>
+    <div id="data-status" class="panel data-status" hidden>
+      <p id="data-message" role="status" class="muted"></p>
+      <button id="data-retry" class="btn btn-sm btn-accent" type="button" hidden>Reintentar</button>
+    </div>
+
     <!-- VIEW 1: CATALOG -->
-    <section id="view-catalog" class="view active">
+    <section id="view-catalog" class="view" aria-labelledby="catalog-title">
+      <header class="section-heading">
+        <p class="eyebrow">Construir / Recursos</p>
+        <h2 id="catalog-title" tabindex="-1">Catálogo</h2>
+        <p>Encuentra modelos de IA, APIs, lenguajes y herramientas. Abre una ficha para ver cómo empezar o selecciona hasta cuatro recursos para compararlos.</p>
+      </header>
       <div class="controls">
         <div class="search-box">
-          <input id="search-input" type="search" placeholder="Buscar modelo, API, lenguaje, herramienta, país (ej: deepseek, gratis, voz, china, rag)..." autocomplete="off" />
+          <input id="search-input" type="search" aria-label="Buscar en el catálogo" placeholder="Buscar, por ejemplo: DeepSeek, mapas o Python" autocomplete="off" maxlength="160" />
         </div>
 
         <div class="filter-row">
-          <div class="chip-group" id="cat-filters" aria-label="Categoría">
-            <button class="chip active" data-cat="all">Todo</button>
-            <button class="chip" data-cat="models">Modelos AI</button>
-            <button class="chip" data-cat="apis">APIs</button>
-            <button class="chip" data-cat="languages">Lenguajes</button>
-            <button class="chip" data-cat="tools">Herramientas</button>
+          <div class="chip-group" id="cat-filters" role="group" aria-label="Categoría">
+            <button class="chip active" data-cat="all" aria-pressed="true">Todo</button>
+            <button class="chip" data-cat="models" aria-pressed="false">Modelos de IA</button>
+            <button class="chip" data-cat="apis" aria-pressed="false">APIs</button>
+            <button class="chip" data-cat="languages" aria-pressed="false">Lenguajes</button>
+            <button class="chip" data-cat="tools" aria-pressed="false">Herramientas</button>
           </div>
-
-          <div class="chip-group" id="price-filters" aria-label="Precio">
-            <button class="chip active" data-price="all">Todos $</button>
-            <button class="chip" data-price="gratis">Gratis</button>
-            <button class="chip" data-price="freemium">Freemium</button>
-            <button class="chip" data-price="pago">Pago</button>
-          </div>
-
-          <div class="chip-group" id="region-filters" aria-label="Región">
-            <button class="chip active" data-region="all">🌍 Todos</button>
-            <button class="chip" data-region="USA">🇺🇸 EE.UU.</button>
-            <button class="chip" data-region="China">🇨🇳 China</button>
-            <button class="chip" data-region="Europa">🇪🇺 Europa</button>
-            <button class="chip" data-region="Latam">🌎 Latam</button>
-            <button class="chip" data-region="Asia-Pac">🌏 Asia-Pac</button>
-          </div>
-
-          <label class="sort-wrap">
-            <span>Ordenar:</span>
-            <select id="sort-select">
-              <option value="hackathon">Hackathon Score</option>
-              <option value="value">Mejor Valor / Gratis</option>
-              <option value="speed">Velocidad</option>
-              <option value="quality">Calidad / Coding</option>
-              <option value="stars">GitHub Stars</option>
-            </select>
-          </label>
+          <button id="compare-open-btn" class="btn btn-ghost" type="button">
+            Comparar <span id="compare-count" class="pill">0</span>
+          </button>
         </div>
+
+        <details id="catalog-filters" class="catalog-filters">
+          <summary>Precio, región y orden</summary>
+          <div class="filter-row">
+            <label class="sort-wrap">
+              <span>Precio:</span>
+              <select id="price-filter">
+                <option value="all">Todos los precios</option>
+                <option value="budget">Gratis y freemium</option>
+                <option value="gratis">Solo gratis</option>
+                <option value="freemium">Solo freemium</option>
+                <option value="pago">Solo pago</option>
+              </select>
+            </label>
+            <label class="sort-wrap">
+              <span>Región:</span>
+              <select id="region-filter">
+                <option value="all">Todas las regiones</option>
+                <option value="USA">EE. UU.</option>
+                <option value="China">China</option>
+                <option value="Europa">Europa</option>
+                <option value="Latam">Latinoamérica</option>
+                <option value="Asia-Pac">Asia-Pacífico</option>
+              </select>
+            </label>
+            <label class="sort-wrap">
+              <span>Orden:</span>
+              <select id="sort-select">
+                <option value="hackathon">Puntaje hackathon</option>
+                <option value="value">Relación valor / costo</option>
+                <option value="speed">Velocidad</option>
+                <option value="quality">Calidad / código</option>
+                <option value="stars">Estrellas en GitHub</option>
+              </select>
+            </label>
+          </div>
+        </details>
       </div>
 
       <div class="results-bar">
-        <span id="results-count">0 resultados</span>
-        <span class="hint">Clic en cualquier tarjeta para ver configuración ganadora y prompt de agente · Usa "+ Comparar" para enfrentar hasta 4.</span>
+        <span id="results-count" role="status">Cargando recursos…</span>
+        <button id="catalog-reset" class="btn btn-sm btn-ghost" type="button" hidden>Limpiar filtros</button>
       </div>
 
       <div id="catalog-grid" class="grid"></div>
     </section>
 
     <!-- VIEW 1B: OS & DISTROS -->
-    <section id="view-os" class="view">
+    <section id="view-os" class="view" aria-labelledby="os-title">
+      <header class="section-heading">
+        <p class="eyebrow">Comparar / Tu equipo</p>
+        <h2 id="os-title" tabindex="-1">Sistemas operativos</h2>
+        <p>Compara distros y sistemas por consumo estimado de RAM, procesos y arranque. Filtra por gaming o privacidad y abre las guías de instalación y ajustes.</p>
+      </header>
       <div class="controls">
         <div class="search-box">
-          <input id="os-search-input" type="search" placeholder="Buscar sistema operativo o distro (ej: arch, alpine, windows, macos, bsd, procesos, nvidia, ligero)..." autocomplete="off" />
+          <input id="os-search-input" type="search" aria-label="Buscar sistema operativo o distribución" placeholder="Buscar sistema o distro, por ejemplo: Bazzite" autocomplete="off" />
         </div>
         <div class="filter-row">
           <div class="chip-group" id="os-type-filters">
@@ -183,12 +269,13 @@
       </article>
     </section>
 
-    <section id="view-browsers" class="view" role="tabpanel" aria-labelledby="tab-browsers">
+    <section id="view-browsers" class="view" aria-labelledby="browsers-title">
+      <header class="section-heading">
+        <p class="eyebrow">Comparar / Tu equipo</p>
+        <h2 id="browsers-title" tabindex="-1">Navegadores web</h2>
+        <p>Encuentra navegadores para escritorio, Android o iOS. Ordena por privacidad o menor RAM estimada y abre la guía para tu dispositivo.</p>
+      </header>
       <div class="controls">
-        <div>
-          <h2>Navegadores web</h2>
-          <p class="muted">Compara opciones para escritorio y smartphones, con enlaces oficiales y guías de instalación.</p>
-        </div>
         <div class="filter-row">
           <div class="chip-group" id="browser-plat-filters" role="group" aria-label="Filtrar por dispositivo">
             <button class="chip active" data-bplat="all" aria-pressed="true">Todos</button>
@@ -210,7 +297,12 @@
     </section>
 
     <!-- VIEW: FRAMEWORKS POR ÁREA Y LENGUAJE + APIs POR OCASIÓN -->
-    <section id="view-frameworks" class="view">
+    <section id="view-frameworks" class="view" aria-labelledby="frameworks-title">
+      <header class="section-heading">
+        <p class="eyebrow">Construir / Elegir el stack</p>
+        <h2 id="frameworks-title" tabindex="-1">Frameworks y APIs</h2>
+        <p>Parte de lo que quieres construir: encuentra APIs para casos como mapas, pagos o autenticación, y elige frameworks por área o lenguaje.</p>
+      </header>
       <article class="panel" style="margin-bottom:20px;">
         <div class="panel-head">
           <div>
@@ -243,7 +335,12 @@
     </section>
 
     <!-- VIEW: INTEL GLOBAL (EMPLEO, DIVISAS EN VIVO, CRYPTO) -->
-    <section id="view-intel" class="view">
+    <section id="view-intel" class="view" aria-labelledby="intel-title">
+      <header class="section-heading">
+        <p class="eyebrow">Coordinar / Referencias</p>
+        <h2 id="intel-title" tabindex="-1">Intel global</h2>
+        <p>Consulta tipos de cambio para presupuestar, referencias de idiomas y lenguajes para empleo tech, y estándares para prototipos de Web3.</p>
+      </header>
       <article class="panel">
         <div class="panel-head">
           <div>
@@ -253,10 +350,10 @@
           <span class="tag tag-gratis">Auto-Sync FX</span>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px;">
-          <input id="fx-amount" type="number" value="100" min="0" step="any" style="width:120px;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px;font-family:var(--mono);" />
-          <select id="fx-from" style="background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px;"></select>
+          <input id="fx-amount" type="number" aria-label="Importe" value="100" min="0" step="any" style="width:120px;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px;font-family:var(--mono);" />
+          <select id="fx-from" aria-label="Moneda de origen" style="background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px;"></select>
           <span class="muted">→</span>
-          <select id="fx-to" style="background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px;"></select>
+          <select id="fx-to" aria-label="Moneda de destino" style="background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px;"></select>
           <strong id="fx-result" style="font-family:var(--mono);font-size:1.1rem;color:var(--accent-strong);padding-left:6px;">—</strong>
         </div>
         <div class="table-wrap">
@@ -299,8 +396,28 @@
     </section>
 
     <!-- VIEW: WAR ROOM & NOTICIAS DEV EN VIVO -->
-    <section id="view-warroom" class="view">
-      <div class="stats-grid">
+    <section id="view-warroom" class="view" aria-labelledby="warroom-title">
+      <header class="section-heading">
+        <p class="eyebrow">Coordinar / Entrega</p>
+        <h2 id="warroom-title" tabindex="-1">War Room</h2>
+        <p>Define qué van a entregar, quién se encarga de cada parte y cómo van a mostrarlo. Usa el checklist, ensaya el pitch o consulta las noticias dev.</p>
+      </header>
+      <article class="panel team-brief">
+        <div>
+          <h3>Brief para el grupo</h3>
+          <p class="muted" id="brief-help">Completa lo esencial y envíalo al grupo de WhatsApp. El texto se edita en esta pestaña y no se guarda al recargar.</p>
+          <button id="brief-copy" class="btn btn-accent" type="button">Copiar brief</button>
+        </div>
+        <textarea id="brief-text" rows="8" aria-label="Brief editable del equipo" aria-describedby="brief-help" spellcheck="false">HACKATHON — [Nombre]
+Entrega y hora límite:
+Problema y a quién ayuda:
+MVP: qué sí o sí tiene que funcionar
+Fuera de alcance:
+Responsables: producto, frontend, backend y demo
+Links: repo, demo y formulario de entrega
+Plan B si la demo falla:</textarea>
+      </article>
+      <div class="stats-grid mt">
         <article class="panel">
           <div class="panel-head">
             <div>
@@ -387,7 +504,12 @@
       </article>
     </section>
 
-    <section id="view-ci" class="view" role="tabpanel" aria-labelledby="tab-ci">
+    <section id="view-ci" class="view" aria-labelledby="ci-title">
+      <header class="section-heading">
+        <p class="eyebrow">Construir / Automatización</p>
+        <h2 id="ci-title" tabindex="-1">CI/CD</h2>
+        <p>Compara cuánto cuesta ejecutar tests, compilaciones y despliegues de GitHub Actions. Revisa minutos incluidos, requisitos de cada proveedor y la skill oficial de Jog.</p>
+      </header>
       <article class="panel">
         <div class="panel-head">
           <div>
@@ -410,7 +532,12 @@
       </article>
     </section>
 
-    <section id="view-video" class="view" role="tabpanel" aria-labelledby="tab-video">
+    <section id="view-video" class="view" aria-labelledby="video-title">
+      <header class="section-heading">
+        <p class="eyebrow">Comparar / Contenido para la demo</p>
+        <h2 id="video-title" tabindex="-1">IA para video</h2>
+        <p>Elige un generador para un tráiler o clip de demo. Ordena por ranking o costo de referencia y revisa qué opciones tienen prueba gratis en la web.</p>
+      </header>
       <article class="panel">
         <div class="panel-head">
           <div>
@@ -439,7 +566,38 @@
     </section>
 
     <!-- VIEW 2: STATS & LIVE RADAR -->
-    <section id="view-stats" class="view">
+    <section id="view-stats" class="view" aria-labelledby="stats-title">
+      <header class="section-heading">
+        <p class="eyebrow">Comparar / Modelos y editores</p>
+        <h2 id="stats-title" tabindex="-1">Rankings y radar</h2>
+        <p>Compara modelos e IDEs según tu tarea. Los puntajes curados son orientativos; el radar de OpenRouter muestra disponibilidad y precios de ese proveedor.</p>
+      </header>
+      <button id="live-sync-btn" class="btn btn-accent" type="button" title="Sincronizar precios y modelos desde OpenRouter">
+        <span class="dot" id="sync-dot"></span>
+        <span id="sync-label">Actualizar radar</span>
+      </button>
+      <div class="hero-strip" aria-label="Resumen del catálogo">
+        <div class="kpi">
+          <span class="kpi-label">Recursos curados</span>
+          <strong id="kpi-total">—</strong>
+          <small id="kpi-breakdown">Cargando…</small>
+        </div>
+        <div class="kpi">
+          <span class="kpi-label">Modelos en OpenRouter</span>
+          <strong id="kpi-live">—</strong>
+          <small id="kpi-updated">Caché de 6 horas</small>
+        </div>
+        <div class="kpi">
+          <span class="kpi-label">EE. UU. vs China</span>
+          <strong id="kpi-geo">—</strong>
+          <small>Puntaje curado promedio</small>
+        </div>
+        <div class="kpi">
+          <span class="kpi-label">Gratis o freemium</span>
+          <strong id="kpi-free">—</strong>
+          <small>Opciones con acceso sin pago</small>
+        </div>
+      </div>
       <article class="panel" style="margin-bottom:18px;">
         <div class="panel-head">
           <div>
@@ -571,11 +729,16 @@
     </section>
 
     <!-- VIEW 3: AGENTS, SUB-AGENTS & WINNING STACKS -->
-    <section id="view-agents" class="view">
+    <section id="view-agents" class="view" aria-labelledby="agents-title">
+      <header class="section-heading">
+        <p class="eyebrow">Construir / Automatización con IA</p>
+        <h2 id="agents-title" tabindex="-1">Agentes y subagentes</h2>
+        <p>Descarga roles con instrucciones para planificar, programar y revisar el MVP. También hay configuraciones y ejemplos para coordinar varios agentes.</p>
+      </header>
       <div class="agents-toolbar">
         <div>
-          <h2 style="margin:0;">Agentes &amp; Sub-Agentes Descargables (OpenCode / NVIDIA NIM / Claude / Cursor)</h2>
-          <p class="muted">Incluye el pack <strong>Frontier Booster</strong> para que modelos gratuitos o chicos rindan casi como Claude Sonnet / GPT-5. Descarga cada <code>.md</code> en 1 clic o el instalador completo.</p>
+          <h3 style="margin:0;">Roles descargables</h3>
+          <p class="muted">Empieza con un rol en Markdown o descarga el pack completo. Revisa las instrucciones antes de correr un script.</p>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
           <div class="chip-group" id="agent-tier-filters">
@@ -610,8 +773,8 @@
 
   <footer class="footer">
     <div class="wrap footer-inner">
-      <span><strong>metahaters</strong> · Zero-framework · Ultra ligero · Auto-actualizable</span>
-      <span id="footer-meta">Sincronizando fuentes...</span>
+      <span><strong>metahaters</strong> · Kit para hackathons</span>
+      <span id="footer-meta">Catálogo estático y radar en vivo</span>
     </div>
   </footer>
 
