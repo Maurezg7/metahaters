@@ -83,8 +83,8 @@
     "url": "https://docs.anthropic.com/en/docs/claude-code",
     "logo": "https://cdn.simpleicons.org/anthropic/F5F5F7",
     "github": {
-      "stars": 157224,
-      "pushedAt": "2026-11-26",
+      "stars": 157297,
+      "pushedAt": "2026-11-27",
       "license": null
     }
   },
@@ -130,7 +130,7 @@
     "url": "https://github.com/google-gemini/gemini-cli",
     "logo": "https://cdn.simpleicons.org/googlegemini/8E75B2",
     "github": {
-      "stars": 109197,
+      "stars": 109237,
       "pushedAt": "2026-11-27",
       "license": "Apache-2.0"
     }
@@ -261,7 +261,7 @@
     "url": "https://bolt.new",
     "logo": "https://cdn.simpleicons.org/stackblitz/1389FD",
     "github": {
-      "stars": 16612,
+      "stars": 16611,
       "pushedAt": "2024-12-17",
       "license": "MIT"
     }
@@ -350,8 +350,8 @@
     "url": "https://vercel.com",
     "logo": "https://cdn.simpleicons.org/vercel/F5F5F7",
     "github": {
-      "stars": 28239,
-      "pushedAt": "2026-11-26",
+      "stars": 28252,
+      "pushedAt": "2026-11-27",
       "license": "NOASSERTION"
     }
   },
@@ -397,7 +397,7 @@
     "url": "https://workers.cloudflare.com",
     "logo": "https://cdn.simpleicons.org/cloudflare/F38020",
     "github": {
-      "stars": 4752,
+      "stars": 4753,
       "pushedAt": "2026-11-27",
       "license": "Apache-2.0"
     }
@@ -444,7 +444,7 @@
     "url": "https://dify.ai",
     "logo": "https://cdn.simpleicons.org/dify/1677FF",
     "github": {
-      "stars": 161961,
+      "stars": 162018,
       "pushedAt": "2026-11-27",
       "license": "NOASSERTION"
     }
@@ -491,7 +491,7 @@
     "url": "https://n8n.io",
     "logo": "https://cdn.simpleicons.org/n8n/EA4B71",
     "github": {
-      "stars": 212322,
+      "stars": 212412,
       "pushedAt": "2026-11-27",
       "license": "NOASSERTION"
     }
@@ -538,7 +538,7 @@
     "url": "https://langchain-ai.github.io/langgraph",
     "logo": "https://cdn.simpleicons.org/langchain/4ADE80",
     "github": {
-      "stars": 45482,
+      "stars": 45507,
       "pushedAt": "2026-11-26",
       "license": "MIT"
     }
@@ -585,7 +585,7 @@
     "url": "https://www.crewai.com",
     "logo": "https://cdn.simpleicons.org/crewai/FF5A50",
     "github": {
-      "stars": 61308,
+      "stars": 61328,
       "pushedAt": "2026-11-26",
       "license": "MIT"
     }
@@ -632,7 +632,7 @@
     "url": "https://mastra.ai",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%23F5F5F7%22%3EMS%3C%2Ftext%3E%3C%2Fsvg%3E",
     "github": {
-      "stars": 29843,
+      "stars": 29858,
       "pushedAt": "2026-11-27",
       "license": "NOASSERTION"
     }
@@ -679,8 +679,8 @@
     "url": "https://github.com/modelscope/agentscope",
     "logo": "https://cdn.simpleicons.org/alibabacloud/FF6A00",
     "github": {
-      "stars": 36777,
-      "pushedAt": "2026-11-26",
+      "stars": 36815,
+      "pushedAt": "2026-11-27",
       "license": "Apache-2.0"
     }
   },
@@ -726,8 +726,8 @@
     "url": "https://ollama.com",
     "logo": "https://cdn.simpleicons.org/ollama/F5F5F7",
     "github": {
-      "stars": 188244,
-      "pushedAt": "2026-11-26",
+      "stars": 188308,
+      "pushedAt": "2026-11-27",
       "license": "MIT"
     }
   },
@@ -773,8 +773,8 @@
     "url": "https://modelcontextprotocol.io",
     "logo": "https://cdn.simpleicons.org/modelcontextprotocol/F5F5F7",
     "github": {
-      "stars": 92281,
-      "pushedAt": "2026-11-25",
+      "stars": 92302,
+      "pushedAt": "2026-11-27",
       "license": "NOASSERTION"
     }
   },
@@ -863,8 +863,8 @@
     "url": "https://opencode.ai",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%234ADE80%22%3EOC%3C%2Ftext%3E%3C%2Fsvg%3E",
     "github": {
-      "stars": 229418,
-      "pushedAt": "2026-11-26",
+      "stars": 229589,
+      "pushedAt": "2026-11-27",
       "license": "MIT"
     }
   },
@@ -952,7 +952,7 @@
     "url": "https://cline.bot",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%2338BDF8%22%3ECL%3C%2Ftext%3E%3C%2Fsvg%3E",
     "github": {
-      "stars": 71928,
+      "stars": 71949,
       "pushedAt": "2026-11-26",
       "license": "Apache-2.0"
     }
@@ -999,7 +999,7 @@
     "url": "https://aider.chat",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%23A78BFA%22%3EAI%3C%2Ftext%3E%3C%2Fsvg%3E",
     "github": {
-      "stars": 50276,
+      "stars": 50285,
       "pushedAt": "2026-05-22",
       "license": "Apache-2.0"
     }
@@ -1046,7 +1046,7 @@
     "url": "https://github.com/openai/codex",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%23FFB21E%22%3EOP%3C%2Ftext%3E%3C%2Fsvg%3E",
     "github": {
-      "stars": 136583,
+      "stars": 136665,
       "pushedAt": "2026-11-27",
       "license": "Apache-2.0"
     }
@@ -1217,7 +1217,7 @@
     "url": "https://zed.dev",
     "logo": "https://cdn.simpleicons.org/zedindustries/084CCF",
     "github": {
-      "stars": 95804,
+      "stars": 95838,
       "pushedAt": "2026-11-27",
       "license": "NOASSERTION"
     }
@@ -1263,7 +1263,7 @@
     "url": "https://all-hands.dev",
     "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23121215%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2225%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-monospace%2Cmonospace%22%20font-weight%3D%22800%22%20font-size%3D%2214%22%20fill%3D%22%23FFB21E%22%3EOH%3C%2Ftext%3E%3C%2Fsvg%3E",
     "github": {
-      "stars": 94422,
+      "stars": 94455,
       "pushedAt": "2026-11-27",
       "license": "MIT"
     }

@@ -267,7 +267,7 @@
     "agentTip": "Conecta el Supabase MCP server a tu agente para que cree tablas, RLS y queries automáticamente.",
     "url": "https://supabase.com",
     "github": {
-      "stars": 115563,
+      "stars": 115613,
       "pushedAt": "2026-11-27",
       "license": "Apache-2.0"
     },
@@ -316,7 +316,7 @@
     "agentTip": "Si superas los 500MB gratis de Supabase en una hackathon de datos masivos, TiDB Serverless te da 25GB gratis.",
     "url": "https://tidbcloud.com",
     "github": {
-      "stars": 40779,
+      "stars": 40782,
       "pushedAt": "2026-11-27",
       "license": "Apache-2.0"
     },
@@ -365,7 +365,7 @@
     "agentTip": "Usa DB branching antes de dejar que un agente corra migraciones destructivas.",
     "url": "https://neon.tech",
     "github": {
-      "stars": 23413,
+      "stars": 23416,
       "pushedAt": "2026-08-31",
       "license": "Apache-2.0"
     },
@@ -414,8 +414,8 @@
     "agentTip": "Cachea las respuestas de tu demo en Upstash para que los clics repetidos de los jueces carguen en 20ms.",
     "url": "https://upstash.com",
     "github": {
-      "stars": 987,
-      "pushedAt": "2026-11-26",
+      "stars": 988,
+      "pushedAt": "2026-11-27",
       "license": "MIT"
     },
     "logo": "https://cdn.simpleicons.org/upstash/00E9A3"
@@ -463,7 +463,7 @@
     "agentTip": "Conecta Tavily como herramienta #1 de cualquier agente investigador o fact-checker.",
     "url": "https://tavily.com",
     "github": {
-      "stars": 1434,
+      "stars": 1435,
       "pushedAt": "2026-10-26",
       "license": "MIT"
     },
@@ -512,7 +512,7 @@
     "agentTip": "Si solo necesitas leer una URL rápida gratis sin límite de cuenta, usa `https://r.jina.ai/TU_URL` como alternativa $0.",
     "url": "https://firecrawl.dev",
     "github": {
-      "stars": 210970,
+      "stars": 211458,
       "pushedAt": "2026-11-27",
       "license": "AGPL-3.0"
     },
@@ -561,7 +561,7 @@
     "agentTip": "El truco más rápido de hackathon para alimentar agentes con URLs en vivo.",
     "url": "https://jina.ai/reader",
     "github": {
-      "stars": 12283,
+      "stars": 12285,
       "pushedAt": "2026-05-22",
       "license": "Apache-2.0"
     },
@@ -659,7 +659,7 @@
     "agentTip": "Usa Stripe Agent Toolkit para que tu agente genere links de cobro autónomos en la demo.",
     "url": "https://stripe.com/docs",
     "github": {
-      "stars": 4580,
+      "stars": 4582,
       "pushedAt": "2026-11-26",
       "license": "MIT"
     },
@@ -708,7 +708,7 @@
     "agentTip": "Perfecta como fuente de datos reales en vivo para demos de impacto ambiental o agro.",
     "url": "https://open-meteo.com",
     "github": {
-      "stars": 6732,
+      "stars": 6734,
       "pushedAt": "2026-11-26",
       "license": "AGPL-3.0"
     },
@@ -856,7 +856,7 @@
     "url": "https://resend.com",
     "github": {
       "stars": 986,
-      "pushedAt": "2026-11-26",
+      "pushedAt": "2026-11-27",
       "license": "MIT"
     },
     "logo": "https://cdn.simpleicons.org/resend/F5F5F7"
@@ -1039,8 +1039,8 @@
     "agentTip": "Despliega la demo en un Space gratis con Gradio.",
     "url": "https://huggingface.co/docs/inference-providers",
     "github": {
-      "stars": 2617,
-      "pushedAt": "2026-11-26",
+      "stars": 2616,
+      "pushedAt": "2026-11-27",
       "license": "MIT"
     },
     "logo": "https://cdn.simpleicons.org/huggingface/FFD21E"

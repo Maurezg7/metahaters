@@ -470,8 +470,8 @@
     "countryName": "China",
     "region": "China",
     "context": "1.0M",
-    "inputPer1M": 0.15,
-    "outputPer1M": 0.6,
+    "inputPer1M": 0.075,
+    "outputPer1M": 0.3,
     "isFree": false,
     "created": 1792379569
   },
@@ -484,8 +484,8 @@
     "countryName": "China",
     "region": "China",
     "context": "1.0M",
-    "inputPer1M": 0.3,
-    "outputPer1M": 1.2,
+    "inputPer1M": 0.15,
+    "outputPer1M": 0.6,
     "isFree": false,
     "created": 1792225624
   },
